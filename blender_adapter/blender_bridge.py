@@ -9,8 +9,9 @@ from creative_adapters.local_http_bridge import run_bridge
 if __name__ == "__main__":
     raise SystemExit(
         run_bridge(
-            app_name="Audition",
-            session_name="audition",
-            recovery_hint="Open Audition and open Window > Extensions > Creative Adapter Bridge.",
+            app_name="Blender",
+            session_name="blender",
+            script_name="Python",
+            recovery_hint="Open Blender and enable the Creative Adapter Bridge addon.",
         )
     )

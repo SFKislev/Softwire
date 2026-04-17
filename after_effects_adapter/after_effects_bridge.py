@@ -7,4 +7,10 @@ from creative_adapters.local_http_bridge import run_bridge
 
 
 if __name__ == "__main__":
-    raise SystemExit(run_bridge(app_name="After Effects", session_name="after_effects"))
+    raise SystemExit(
+        run_bridge(
+            app_name="After Effects",
+            session_name="after_effects",
+            recovery_hint="Open After Effects and open Window > Extensions > Creative Adapter Bridge.",
+        )
+    )

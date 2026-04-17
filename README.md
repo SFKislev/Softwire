@@ -83,11 +83,11 @@ use all day:
 
 When the app exposes `DoJavaScript` / `DoScript` over COM (many Adobe apps on
 Windows), the bridge is the shared COM wrapper in
-`creative_adapters/com_bridge.py`. When it doesn't (Premiere Pro and After
-Effects, for example), the adapter ships a tiny in-app CEP extension and uses
-`creative_adapters/local_http_bridge.py` for the external tokenized shell
-client. The same shell contract remains: stdin/file/argv in, JSON out. The
-agent-facing interface does not change.
+`creative_adapters/com_bridge.py`. When it needs in-app execution (Premiere Pro,
+After Effects, Audition, Blender), the adapter ships a tiny in-app
+extension/addon and uses `creative_adapters/local_http_bridge.py` for the
+external tokenized shell client. The same shell contract remains:
+stdin/file/argv in, JSON out. The agent-facing interface does not change.
 
 Apps that do not expose a scripting layer (most consumer SaaS, most mobile
 apps, many games) are out of scope for this pattern. That's an honest limit,
@@ -176,6 +176,7 @@ The full adapter spec, including the non-COM case, is in `ADAPTER_SPEC.md`.
 | Premiere Pro | `premiere_adapter/premiere_bridge.py` | CEP localhost bridge -> `evalScript` |
 | After Effects | `after_effects_adapter/after_effects_bridge.py` | CEP localhost bridge -> `evalScript` |
 | Audition | `audition_adapter/audition_bridge.py` | CEP localhost bridge -> `evalScript` |
+| Blender | `blender_adapter/blender_bridge.py` | Blender addon localhost bridge -> `bpy` |
 
 Premiere, After Effects, and Audition are included specifically because they do **not**
 expose the same practical `DoJavaScript` over COM bridge as Photoshop,
@@ -249,6 +250,15 @@ Get-Content audition_adapter/examples/context.jsx -Raw | python audition_adapter
 
 Audition requires installing and opening the CEP bridge panel first; see
 `audition_adapter/README.md`.
+
+Blender:
+
+```powershell
+Get-Content blender_adapter/examples/context.py -Raw | python blender_adapter/blender_bridge.py --stdin
+```
+
+Blender requires installing and enabling the addon first; see
+`blender_adapter/README.md`.
 
 ## Coexistence Rules
 

@@ -14,7 +14,7 @@ All bridge scripts:
 Run context first:
 
 ```powershell
-Get-Content <app>_adapter/examples/context.jsx -Raw | python <app>_adapter/<app>_bridge.py --stdin
+Get-Content <app>_adapter/examples/context.<jsx|py> -Raw | python <app>_adapter/<app>_bridge.py --stdin
 ```
 
 For non-trivial scripts, prefer stdin over command-line quoting.

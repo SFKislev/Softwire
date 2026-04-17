@@ -35,10 +35,10 @@ def read_session_file(session_file):
     return url, token
 
 
-def run_bridge(*, app_name, session_name, script_name="ExtendScript"):
+def run_bridge(*, app_name, session_name, script_name="ExtendScript", recovery_hint=None):
     session_file = default_session_file(session_name)
     parser = argparse.ArgumentParser(
-        description=f"Run {script_name} in {app_name} through the local CEP bridge."
+        description=f"Run {script_name} in {app_name} through the local HTTP bridge."
     )
     parser.add_argument("code", nargs="?", help=f"{script_name} code to execute.")
     parser.add_argument("--stdin", action="store_true", help=f"Read {script_name} from stdin.")
@@ -89,9 +89,9 @@ def run_bridge(*, app_name, session_name, script_name="ExtendScript"):
             print(response.read().decode("utf-8"))
             return 0
     except FileNotFoundError:
+        hint = recovery_hint or "Open the app and enable/open its Creative Adapter Bridge."
         error = (
-            f"{app_name} bridge session file was not found. Open the app and "
-            "open Window > Extensions > Creative Adapter Bridge, then retry."
+            f"{app_name} bridge session file was not found. {hint} Then retry."
         )
         print(
             json.dumps({"ok": False, "error": error, "sessionFile": args.session_file}),
@@ -112,9 +112,9 @@ def run_bridge(*, app_name, session_name, script_name="ExtendScript"):
         )
         return 1
     except urllib.error.URLError as exc:
+        hint = recovery_hint or "Open the app and enable/open its Creative Adapter Bridge."
         error = (
-            f"{app_name} CEP bridge is not reachable. Open the app, install the "
-            "CEP bridge panel, and open the panel once from Window > Extensions."
+            f"{app_name} local bridge is not reachable. {hint} Then retry."
         )
         print(json.dumps({"ok": False, "error": error, "detail": str(exc)}), file=sys.stderr)
         return 1

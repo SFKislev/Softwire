@@ -123,7 +123,7 @@ ship an in-app bridge extension. Keep the same shell contract: the external
 bridge command still accepts code through stdin/file/argv and returns JSON. The
 in-app bridge is only the transport into the app runtime.
 
-For CEP-backed Adobe apps, use `creative_adapters.local_http_bridge.run_bridge`
-for the external Python command. The CEP panel should write
+For local HTTP-backed apps, use `creative_adapters.local_http_bridge.run_bridge`
+for the external Python command. The in-app panel/addon should write
 `%APPDATA%\creative-adapters\<session_name>.json` with the current eval URL and
 token, then require `X-Bridge-Token` on every eval request.

@@ -8,5 +8,5 @@ Before operating an app, read:
 
 Then run that app's context example before acting.
 
-Use app-local `docs/` and `examples/` for scripting details. Keep edits scoped
-to the user's live app state and report bridge/app errors directly.
+Use app-local `examples/` and optional `docs/` for scripting details. Keep
+edits scoped to the user's live app state and report bridge/app errors directly.

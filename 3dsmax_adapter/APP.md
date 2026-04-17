@@ -47,5 +47,6 @@ powershell -ExecutionPolicy Bypass -File 3dsmax_adapter/install_bridge.ps1
   in the script to return structured data.
 - For MAXScript calls from Python, prefer `MaxPlus.Core.EvalMAXScript(...)` and
   convert results to simple strings/numbers/lists before assigning `_result`.
+- For bounded MAXScript edits, prefer `undo "<label>" on (...)`.
 - Do not save, render, export, reset the scene, switch files, or alter the
   user's selection/viewport unless explicitly asked.

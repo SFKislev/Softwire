@@ -41,3 +41,17 @@ Unity-specific notes:
   project settings, or change scenes unless explicitly asked.
 - Prefer undo-backed commands. The included create/transform/component actions
   use Unity's `Undo` API where applicable.
+
+Supported command actions:
+
+- `createPrimitive`: creates a Unity primitive. `primitiveType` uses Unity's
+  `PrimitiveType` names, including `Cube`, `Sphere`, `Capsule`, `Cylinder`,
+  `Plane`, and `Quad`. Optional fields include `name`, position fields
+  (`x`, `y`, `z`), scale fields (`scaleX`, `scaleY`, `scaleZ`), `color`, and
+  `undoLabel`.
+- `setTransform`: changes the target object's position and/or scale. Targets
+  resolve by `path`, then `name`, then the active selected GameObject. Use
+  `setPosition` and `setScale` to choose which values apply.
+- `executeMenuItem`: runs a Unity menu item by path, such as
+  `GameObject/Light/Directional Light`.
+- `addComponent`: adds a component to the target GameObject by `componentType`.

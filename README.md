@@ -1,8 +1,8 @@
-# Claude Code can Control Photoshop Now
+# Coding Agents Can Control Photoshop Now
  
 **A tiny bridge that lets your coding harness drive professional creative software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
  
-A shell-based coding agent like Claude Code or Codex can run commands, but it can't reach into a running Photoshop, Blender, or Premiere. Those apps expose automation through their own scripting runtime (ExtendScript, `bpy`, MAXScript, the Unity C# Editor API), not the shell.
+A shell-based coding agent like Codex, Claude Code, or Gemini CLI can run commands, but it can't reach into a running Photoshop, Blender, or Premiere. Those apps expose automation through their own scripting runtime (ExtendScript, `bpy`, MAXScript, the Unity C# Editor API), not the shell.
  
 This repo is the wire between them. A small bridge per app, around 120 lines and mostly shared, takes code on stdin, runs it inside the live application, and returns JSON. The agent reads the JSON and iterates.
  
@@ -46,7 +46,7 @@ MCP is the right answer when you need a small, auditable tool surface with polic
  
 ## Architecture
  
-Each adapter has a small bridge script, an `APP.md` with app-specific quirks, and `docs/` and `examples/` directories the agent searches with `rg` before acting. Shared, app-agnostic rules live in `shared/coexistence.md` (how to behave around a live human operator) and `shared/bridge-contract.md` (how every bridge is invoked). Shared bridge code lives in `creative_adapters/`. App wrappers only declare the app name, COM ProgID or alternate transport, Windows process name, and script execution method. Full spec in `ADAPTER_SPEC.md`.
+Each adapter has a small bridge script, an `APP.md` with app-specific context, and an `examples/` smoke test. Adapters may also include `docs/sources.md` when there are useful reference links. Shared, app-agnostic rules live in `shared/coexistence.md` (how to behave around a live human operator) and `shared/bridge-contract.md` (how every bridge is invoked). Shared bridge code lives in `creative_adapters/`. App wrappers only declare the app name, COM ProgID or alternate transport, Windows process name, and script execution method. Full spec in `ADAPTER_SPEC.md`.
  
 ## Current adapters
  

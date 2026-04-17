@@ -23,18 +23,17 @@ script, execute it, inspect errors, and iterate.
   <app>_bridge.py
   APP.md
   README.md
-  docs/
-    known-patterns.md
-    sources.md
   examples/
     context.<jsx|py|json>
+  docs/                 optional
+    sources.md          optional, authoritative reference links
 ```
 
 All app adapters should use this folder shape. Root-level bridge files, if
 present, should only be backwards-compatible wrappers.
 
-The root `CLAUDE.md` is a small router to shared rules and app notes. Adapter
-`CLAUDE.md` files, if present, should only point to shared rules and `APP.md`.
+The root `AGENTS.md` is a small router to shared rules and app notes. Adapter
+`AGENTS.md` files, if present, should only point to shared rules and `APP.md`.
 
 ## Bridge Contract
 
@@ -100,7 +99,8 @@ provide it. Use a tiny local serializer.
   `Illustrator.Application`.
 - Never hard-code `C:\Program Files\Adobe\...` paths in bridge code.
 - Keep local install paths out of required commands.
-- Put app-version-specific notes in docs, not in bridge logic.
+- Put app-version-specific notes in `APP.md` or optional docs, not in bridge
+  logic.
 - Make the failure mode useful when an app is not installed or not running.
 
 ## Agent-Facing Instructions
@@ -114,7 +114,7 @@ shared/bridge-contract.md
 
 Put only app-specific, non-obvious facts in `<app>_adapter/APP.md`: bridge
 command, execution method, undo behavior, measurement quirks, selection object
-quirks, or known modal/API limitations.
+quirks, supported command shapes, or known modal/API limitations.
 
 ## Non-COM Apps
 

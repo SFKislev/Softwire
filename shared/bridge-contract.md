@@ -21,9 +21,9 @@ For non-trivial scripts, prefer stdin over command-line quoting.
 
 ## API Discovery
 
-For any call not already covered by a tested pattern in
-`<app>_adapter/docs/known-patterns.md`, discover the surface in this order. Do
-not trust pretraining for version-specific features.
+For any call not already documented by the adapter or local examples, discover
+the surface in this order. Do not trust pretraining for version-specific
+features.
 
 1. **Introspect the running app.** Write a read-only probe through the bridge
    and enumerate what this version actually exposes: method existence
@@ -34,14 +34,13 @@ not trust pretraining for version-specific features.
    surface is not obvious from introspection. Match what you find against
    `app.version` before acting; documentation often describes the latest
    version, not the one the user is running.
-3. **Search local adapter notes.** Use `rg` for tested snippets and known
-   gotchas:
+3. **Search local adapter notes and examples.** Use `rg` for bridge-specific
+   constraints, command shapes, and local gotchas. Search optional `docs/`
+   only when that directory exists:
 
    ```powershell
-   rg -i "<keyword>" <app>_adapter/docs <app>_adapter/examples
+   rg -i "<keyword>" <app>_adapter/APP.md <app>_adapter/examples
    ```
-
-   `known-patterns.md` is curated; treat it as verified, not exhaustive.
 4. **Pretraining last, and flagged.** If you fall back on memory for an API
    name, say so explicitly and confirm it exists via introspection before
    mutating state. Do not invent plausible-sounding method names.

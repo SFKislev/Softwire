@@ -77,7 +77,7 @@ use all day:
 - Video: Premiere Pro, After Effects, DaVinci Resolve, Final Cut (AppleScript)
 - 3D / DCC: Blender, Maya, Houdini, Cinema 4D, 3ds Max, Modo
 - CAD: Fusion 360, SolidWorks, Rhino, FreeCAD
-- Audio: Reaper, Ableton Live (via Max / Remote Scripts), Logic (AppleScript)
+- Audio: Audition, Reaper, Ableton Live (via Max / Remote Scripts), Logic (AppleScript)
 - GIS / science: QGIS, ArcGIS, MATLAB, Mathematica, ImageJ/Fiji, ParaView
 - Office / productivity: Word, Excel, PowerPoint, Outlook (COM/VBA)
 
@@ -175,8 +175,9 @@ The full adapter spec, including the non-COM case, is in `ADAPTER_SPEC.md`.
 | Illustrator | `illustrator_adapter/illustrator_bridge.py` | COM `Illustrator.Application` -> `DoJavaScript` |
 | Premiere Pro | `premiere_adapter/premiere_bridge.py` | CEP localhost bridge -> `evalScript` |
 | After Effects | `after_effects_adapter/after_effects_bridge.py` | CEP localhost bridge -> `evalScript` |
+| Audition | `audition_adapter/audition_bridge.py` | CEP localhost bridge -> `evalScript` |
 
-Premiere and After Effects are included specifically because they do **not**
+Premiere, After Effects, and Audition are included specifically because they do **not**
 expose the same practical `DoJavaScript` over COM bridge as Photoshop,
 InDesign, and Illustrator. Their adapters ship small in-app CEP extensions, and
 the external bridge commands keep the same shell contract. Same agent
@@ -239,6 +240,15 @@ Get-Content after_effects_adapter/examples/context.jsx -Raw | python after_effec
 
 After Effects requires installing and opening the CEP bridge panel first; see
 `after_effects_adapter/README.md`.
+
+Audition:
+
+```powershell
+Get-Content audition_adapter/examples/context.jsx -Raw | python audition_adapter/audition_bridge.py --stdin
+```
+
+Audition requires installing and opening the CEP bridge panel first; see
+`audition_adapter/README.md`.
 
 ## Coexistence Rules
 

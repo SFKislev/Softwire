@@ -84,9 +84,9 @@ use all day:
 When the app exposes `DoJavaScript` / `DoScript` over COM (many Adobe apps on
 Windows), the bridge is the shared COM wrapper in
 `creative_adapters/com_bridge.py`. When it needs in-app execution (Premiere Pro,
-After Effects, Audition, Blender), the adapter ships a tiny in-app
-extension/addon and uses `creative_adapters/local_http_bridge.py` for the
-external tokenized shell client. The same shell contract remains:
+After Effects, Audition, Blender, 3ds Max), the adapter ships a tiny in-app
+extension/addon/startup script and uses `creative_adapters/local_http_bridge.py`
+for the external tokenized shell client. The same shell contract remains:
 stdin/file/argv in, JSON out. The agent-facing interface does not change.
 
 Apps that do not expose a scripting layer (most consumer SaaS, most mobile
@@ -177,6 +177,7 @@ The full adapter spec, including the non-COM case, is in `ADAPTER_SPEC.md`.
 | After Effects | `after_effects_adapter/after_effects_bridge.py` | CEP localhost bridge -> `evalScript` |
 | Audition | `audition_adapter/audition_bridge.py` | CEP localhost bridge -> `evalScript` |
 | Blender | `blender_adapter/blender_bridge.py` | Blender addon localhost bridge -> `bpy` |
+| 3ds Max | `3dsmax_adapter/3dsmax_bridge.py` | startup Python localhost bridge -> `MaxPlus` / MAXScript |
 
 Premiere, After Effects, and Audition are included specifically because they do **not**
 expose the same practical `DoJavaScript` over COM bridge as Photoshop,
@@ -259,6 +260,15 @@ Get-Content blender_adapter/examples/context.py -Raw | python blender_adapter/bl
 
 Blender requires installing and enabling the addon first; see
 `blender_adapter/README.md`.
+
+3ds Max:
+
+```powershell
+Get-Content 3dsmax_adapter/examples/context.py -Raw | python 3dsmax_adapter/3dsmax_bridge.py --stdin
+```
+
+3ds Max requires installing the startup bridge and restarting Max first; see
+`3dsmax_adapter/README.md`.
 
 ## Coexistence Rules
 

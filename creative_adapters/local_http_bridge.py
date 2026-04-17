@@ -26,7 +26,7 @@ def read_code(args, script_name):
 
 
 def read_session_file(session_file):
-    with open(session_file, "r", encoding="utf-8") as handle:
+    with open(session_file, "r", encoding="utf-8-sig") as handle:
         session = json.load(handle)
     url = session.get("url")
     token = session.get("token")

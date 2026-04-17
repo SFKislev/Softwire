@@ -1,0 +1,10 @@
+{
+  "name": "com.creativeadapters.unity-bridge",
+  "version": "0.1.0",
+  "displayName": "Creative Adapter Bridge",
+  "description": "Tokenized local bridge for live Unity Editor control from shell-based coding agents.",
+  "unity": "2021.3",
+  "author": {
+    "name": "Creative Adapters"
+  }
+}

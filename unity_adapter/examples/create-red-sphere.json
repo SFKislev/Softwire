@@ -1,0 +1,13 @@
+{
+  "action": "createPrimitive",
+  "primitiveType": "Sphere",
+  "name": "Creative Adapter Red Sphere",
+  "x": 1.5,
+  "y": 0.5,
+  "z": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "scaleZ": 1,
+  "color": "#e23b3b",
+  "undoLabel": "Creative Adapter: Create red sphere"
+}

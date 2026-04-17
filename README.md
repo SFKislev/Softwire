@@ -1,24 +1,27 @@
 # Creative Software Adapters
 
-Professional software has been shipping rich internal scripting layers for
-decades: ExtendScript in Adobe apps, Python in Blender / Maya / Resolve,
-MAXScript in 3ds Max, AppleScript in macOS apps, COM in Office. These runtimes
-were built as a back door for developers automating batch workflows. They are
-now the best front door for an LLM.
+Claude Code cannot directly control Photoshop, Blender, or Premiere. It can
+only run shell commands. Professional software has no shell interface — its
+scripting engine lives inside the running process, unreachable from the
+outside.
 
-This repo proves a small, sharp claim:
+This repo solves that with a small bridge per app. The bridge uses an
+OS-level mechanism (Windows COM, or a tiny in-app HTTP server) to reach
+inside the live process, execute code in the app's own scripting runtime
+— ExtendScript, `bpy`, MAXScript — and return the result as JSON.
+Claude reads that JSON, iterates, and acts. Bidirectional. Live. No
+screenshots, no UI automation, no MCP server, no schema to maintain.
 
 ```text
-coding agent (Claude Code, Codex, Cursor, Opencode)
-  + shell
-  + a ~120-line local bridge into the app's own scripting runtime
-  = natural-language control of a live, running professional app.
+Claude Code (shell)
+  → bridge (~120 lines)
+    → app's own scripting runtime (ExtendScript / bpy / MAXScript / ...)
+      → live, running app
+        → JSON result back to Claude
 ```
 
-No MCP server, no custom agent runtime, no per-app tool schema, no plugin
-marketplace. Each adapter is a small folder that exposes the app's native
-scripting runtime through the shell. The agent composes scripts itself, runs
-them through the bridge, reads JSON back, and iterates.
+The scripting runtimes have existed for 20-30 years. This repo is the
+missing wire between them and an agent.
 
 ## Why This Is Useful
 
@@ -78,16 +81,18 @@ use all day:
 - 3D / DCC: Blender, Maya, Houdini, Cinema 4D, 3ds Max, Modo
 - CAD: Fusion 360, SolidWorks, Rhino, FreeCAD
 - Audio: Audition, Reaper, Ableton Live (via Max / Remote Scripts), Logic (AppleScript)
+- Game engines: Unity, Unreal Engine, Godot
 - GIS / science: QGIS, ArcGIS, MATLAB, Mathematica, ImageJ/Fiji, ParaView
 - Office / productivity: Word, Excel, PowerPoint, Outlook (COM/VBA)
 
 When the app exposes `DoJavaScript` / `DoScript` over COM (many Adobe apps on
 Windows), the bridge is the shared COM wrapper in
 `creative_adapters/com_bridge.py`. When it needs in-app execution (Premiere Pro,
-After Effects, Audition, Blender, 3ds Max), the adapter ships a tiny in-app
-extension/addon/startup script and uses `creative_adapters/local_http_bridge.py`
-for the external tokenized shell client. The same shell contract remains:
-stdin/file/argv in, JSON out. The agent-facing interface does not change.
+After Effects, Audition, Blender, Unity, 3ds Max), the adapter ships a tiny
+in-app extension/addon/package/startup script and uses
+`creative_adapters/local_http_bridge.py` for the external tokenized shell
+client. The same shell contract remains: stdin/file/argv in, JSON out. The
+agent-facing interface does not change.
 
 Apps that do not expose a scripting layer (most consumer SaaS, most mobile
 apps, many games) are out of scope for this pattern. That's an honest limit,
@@ -177,6 +182,7 @@ The full adapter spec, including the non-COM case, is in `ADAPTER_SPEC.md`.
 | After Effects | `after_effects_adapter/after_effects_bridge.py` | CEP localhost bridge -> `evalScript` |
 | Audition | `audition_adapter/audition_bridge.py` | CEP localhost bridge -> `evalScript` |
 | Blender | `blender_adapter/blender_bridge.py` | Blender addon localhost bridge -> `bpy` |
+| Unity | `unity_adapter/unity_bridge.py` | Editor package localhost bridge -> `UnityEditor` / `UnityEngine` |
 | 3ds Max | `3dsmax_adapter/3dsmax_bridge.py` | startup Python localhost bridge -> `MaxPlus` / MAXScript |
 
 Premiere, After Effects, and Audition are included specifically because they do **not**
@@ -260,6 +266,15 @@ Get-Content blender_adapter/examples/context.py -Raw | python blender_adapter/bl
 
 Blender requires installing and enabling the addon first; see
 `blender_adapter/README.md`.
+
+Unity:
+
+```powershell
+Get-Content unity_adapter/examples/context.json -Raw | python unity_adapter/unity_bridge.py --stdin
+```
+
+Unity requires installing the package into the target Unity project first; see
+`unity_adapter/README.md`.
 
 3ds Max:
 

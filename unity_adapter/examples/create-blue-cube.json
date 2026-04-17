@@ -1,0 +1,13 @@
+{
+  "action": "createPrimitive",
+  "primitiveType": "Cube",
+  "name": "Creative Adapter Blue Cube",
+  "x": 0,
+  "y": 0.5,
+  "z": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "scaleZ": 1,
+  "color": "#1267ff",
+  "undoLabel": "Creative Adapter: Create blue cube"
+}

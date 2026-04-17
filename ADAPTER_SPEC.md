@@ -27,7 +27,7 @@ script, execute it, inspect errors, and iterate.
     known-patterns.md
     sources.md
   examples/
-    context.jsx
+    context.<jsx|py|json>
 ```
 
 All app adapters should use this folder shape. Root-level bridge files, if
@@ -127,3 +127,8 @@ For local HTTP-backed apps, use `creative_adapters.local_http_bridge.run_bridge`
 for the external Python command. The in-app panel/addon should write
 `%APPDATA%\creative-adapters\<session_name>.json` with the current eval URL and
 token, then require `X-Bridge-Token` on every eval request.
+
+If the host runtime does not support arbitrary string eval, do not fake it.
+Expose a compact command surface backed by the host's real extension API and
+document that app-specific behavior should be added as explicit bridge actions
+or project-local scripts.

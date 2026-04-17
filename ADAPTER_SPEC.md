@@ -113,3 +113,10 @@ shared/bridge-contract.md
 Put only app-specific, non-obvious facts in `<app>_adapter/APP.md`: bridge
 command, execution method, undo behavior, measurement quirks, selection object
 quirks, or known modal/API limitations.
+
+## Non-COM Apps
+
+If an app does not expose an OS-level script dispatch surface, the adapter can
+ship an in-app bridge extension. Keep the same shell contract: the external
+bridge command still accepts code through stdin/file/argv and returns JSON. The
+in-app bridge is only the transport into the app runtime.

@@ -81,11 +81,13 @@ use all day:
 - GIS / science: QGIS, ArcGIS, MATLAB, Mathematica, ImageJ/Fiji, ParaView
 - Office / productivity: Word, Excel, PowerPoint, Outlook (COM/VBA)
 
-When the app exposes `DoJavaScript` / `DoScript` over COM (most Adobe apps on
-Windows), the bridge is the ~120-line COM wrapper in
-`creative_adapters/com_bridge.py`. When it doesn't (Premiere Pro, for example),
-the adapter ships a tiny in-app extension that keeps the same shell contract:
-stdin/file/argv in, JSON out. The agent-facing interface does not change.
+When the app exposes `DoJavaScript` / `DoScript` over COM (many Adobe apps on
+Windows), the bridge is the shared COM wrapper in
+`creative_adapters/com_bridge.py`. When it doesn't (Premiere Pro and After
+Effects, for example), the adapter ships a tiny in-app CEP extension and uses
+`creative_adapters/local_http_bridge.py` for the external tokenized shell
+client. The same shell contract remains: stdin/file/argv in, JSON out. The
+agent-facing interface does not change.
 
 Apps that do not expose a scripting layer (most consumer SaaS, most mobile
 apps, many games) are out of scope for this pattern. That's an honest limit,
@@ -148,6 +150,12 @@ Shared Windows COM bridge code lives in:
 creative_adapters/com_bridge.py
 ```
 
+Shared tokenized localhost bridge client code for CEP-backed adapters lives in:
+
+```text
+creative_adapters/local_http_bridge.py
+```
+
 App-specific bridge wrappers only declare:
 
 - app name
@@ -166,12 +174,13 @@ The full adapter spec, including the non-COM case, is in `ADAPTER_SPEC.md`.
 | InDesign | `indesign_adapter/indesign_bridge.py` | COM `InDesign.Application` -> `DoScript(JavaScript)` |
 | Illustrator | `illustrator_adapter/illustrator_bridge.py` | COM `Illustrator.Application` -> `DoJavaScript` |
 | Premiere Pro | `premiere_adapter/premiere_bridge.py` | CEP localhost bridge -> `evalScript` |
+| After Effects | `after_effects_adapter/after_effects_bridge.py` | CEP localhost bridge -> `evalScript` |
 
-Premiere is included specifically because it does **not** expose
-`DoJavaScript` over COM. The adapter ships a small in-app CEP extension, and
-the external bridge command keeps the same shell contract. Same agent
-interface, different transport. This is the template for any app without a
-native OS-level script dispatch.
+Premiere and After Effects are included specifically because they do **not**
+expose the same practical `DoJavaScript` over COM bridge as Photoshop,
+InDesign, and Illustrator. Their adapters ship small in-app CEP extensions, and
+the external bridge commands keep the same shell contract. Same agent
+interface, different transport.
 
 ## Install
 
@@ -221,6 +230,15 @@ Get-Content premiere_adapter/examples/context.jsx -Raw | python premiere_adapter
 
 Premiere requires installing and opening the CEP bridge panel first; see
 `premiere_adapter/README.md`.
+
+After Effects:
+
+```powershell
+Get-Content after_effects_adapter/examples/context.jsx -Raw | python after_effects_adapter/after_effects_bridge.py --stdin
+```
+
+After Effects requires installing and opening the CEP bridge panel first; see
+`after_effects_adapter/README.md`.
 
 ## Coexistence Rules
 

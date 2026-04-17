@@ -2,7 +2,8 @@ $apps = @(
   @{ Name = "Photoshop"; ProgId = "Photoshop.Application"; Process = "Photoshop.exe" },
   @{ Name = "InDesign"; ProgId = "InDesign.Application"; Process = "InDesign.exe" },
   @{ Name = "Illustrator"; ProgId = "Illustrator.Application"; Process = "Illustrator.exe" },
-  @{ Name = "Premiere Pro"; ProgId = "Premiere.Application"; Process = "Adobe Premiere Pro.exe" }
+  @{ Name = "Premiere Pro"; ProgId = "Premiere.Application"; Process = "Adobe Premiere Pro.exe" },
+  @{ Name = "After Effects"; ProgId = "AfterFX.Application"; Process = "AfterFX.exe" }
 )
 
 foreach ($app in $apps) {

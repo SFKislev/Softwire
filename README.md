@@ -55,6 +55,7 @@ Each adapter has a small bridge script, an `APP.md` with app-specific context, a
 | Photoshop | `photoshop_adapter/` | COM → `DoJavaScript` |
 | InDesign | `indesign_adapter/` | COM → `DoScript(JavaScript)` |
 | Illustrator | `illustrator_adapter/` | COM → `DoJavaScript` |
+| Word | `word_adapter/` | COM → Python object model |
 | Premiere Pro | `premiere_adapter/` | CEP localhost → `evalScript` |
 | After Effects | `after_effects_adapter/` | CEP localhost → `evalScript` |
 | Audition | `audition_adapter/` | CEP localhost → `evalScript` |

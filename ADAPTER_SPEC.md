@@ -54,6 +54,10 @@ The bridge must:
 - If the bridge exposes local HTTP eval, require an unguessable per-session
   token read automatically by the shell bridge from a user-scoped session file.
 
+Bridge commands should remain easy to identify as `*_bridge.py` Python
+processes. `tools/cleanup_bridges.py` relies on checked-in bridge script paths
+to list and stop stale bridge processes without touching unrelated Python work.
+
 ## Windows COM Adapter Template
 
 Use `creative_adapters.com_bridge.run_bridge`:

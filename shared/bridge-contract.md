@@ -29,6 +29,23 @@ If a bridge script must be materialized as a file, write it to a temp or scratch
 location such as `.tmp/<app>/` or the OS temp directory, run it with `--file`,
 and remove it after a successful run unless the user asks to keep it.
 
+## Stuck Bridge Processes
+
+A bridge process can remain alive if the host app blocks inside its scripting
+runtime or COM dispatch. Do not kill arbitrary Python processes to recover.
+
+Use the cleanup tool to list and stop only Python processes that are running
+known adapter bridge scripts from this repo:
+
+```powershell
+python tools/cleanup_bridges.py --list
+python tools/cleanup_bridges.py --kill stale --older-than 60
+python tools/cleanup_bridges.py --app indesign --kill all
+```
+
+The cleanup tool matches checked-in `*_bridge.py` paths and ignores unrelated
+Python processes.
+
 ## API Discovery
 
 For any call not already documented by the adapter or local examples, discover

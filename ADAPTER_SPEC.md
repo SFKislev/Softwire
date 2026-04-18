@@ -32,6 +32,12 @@ script, execute it, inspect errors, and iterate.
 All app adapters should use this folder shape. Root-level bridge files, if
 present, should only be backwards-compatible wrappers.
 
+The `examples/` directory is for reusable, checked-in reference examples and
+smoke tests. Agents must not use it as a scratch directory for task-specific
+generated scripts. One-off bridge scripts should be passed through `--stdin` or,
+when a file is necessary, written under a temp/scratch path such as `.tmp/<app>/`
+or the OS temp directory and removed after use.
+
 The root `AGENTS.md` is a small router to shared rules and app notes. Adapter
 `AGENTS.md` files, if present, should only point to shared rules and `APP.md`.
 

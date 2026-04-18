@@ -19,6 +19,16 @@ Get-Content <app>_adapter/examples/context.<jsx|py> -Raw | python <app>_adapter/
 
 For non-trivial scripts, prefer stdin over command-line quoting.
 
+## Scratch Scripts
+
+Adapter `examples/` directories are reference material, not a place for generated
+task scripts. Do not add one-off scripts to `<app>_adapter/examples/` unless the
+user explicitly asks for a reusable example.
+
+If a bridge script must be materialized as a file, write it to a temp or scratch
+location such as `.tmp/<app>/` or the OS temp directory, run it with `--file`,
+and remove it after a successful run unless the user asks to keep it.
+
 ## API Discovery
 
 For any call not already documented by the adapter or local examples, discover

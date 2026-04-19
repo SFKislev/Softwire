@@ -1,27 +1,76 @@
 from __future__ import print_function
 
-import BaseHTTPServer
 import contextlib
 import json
 import os
-import Queue
 import random
-import SocketServer
 import string
 import sys
 import threading
 import time
 import traceback
+import types
+
+try:
+    import BaseHTTPServer
+    import SocketServer
+    import Queue
+except ImportError:
+    import http.server as BaseHTTPServer
+    import socketserver as SocketServer
+    import queue as Queue
+
+try:
+    basestring
+except NameError:
+    basestring = str
+
+try:
+    long
+except NameError:
+    long = int
 
 try:
     import MaxPlus
 except Exception:
     MaxPlus = None
 
+if MaxPlus is None:
+    try:
+        import pymxs
+
+        class _PymxsValue(object):
+            def __init__(self, value):
+                self._value = value
+
+            def Get(self):
+                return self._value
+
+            def __str__(self):
+                return str(self._value)
+
+        class _PymxsCore(object):
+            @staticmethod
+            def EvalMAXScript(expr):
+                return _PymxsValue(pymxs.runtime.execute(expr))
+
+            @staticmethod
+            def WriteLine(message):
+                print(message)
+
+        MaxPlus = types.ModuleType("MaxPlus")
+        MaxPlus.Core = _PymxsCore()
+        sys.modules["MaxPlus"] = MaxPlus
+    except Exception:
+        MaxPlus = None
+
 try:
     from PySide2 import QtCore
 except Exception:
-    QtCore = None
+    try:
+        from PySide6 import QtCore
+    except Exception:
+        QtCore = None
 
 
 MAX_BODY_BYTES = 1024 * 1024
@@ -108,7 +157,7 @@ def _make_json_safe(value):
         for key, item in value.items():
             safe[str(key)] = _make_json_safe(item)
         return safe
-        return str(value)
+    return str(value)
 
 
 def _process_tasks():

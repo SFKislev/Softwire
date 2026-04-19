@@ -14,6 +14,12 @@ Context:
 Get-Content indesign_adapter/examples/context.jsx -Raw | python indesign_adapter/indesign_bridge.py --stdin
 ```
 
+Connection recovery:
+
+If the bridge cannot connect, ask the user to open InDesign and retry the
+context command. This adapter connects to the running COM application by
+default; do not launch InDesign unless the user explicitly asks.
+
 InDesign-specific notes:
 
 - JavaScript language id is `1246973031`.

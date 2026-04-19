@@ -14,6 +14,12 @@ Context:
 Get-Content photoshop_adapter/examples/context.jsx -Raw | python photoshop_adapter/photoshop_bridge.py --stdin
 ```
 
+Connection recovery:
+
+If the bridge cannot connect, ask the user to open Photoshop and retry the
+context command. This adapter connects to the running COM application by
+default; do not launch Photoshop unless the user explicitly asks.
+
 Photoshop-specific notes:
 
 - Use `app.activeDocument.suspendHistory("<label>", "main()")` for multi-step

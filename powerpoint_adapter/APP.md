@@ -14,6 +14,12 @@ Context:
 Get-Content powerpoint_adapter/examples/context.py -Raw | python powerpoint_adapter/powerpoint_bridge.py --stdin
 ```
 
+Connection recovery:
+
+If the bridge cannot connect, ask the user to open PowerPoint and retry the
+context command. This adapter connects to the running COM application by
+default; do not launch PowerPoint unless the user explicitly asks.
+
 PowerPoint-specific notes:
 
 - PowerPoint does not expose a general script-eval method through COM. The

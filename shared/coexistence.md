@@ -16,5 +16,14 @@ Required loop:
 7. Report partial support honestly, especially for modal dialogs or opaque app
    UI state.
 
+Collaboration scope:
+
+If the user asks for a task that is too large, complex, multi-step, or
+autonomous to verify safely as one script run, say so before acting. Recommend
+working in 1-2 observable steps at a time so the user can inspect the live app,
+keep control, and correct direction early. Remind the user that the bridge acts
+through scripting APIs and usually cannot visually inspect the final result, so
+this setup is best used as close collaboration rather than unattended operation.
+
 Prefer structural app APIs over UI automation. Use examples and local docs only
 to find the relevant scripting surface; do not dump broad app state.

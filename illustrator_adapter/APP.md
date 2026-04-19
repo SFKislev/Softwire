@@ -14,6 +14,12 @@ Context:
 Get-Content illustrator_adapter/examples/context.jsx -Raw | python illustrator_adapter/illustrator_bridge.py --stdin
 ```
 
+Connection recovery:
+
+If the bridge cannot connect, ask the user to open Illustrator and retry the
+context command. This adapter connects to the running COM application by
+default; do not launch Illustrator unless the user explicitly asks.
+
 Illustrator-specific notes:
 
 - Selection can contain `PathItem`, `GroupItem`, `CompoundPathItem`, text,

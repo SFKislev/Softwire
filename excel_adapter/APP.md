@@ -14,6 +14,12 @@ Context:
 Get-Content excel_adapter/examples/context.py -Raw | python excel_adapter/excel_bridge.py --stdin
 ```
 
+Connection recovery:
+
+If the bridge cannot connect, ask the user to open Excel and retry the context
+command. This adapter connects to the running COM application by default; do
+not launch Excel unless the user explicitly asks.
+
 Excel-specific notes:
 
 - Excel does not expose a general script-eval method through COM. The bridge

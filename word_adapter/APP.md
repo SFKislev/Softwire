@@ -14,6 +14,12 @@ Context:
 Get-Content word_adapter/examples/context.py -Raw | python word_adapter/word_bridge.py --stdin
 ```
 
+Connection recovery:
+
+If the bridge cannot connect, ask the user to open Word and retry the context
+command. This adapter connects to the running COM application by default; do
+not launch Word unless the user explicitly asks.
+
 Word-specific notes:
 
 - Word does not expose an arbitrary `DoScript` or `DoJavaScript` method through

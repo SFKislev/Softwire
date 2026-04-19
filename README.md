@@ -64,6 +64,7 @@ Each adapter has a small bridge script, an `APP.md` with app-specific context, a
 | Blender | `blender_adapter/` | Addon localhost → `bpy` |
 | Unity | `unity_adapter/` | Editor package localhost → `UnityEditor`/`UnityEngine` |
 | 3ds Max | `3dsmax_adapter/` | Startup Python localhost → MAXScript |
+| Houdini | `houdini_adapter/` | Startup Python localhost → `hou` |
  
 ## Install and first test
  
@@ -87,7 +88,7 @@ Smoke-test any adapter by piping its example context script to its bridge. The p
 Get-Content <adapter>/examples/context.<ext> -Raw | python <adapter>/<n>_bridge.py --stdin
 ```
  
-The CEP-backed adapters (Premiere, After Effects, Audition) need the bridge panel installed and open first. Blender needs the addon enabled. Unity needs the package installed into the target project. 3ds Max needs the startup bridge installed and Max restarted. Each adapter's `README.md` has the details.
+The CEP-backed adapters (Premiere, After Effects, Audition) need the bridge panel installed and open first. Blender needs the addon enabled. Unity needs the package installed into the target project. 3ds Max and Houdini need their startup bridges installed and the app restarted. Each adapter's `README.md` has the details.
  
 ## Coexistence
  

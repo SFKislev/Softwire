@@ -1,0 +1,1 @@
+"""After Effects adapter assets."""

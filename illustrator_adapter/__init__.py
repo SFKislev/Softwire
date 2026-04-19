@@ -1,0 +1,1 @@
+"""Illustrator adapter assets."""

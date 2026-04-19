@@ -1,0 +1,1 @@
+"""Excel adapter assets."""

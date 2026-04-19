@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thewire"
+version = "0.1.0"
+description = "Local scripting bridges for controlling professional creative software from a shell agent."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Creative Adapters" }
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Win32 (MS Windows)",
+  "Intended Audience :: Developers",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Multimedia",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+dependencies = [
+  "pywin32>=306; platform_system == 'Windows'"
+]
+
+[project.scripts]
+thewire = "thewire.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+py-modules = ["photoshop_bridge"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "thewire",
+  "thewire.*",
+  "creative_adapters",
+  "shared",
+  "tools",
+  "*_adapter",
+  "*_adapter.*"
+]

@@ -1,0 +1,1 @@
+"""Audition adapter assets."""

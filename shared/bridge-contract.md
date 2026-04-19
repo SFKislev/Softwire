@@ -46,6 +46,12 @@ python tools/cleanup_bridges.py --app indesign --kill all
 The cleanup tool matches checked-in `*_bridge.py` paths and ignores unrelated
 Python processes.
 
+COM-backed bridges run the app call in a watchdog subprocess by default. If the
+host app blocks inside COM, the bridge should return JSON timeout failure
+instead of hanging indefinitely. Use `--timeout <seconds>` on the app bridge to
+adjust the watchdog, or `--timeout 0` only when deliberately allowing a long COM
+operation.
+
 ## API Discovery
 
 For any call not already documented by the adapter or local examples, discover

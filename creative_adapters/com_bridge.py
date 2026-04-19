@@ -19,6 +19,12 @@ def read_code(args):
     raise ValueError("No script provided. Use --stdin, --file, or a code argument.")
 
 
+def error_payload(message, **extra):
+    payload = {"ok": False, "error": message}
+    payload.update(extra)
+    return payload
+
+
 def is_process_running(process_name):
     if not process_name:
         return False
@@ -33,17 +39,22 @@ def is_process_running(process_name):
 
 
 def connect_app(progid, app_name, process_name=None, allow_launch=False):
+    attach_error = None
     try:
         return win32com.client.GetActiveObject(progid)
-    except Exception:
+    except Exception as exc:
+        attach_error = exc
         if not allow_launch and process_name and not is_process_running(process_name):
             raise RuntimeError(
-                f"No running {app_name} process found for {progid}. "
+                f"Could not attach to {app_name} via COM ProgID {progid}. "
+                f"Process check did not find {process_name}. "
+                f"Original COM error: {attach_error}. "
                 f"Open {app_name} first, or pass --allow-launch."
             )
         if not allow_launch and not process_name:
             raise RuntimeError(
-                f"No running {app_name} COM instance found for {progid}. "
+                f"Could not attach to {app_name} via COM ProgID {progid}. "
+                f"Original COM error: {attach_error}. "
                 f"Open {app_name} first, or pass --allow-launch."
             )
         return win32com.client.Dispatch(progid)
@@ -65,6 +76,51 @@ def execute_script(app, method_name, code, language_id=None):
     if language_id is None:
         return method(code)
     return method(code, language_id)
+
+
+def run_child_with_timeout(args, code, timeout_seconds):
+    command = [
+        sys.executable,
+        sys.argv[0],
+        "--stdin",
+        "--app-progid",
+        args.app_progid,
+        "--_com-child",
+    ]
+    if args.allow_launch:
+        command.append("--allow-launch")
+
+    try:
+        proc = subprocess.run(
+            command,
+            input=code,
+            capture_output=True,
+            text=True,
+            timeout=timeout_seconds,
+            check=False,
+        )
+    except subprocess.TimeoutExpired:
+        print(
+            json.dumps(
+                error_payload(
+                    f"COM call timed out after {timeout_seconds} seconds.",
+                    timeoutSeconds=timeout_seconds,
+                    recovery=(
+                        "The desktop app may be busy, modal, or blocked inside its "
+                        "scripting runtime. The bridge subprocess was terminated; "
+                        "check the app UI before retrying."
+                    ),
+                )
+            ),
+            file=sys.stderr,
+        )
+        return 1
+
+    if proc.stdout:
+        print(proc.stdout, end="")
+    if proc.stderr:
+        print(proc.stderr, end="", file=sys.stderr)
+    return proc.returncode
 
 
 def run_bridge(
@@ -92,14 +148,26 @@ def run_bridge(
         action="store_true",
         help=f"Launch {app_name} if no running process is available.",
     )
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=30,
+        help="Maximum seconds for the COM call. Use 0 to disable the parent watchdog.",
+    )
+    parser.add_argument("--_com-child", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
 
-    pythoncom.CoInitialize()
+    com_initialized = False
     try:
         code = read_code(args)
         if not code.strip():
             raise ValueError(f"{script_name} input is empty.")
 
+        if not args._com_child and args.timeout > 0:
+            return run_child_with_timeout(args, code, args.timeout)
+
+        pythoncom.CoInitialize()
+        com_initialized = True
         app = connect_app(
             args.app_progid,
             app_name,
@@ -118,4 +186,5 @@ def run_bridge(
         print(json.dumps(payload), file=sys.stderr)
         return 1
     finally:
-        pythoncom.CoUninitialize()
+        if com_initialized:
+            pythoncom.CoUninitialize()

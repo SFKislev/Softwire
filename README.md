@@ -67,13 +67,60 @@ Each adapter has a small bridge script, an `APP.md` with app-specific context, a
 | Houdini | `houdini_adapter/` | Startup Python localhost → `hou` |
  
 ## Install and first test
- 
-Prerequisites (Windows):
- 
+
+Install from PyPI on Windows:
+
+```powershell
+pip install thewire
+```
+
+The package installs `pywin32` on Windows for the COM-backed adapters.
+
+For source checkouts, install the same runtime dependency directly:
+
 ```powershell
 pip install pywin32
 ```
- 
+
+`thewire` is currently packaged for Windows users. The bridges connect to
+running desktop apps by default and only launch apps when an adapter explicitly
+documents and supports that behavior.
+
+Useful package commands:
+
+```powershell
+thewire adapters
+thewire path
+thewire setup
+thewire agent-docs-path
+thewire install-agent-docs codex
+thewire install-agent-docs claude
+thewire install-agent-docs gemini
+thewire install-agent-docs opencode
+thewire install-agent-docs openclaw
+thewire context houdini
+thewire install blender
+```
+
+`pip install thewire` installs the bridge code, adapter assets, and modular
+agent-facing instructions. It does not write into an agent's global instruction
+directory as a pip side effect. Register The Wire with your local agent harness:
+
+```powershell
+thewire setup
+```
+
+`thewire setup` detects common harnesses and writes global instructions so new
+agent sessions know The Wire is available on this machine. For deterministic
+setup, use `thewire setup --agent codex`, `--agent claude`, `--agent gemini`,
+`--agent opencode`, `--agent openclaw`, or `--agent generic`.
+
+You can still run bridge scripts directly from a source checkout:
+
+```powershell
+Get-Content <adapter>/examples/context.<ext> -Raw | python <adapter>/<app>_bridge.py --stdin
+```
+
 Open the target app yourself. Bridges connect to running instances and won't launch apps unless you pass `--allow-launch`.
  
 To see which Adobe COM adapters are registered on your machine:

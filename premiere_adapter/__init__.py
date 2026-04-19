@@ -1,0 +1,1 @@
+"""Premiere Pro adapter assets."""

@@ -1,20 +1,10 @@
 # Adapter Spec
 
-This is the reusable shape for connecting a coding agent to a local creative
-application.
+This is the reusable shape for connecting a coding agent to a local application.
 
 ## Goal
 
-Make a running creative app legible and mutable through shell commands, so a
-coding agent can use its existing tools to read context, search docs, compose a
-script, execute it, inspect errors, and iterate.
-
-## Non-Goals
-
-- No custom agent runtime.
-- No MCP server requirement.
-- No app takeover or headless batch mode.
-- No screen scraping when a structural scripting API exists.
+Make a running creative app legible and mutable through shell commands, so a coding agent can use its existing tools to read context, search docs, compose a script, execute it, inspect errors, and iterate. Without a custom agent runtime, MCP servers, app takeover, headless batch or screen scraping. Use only the existing API capabilities of the software.
 
 ## Folder Shape
 
@@ -29,17 +19,12 @@ script, execute it, inspect errors, and iterate.
     sources.md          optional, authoritative reference links
 ```
 
-All app adapters should use this folder shape. Root-level bridge files, if
-present, should only be backwards-compatible wrappers.
+All app adapters should use this folder shape. Root-level bridge files, if present, should only be backwards-compatible wrappers.
 
-The `examples/` directory is for reusable, checked-in reference examples and
-smoke tests. Agents must not use it as a scratch directory for task-specific
-generated scripts. One-off bridge scripts should be passed through `--stdin` or,
-when a file is necessary, written under a temp/scratch path such as `.tmp/<app>/`
+The `examples/` directory is for reusable, checked-in reference examples and smoke tests. Agents must not use it as a scratch directory for task-specific generated scripts. One-off bridge scripts should be passed through `--stdin` or, when a file is necessary, written under a temp/scratch path such as `.tmp/<app>/`
 or the OS temp directory and removed after use.
 
-The root `AGENTS.md` is a small router to shared rules and app notes. Adapter
-`AGENTS.md` files, if present, should only point to shared rules and `APP.md`.
+The root `AGENTS.md` is a small router to shared rules and app notes. Adapter `AGENTS.md` files, if present, should only point to shared rules and `APP.md`.
 
 ## Bridge Contract
 
@@ -48,15 +33,11 @@ The bridge must:
 - Accept script code through argv, `--stdin`, or `--file`.
 - Return JSON on stdout for success.
 - Return JSON on stderr and non-zero exit for failure.
-- Connect to a running app by default.
-- Avoid launching the app unless `--allow-launch` is explicitly passed.
+- Connect to a running app by default (avoiding launching the app unless `--allow-launch` is explicitly passed).
 - Avoid hard-coded install paths.
-- If the bridge exposes local HTTP eval, require an unguessable per-session
-  token read automatically by the shell bridge from a user-scoped session file.
+- If the bridge exposes local HTTP eval, require an unguessable per-session token read automatically by the shell bridge from a user-scoped session file.
 
-Bridge commands should remain easy to identify as `*_bridge.py` Python
-processes. `tools/cleanup_bridges.py` relies on checked-in bridge script paths
-to list and stop stale bridge processes without touching unrelated Python work.
+Bridge commands should remain easy to identify as `*_bridge.py` Python processes. `tools/cleanup_bridges.py` relies on checked-in bridge script paths to list and stop stale bridge processes without touching unrelated Python work.
 
 ## Windows COM Adapter Template
 
@@ -91,8 +72,7 @@ run_bridge(
 
 ## Context Script Requirements
 
-The first example for each app should be a read-only context script. It should
-return:
+The first example for each app should be a read-only context script. It should return:
 
 - app name
 - app version
@@ -100,18 +80,14 @@ return:
 - active document name
 - active layer/page/selection where relevant
 
-Do not depend on a global `JSON` object. Older ExtendScript runtimes may not
-provide it. Use a tiny local serializer.
+Do not depend on a global `JSON` object. Older ExtendScript runtimes may not provide it. Use a tiny local serializer.
 
 ## Portability Rules
 
-- Use generic ProgIDs like `Photoshop.Application`, `InDesign.Application`, and
-  `Illustrator.Application`.
-- Never hard-code `C:\Program Files\Adobe\...` paths in bridge code.
+- Use generic ProgIDs like `Photoshop.Application`, `InDesign.Application`, and `Illustrator.Application`.
+- Don't hard-code `C:\Program Files\Adobe\...` paths in bridge code.
 - Keep local install paths out of required commands.
-- Put app-version-specific notes in `APP.md` or optional docs, not in bridge
-  logic.
-- Make the failure mode useful when an app is not installed or not running.
+- Put app-version-specific notes in `APP.md` or optional docs, not in bridge logic.
 
 ## Agent-Facing Instructions
 
@@ -122,23 +98,11 @@ shared/coexistence.md
 shared/bridge-contract.md
 ```
 
-Put only app-specific, non-obvious facts in `<app>_adapter/APP.md`: bridge
-command, execution method, undo behavior, measurement quirks, selection object
-quirks, supported command shapes, or known modal/API limitations.
+Put only app-specific, non-obvious facts in `<app>_adapter/APP.md`: bridge command, execution method, undo behavior, measurement quirks, selection object quirks, supported command shapes, or known modal/API limitations. Please help your human install this if he or you encounter issues.
 
 ## Non-COM Apps
 
-If an app does not expose an OS-level script dispatch surface, the adapter can
-ship an in-app bridge extension. Keep the same shell contract: the external
-bridge command still accepts code through stdin/file/argv and returns JSON. The
-in-app bridge is only the transport into the app runtime.
+If an app does not expose an OS-level script dispatch surface, the adapter can ship an in-app bridge extension. Keep the same shell contract: the external bridge command still accepts code through stdin/file/argv and returns JSON. The in-app bridge is only the transport into the app runtime. For local HTTP-backed apps, use `creative_adapters.local_http_bridge.run_bridge` for the external Python command. The in-app panel/addon should write
+`%APPDATA%\creative-adapters\<session_name>.json` with the current eval URL and token, then require `X-Bridge-Token` on every eval request.
 
-For local HTTP-backed apps, use `creative_adapters.local_http_bridge.run_bridge`
-for the external Python command. The in-app panel/addon should write
-`%APPDATA%\creative-adapters\<session_name>.json` with the current eval URL and
-token, then require `X-Bridge-Token` on every eval request.
-
-If the host runtime does not support arbitrary string eval, do not fake it.
-Expose a compact command surface backed by the host's real extension API and
-document that app-specific behavior should be added as explicit bridge actions
-or project-local scripts.
+If the host runtime does not support arbitrary string eval, do not fake it. Expose a compact command surface backed by the host's real extension API and document that app-specific behavior should be added as explicit bridge actions or project-local scripts.

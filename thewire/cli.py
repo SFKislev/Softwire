@@ -77,6 +77,13 @@ HARNESS_CONFIGS = {
     "claude": {
         "commands": ["claude"],
         "config_dir": Path(".claude"),
+        "desktop_markers": [
+            Path("AppData") / "Local" / "Programs" / "Claude" / "Claude.exe",
+            Path("AppData") / "Local" / "Microsoft" / "WindowsApps" / "Claude.exe",
+            Path("AppData") / "Local" / "Packages" / "Claude_*",
+            Path("/Applications") / "Claude.app",
+            Path("Library") / "Application Support" / "Claude",
+        ],
         "global_targets": [
             Path(".claude") / "CLAUDE.md",
             Path(".claude") / "skills" / "thewire" / "SKILL.md",
@@ -223,6 +230,18 @@ def installed_command(name):
     return shutil.which(name)
 
 
+def existing_home_markers(markers):
+    home = Path.home()
+    found = []
+    for marker in markers:
+        path = marker if marker.is_absolute() else home / marker
+        if any(char in str(path) for char in "*?["):
+            found.extend(str(item) for item in path.parent.glob(path.name))
+        elif path.exists():
+            found.append(str(path))
+    return found
+
+
 def harness_report():
     home = Path.home()
     report = []
@@ -231,18 +250,46 @@ def harness_report():
         for command in config["commands"]:
             commands.append({"name": command, "path": installed_command(command)})
         config_dir = home / config["config_dir"]
+        command_on_path = any(item["path"] for item in commands)
         targets = []
         for target in config["global_targets"]:
             path = home / target
             targets.append({"path": str(path), "exists": path.exists()})
+        desktop_markers = existing_home_markers(config.get("desktop_markers", []))
+        claude_code_detected = False
+        claude_desktop_detected = False
+        detection_reasons = []
+
+        if command_on_path:
+            detection_reasons.append("command")
+        if config_dir.exists():
+            detection_reasons.append("config_dir")
+        if desktop_markers:
+            detection_reasons.append("desktop_app")
+
+        if name == "claude":
+            claude_code_detected = command_on_path
+            claude_desktop_detected = bool(desktop_markers)
+            detection_reasons = []
+            if claude_code_detected:
+                detection_reasons.append("claude_code")
+            if claude_desktop_detected:
+                detection_reasons.append("claude_desktop")
+
+        detected = bool(detection_reasons)
         report.append(
             {
                 "harness": name,
-                "commandOnPath": any(item["path"] for item in commands),
+                "commandOnPath": command_on_path,
                 "commands": commands,
                 "configDir": str(config_dir),
                 "configDirExists": config_dir.exists(),
-                "detected": any(item["path"] for item in commands) or config_dir.exists(),
+                "detectionReasons": detection_reasons,
+                "claudeCodeDetected": claude_code_detected,
+                "claudeDesktopDetected": claude_desktop_detected,
+                "desktopAppDetected": bool(desktop_markers),
+                "desktopMarkers": desktop_markers,
+                "detected": detected,
                 "globalTargets": targets,
             }
         )
@@ -353,10 +400,7 @@ def cmd_setup(args):
         targets = detect_agent_targets()
         if not targets:
             targets = ["generic"]
-        if args.all_detected:
-            chosen = targets
-        else:
-            chosen = [targets[0]]
+        chosen = targets
     elif args.agent == "all":
         chosen = ["codex", "claude", "gemini", "opencode", "openclaw", "generic"]
     else:
@@ -466,7 +510,7 @@ def build_parser():
     setup_parser.add_argument(
         "--all-detected",
         action="store_true",
-        help="With --agent auto, register every detected harness instead of the first one.",
+        help="Deprecated compatibility flag. Auto setup now registers every detected harness.",
     )
     setup_parser.add_argument("--force", action="store_true", help="Replace existing The Wire docs.")
     setup_parser.set_defaults(func=cmd_setup)
@@ -491,7 +535,7 @@ def build_parser():
 
     install_agent_docs_parser = subparsers.add_parser(
         "install-agent-docs",
-        help="Install modular agent instructions for Codex, Claude Code, OpenClaw, or generic AGENTS.md users.",
+        help="Install modular agent instructions for Codex, Claude, OpenClaw, or generic AGENTS.md users.",
     )
     install_agent_docs_parser.add_argument("target", choices=AGENT_DOC_TARGETS)
     install_agent_docs_parser.add_argument(

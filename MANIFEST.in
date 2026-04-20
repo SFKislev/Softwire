@@ -1,6 +1,7 @@
 include AGENTS.md
 include ADAPTER_SPEC.md
 include README.md
+recursive-include docs *
 recursive-include thewire/agent_docs *
 recursive-include shared *
 recursive-include tools *

@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="docs/images/softwire-logo.svg" alt="Softwire logo" style="width: 100%; max-width: 500px;" />
+  <img src="docs/images/softwire-logo.svg" alt="Softwire logo" style="width: 100%; max-width: 350px;" />
 </p>
 
-<h1 align="center">Let AI agents control Photoshop, Blender, Premiere and more</h1>
+<h1 align="center">Letting agents control desktop software</h1>
 
 **A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
 

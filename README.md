@@ -1,4 +1,8 @@
-# Let agents control Photoshop, Blender, Premiere and more
+<p align="center">
+  <img src="docs/images/softwire-logo.svg" alt="Softwire logo" style="width: 100%; max-width: 500px;" />
+</p>
+
+<h1 align="center">Let AI agents control Photoshop, Blender, Premiere and more</h1>
 
 **A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
 
@@ -12,7 +16,7 @@ agent shell -> bridge command -> app scripting runtime -> JSON result
 
 This is done without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application.
 
-![Softwire demo](docs/softwire.gif)
+<img src="docs/softwire.gif" alt="Softwire demo" width="50%" />
 
 ## Installation
 

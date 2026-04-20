@@ -13,14 +13,14 @@ All bridge scripts:
 Run context first:
 
 ```powershell
-Get-Content <app>_adapter/examples/context.<jsx|py> -Raw | python <app>_adapter/<app>_bridge.py --stdin
+Get-Content adapters/<app>_adapter/examples/context.<jsx|py> -Raw | python adapters/<app>_adapter/<app>_bridge.py --stdin
 ```
 
 For non-trivial scripts, prefer stdin over command-line quoting.
 
 ## Scratch Scripts
 
-Adapter `examples/` directories are reference material, not a place for generated task scripts. Do not add one-off scripts to `<app>_adapter/examples/` unless the user explicitly asks for a reusable example.
+Adapter `examples/` directories are reference material, not a place for generated task scripts. Do not add one-off scripts to `adapters/<app>_adapter/examples/` unless the user explicitly asks for a reusable example.
 
 If a bridge script must be materialized as a file, write it to a temp or scratch location such as `.tmp/<app>/` or the OS temp directory, run it with `--file`, and remove it after a successful run unless the user asks to keep it.
 
@@ -50,7 +50,7 @@ For any call not already documented by the adapter or local examples, discover t
 3. **Search local adapter notes and examples.** Use `rg` for bridge-specific constraints, command shapes, and local gotchas. Search optional `docs/` only when that directory exists:
 
    ```powershell
-   rg -i "<keyword>" <app>_adapter/APP.md <app>_adapter/examples
+   rg -i "<keyword>" adapters/<app>_adapter/APP.md adapters/<app>_adapter/examples
    ```
 4. **Pretraining last, and flagged.** If you fall back on memory for an API name, say so explicitly and confirm it exists via introspection before mutating state. Do not invent plausible-sounding method names.
 

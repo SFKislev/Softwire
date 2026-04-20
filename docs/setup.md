@@ -1,49 +1,58 @@
 # Setup and Commands
 
-The Wire is currently packaged for Windows. The bridges connect to running desktop apps by default: it can launch apps when explicitly requested to. 
+SoftWire is currently packaged for Windows. The bridges connect to running desktop apps by default: it can launch apps when explicitly requested to. 
 
 ## Install from PyPI
 
 ```powershell
-pip install thewire
+pip install softwire
 ```
 
-The package installs `pywin32` on Windows for the COM-backed adapters. pip install thewire` installs the bridge code, adapter assets, and modular agent-facing instructions.
+The package installs `pywin32` on Windows for the COM-backed adapters. `pip install softwire` installs the bridge code, adapter assets, and modular agent-facing instructions.
 
-Register The Wire with your local agent harness:
+Register SoftWire with your local agent harness:
 
 ```powershell
-thewire setup
+softwire setup
 ```
 
-By default, setup detects local harnesses and registers The Wire with all of them, so that the agents are aware of this ability. Use `--agent` when you want to target one harness explicitly.
+By default, setup detects local harnesses and registers SoftWire with all of them, so that the agents are aware of this ability. Use `--agent` when you want to target one harness explicitly.
 
 For deterministic setup:
 
 ```powershell
-thewire setup --agent codex
-thewire setup --agent claude
-thewire setup --agent gemini
-thewire setup --agent opencode
-thewire setup --agent openclaw
+softwire setup --agent codex
+softwire setup --agent claude
+softwire setup --agent gemini
+softwire setup --agent qwen
+softwire setup --agent cursor
+softwire setup --agent kilo
+softwire setup --agent opencode
+softwire setup --agent openclaw
 ```
 
-The `claude` target is shared by Claude Code and Claude Desktop/Cowork. Auto detection still checks them separately.
+The `claude` target is for Claude Code. Claude Desktop/Cowork is not supported.
+The `kilo` target installs a global skill at `~/.kilo/skills/softwire/SKILL.md`.
+
+Harness-by-harness discoverability details are documented in [Harness support and discoverability](harenesses.md).
 
 ## Useful Commands
 
 ```powershell
-thewire adapters
-thewire path
-thewire setup
-thewire agent-docs-path
-thewire install-agent-docs codex
-thewire install-agent-docs claude
-thewire install-agent-docs gemini
-thewire install-agent-docs opencode
-thewire install-agent-docs openclaw
-thewire context houdini
-thewire install blender
+softwire adapters
+softwire path
+softwire setup
+softwire agent-docs-path
+softwire install-agent-docs codex
+softwire install-agent-docs claude
+softwire install-agent-docs gemini
+softwire install-agent-docs qwen
+softwire install-agent-docs cursor
+softwire install-agent-docs kilo
+softwire install-agent-docs opencode
+softwire install-agent-docs openclaw
+softwire context houdini
+softwire install blender
 ```
 
 ## Run a Context Smoke Test
@@ -51,7 +60,7 @@ thewire install blender
 Use the installed CLI when possible:
 
 ```powershell
-thewire context photoshop
+softwire context photoshop
 ```
 
 Or run a bridge directly from a source checkout:

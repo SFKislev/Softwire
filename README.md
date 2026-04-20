@@ -1,14 +1,14 @@
-<p align="center">
+<p>
   <img src="docs/images/softwire-logo.svg" alt="Softwire logo" width="350" />
 </p>
 
-<h1 align="center">A Library that Gives Agents Acces to Desktop Software</h1>
+<h1>A Library that Gives Agents Acces to Desktop Software</h1>
 
 **A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
 
-The Wire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install thewire && thewire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
+SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install softwire && softwire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
 
-[The Wire is not an MCP server](docs/mcp.md). The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
+[SoftWire is not an MCP server](docs/mcp.md). The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
 
 ```text
 agent shell -> bridge command -> app scripting runtime -> JSON result
@@ -21,16 +21,16 @@ This is done without brittle screenshots and without schema definitions. The bri
 ## Installation
 
 ```powershell
-pip install thewire
+pip install softwire
 ```
 
-Then register The Wire with your local agent harness:
+Then register SoftWire with your local agent harness:
 
 ```powershell
-thewire setup
+softwire setup
 ```
 
-This detects your harnesses and informs them that the wire exists. For first-run checks, source checkout commands, and app-specific prerequisites, see [Setup and commands](docs/setup.md).
+This detects your harnesses and informs them that SoftWire exists. For first-run checks, source checkout commands, and app-specific prerequisites, see [Setup and commands](docs/setup.md).
 
 ## Current Adapters
 
@@ -54,11 +54,12 @@ This detects your harnesses and informs them that the wire exists. For first-run
 ## More Docs
 
 - [Setup and commands](docs/setup.md)
+- [Harness support and discoverability](docs/harenesses.md)
 - [Wait, isn't this called MCP?](docs/why-shell-adapters.md)
 
 ### Documentation for Agents
 
-- [How the Adapters work](ADAPTER_SPEC.md)
+- [How the Adapters work](docs/ADAPTER_SPEC.md)
 - [How to use the Bridge Contracts](shared/bridge-contract.md)
 - [How to Work Together with a Human](shared/coexistence.md)
 - [Known Issues](docs/known-issues.md)

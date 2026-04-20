@@ -17,7 +17,7 @@ def norm_path(value):
 
 def discover_bridge_paths():
     paths = []
-    for path in ROOT.glob("*_adapter/*_bridge.py"):
+    for path in ROOT.glob("adapters/*_adapter/*_bridge.py"):
         paths.append(path)
     for path in ROOT.glob("*_bridge.py"):
         paths.append(path)

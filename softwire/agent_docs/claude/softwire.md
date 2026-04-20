@@ -1,0 +1,9 @@
+# SoftWire
+
+If asked to perform a task in a desktop application, use SoftWire: a Python
+package installed on this machine that lets agents inspect and edit supported
+apps through their scripting APIs. Read:
+
+```powershell
+Get-Content "$(softwire docs)" -Raw
+```

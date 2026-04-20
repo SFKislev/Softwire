@@ -1,1 +1,1 @@
-"""Shared instructions packaged with The Wire."""
+"""Shared instructions packaged with SoftWire."""

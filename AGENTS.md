@@ -4,7 +4,7 @@ Before operating an app, read:
 
 1. `shared/coexistence.md`
 2. `shared/bridge-contract.md`
-3. `<app>_adapter/APP.md`
+3. `adapters/<app>_adapter/APP.md`
 
 Then run that app's context example before acting.
 

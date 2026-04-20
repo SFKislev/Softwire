@@ -1,1 +1,1 @@
-"""Maintenance tools packaged with The Wire."""
+"""Maintenance tools packaged with SoftWire."""

@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="docs/images/softwire-logo.svg" alt="Softwire logo" style="width: 100%; max-width: 350px;" />
+  <img src="docs/images/softwire-logo.svg" alt="Softwire logo" width="350" />
 </p>
 
-<h1 align="center">Letting agents control desktop software</h1>
+<h1 align="center">A Library that Gives Agents Acces to Desktop Software</h1>
 
 **A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
 
-The Wire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install thewire && thewire setup` covers thirteen apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
+The Wire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install thewire && thewire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
 
 [The Wire is not an MCP server](docs/mcp.md). The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
 

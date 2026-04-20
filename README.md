@@ -2,14 +2,14 @@
   <img src="docs/images/softwire-logo.svg" alt="Softwire logo" width="350" />
 </p>
 
-<h1>A Library that Gives Agents Acces to Desktop Software</h1>
+<h1>Agents Can Access Desktop Software</h1>
 
 <table>
   <tr>
-    <td width="44%" valign="top">
+    <td width="50%" valign="top">
       <img src="docs/softwire_1.gif" alt="Softwire demo" width="100%" />
     </td>
-    <td width="56%" valign="top">
+    <td width="50%" valign="top">
       <strong>A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.</strong>
       <br /><br />
       SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One <code>pip install softwire && softwire setup</code> covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.

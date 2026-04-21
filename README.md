@@ -74,3 +74,5 @@ A single softwire installation supports, out of the box, many applications. This
 - [How to use the Bridge Contracts](https://github.com/SFKislev/Softwire/blob/main/shared/bridge-contract.md)
 - [How to Work Together with a Human](https://github.com/SFKislev/Softwire/blob/main/shared/coexistence.md)
 - [Known Issues](https://github.com/SFKislev/Softwire/blob/main/docs/known-issues.md)
+
+<img src="docs/images/ending.gif" alt="ciao" />

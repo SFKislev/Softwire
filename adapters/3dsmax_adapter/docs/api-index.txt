@@ -1,0 +1,2122 @@
+# 3ds Max API Index (grep-friendly)
+# Mechanically extracted from Autodesk MAXScript Help pages
+
+# CLASS
+CLASS Acquire_From_Mapping_Channels
+CLASS Acquire_Sub_Material_Index
+CLASS Action
+CLASS activeIndex
+CLASS ActiveLeaf
+CLASS actualNodeList
+CLASS Adjust_Global_Timing
+CLASS Advanced_Lighting_Override
+CLASS AlembicContainer
+CLASS AlembicObject
+CLASS Alias
+CLASS AlwaysShowWelcome
+CLASS AmbientOcclusionEnabled
+CLASS AmbientOcclusionIntensity
+CLASS AmbientOcclusionRadius
+CLASS AmountChange
+CLASS Animatable
+CLASS Animated_Surface
+CLASS AntialiasingQuality
+CLASS Arch___Design__mi
+CLASS arcRotateSnapAngle
+CLASS Area
+CLASS AreaShadow
+CLASS asObject
+CLASS Assign_To_Mapping_Channels
+CLASS atmosphereOn
+CLASS atmosphereRenderElement
+CLASS Attachment
+CLASS AttributeDef
+CLASS AudioClip
+CLASS Auto_Secondary_Element
+CLASS Auto_Sync_Timing_By_Selected_Stroke
+CLASS AutoAdjust_Current_Frame
+CLASS AutoDisplaySelectedLightEnabled
+CLASS autoGrid
+CLASS autoKeyDefaultKeyOn
+CLASS autoKeyDefaultKeyTime
+CLASS Automatic_Exposure_Control
+CLASS Axis_Helper
+CLASS BackfaceCullWireframeEnabled
+CLASS BackgroundProgressiveRenderingEnabled
+CLASS BackgroundRenderElement
+CLASS bakedMaterial
+CLASS bakeThreshold
+CLASS Beauty
+CLASS Bend
+CLASS Bevel
+CLASS Bevel_Profile
+CLASS Birth
+CLASS BirthGrid
+CLASS BirthStream
+CLASS BitMap
+CLASS Blackman
+CLASS Blend_Mapping_By_Distance
+CLASS Blend_Mapping_By_Time
+CLASS Blend_Time
+CLASS Blend_Type
+CLASS Blendfilter
+CLASS blurAllObjectsEnabled
+CLASS BokehShape
+CLASS BoneID
+CLASS Bones
+CLASS Bookmark
+CLASS boolean_float
+CLASS BooleanClassdefault
+CLASS Booleandefault
+CLASS Box
+CLASS BoxGizmo
+CLASS BranchIndex
+CLASS BranchOwner
+CLASS BranchParent
+CLASS Break_If_Outwards_Only
+CLASS Break_Off_Acceleration
+CLASS Break_Off_Speed
+CLASS Break_Off_Type
+CLASS Break_Off_Variation
+CLASS Bricks
+CLASS ButtonControl
+CLASS Calculate
+CLASS Camera
+CLASS Camera_Culling
+CLASS Camera_IMBlur
+CLASS Cap_Holes
+CLASS CapOffset
+CLASS CATBone
+CLASS CATBoneSegTrans
+CLASS CATBranch
+CLASS Category
+CLASS CATFootBend
+CLASS CATHierarchyBranch
+CLASS CATHierarchyRoot
+CLASS CATHIPivotTrans
+CLASS CATLiftOffset
+CLASS CATLiftPlantMod
+CLASS CATMotion
+CLASS CATMotionFlags
+CLASS CATMotionHierarchy
+CLASS CATMotionHub
+CLASS CATMotionLimb
+CLASS CATMotionPlatform
+CLASS CATMotionPos
+CLASS CATMotionRot
+CLASS CATMotionRotRotationController
+CLASS CATMotionTail
+CLASS Catmull_Rom
+CLASS CATParent
+CLASS CATParentNode
+CLASS CATPoint3
+CLASS CATSpineTrans2
+CLASS cellColor
+CLASS cellMap
+CLASS centerBoxType
+CLASS ChangeCursorOnMouseMove
+CLASS CheckBoxControl
+CLASS Checker
+CLASS Circle
+CLASS ClipState
+CLASS CogControl
+CLASS Collision
+CLASS Collision_Spawn
+CLASS Color
+CLASS Color1
+CLASS Color_Balance
+CLASS Color_RGB
+CLASS colorReferenceTarget
+CLASS Colour
+CLASS Compass
+CLASS CompleteMap
+CLASS CompositeTextureMap
+CLASS ConeAngle
+CLASS ConsolidationEnabled
+CLASS ConstrainWalk
+CLASS Container
+CLASS Controller
+CLASS Cook_Variable
+CLASS Crease
+CLASS CreaseSet
+CLASS createMode
+CLASS CrossSection
+CLASS CubeBias
+CLASS Cubic
+CLASS Cubic_Morph_Controller
+CLASS currentBaseChainNodeName
+CLASS currentBaseNodeName
+CLASS currentEndChainNodeName
+CLASS currentNodeName
+CLASS Cylinder
+CLASS Dampening_Friction
+CLASS Damper
+CLASS Data_Icon
+CLASS Data_Operator
+CLASS Data_Test
+CLASS DataViewGroup
+CLASS Default
+CLASS Default_Scanline_Renderer
+CLASS DefaultLightMode
+CLASS DefaultLightsFollowCamera
+CLASS defaultLocalProductHelpPath
+CLASS Deformable_gPoly
+CLASS Delegate
+CLASS deleteCacheBeforeCalculation
+CLASS DeleteMesh
+CLASS delIsoVerts
+CLASS Density_Center
+CLASS Density_Sides
+CLASS Depth_of_Field
+CLASS Depth_of_FieldMPassCamEffect
+CLASS diffuseMap
+CLASS DigitSegTrans
+CLASS DisableViewport
+CLASS displacementDisplaceMethod
+CLASS displacementEdgeLength
+CLASS displacementMaximum
+CLASS displacementParametricSubdivisionLevel
+CLASS displacementSmoothing
+CLASS displacementSubdivisionLevel
+CLASS displacementView
+CLASS Display_Size
+CLASS Display_Type
+CLASS DisplayGhostInWireframe
+CLASS displayParticles
+CLASS displayRenderedViews
+CLASS displayTextUpTop
+CLASS Distance
+CLASS Distance_Variation
+CLASS divColor2
+CLASS Divergence_For_X_Axis
+CLASS Divergence_For_Z_Axis
+CLASS DOFEnabled
+CLASS DoubleSided
+CLASS dragX
+CLASS dragY
+CLASS drawIt
+CLASS durationInSeconds
+CLASS durationMode
+CLASS durationPasses
+CLASS DynamicReflectionEnabled
+CLASS dynamicUpdateAllVpts
+CLASS Ediable_Mesh
+CLASS Edit_Mesh
+CLASS Edit_Poly
+CLASS Editable_Mesh
+CLASS Editable_Poly
+CLASS Editing_Duration
+CLASS Editing_Start_At
+CLASS Editing_Stop_At
+CLASS Editing_Stop_Type
+CLASS editStateMode
+CLASS elementName
+CLASS Elements
+CLASS Ellipse
+CLASS emissionRenderElement
+CLASS Empty
+CLASS EmptyModifier
+CLASS Enabled
+CLASS endFrame
+CLASS Error
+CLASS Event
+CLASS EVSMConfig
+CLASS Exclude_Tiling
+CLASS Expanable
+CLASS Expandable
+CLASS ExposeTm
+CLASS exposureControl
+CLASS exposureControlInvertReflection
+CLASS exposureControlInvertRefraction
+CLASS exposureControlInvertSelfIllum
+CLASS ExtraRigNodes
+CLASS FarPlane
+CLASS FFD_2x2x2
+CLASS FFD_4x4x4
+CLASS FFD_box__4x4x4
+CLASS FFD_Select
+CLASS Filenamedefault
+CLASS Film_Grain
+CLASS filterActiveOnly
+CLASS Finish_Distance
+CLASS FKBaseChainNodeName
+CLASS FKRetargetingEnabled
+CLASS Flex
+CLASS float4
+CLASS float_script
+CLASS FloatReactor
+CLASS FogHelper
+CLASS forceSelected
+CLASS forceSoftware
+CLASS Free_Camera
+CLASS freeRotate
+CLASS Generate_Mapping
+CLASS Generate_Rotation
+CLASS Gengon
+CLASS geometryReferenceTarget
+CLASS GeoSphere
+CLASS Geosphere
+CLASS GesturaEnabled
+CLASS GhostFrameIncrement
+CLASS GhostType
+CLASS GIByLayer
+CLASS GIContrastThreshold
+CLASS GIInitialMeshSize
+CLASS GIMeshingEnabled
+CLASS GIMeshSize
+CLASS GIMinMeshSize
+CLASS GIRayMult
+CLASS GIUseAdaptiveSubdivision
+CLASS GIUseGlobalMeshing
+CLASS Go_To_Rotation
+CLASS Gradient
+CLASS gravityMode
+CLASS gravityObject
+CLASS HardwareHitTestEnabled
+CLASS hardwareReport
+CLASS HardwareReport
+CLASS HardwareSamplingQuality
+CLASS HaveShownWelcome
+CLASS Hedra
+CLASS Height
+CLASS Helix
+CLASS Helper
+CLASS hideFrozenObjects
+CLASS Hose
+CLASS hoverColor
+CLASS HSDS_Modifier
+CLASS Hub
+CLASS HubObject
+CLASS Icon_Size
+CLASS IK_Spline_End_Twist_Manip
+CLASS IK_Spline_Start_Twist_Manip
+CLASS IKTarget
+CLASS imageFilterType
+CLASS imageFilterWidth
+CLASS implicitWild
+CLASS In_Group
+CLASS In_Group_Items
+CLASS Include_Mask_Children
+CLASS Include_Mask_Group_Members
+CLASS incomingBaseChainNodeName
+CLASS incomingBaseNodeName
+CLASS incomingEndChainNodeName
+CLASS incomingNodeName
+CLASS IncrementalZoom
+CLASS IndirectIlluminationSamples
+CLASS Induced_By_Speed_Change
+CLASS Inertial_Size
+CLASS inhibitGridSubdivision
+CLASS inhibitPerspViewGridResize
+CLASS inProgressiveMode
+CLASS Input_Proxy
+CLASS InputStandard
+CLASS InstanceEnabled
+CLASS Interactive
+CLASS Interface
+CLASS intersectMode
+CLASS invertVertical
+CLASS InvertVerticalAxis
+CLASS IObject
+CLASS iray_Renderer
+CLASS iRay_Renderer
+CLASS Is_Flipped
+CLASS isActive
+CLASS IsActive
+CLASS isEnabled
+CLASS isGIDiffuse
+CLASS isGIExcluded
+CLASS isGIExcludedFromRegather
+CLASS isGIOccluder
+CLASS isGIReceiver
+CLASS isGISpecular
+CLASS isMaster
+CLASS IsRenderActive
+CLASS isSelected
+CLASS isSlave
+CLASS isTwoWay
+CLASS isWelded
+CLASS iterationsPerMotionStep
+CLASS justUpToActive
+CLASS KEY1Tangent
+CLASS KEY1Time
+CLASS KEY1Val
+CLASS KEY2Tangent
+CLASS KEY2Time
+CLASS KEY2Val
+CLASS KEY3Tangent
+CLASS KEY3Time
+CLASS KEY3Val
+CLASS KEY4Tangent
+CLASS KEY4Time
+CLASS KEY4Val
+CLASS L_Ext
+CLASS L_Type_Stair
+CLASS LargeWheelOpacityFactor
+CLASS LargeWheelSize
+CLASS Late_Color
+CLASS Latitude
+CLASS lattice_transform
+CLASS LeafNames
+CLASS Leaves
+CLASS Length
+CLASS Lens_Effects
+CLASS licenseBehavior
+CLASS licenseDaysLeft
+CLASS LiftPlantMod
+CLASS LiftPlantRatio
+CLASS LiftTangent
+CLASS LiftValue
+CLASS Light
+CLASS Light_Tracer
+CLASS lightBouncesLimited
+CLASS lightBouncesMaximum
+CLASS LightingAndShadowQualityMode
+CLASS LightingMode
+CLASS LightMap
+CLASS LightOption
+CLASS Limb
+CLASS Link_Constraint
+CLASS link_params
+CLASS Linked_XForm
+CLASS Listener
+CLASS Local_Euler_XYZ
+CLASS localProductHelpPath
+CLASS Location_Type
+CLASS Lock_Bond
+CLASS Lock_On_Objects
+CLASS Lock_Type
+CLASS Locked
+CLASS lockHorizontal
+CLASS lockVertical
+CLASS Loft
+CLASS Logarithmic_Exposure_Control
+CLASS Longitude
+CLASS LookAt_Constraint
+CLASS majorLines
+CLASS MakePreviewQuality
+CLASS mapCoords
+CLASS Mapping_End_Value
+CLASS Mapping_From_Objects
+CLASS Mapping_Object
+CLASS Mapping_Offset_Value_Per_Second
+CLASS Mapping_Start_Value
+CLASS Mapping_Type
+CLASS Masks
+CLASS Material
+CLASS Material_ID
+CLASS MaterialByElement
+CLASS MaxConsolidatableNodePrimitive
+CLASS MaxConsolidationCellPrimitive
+CLASS Maximum_Number_Of_Attempts
+CLASS MaxInstancableNodePrimitive
+CLASS mental_ray
+CLASS mental_ray_renderer
+CLASS Mesher
+CLASS MeshSmooth
+CLASS Metal_Bump
+CLASS MinConsolidationCellPrimitive
+CLASS minimumIdleDuration
+CLASS MiniWheelOpacityFactor
+CLASS MiniWheelSize
+CLASS Mirror
+CLASS Mitchell_Netravali
+CLASS Mix
+CLASS MixinInterface
+CLASS Modifier
+CLASS Morpher
+CLASS motionBlurEnabled
+CLASS motionSegments
+CLASS moveGizmoRelativeSize
+CLASS movePlaneHandleOffset
+CLASS movePlaneHandleSize
+CLASS mP_Solvent
+CLASS mP_Switch
+CLASS mr_Proxy
+CLASS msXYPlane
+CLASS msXZPlane
+CLASS msYZPlane
+CLASS MultiMaterial
+CLASS MultiThreadedShaderCompileMode
+CLASS Muscle_Handle
+CLASS Name
+CLASS nbGIRefineSteps
+CLASS nbGIRefineStepsDone
+CLASS NearPlane
+CLASS netRender
+CLASS noExposureControl
+CLASS Noise
+CLASS NoMaterial
+CLASS Normal_Bump
+CLASS NormalBumpMode
+CLASS NormalDirection
+CLASS NormalsMap
+CLASS Notes
+CLASS NotesReferenceTarget
+CLASS NoTexture
+CLASS NumberOfAllocatedCPUS
+CLASS NumBones
+CLASS numFaces
+CLASS numOptions
+CLASS numRetimers
+CLASS numViews
+CLASS numWires
+CLASS NURBSSurf
+CLASS nvBox
+CLASS nvCapsule
+CLASS nvRagdoll
+CLASS nvSphere
+CLASS Object
+CLASS OffsetPos
+CLASS OffsetRot
+CLASS OffsetTM
+CLASS OldVertexPaint
+CLASS Open
+CLASS OpenSubdiv
+CLASS Optimize
+CLASS Orbital_Scale
+CLASS Orientation_Behavior
+CLASS Orientation_Type_For_X_Axis
+CLASS Orientation_Type_For_Z_Axis
+CLASS originalMaterial
+CLASS OutputCustom
+CLASS outputFilename
+CLASS OutputNew
+CLASS overrideControllerRangeDefault
+CLASS overrideMaterial
+CLASS overrideMaterialEnabled
+CLASS overridePreset
+CLASS OwnerSubNum
+CLASS paintSelBrushSize
+CLASS paramBlock
+CLASS PArray
+CLASS Particle_Group
+CLASS Particle_MBlur
+CLASS Particle_Paint
+CLASS Particle_View
+CLASS particleAcceleration
+CLASS particleAge
+CLASS particleEventTime
+CLASS particleFloat
+CLASS ParticleGroup
+CLASS particleGroupTime
+CLASS particleID
+CLASS particleIndex
+CLASS particleInteger
+CLASS particleLifespan
+CLASS particleMatrix
+CLASS particleNew
+CLASS particleOrientation
+CLASS particlePosition
+CLASS particleScale
+CLASS particleScaleXYZ
+CLASS particleSelected
+CLASS particleShape
+CLASS particleSpeed
+CLASS particleSpin
+CLASS particleTestStatus
+CLASS particleTestTime
+CLASS particleTime
+CLASS particleTM
+CLASS particleVector
+CLASS PatchDeform
+CLASS Path_Constraint
+CLASS Path_Follow_Behavior
+CLASS PathFacingRatio
+CLASS perpsectiveSensitivity
+CLASS perspViewGridExtents
+CLASS PF_Source
+CLASS PhaseOffset
+CLASS Physical
+CLASS PipeReferenceTarget
+CLASS Pivoted
+CLASS pivotMode
+CLASS PivotPos
+CLASS PivotRot
+CLASS pixelAspect
+CLASS Plane
+CLASS Plane_Angle
+CLASS planeOpacity
+CLASS PlantTangent
+CLASS PlantValue
+CLASS Platform
+CLASS point4_list
+CLASS Point_Cache
+CLASS Point_CacheSpacewarpModifier
+CLASS Point_Surf
+CLASS Poly
+CLASS Poly_Select
+CLASS Position_Constraint
+CLASS Position_Dampening_Type
+CLASS Position_Expression
+CLASS Position_Force
+CLASS Position_Manip
+CLASS Position_Offset_Limit
+CLASS position_script
+CLASS Position_X
+CLASS Position_XYZ
+CLASS Position_Y
+CLASS PositionReactor
+CLASS Preserve
+CLASS PreserveSceneUp
+CLASS presetFile
+CLASS PresetTest
+CLASS PresetTestIcon
+CLASS primaryVisibility
+CLASS Priority_Axis
+CLASS Prism
+CLASS Processing
+CLASS productAppID
+CLASS productHelpLocation
+CLASS productID
+CLASS productVersion
+CLASS progressCB
+CLASS ProgressiveFadingFactor
+CLASS ProOptimizer
+CLASS Properties
+CLASS Protractor
+CLASS proxyType
+CLASS PRS
+CLASS PView_Manager
+CLASS pxJoint
+CLASS Quadify_Mesh
+CLASS Quadratic
+CLASS Quicksilver_Hardware_Renderer
+CLASS Radiosity
+CLASS Radius
+CLASS radiusManip
+CLASS RagdollHelper
+CLASS Railing
+CLASS Random_Seed
+CLASS randomReferenceTarget
+CLASS Rate_Type
+CLASS Ray_Element
+CLASS Reactor_Angle_Manip
+CLASS realWorldMapSize
+CLASS ReferenceTarget
+CLASS ReflectionEnabled
+CLASS Relax
+CLASS Repel_Behavior
+CLASS replaceUI
+CLASS Restrict_Position_To_Surface
+CLASS Retargetting
+CLASS returnValue
+CLASS Reverse_X_Axis
+CLASS Reverse_Z_Axis
+CLASS Rollout
+CLASS rotateGizmoRelativeSize
+CLASS Rotation_Dampening
+CLASS Rotation_Force
+CLASS rotation_list
+CLASS Rotation_Offset_Limit
+CLASS Rotation_Reactor
+CLASS rotationIncrement
+CLASS rotationMode
+CLASS rotationPlanarThreshold
+CLASS Scale_Reactor
+CLASS scale_script
+CLASS Scale_Test
+CLASS scaleGizmoRelativeSize
+CLASS scaleParticles
+CLASS scalePlaneHandleSize
+CLASS sceneEffectActive
+CLASS sceneStateName
+CLASS screenHandle
+CLASS Script_Operator
+CLASS Script_Test
+CLASS secondaryVisibility
+CLASS seeThrough
+CLASS Select_Object
+CLASS Selected
+CLASS Selected_Strokes
+CLASS SelectedEdgedFacesEnabled
+CLASS SelectionSensitivity
+CLASS SelectionSet
+CLASS selSetNames
+CLASS Separation_Distance
+CLASS setKeyFilters
+CLASS setKeyMode
+CLASS setKeyNodeSetCurrent
+CLASS setKeyNodeSets
+CLASS setKeySuspend
+CLASS SetupVal
+CLASS Shader
+CLASS ShadeSelectedFacesEnabled
+CLASS ShadeSelectedObjectsEnabled
+CLASS ShadingMode
+CLASS ShadowIntensity
+CLASS shadowMap
+CLASS ShadowMapSize
+CLASS ShadowmapSizeLimit
+CLASS ShadowMode
+CLASS ShadowRenderElement
+CLASS ShadowsEnabled
+CLASS Shape
+CLASS Shape_Mark
+CLASS ShapeControl
+CLASS shapeStandard
+CLASS Sharp_Quadratic
+CLASS Shell_Material
+CLASS Shellac
+CLASS Show_Map_In_Viewport
+CLASS Show_Particle_Timing
+CLASS showAngleData
+CLASS ShowEdgedFacesEnabled
+CLASS ShowGhostFrameNumbers
+CLASS ShowGhosting
+CLASS ShowHighlightEnabled
+CLASS ShowHUDMessages
+CLASS showMiniTripod
+CLASS ShowMultipleTransformGizmos
+CLASS showPieSlice
+CLASS ShowSelectionBracketsEnabled
+CLASS ShowToolTips
+CLASS shutterDurationInFrames
+CLASS shutterOffsetInFrames
+CLASS Size
+CLASS Skin
+CLASS slaveAnimation
+CLASS sliceFrom
+CLASS sliceTo
+CLASS sliderManipulator
+CLASS Smoke
+CLASS Smooth
+CLASS Snap_To_Surface
+CLASS snippet_to
+CLASS Snow
+CLASS Soften
+CLASS SoftwareSamplingQuality
+CLASS Solar_Date
+CLASS Solar_Time
+CLASS SpacePatchDeform
+CLASS SpacewarpObject
+CLASS Speckle
+CLASS specularRenderElement
+CLASS Speed_Limit
+CLASS Speed_Unit
+CLASS SpeedFactor
+CLASS Sphere
+CLASS Spherify
+CLASS Spin
+CLASS Spin_Limit
+CLASS Spiral_Stair
+CLASS Spline_IK_Control
+CLASS SplineSelect
+CLASS Split_Selected
+CLASS Spray
+CLASS SpringPoint3Controller
+CLASS SpringPositionController
+CLASS springQuickEditMode
+CLASS springRollingStart
+CLASS srcFileName
+CLASS srcItemName
+CLASS Stack_Up_For_Separation
+CLASS Standardmaterial
+CLASS StandardMaterial
+CLASS startFrame
+CLASS startNewShapeLock
+CLASS StartTime
+CLASS Static_Objects
+CLASS StaticEnabled
+CLASS Step2
+CLASS SteppingNodes
+CLASS stepSize
+CLASS Stop
+CLASS storeIllumToMesh
+CLASS Straight_Stair
+CLASS Streak_Element
+CLASS Stretch
+CLASS Struct
+CLASS Stucco
+CLASS SubAnim
+CLASS Subdivide
+CLASS sunClass
+CLASS Superclass
+CLASS SuperSpray
+CLASS Surface
+CLASS Surface_Follow_Behavior
+CLASS SurfDeform
+CLASS Swirl
+CLASS Symmetry
+CLASS TailData2
+CLASS TailID
+CLASS TailStiffness
+CLASS TailTrans
+CLASS Taper
+CLASS Target
+CLASS Target_Area
+CLASS Target_Light
+CLASS TargetDirectionalLight
+CLASS TargetObject
+CLASS Teapot
+CLASS Tessellate
+CLASS textureCompressionEnabled
+CLASS textureCompressionMinResolution
+CLASS the_frame_timeto
+CLASS Tighten
+CLASS Time_Scale
+CLASS TMController
+CLASS TopBottom
+CLASS Torus
+CLASS TotalGhostFrames
+CLASS trajectoryAddKeyMode
+CLASS trajectoryKeySubMode
+CLASS trajectoryMode
+CLASS TransAreaShadow
+CLASS Transparency
+CLASS TransparencyEnabled
+CLASS TransparencyMode
+CLASS triPatch
+CLASS TriPatch
+CLASS TurboSmooth
+CLASS Turn_to_gPoly
+CLASS Turn_to_Poly
+CLASS Twist
+CLASS TwistWeight
+CLASS U_Variation
+CLASS UConstraint
+CLASS UIType
+CLASS Uniform_Color_Per_Particle
+CLASS uniformPlaneScaling
+CLASS uniformScaleHandleSize
+CLASS Unwrap_UVW
+CLASS Use_Break_Off_Test
+CLASS Use_Mask_Objects
+CLASS Use_No_Acceleration_Zone
+CLASS Use_No_Dampening_Zone
+CLASS Use_Position_Offset_Limit
+CLASS Use_Radius_Graph
+CLASS Use_Rate_Graph
+CLASS Use_Rotation_Offset_Limit
+CLASS Use_Separation
+CLASS Use_Speed_Limit
+CLASS Use_Spin_Limit
+CLASS Use_Vertex_Color
+CLASS useAcceleration
+CLASS UseAdaptiveForce
+CLASS useAge
+CLASS useCenterBox
+CLASS useCurve
+CLASS UseCustomMesh
+CLASS UseEnvironmentBackgroundColorEnabled
+CLASS useEventTime
+CLASS useFloat
+CLASS useGizmo
+CLASS useInteger
+CLASS useLabels
+CLASS useLifespan
+CLASS useMapping
+CLASS useMatrix
+CLASS useMtlIndex
+CLASS useOrientation
+CLASS usePlanes
+CLASS usePosition
+CLASS useScale
+CLASS useSelected
+CLASS useShape
+CLASS UseSimplifiedSkyLight
+CLASS UseSolidColor
+CLASS useSpeed
+CLASS useSpin
+CLASS UseTextureEnabled
+CLASS useTime
+CLASS useTM
+CLASS useVector
+CLASS UseViewportBackgroundEnabled
+CLASS UVW_Mapping_Paste
+CLASS UVW_Xform
+CLASS uvwMappingHeightManip
+CLASS uvwMappingLengthManip
+CLASS uvwMappingWidthManip
+CLASS V_Variation
+CLASS vectorFile
+CLASS vecX
+CLASS vecY
+CLASS Vertex_Weld
+CLASS VertexPaint
+CLASS Video
+CLASS ViewportClippingEnabled
+CLASS Visible
+CLASS visitedColor
+CLASS VisualStyleMode
+CLASS Volume_Fog
+CLASS VolumeSelect
+CLASS VUE_File_Renderer
+CLASS W_Variation
+CLASS WalkMode
+CLASS Water
+CLASS Wave
+CLASS Waveform_Float
+CLASS Waves
+CLASS weaponDataCustAttrib
+CLASS Weights
+CLASS Welder
+CLASS WideFlange
+CLASS Width
+CLASS XForm
+CLASS XRef_Controller
+CLASS xrefCtrlStatus
+CLASS xrefRecord
+CLASS Z_Order
+CLASS Zone_Radius
+
+# INTERFACE
+INTERFACE action
+INTERFACE ActionList
+INTERFACE AnimLayerManager
+INTERFACE ATSCustomDepsOps
+INTERFACE ATSOps
+INTERFACE Autodesk360
+INTERFACE AutodeskaterialManager
+INTERFACE AutodeskMaterialManager
+INTERFACE BakeElementProperties
+INTERFACE BatchProOptimizer
+INTERFACE batchRenderMgr
+INTERFACE batchRenderViewOps
+INTERFACE BipFilter
+INTERFACE BipFixer
+INTERFACE BirthGrid
+INTERFACE BitmapLayerManager
+INTERFACE BitmapProxyMgr
+INTERFACE browserMgr
+INTERFACE BrushPresetMgr
+INTERFACE CATControlInterface
+INTERFACE CATGroupManagerFPInterface
+INTERFACE CATMotion
+INTERFACE CATNodeControlFPInterface
+INTERFACE CATObjectFPInterface
+INTERFACE cmdPanel
+INTERFACE colorMan
+INTERFACE ConstraintHelperInterface
+INTERFACE constraints
+INTERFACE ContainerPreferences
+INTERFACE Containers
+INTERFACE CreaseSetManager
+INTERFACE DataViewItem
+INTERFACE DaylightSimulationUIOps
+INTERFACE DaylightSimulationUtilities
+INTERFACE DaylightSystemFactory2
+INTERFACE Deformable_gPoly
+INTERFACE DialogMonitorOPS
+INTERFACE dragAndDrop
+INTERFACE dxshadermanager
+INTERFACE EditablePoly
+INTERFACE EPolyManipGrip
+INTERFACE ExposureMaterialControl
+INTERFACE ExtraRigNodesInterface
+INTERFACE FacesOrientation
+INTERFACE FixedViewportPipeline
+INTERFACE FlippedUVWFaces
+INTERFACE FrameTagManager
+INTERFACE GhostingManager
+INTERFACE gizmoShape
+INTERFACE globalDXDisplayManager
+INTERFACE gridPrefs
+INTERFACE Grip
+INTERFACE groupSelection
+INTERFACE heightManager
+INTERFACE HelpSystem
+INTERFACE ICATControlFPInterface
+INTERFACE ICATUnitsCtrlFPInterface
+INTERFACE IContainerObject
+INTERFACE IDisplayGamma
+INTERFACE IExprCtrl
+INTERFACE ILayerControlFPInterface
+INTERFACE ILayerFloatFPInterface
+INTERFACE IMtlRender_Compability_MtlBase
+INTERFACE IMtlRender_Compability_Renderer
+INTERFACE initialEvents
+INTERFACE INodeBakeProjProperties
+INTERFACE INodeBakeProperties
+INTERFACE INodeGIProperties
+INTERFACE INodeMentalRayProperties
+INTERFACE INodeShadingProperties
+INTERFACE integrator
+INTERFACE Interface
+INTERFACE IQuicksilverRenderer
+INTERFACE iray_string_options
+INTERFACE IScriptCtrl
+INTERFACE IsolatedVertices
+INTERFACE IVFB
+INTERFACE IViewportShadingMgr
+INTERFACE IXRefCtrl
+INTERFACE layer
+INTERFACE LayerInfoFPInterface
+INTERFACE LayerRootFPInterface
+INTERFACE LightingAnalysisOverlayFactory
+INTERFACE LightingUnits
+INTERFACE LightMeterManager
+INTERFACE list
+INTERFACE LoadSaveAnimation
+INTERFACE LuminosityUtil
+INTERFACE manip
+INTERFACE manipPlane
+INTERFACE MaterialExplorerManager
+INTERFACE MaterialHolder
+INTERFACE maxOps
+INTERFACE MaxscriptParticleContainer
+INTERFACE medit
+INTERFACE MemStream
+INTERFACE mental_ray_iray_diagnostics
+INTERFACE mental_ray_iray_options
+INTERFACE menu
+INTERFACE menuItem
+INTERFACE menuMan
+INTERFACE MissingUVCoordinates
+INTERFACE mrProxyInterface
+INTERFACE MultipleEdges
+INTERFACE NetRender
+INTERFACE NetworkLicenseStatusManager
+INTERFACE NitrousGraphicsManager
+INTERFACE nodeSelectionSet
+INTERFACE nvpx
+INTERFACE OGSDiagnostics
+INTERFACE OpenEdges
+INTERFACE operator
+INTERFACE OSDModOps
+INTERFACE OverlappedUVWFaces
+INTERFACE OverlappingFaces
+INTERFACE OverlappingVertices
+INTERFACE paramPublishMgr
+INTERFACE paramWire
+INTERFACE particleFlowUtility
+INTERFACE particleObjectExt
+INTERFACE pfSystem
+INTERFACE pftParticleView
+INTERFACE PhysXPanelInterface
+INTERFACE pluginManager
+INTERFACE PluginMgrAction
+INTERFACE pointCache
+INTERFACE pointCacheWSM
+INTERFACE PolyToolsPaintDeform
+INTERFACE PolyToolsTopology
+INTERFACE profileTools
+INTERFACE ProjectionIntersectorMgr
+INTERFACE ProjectionRenderMgr
+INTERFACE PViewItem
+INTERFACE qat
+INTERFACE quadMenu
+INTERFACE quadMenuSettings
+INTERFACE radiosityMeshOps
+INTERFACE RadiosityPreferences
+INTERFACE reactionMgr
+INTERFACE reactions
+INTERFACE realWorldMapSizeInterface
+INTERFACE refhierarchy
+INTERFACE retargetData
+INTERFACE RetimerMan
+INTERFACE s3dexporter
+INTERFACE SceneEffectLoader
+INTERFACE SceneExplorerInterface
+INTERFACE SceneExplorerManager
+INTERFACE SceneExposureControl
+INTERFACE SceneMissingPlugIns
+INTERFACE SceneRadiosity
+INTERFACE simpleFaceChannel
+INTERFACE simpleFaceManager
+INTERFACE simpleManip
+INTERFACE SkinPose
+INTERFACE SkinUtils
+INTERFACE Spring
+INTERFACE srrOps
+INTERFACE srrRadiosityMesh
+INTERFACE SteeringWheelsOps
+INTERFACE SubstManager
+INTERFACE test
+INTERFACE timeSlider
+INTERFACE tmGizmos
+INTERFACE TurboSmooth
+INTERFACE TVerts
+INTERFACE UIAccessor
+INTERFACE ViewPanelManager
+INTERFACE ViewportSSB
+INTERFACE ViewportViewSettingImpl
+INTERFACE visualMS
+INTERFACE visualMSCA
+INTERFACE visualMSForm
+INTERFACE walkThroughOps
+INTERFACE wireController
+INTERFACE WorkingPivot
+INTERFACE WorldSettingImpl
+INTERFACE xViewChecker
+
+# PROPERTY
+PROPERTY CATLiftOffset.CATBranch
+PROPERTY CATLiftOffset.LiftValue
+PROPERTY CATLiftOffset.LimbData
+PROPERTY CATLiftOffset.PlantValue
+PROPERTY fileMAXScript.propertiesis
+PROPERTY fileMXS_Editor.propertiesare
+PROPERTY GhostingManager.DisplayGhostInWireframe
+PROPERTY GhostingManager.GhostFrameIncrement
+PROPERTY GhostingManager.GhostType
+PROPERTY GhostingManager.ShowGhostFrameNumbers
+PROPERTY GhostingManager.ShowGhosting
+PROPERTY GhostingManager.TotalGhostFrames
+PROPERTY iray_string_options.numOptions
+PROPERTY LightMeterManager.deleteCacheBeforeCalculation
+PROPERTY Loft.circle
+PROPERTY loft.ellipse
+PROPERTY maxOps.hideFrozenObjects
+PROPERTY maxOps.IsRenderActive
+PROPERTY maxOps.overrideControllerRangeDefault
+PROPERTY maxOps.pivotMode
+PROPERTY maxOps.productID
+PROPERTY MeshSmooth.displayCage
+PROPERTY NetworkLicenseStatusManager.minimumIdleDuration
+PROPERTY NitrousGraphicsManager.AntialiasingQuality
+PROPERTY NitrousGraphicsManager.BackfaceCullWireframeEnabled
+PROPERTY NitrousGraphicsManager.BackgroundProgressiveRenderingEnabled
+PROPERTY NitrousGraphicsManager.ChangeCursorOnMouseMove
+PROPERTY NitrousGraphicsManager.GesturaEnabled
+PROPERTY NitrousGraphicsManager.HardwareHitTestEnabled
+PROPERTY NitrousGraphicsManager.MakePreviewQuality
+PROPERTY NitrousGraphicsManager.MultiThreadedShaderCompileMode
+PROPERTY NitrousGraphicsManager.NormalBumpMode
+PROPERTY NitrousGraphicsManager.ShadowmapSizeLimit
+PROPERTY nvpx.gravityMode
+PROPERTY nvpx.gravityObject
+PROPERTY nvpx.UseAdaptiveForce
+PROPERTY OGSDiagnostics.HardwareReport
+PROPERTY PatchDeform.rotation
+PROPERTY PolyToolsPaintDeform.CapOffset
+PROPERTY PolyToolsPaintDeform.NormalDirection
+PROPERTY RetimerMan.active
+PROPERTY RetimerMan.bakeThreshold
+PROPERTY RetimerMan.numRetimers
+PROPERTY tmGizmos.arcRotateSnapAngle
+PROPERTY tmGizmos.intersectMode
+PROPERTY tmGizmos.moveGizmoRelativeSize
+PROPERTY tmGizmos.perpsectiveSensitivity
+PROPERTY tmGizmos.rotateGizmoRelativeSize
+PROPERTY tmGizmos.rotationIncrement
+PROPERTY tmGizmos.scaleGizmoRelativeSize
+PROPERTY tmGizmos.ShowMultipleTransformGizmos
+PROPERTY ViewportSSB.AreaShadow
+PROPERTY ViewportSSB.ShadowMapSize
+PROPERTY ViewportSSB.TransAreaShadow
+
+# METHOD
+METHOD AnimLayerManager.addLayer
+METHOD AnimLayerManager.addLayerDlg
+METHOD AnimLayerManager.animLayerPropertiesDlg
+METHOD AnimLayerManager.canEnableLayer
+METHOD AnimLayerManager.collapseLayerNodes
+METHOD AnimLayerManager.copyLayerNodes
+METHOD AnimLayerManager.deleteLayer
+METHOD AnimLayerManager.deleteLayerNodes
+METHOD AnimLayerManager.disableLayerNodes
+METHOD AnimLayerManager.enableLayer
+METHOD AnimLayerManager.enableLayers
+METHOD AnimLayerManager.enableLayersDlg
+METHOD AnimLayerManager.getActiveLayersNodes
+METHOD AnimLayerManager.GetCollapseControllerType
+METHOD AnimLayerManager.GetCollapsePerFrame
+METHOD AnimLayerManager.GetCollapsePerFrameActiveRange
+METHOD AnimLayerManager.GetCollapseRange
+METHOD AnimLayerManager.getLayerCount
+METHOD AnimLayerManager.getLayerLocked
+METHOD AnimLayerManager.getLayerMute
+METHOD AnimLayerManager.getLayerName
+METHOD AnimLayerManager.getLayerOutputMute
+METHOD AnimLayerManager.getLayerWeight
+METHOD AnimLayerManager.getNodesActiveLayer
+METHOD AnimLayerManager.getNodesLayers
+METHOD AnimLayerManager.pasteLayerNodes
+METHOD AnimLayerManager.SetCollapseControllerType
+METHOD AnimLayerManager.SetCollapsePerFrame
+METHOD AnimLayerManager.SetCollapsePerFrameActiveRange
+METHOD AnimLayerManager.SetCollapseRange
+METHOD AnimLayerManager.setLayerActive
+METHOD AnimLayerManager.setLayerActiveNodes
+METHOD AnimLayerManager.setLayerLocked
+METHOD AnimLayerManager.setLayerMute
+METHOD AnimLayerManager.setLayerName
+METHOD AnimLayerManager.setLayerOutputMute
+METHOD AnimLayerManager.setLayerWeight
+METHOD AnimLayerManager.showAnimLayersManagerToolbar
+METHOD apply.pressed
+METHOD ATSCustomDepsOps.AddFile
+METHOD ATSCustomDepsOps.GetFiles
+METHOD ATSCustomDepsOps.LaunchDialog
+METHOD ATSCustomDepsOps.NumFiles
+METHOD ATSCustomDepsOps.RemoveAll
+METHOD ATSCustomDepsOps.RemoveFileByIndex
+METHOD ATSCustomDepsOps.RemoveFileByName
+METHOD ATSCustomDepsOps.SetFile
+METHOD AttachCtrl.getKey
+METHOD Autodesk360.GetLoginUserName
+METHOD Autodesk360.GetOxygenID
+METHOD Autodesk360.InitializeWebServices
+METHOD Autodesk360.IsLoggedIn
+METHOD Autodesk360.IsLoginValid
+METHOD Autodesk360.Login
+METHOD Autodesk360.Logout
+METHOD AutodeskMaterialManager.CreateAutodeskMaterial
+METHOD AutodeskMaterialManager.CreateAutodeskTexmap
+METHOD AutodeskMaterialManager.GetCategoryCount
+METHOD AutodeskMaterialManager.GetCategoryUiName
+METHOD AutodeskMaterialManager.GetDefinitionCount
+METHOD AutodeskMaterialManager.GetDefinitionIdentifier
+METHOD AutodeskMaterialManager.GetDefinitionThumbnailURL
+METHOD AutodeskMaterialManager.GetDefinitionUiName
+METHOD b.baseobject
+METHOD b.name
+METHOD b.vertexTicks
+METHOD b.wirecolor
+METHOD batchRenderMgr.CreateView
+METHOD batchRenderMgr.DeleteView
+METHOD batchRenderMgr.DuplicateView
+METHOD batchRenderMgr.FindView
+METHOD batchRenderMgr.GetView
+METHOD batchRenderMgr.Render
+METHOD biped.setKey
+METHOD BipFilter.advAngSmoothing
+METHOD BipFilter.angBlurring
+METHOD BipFilter.angBoosting
+METHOD BipFilter.angSmoothing
+METHOD BipFilter.collapsePosSubAnim
+METHOD BipFilter.collapseRotSubAnim
+METHOD BipFilter.createPosSubAnim
+METHOD BipFilter.createRotSubAnim
+METHOD BipFilter.createScaleSubAnim
+METHOD BipFilter.DoKneeExtensionFilter
+METHOD BipFilter.DoKneeWobbleFilter
+METHOD BipFilter.enablePosSubAnim
+METHOD BipFilter.enableRotSubAnim
+METHOD BipFilter.enableScaleSubAnim
+METHOD BipFilter.keyPerFrame
+METHOD BipFilter.keyReduction
+METHOD BipFilter.posBlurring
+METHOD BipFilter.posBoosting
+METHOD BipFilter.posSmoothing
+METHOD BipFixer.DoAdvAngSmoothing
+METHOD BipFixer.DoAngBlurring
+METHOD BipFixer.DoAngSmoothing
+METHOD BipFixer.DoKneeExtensionFix
+METHOD BipFixer.DoKneeWobbleFix
+METHOD BipFixer.DoPosBlurring
+METHOD BipFixer.DoPosSmoothing
+METHOD BipFixer.DoRemoveKeys
+METHOD bit.get
+METHOD BitmapLayerManager.getLayerCount
+METHOD BitmapLayerManager.getLayerName
+METHOD BitmapLayerManager.LoadLayer
+METHOD BrushPresetMgr.AddPreset
+METHOD BrushPresetMgr.IsActive
+METHOD BrushPresetMgr.LoadPresetFile
+METHOD BrushPresetMgr.OpenPresetMgr
+METHOD BrushPresetMgr.SavePresetFile
+METHOD c.addNodeToContent
+METHOD callbacks.notificationParam
+METHOD cnt01.ReloadContainer
+METHOD cnt02.localDefinitionFilename
+METHOD cnt02.MakeUnique
+METHOD cnt02.SaveContainer
+METHOD cnt02.UnloadContainer
+METHOD cnt02.updateContainer
+METHOD colorMan.getColorSchemeType
+METHOD colorMan.getColorTheme
+METHOD colorMan.repaintUI
+METHOD colorMan.setColorSchemeType
+METHOD colorMan.setColorTheme
+METHOD colorMan.setIconColorInvert
+METHOD colorMan.useStandardWindowsColors
+METHOD Container001.GetStatusString
+METHOD Container001.MakeUnique
+METHOD Container001.UnloadContainer
+METHOD Containers.CreateContainer
+METHOD Containers.CreateInheritedContainer
+METHOD Containers.IsContainerNode
+METHOD Containers.IsInContainer
+METHOD controller.numVariables
+METHOD Controls.Add
+METHOD CreaseSetManager.CanSetCreaseColor
+METHOD CreaseSetManager.CanSetCreaseColorVisibility
+METHOD CreaseSetManager.CanSetCreaseContainerName
+METHOD CreaseSetManager.CanSetCreaseName
+METHOD CreaseSetManager.CanSetCreaseValue
+METHOD CreaseSetManager.createForm
+METHOD CreaseSetManager.createFormFromFile
+METHOD CreaseSetManager.GetCreaseColor
+METHOD CreaseSetManager.GetCreaseColorVisibility
+METHOD CreaseSetManager.GetCreaseContainerName
+METHOD CreaseSetManager.GetCreaseEntityCount
+METHOD CreaseSetManager.GetCreaseName
+METHOD CreaseSetManager.GetCreaseType
+METHOD CreaseSetManager.GetCreaseValue
+METHOD CreaseSetManager.GetNodelistAll
+METHOD CreaseSetManager.GetNodelistSingle
+METHOD CreaseSetManager.GetNumCreaseSets
+METHOD CreaseSetManager.GetValidity
+METHOD CreaseSetManager.SetCreaseColor
+METHOD CreaseSetManager.SetCreaseColorVisibility
+METHOD CreaseSetManager.SetCreaseContainerName
+METHOD CreaseSetManager.SetCreaseName
+METHOD CreaseSetManager.SetCreaseValue
+METHOD ctrl.PrintDetails
+METHOD DaylightSimulationUIOps.Refresh
+METHOD DaylightSimulationUtilities.ApplyDefaultRenderPreset
+METHOD DaylightSimulationUtilities.FindActiveLights
+METHOD DaylightSimulationUtilities.FindDaylightSystems
+METHOD DaylightSimulationUtilities.FindInactiveLights
+METHOD DaylightSimulationUtilities.FindInvalidLights
+METHOD DaylightSimulationUtilities.FindInvalidMaterials
+METHOD DaylightSimulationUtilities.FindLightsNotUsingRaytracedShadows
+METHOD DaylightSimulationUtilities.FindLightsUsingRaytracedShadows
+METHOD DaylightSimulationUtilities.FindLightsWithInvalidType
+METHOD DaylightSimulationUtilities.FindLightsWithShadowsOff
+METHOD DaylightSimulationUtilities.FindLightsWithShadowsOn
+METHOD DaylightSimulationUtilities.FindLightsWithValidType
+METHOD DaylightSimulationUtilities.FindRenderableObjects
+METHOD DaylightSimulationUtilities.FindValidLights
+METHOD DaylightSimulationUtilities.FixInvalidMaterials
+METHOD DaylightSimulationUtilities.GetLightAnalysisRenderEffectCount
+METHOD DaylightSimulationUtilities.Is32bitFrameBuffer
+METHOD DaylightSimulationUtilities.IsLightAnalysisRenderEffectActive
+METHOD DaylightSimulationUtilities.IsMentalRaySkyDaylightSystem
+METHOD DaylightSimulationUtilities.IsMentalRaySunDaylightSystem
+METHOD DaylightSimulationUtilities.IsRenderIterative
+METHOD DaylightSimulationUtilities.IsShadowCastingDaylightSystem
+METHOD DaylightSimulationUtilities.IsSkyOn
+METHOD DaylightSimulationUtilities.IsSunOn
+METHOD DaylightSimulationUtilities.IsValidRenderer
+METHOD DaylightSimulationUtilities.IsValidSkyMultiplier
+METHOD DaylightSimulationUtilities.IsValidSunMultiplier
+METHOD DaylightSimulationUtilities.LightAnalysisRenderEffectExists
+METHOD DaylightSimulationUtilities.OpenIndirectIlluminationRenderDialogPage
+METHOD DaylightSimulationUtilities.SetMentalRayAsProductionRenderer
+METHOD DaylightSimulationUtilities.SetRenderIterative
+METHOD DaylightSystemFactory2.Create
+METHOD dgc.collect
+METHOD DialogMonitorOPS.GetWindowHandle
+METHOD DialogMonitorOPS.RegisterNotification
+METHOD DialogMonitorOPS.ShowNotification
+METHOD DialogMonitorOPS.UnRegisterNotification
+METHOD disp.GetNPRParameterCount
+METHOD disp.GetNPRParameterInfo
+METHOD dotNet.LoadAssembly
+METHOD dotNet.showConstructors
+METHOD envEffectsDialog.Close
+METHOD envEffectsDialog.isOpen
+METHOD envEffectsDialog.Open
+METHOD EPolyManipGrip.GetManipulateGrip
+METHOD EPolyManipGrip.SetManipulateGrip
+METHOD ev.appendAction
+METHOD ev1.SetPViewLocation
+METHOD FacesOrientation.Check
+METHOD FacesOrientation.hasPropertyDlg
+METHOD FacesOrientation.showPropertyDlg
+METHOD file.ext
+METHOD FlippedUVWFaces.Check
+METHOD FlippedUVWFaces.hasPropertyDlg
+METHOD FlippedUVWFaces.showPropertyDlg
+METHOD foo.ffd_2x2x2
+METHOD FrameTagManager.CheckForLoop
+METHOD FrameTagManager.CreateNewTag
+METHOD FrameTagManager.DeleteTag
+METHOD FrameTagManager.FindItem
+METHOD FrameTagManager.FindItemByTime
+METHOD FrameTagManager.GetLockIDByID
+METHOD FrameTagManager.GetNameByID
+METHOD FrameTagManager.GetScaleByID
+METHOD FrameTagManager.GetTagCount
+METHOD FrameTagManager.GetTagID
+METHOD FrameTagManager.GetTimeByID
+METHOD FrameTagManager.ResetFrameTags
+METHOD FrameTagManager.SetLockIDByID
+METHOD FrameTagManager.SetNameByID
+METHOD FrameTagManager.SetScaleByID
+METHOD FrameTagManager.SetTimeByID
+METHOD frmOpenFileDialog.ShowDialog
+METHOD globalDXDisplayManager.isDXActive
+METHOD gw.getMaxLights
+METHOD gw.getViewportDib
+METHOD gw.setLight
+METHOD gw.setTransform
+METHOD gw.transPoint
+METHOD heightManager.customizeHeights
+METHOD heightManager.getCurrentHeightIndex
+METHOD heightManager.getHeight
+METHOD heightManager.getHeightString
+METHOD heightManager.getNumHeights
+METHOD heightManager.setCurrentHeightIndex
+METHOD hForm.ShowModeless
+METHOD iNodeBakeProperties.removeAllBakeElements
+METHOD iray_string_options.AddOption
+METHOD iray_string_options.GetOptionString
+METHOD iray_string_options.GetOptionValue
+METHOD iray_string_options.RemoveOption
+METHOD layer.isFrozen
+METHOD lc.getNumTargets
+METHOD le.addASec
+METHOD le.addRay
+METHOD le.addStreak
+METHOD LightMeterManager.calculateMeters
+METHOD LightMeterManager.getNthLightMeterHelper
+METHOD LightMeterManager.getNthLightMeterHelperNode
+METHOD LightMeterManager.getNumActiveLightMeterHelpers
+METHOD LightMeterManager.getNumLightMeterHelpers
+METHOD LightMeterManager.isCalculatingMeters
+METHOD LightMeterManager.outputActiveMetersToCSVFiles
+METHOD LoadSaveAnimation.createDefaultMapFile
+METHOD LoadSaveAnimation.createMapFile
+METHOD LoadSaveAnimation.createMapFileNodeAnim
+METHOD LoadSaveAnimation.createNodeAnimsForLoad
+METHOD LoadSaveAnimation.createNodeAnimsForMap
+METHOD LoadSaveAnimation.createNodeAnimsForSave
+METHOD LoadSaveAnimation.getAnimFileDirectory
+METHOD LoadSaveAnimation.getAnimFileExtension
+METHOD LoadSaveAnimation.getAnimMapFile
+METHOD LoadSaveAnimation.getAnimMapFileExtension
+METHOD LoadSaveAnimation.getUserAttributes
+METHOD LoadSaveAnimation.loadAnimation
+METHOD LoadSaveAnimation.loadAnimationDlg
+METHOD LoadSaveAnimation.loadAnimationDlgFromAnims
+METHOD LoadSaveAnimation.loadAnimationNodeAnim
+METHOD LoadSaveAnimation.makeRetargetData
+METHOD LoadSaveAnimation.replaceAttributesInMapFile
+METHOD LoadSaveAnimation.saveAnimation
+METHOD LoadSaveAnimation.saveAnimationDlg
+METHOD LoadSaveAnimation.saveAnimationDlgFromAnims
+METHOD LoadSaveAnimation.saveAnimationNodeAnim
+METHOD LoadSaveAnimation.setAnimFileDirectory
+METHOD LoadSaveAnimation.setAnimMapFile
+METHOD LoadSaveAnimation.setUpAnimsForLoad
+METHOD LoadSaveAnimation.setUpAnimsForMap
+METHOD LoadSaveAnimation.setUpAnimsForSave
+METHOD LuminosityUtil.illumination
+METHOD m.angle
+METHOD m.mapEnabled
+METHOD m.materialIDList
+METHOD m.names
+METHOD MatEditor.Open
+METHOD MaterialExplorerManager.CloseMaterialExplorer
+METHOD MaterialExplorerManager.LoadMaterialExplorerConfiguration
+METHOD MaterialExplorerManager.OpenMaterialExplorer
+METHOD MaterialExplorerManager.SaveMaterialExplorerConfiguration
+METHOD maxOps.beginProgressiveMode
+METHOD maxOps.canImportBitmap
+METHOD maxOps.CloneNodes
+METHOD maxOps.CollapseNode
+METHOD maxOps.CollapseNodeTo
+METHOD maxOps.colorById
+METHOD maxOps.deleteSelectedTrajectoryKey
+METHOD maxOps.displayActiveCameraViewWithMultiPassEffect
+METHOD maxOps.endProgressiveMode
+METHOD maxOps.findNodes
+METHOD maxOps.GetCurRenderElementMgr
+METHOD maxOps.GetRenderElementMgr
+METHOD maxops.getViewportShadingSettings
+METHOD maxOps.isFeatureLicensed
+METHOD maxOps.loadCUIFile
+METHOD maxOps.nameSuffixLength
+METHOD maxOps.rendUseIterative
+METHOD maxOps.setActiveViewportTransparencyDisplay
+METHOD medit.GetActiveMtlSlot
+METHOD medit.GetCurMtl
+METHOD medit.GetTopMtlSlot
+METHOD medit.OkMtlForScene
+METHOD medit.PutMtlToMtlEditor
+METHOD medit.SetActiveMtlSlot
+METHOD medit.UpdateMtlEditorBrackets
+METHOD memStreamMgr.openFile
+METHOD memStreamMgr.openString
+METHOD menuMan.createSubMenuItem
+METHOD menuMan.getMenu
+METHOD menuMan.getQuadMenu
+METHOD meshop.detachFaces
+METHOD meshop.getIsoVerts
+METHOD meshop.moveVert
+METHOD meshOps.Hide
+METHOD meshOps.startSlicePlane
+METHOD MicroPaint_CanvasRollout.startPainting3D
+METHOD MicroPaint_CanvasRollout.unwrapTexture
+METHOD modPanel.addModToSelection
+METHOD modPanel.getCurrentObject
+METHOD modPanel.setCurrentObject
+METHOD ms.eos
+METHOD ms.readToken
+METHOD Nitrous_NPR_Rollout.loadPreset
+METHOD Nitrous_NPR_Rollout.savePreset
+METHOD Nitrous_NPR_Rollout.updateRenderer
+METHOD Nitrous_NPR_Settings.GetNPRParameterCount
+METHOD NitrousGraphicsManager.ApplyViewportViewSettingToLegacyView
+METHOD NitrousGraphicsManager.BeginPartialUpdateCompareTest
+METHOD NitrousGraphicsManager.BeginPerformanceProfiling
+METHOD NitrousGraphicsManager.CreateDummyObjects
+METHOD NitrousGraphicsManager.DumpMemoryInfo
+METHOD NitrousGraphicsManager.DumpMemoryInfoToFile
+METHOD NitrousGraphicsManager.EndPartialUpdateCompareTest
+METHOD NitrousGraphicsManager.EndPerformanceProfiling
+METHOD NitrousGraphicsManager.ForceDisableMipMapGeneration
+METHOD NitrousGraphicsManager.GetActiveViewportSetting
+METHOD NitrousGraphicsManager.GetFixedViewportPipeline
+METHOD NitrousGraphicsManager.GetPartialUpdateCompareTestResult
+METHOD NitrousGraphicsManager.GetSystemMemoryUsed
+METHOD NitrousGraphicsManager.GetViewportSetting
+METHOD NitrousGraphicsManager.GetWorldSetting
+METHOD NitrousGraphicsManager.IsEnabled
+METHOD NitrousGraphicsManager.IsProgressiveRenderingFinished
+METHOD NitrousGraphicsManager.LoadViewGraph
+METHOD NitrousGraphicsManager.ProgressiveRendering
+METHOD NitrousGraphicsManager.RunMessageLoop
+METHOD NitrousGraphicsManager.SaveViewGraph
+METHOD NitrousGraphicsManager.SetAppWindowPos
+METHOD NitrousGraphicsManager.SetAppWindowSize
+METHOD NitrousGraphicsManager.SetBackgroundTextureSizeLimit
+METHOD NitrousGraphicsManager.SetProceduralTextureSizeLimit
+METHOD NitrousGraphicsManager.SetTextureSizeLimit
+METHOD NitrousGraphicsManager.UnloadViewGraph
+METHOD Nodes.add
+METHOD nodeSelectionSet.getDisplayPropState
+METHOD nodeSelectionSet.getRenderPropState
+METHOD nodeSelectionSet.setDisplayPropState
+METHOD nodeSelectionSet.setRenderPropState
+METHOD nvpx.BeforeAddPhysXActors
+METHOD nvpx.CaptureInitTransforms
+METHOD nvpx.CheckViewerState
+METHOD nvpx.CreateBoundingConvex
+METHOD nvpx.CreateBoundingShapeConvex
+METHOD nvpx.CreateDestruction
+METHOD nvpx.CreateViewer
+METHOD nvpx.DebugPrint
+METHOD nvpx.DumpContentCore
+METHOD nvpx.ExportPhysXProject
+METHOD nvpx.ExportPhysXProjectFile
+METHOD nvpx.FindSleepingActors
+METHOD nvpx.GetAnimationState
+METHOD nvpx.GetBakedFlag
+METHOD nvpx.GetBehaviorReason
+METHOD nvpx.GetExporterMode
+METHOD nvpx.GetGravity
+METHOD nvpx.GetInitialPose
+METHOD nvpx.GetPhysXPluginCount
+METHOD nvpx.GetPhysXPluginVersionBugFix
+METHOD nvpx.GetPhysXPluginVersionMajor
+METHOD nvpx.GetPhysXPluginVersionMinor
+METHOD nvpx.GetPhysXPluginVersionString
+METHOD nvpx.GetPhysXSDKVersionBugFix
+METHOD nvpx.GetPhysXSDKVersionMajor
+METHOD nvpx.GetPhysXSDKVersionMinor
+METHOD nvpx.GetPhysXSDKVersionString
+METHOD nvpx.GetPluginBuild
+METHOD nvpx.GetPluginCompanyName
+METHOD nvpx.GetScriptPath
+METHOD nvpx.GetSimulationState
+METHOD nvpx.GetViewerCommand
+METHOD nvpx.GetVirtualScreenX
+METHOD nvpx.GetVirtualScreenY
+METHOD nvpx.IsAutodeskVersion
+METHOD nvpx.MaterialGetId
+METHOD nvpx.ParseSkinInfo
+METHOD nvpx.PauseSimulation
+METHOD nvpx.PostCreateViewer
+METHOD nvpx.PreCreateViewer
+METHOD nvpx.PrepExportAPEXClothing
+METHOD nvpx.PrepExportAPEXDestruction
+METHOD nvpx.PrepExportPhysXScene
+METHOD nvpx.ProfilerDump
+METHOD nvpx.SelectFirstContact
+METHOD nvpx.SetAnimationState
+METHOD nvpx.SetBakedFlag
+METHOD nvpx.SetBehaviorReason
+METHOD nvpx.SetExporterMode
+METHOD nvpx.SetGravity
+METHOD nvpx.SetInitialPose
+METHOD nvpx.SetShapePerElement
+METHOD nvpx.SetViewerCommand
+METHOD nvpx.ShouldViewerSync
+METHOD nvpx.ShowAboutDialog
+METHOD nvpx.UpdateViewerPlayback
+METHOD nvpx.VisualizerGetPhysXParamCount
+METHOD obj.affect_region
+METHOD obj.scale
+METHOD obj2.pos
+METHOD paramPublishMgr.addParameterBySubNum
+METHOD paramPublishMgr.start
+METHOD particleFlow.beginEdit
+METHOD particleFlow.BeginEdit
+METHOD particleFlow.EndEdit
+METHOD particleFlow.endEdit
+METHOD particleFlow.openParticleView
+METHOD particleFlow.OpenParticleView
+METHOD ParticleFlow.openParticleView
+METHOD particleFlowUtility.cleanUpParticleFlow
+METHOD particleFlowUtility.presetManager
+METHOD particleFlowUtility.repairCacheSystem
+METHOD particleFlowUtility.resetParticleView
+METHOD particleFlowUtility.synchronizeLayers
+METHOD pc.appendTarget
+METHOD pc.deleteTarget
+METHOD pc.getNumTargets
+METHOD pc.path
+METHOD pCont.GetIntegrator
+METHOD pd.Print
+METHOD pf.getUpdateTime
+METHOD pf.numParticles
+METHOD pf.numParticlesGenerated
+METHOD pftParticleView.redraw
+METHOD pluginManager.loadClass
+METHOD pointCacheMan.GetUsedMemory
+METHOD PolyToolsPaintDeform.BrushOptions
+METHOD PolyToolsPaintDeform.Cancel
+METHOD PolyToolsPaintDeform.Commit
+METHOD PolyToolsPaintDeform.EndTool
+METHOD PolyToolsPaintDeform.Exaggerate
+METHOD PolyToolsPaintDeform.Flatten
+METHOD PolyToolsPaintDeform.Noise
+METHOD PolyToolsPaintDeform.PinchSpread
+METHOD PolyToolsPaintDeform.PushPull
+METHOD PolyToolsPaintDeform.RefreshNormals
+METHOD PolyToolsPaintDeform.RelaxSoften
+METHOD PolyToolsPaintDeform.Revert
+METHOD PolyToolsPaintDeform.Smudge
+METHOD PolyToolsTopology.Brick
+METHOD PolyToolsTopology.Chaos
+METHOD PolyToolsTopology.Cross
+METHOD PolyToolsTopology.EdgeDirection
+METHOD PolyToolsTopology.Floor1
+METHOD PolyToolsTopology.Floor2
+METHOD PolyToolsTopology.Fours
+METHOD PolyToolsTopology.Hive
+METHOD PolyToolsTopology.Holer
+METHOD PolyToolsTopology.Mosiac
+METHOD PolyToolsTopology.Planks1
+METHOD PolyToolsTopology.Planks2
+METHOD PolyToolsTopology.Planks3
+METHOD PolyToolsTopology.Planks4
+METHOD PolyToolsTopology.ScrapVerts
+METHOD PolyToolsTopology.Simplify
+METHOD PolyToolsTopology.Skin
+METHOD PolyToolsTopology.SmoothStar
+METHOD PolyToolsTopology.Tatter
+METHOD PolyToolsTopology.Tiles1
+METHOD PolyToolsTopology.Tiles2
+METHOD PolyToolsTopology.Wall
+METHOD printFont.GetHeight
+METHOD pv.name
+METHOD pv.Origin
+METHOD pv.Show_Particle_Count
+METHOD qat.add
+METHOD qat.delete
+METHOD qat.swap
+METHOD radiosity.AbortLightingStatistics
+METHOD radiosity.CanShowLightingStatistics
+METHOD radiosity.ShowLightingStatistics
+METHOD radiosity.Start
+METHOD radiosity.Stop
+METHOD rbmp.width
+METHOD rci.begin
+METHOD rci.end
+METHOD reactionMgr.openEditor
+METHOD refhierarchy.IsRefTargetInstanced
+METHOD renderers.ClearDraftRenderer
+METHOD renderers.GetDraftRenderer
+METHOD renderSceneDialog.cancel
+METHOD renderSceneDialog.close
+METHOD renderSceneDialog.commit
+METHOD renderSceneDialog.isOpen
+METHOD renderSceneDialog.open
+METHOD renderSceneDialog.update
+METHOD RetimerMan.AddToRetimer
+METHOD RetimerMan.ApplyGlobalRetimer
+METHOD RetimerMan.BakeAndDeleteLocalRetimers
+METHOD RetimerMan.BakeRetimers
+METHOD RetimerMan.CreateRetimer
+METHOD RetimerMan.DeleteRetimer
+METHOD RetimerMan.FindNodesDependentOnRetimer
+METHOD RetimerMan.GetActiveRetimerCtrl
+METHOD RetimerMan.GetGlobalRetimer
+METHOD RetimerMan.GetGlobalRetimerControl
+METHOD RetimerMan.GetNthRetimer
+METHOD RetimerMan.IsGlobalRetimerActive
+METHOD RetimerMan.RemoveGlobalRetimer
+METHOD RetimerMan.RemoveRetimers
+METHOD RetimerMan.SetUpRetimers
+METHOD rfTest.begin
+METHOD rfTest.end
+METHOD s3dexporter.analyze
+METHOD s3dexporter.authcheck
+METHOD s3dexporter.preview
+METHOD SceneEffectLoader.EnableSceneEffects
+METHOD SceneEffectLoader.GetNumberOfSceneEffects
+METHOD SceneEffectLoader.GetSceneEffect
+METHOD SceneEffectLoader.IsSceneEffectsEnabled
+METHOD SceneEffectLoader.LoadSceneEffect
+METHOD SceneEffectLoader.RemoveSceneEffect
+METHOD SceneEffectLoader.ResetEffects
+METHOD SceneExplorerManager.AddLocalizableProperty
+METHOD SceneExplorerManager.AddLocalizableReadOnlyProperty
+METHOD SceneExplorerManager.AddProperty
+METHOD SceneExplorerManager.AddReadOnlyProperty
+METHOD SceneExplorerManager.ClearAllExplorers
+METHOD SceneExplorerManager.CloseExplorer
+METHOD SceneExplorerManager.CloseManageInstancesDialog
+METHOD SceneExplorerManager.ConfigureExplorer
+METHOD SceneExplorerManager.CreateADefaultExplorer
+METHOD SceneExplorerManager.CreateExplorer
+METHOD SceneExplorerManager.CreateExplorerFromDefault
+METHOD SceneExplorerManager.DeleteExplorer
+METHOD SceneExplorerManager.ExplorerExists
+METHOD SceneExplorerManager.ExplorerIsOpen
+METHOD SceneExplorerManager.ExplorerPersistenceType
+METHOD SceneExplorerManager.GetExplorer
+METHOD SceneExplorerManager.GetExplorerCount
+METHOD SceneExplorerManager.GetExplorerName
+METHOD SceneExplorerManager.GetExplorerPosition
+METHOD SceneExplorerManager.GetExplorerSize
+METHOD SceneExplorerManager.IsExplorerInViewport
+METHOD SceneExplorerManager.LoadExplorerConfiguration
+METHOD SceneExplorerManager.OpenExplorer
+METHOD SceneExplorerManager.OpenManageInstancesDialog
+METHOD SceneExplorerManager.RemoveProperty
+METHOD SceneExplorerManager.RenameExplorer
+METHOD SceneExplorerManager.SaveExplorerConfiguration
+METHOD SceneExplorerManager.SetExplorerPosition
+METHOD SceneExplorerManager.SetExplorerSize
+METHOD SceneExplorerManager.SetExplorerVisibleColumns
+METHOD SceneMissingPlugIns.GetMissingPlugInClassName
+METHOD SceneMissingPlugIns.GetMissingPlugInCount
+METHOD SceneMissingPlugIns.GetMissingPlugInDescription
+METHOD SceneMissingPlugIns.GetMissingPlugInFileName
+METHOD simpleFaceManager.addChannel
+METHOD simpleFaceManager.getChannel
+METHOD SimpleFaceManager.getChannels
+METHOD simpleFaceManager.getChannels
+METHOD simpleFaceManager.removeChannel
+METHOD skinOps.bakeSelectedVerts
+METHOD skinOps.blendSelected
+METHOD skinOps.buttonAdd
+METHOD skinOps.buttonAddCrossSection
+METHOD skinOps.buttonAddGizmo
+METHOD skinOps.buttonCopyGizmo
+METHOD skinOps.buttonExclude
+METHOD skinOps.buttonInclude
+METHOD skinOps.buttonPaint
+METHOD skinOps.buttonPasteGizmo
+METHOD skinOps.buttonRemove
+METHOD skinOps.buttonRemoveCrossSection
+METHOD skinOps.buttonRemoveGizmo
+METHOD skinOps.buttonSelectExcluded
+METHOD skinOps.buttonWeightTable
+METHOD skinOps.closeWeightTable
+METHOD skinOps.closeWeightTool
+METHOD skinOps.copySelectedBone
+METHOD skinOps.copyWeights
+METHOD skinOps.enableGizmo
+METHOD skinOps.GetBoneIDByListID
+METHOD skinOps.GetBoneName
+METHOD skinOps.getBonePropEnvelopeVisible
+METHOD skinOps.getBonePropFalloff
+METHOD skinOps.getBonePropRelative
+METHOD skinOps.GetCrossSectionU
+METHOD skinOps.GetEndPoint
+METHOD skinOps.GetInnerRadius
+METHOD skinOps.GetListIDByBoneID
+METHOD skinOps.GetNumberBones
+METHOD skinOps.getNumberCrossSections
+METHOD skinOps.getNumberOfGizmos
+METHOD skinOps.getNumberOfGizmoTypes
+METHOD skinOps.GetNumberVertices
+METHOD skinOps.GetOuterRadius
+METHOD skinOps.GetSelectedBone
+METHOD skinOps.getSelectedBonePropEnvelopeVisible
+METHOD skinOps.getSelectedBonePropFalloff
+METHOD skinOps.getSelectedBonePropRelative
+METHOD skinOps.getSelectedCrossSectionIndex
+METHOD skinOps.getSelectedCrossSectionIsInner
+METHOD skinOps.getSelectedGizmo
+METHOD skinOps.getSelectedGizmoType
+METHOD skinOps.GetStartPoint
+METHOD skinOps.GetVertexWeight
+METHOD skinOps.GetVertexWeightBoneID
+METHOD skinOps.GetVertexWeightCount
+METHOD skinOps.growSelection
+METHOD skinOps.Invalidate
+METHOD skinOps.isBoneSelected
+METHOD skinOps.isRigidHandle
+METHOD skinOps.isRigidVertex
+METHOD skinOps.isUnNormalizeVertex
+METHOD skinOps.IsVertexModified
+METHOD skinOps.IsVertexSelected
+METHOD skinOps.isWeightTableOpen
+METHOD skinOps.isWeightToolOpen
+METHOD skinOps.loadEnvelope
+METHOD skinOps.loadEnvelopeAsASCII
+METHOD skinOps.loopSelection
+METHOD skinOps.multiRemove
+METHOD skinOps.paintOptionsButton
+METHOD skinOps.paintWeightsButton
+METHOD skinOps.pasteAllVerts
+METHOD skinOps.pasteToAllBones
+METHOD skinOps.pasteToBone
+METHOD skinOps.pasteToSelectedBone
+METHOD skinOps.pasteWeights
+METHOD skinOps.pasteWeightsByPos
+METHOD skinOps.removebone
+METHOD skinOps.RemoveCrossSection
+METHOD skinOps.RemoveZeroWeights
+METHOD skinOps.ReplaceVertexWeights
+METHOD skinOps.resetAllBones
+METHOD skinOps.resetSelectedBone
+METHOD skinOps.resetSelectedVerts
+METHOD skinOps.rigidHandle
+METHOD skinOps.rigidVertex
+METHOD skinOps.ringSelection
+METHOD skinOps.saveEnvelope
+METHOD skinOps.saveEnvelopeAsASCII
+METHOD skinOps.SelectBone
+METHOD skinOps.selectCrossSection
+METHOD skinOps.selectEndPoint
+METHOD skinOps.selectGizmo
+METHOD skinOps.selectGizmoType
+METHOD skinOps.selectNextBone
+METHOD skinOps.selectPreviousBone
+METHOD skinOps.selectStartPoint
+METHOD skinOps.SelectVertices
+METHOD skinOps.setBonePropEnvelopeVisible
+METHOD skinOps.setBonePropFalloff
+METHOD skinOps.setBonePropRelative
+METHOD skinOps.SetCrossSectionU
+METHOD skinOps.SetEndPoint
+METHOD skinOps.SetInnerRadius
+METHOD skinOps.SetOuterRadius
+METHOD skinOps.setSelectedBonePropEnvelopeVisible
+METHOD skinOps.setSelectedBonePropFalloff
+METHOD skinOps.setSelectedBonePropRelative
+METHOD skinOps.SetStartPoint
+METHOD skinOps.SetVertexWeights
+METHOD skinOps.SetWeight
+METHOD skinOps.shrinkSelection
+METHOD skinOps.unNormalizeVertex
+METHOD skinOps.voxelWeighting
+METHOD skinOps.WeightTool
+METHOD skinOps.ZoomToBone
+METHOD skinOps.ZoomToGizmo
+METHOD SteeringWheelsOps.ClearRewindHistory
+METHOD SteeringWheelsOps.DecreaseWalkSpeed
+METHOD SteeringWheelsOps.FullNavWheel
+METHOD SteeringWheelsOps.IncreaseWalkSpeed
+METHOD SteeringWheelsOps.LoadOptions
+METHOD SteeringWheelsOps.MiniFullNavWheel
+METHOD SteeringWheelsOps.MiniTourBuildingWheel
+METHOD SteeringWheelsOps.MiniViewObjectWheel
+METHOD SteeringWheelsOps.RestoreCenter
+METHOD SteeringWheelsOps.SaveOptions
+METHOD SteeringWheelsOps.StartSteeringWheelMode
+METHOD SteeringWheelsOps.StopSteeringWheelMode
+METHOD SteeringWheelsOps.TourBuildingWheel
+METHOD SteeringWheelsOps.ViewObjectWheel
+METHOD streamReader.Close
+METHOD streamReader.ReadLine
+METHOD tabbedDialogs.CancelDialog
+METHOD tabbedDialogs.CloseDialog
+METHOD tabbedDialogs.CommitPages
+METHOD tabbedDialogs.getCurrentPage
+METHOD tabbedDialogs.getDialogID
+METHOD tabbedDialogs.getNumPages
+METHOD tabbedDialogs.getPageID
+METHOD tabbedDialogs.getPageTitle
+METHOD tabbedDialogs.invalidate
+METHOD tabbedDialogs.invalidatePage
+METHOD tabbedDialogs.isOpen
+METHOD tabbedDialogs.isPage
+METHOD tabbedDialogs.OkToCommit
+METHOD tabbedDialogs.setCurrentPage
+METHOD theComp.add
+METHOD theInt.getSky
+METHOD theInt.getSun
+METHOD theInt.getValues
+METHOD theInt.name
+METHOD theInt.numfaces
+METHOD theObj.rotation
+METHOD thePainterInterface.clearStroke
+METHOD thePainterInterface.EndPaintSession
+METHOD thePainterInterface.InPaintMode
+METHOD thePainterInterface.startPaintSession
+METHOD thePainterInterface.undoAccept
+METHOD thePainterInterface.undoCancel
+METHOD thePainterInterface.undoStart
+METHOD timeSlider.isVisible
+METHOD timeSlider.setVisible
+METHOD VFB_Interface.InitLayout
+METHOD ViewPanelManager.CanCreateMoreViewPanels
+METHOD ViewPanelManager.CreatePresetFromActiveViewPanel
+METHOD ViewPanelManager.CreatePresetFromViewPanel
+METHOD ViewPanelManager.CreateViewPanel
+METHOD ViewPanelManager.CreateViewPanelFromPreset
+METHOD ViewPanelManager.DeleteAllViewPanelPresets
+METHOD ViewPanelManager.DeletePreset
+METHOD ViewPanelManager.DestroyViewPanel
+METHOD ViewPanelManager.DoesViewPanelPresetExist
+METHOD ViewPanelManager.GetActiveViewPanelDib
+METHOD ViewPanelManager.GetActiveViewPanelIndex
+METHOD ViewPanelManager.GetPresetCount
+METHOD ViewPanelManager.GetPresetID
+METHOD ViewPanelManager.GetPresetName
+METHOD ViewPanelManager.GetViewPanelCount
+METHOD ViewPanelManager.GetViewPanelName
+METHOD ViewPanelManager.GetViewPanelPresetLayout
+METHOD ViewPanelManager.IsViewPanelLocked
+METHOD ViewPanelManager.RenameViewPanelPreset
+METHOD ViewPanelManager.SetActiveViewPanel
+METHOD ViewPanelManager.SetExtendedView
+METHOD ViewPanelManager.SetSplitterBarPos
+METHOD ViewPanelManager.SetViewPanelName
+METHOD viewport.getTM
+METHOD ViewportSSB.GetVideoMemoryUsed
+METHOD visualMS.CreateForm
+METHOD visualMS.createForm
+METHOD visualMS.createFormFromFile
+METHOD vms.Open
+METHOD vss.ActivateViewportShading
+METHOD walkThroughOps.level
+METHOD walkThroughOps.resetStepSize
+METHOD walkThroughOps.start
+METHOD walkThroughOps.stop
+METHOD XViewChecker.displayResults
+
+# MAX_COMMAND
+MAX_COMMAND max accel pan
+MAX_COMMAND max acthomegrid max activate home grid
+MAX_COMMAND max activate grid object
+MAX_COMMAND max adaptive persp grid max adaptive perspective grid toggle
+MAX_COMMAND max align
+MAX_COMMAND max align camera
+MAX_COMMAND max align normals max alignnormals
+MAX_COMMAND max angle snap toggle
+MAX_COMMAND max apply ik
+MAX_COMMAND max array
+MAX_COMMAND max backface max backface cull toggle
+MAX_COMMAND max background max background display toggle
+MAX_COMMAND max bind space warp mode max bindwsm
+MAX_COMMAND max box mode max box mode selected
+MAX_COMMAND max box mode toggle max box toggle
+MAX_COMMAND max configure paths
+MAX_COMMAND max create mode
+MAX_COMMAND max customize UI
+MAX_COMMAND max cycle select
+MAX_COMMAND max cycle sublevel max cycle subobject level
+MAX_COMMAND max default lighting toggle max def lgt toggle
+MAX_COMMAND max delete
+MAX_COMMAND max display floater
+MAX_COMMAND max display mode
+MAX_COMMAND max dolly max dolly mode
+MAX_COMMAND max drawingaids max drawing aids
+MAX_COMMAND max fetch
+MAX_COMMAND max file archive
+MAX_COMMAND max file export selected
+MAX_COMMAND max file import
+MAX_COMMAND max file insert tracks
+MAX_COMMAND max file merge
+MAX_COMMAND max file new
+MAX_COMMAND max file open
+MAX_COMMAND max file open max unhide all max hold max time play
+MAX_COMMAND max file preferences
+MAX_COMMAND max file preferences gamma
+MAX_COMMAND max file replace
+MAX_COMMAND max file save
+MAX_COMMAND max file saveas
+MAX_COMMAND max file xref object
+MAX_COMMAND max file xref scene
+MAX_COMMAND max fov
+MAX_COMMAND max freeze inv
+MAX_COMMAND max freeze selection
+MAX_COMMAND max fullinteract
+MAX_COMMAND max grid nudge down
+MAX_COMMAND max grid nudge up
+MAX_COMMAND max grid toggle
+MAX_COMMAND max grids align
+MAX_COMMAND max group attach
+MAX_COMMAND max group close
+MAX_COMMAND max group detach
+MAX_COMMAND max group group
+MAX_COMMAND max group open
+MAX_COMMAND max group ungroup
+MAX_COMMAND max help about
+MAX_COMMAND max hide camera toggle
+MAX_COMMAND max hide command panel toggle
+MAX_COMMAND max hide floating toolbars toggle
+MAX_COMMAND max hide helper toggle
+MAX_COMMAND max hide inv
+MAX_COMMAND max hide light toggle
+MAX_COMMAND max hide main toolbar toggle
+MAX_COMMAND max hide object toggle
+MAX_COMMAND max hide selection
+MAX_COMMAND max hide shape toggle
+MAX_COMMAND max hide system toggle
+MAX_COMMAND max hide tab panel toggle
+MAX_COMMAND max hide wsm toggle
+MAX_COMMAND max hierarchy mode
+MAX_COMMAND max hold
+MAX_COMMAND max ik terminator
+MAX_COMMAND max ipan
+MAX_COMMAND max izoom in
+MAX_COMMAND max izoom out
+MAX_COMMAND max key mode
+MAX_COMMAND max link
+MAX_COMMAND max load custom UI
+MAX_COMMAND max lock UI layout
+MAX_COMMAND max material browser
+MAX_COMMAND max mirror
+MAX_COMMAND max modify mode
+MAX_COMMAND max motion mode
+MAX_COMMAND max move
+MAX_COMMAND max mtledit
+MAX_COMMAND max next mod
+MAX_COMMAND max override
+MAX_COMMAND max pancamera
+MAX_COMMAND max panview
+MAX_COMMAND max persp
+MAX_COMMAND max prev mod
+MAX_COMMAND max preview
+MAX_COMMAND max properties
+MAX_COMMAND max quick render
+MAX_COMMAND max redo
+MAX_COMMAND max renamepreview
+MAX_COMMAND max render last
+MAX_COMMAND max render scene
+MAX_COMMAND max reset file
+MAX_COMMAND max revert custom UI
+MAX_COMMAND max rns
+MAX_COMMAND max roll
+MAX_COMMAND max rotate
+MAX_COMMAND max rotateview
+MAX_COMMAND max safeframe toggle
+MAX_COMMAND max save custom UI as
+MAX_COMMAND max saveplus
+MAX_COMMAND max scale
+MAX_COMMAND max scale cycle
+MAX_COMMAND max select
+MAX_COMMAND max select all
+MAX_COMMAND max select by color
+MAX_COMMAND max select child
+MAX_COMMAND max select invert
+MAX_COMMAND max select none
+MAX_COMMAND max select parent
+MAX_COMMAND max selection floater
+MAX_COMMAND max set key all position
+MAX_COMMAND max set key all postion rotation and scale
+MAX_COMMAND max set key all rotation
+MAX_COMMAND max set key all scale
+MAX_COMMAND max set key all x postion
+MAX_COMMAND max set key all x rotation
+MAX_COMMAND max set key all x scale
+MAX_COMMAND max set key all y postion
+MAX_COMMAND max set key all y rotation
+MAX_COMMAND max set key all y scale
+MAX_COMMAND max set key all z postion
+MAX_COMMAND max set key all z rotation
+MAX_COMMAND max set key all z scale
+MAX_COMMAND max set key clear
+MAX_COMMAND max set key customattributes filter
+MAX_COMMAND max set key ikparams filter
+MAX_COMMAND max set key keys
+MAX_COMMAND max set key materials filter
+MAX_COMMAND max set key mode
+MAX_COMMAND max set key modifiers filter
+MAX_COMMAND max set key objectparams filter
+MAX_COMMAND max set key on selected
+MAX_COMMAND max set key position filter
+MAX_COMMAND max set key rotation filter
+MAX_COMMAND max set key scale filter
+MAX_COMMAND max shade selected
+MAX_COMMAND max show last img
+MAX_COMMAND max show vfb
+MAX_COMMAND max showaxisicon
+MAX_COMMAND max showhomegrid
+MAX_COMMAND max snap toggle
+MAX_COMMAND max spacebar
+MAX_COMMAND max spacing tool
+MAX_COMMAND max spinsnap toggle
+MAX_COMMAND max subobject sel
+MAX_COMMAND max swap layouts
+MAX_COMMAND max texture correct
+MAX_COMMAND max time back
+MAX_COMMAND max time config
+MAX_COMMAND max time end
+MAX_COMMAND max time forward
+MAX_COMMAND max time play
+MAX_COMMAND max time start
+MAX_COMMAND max toggle ik
+MAX_COMMAND max toggle key mode
+MAX_COMMAND max toggle keyboard shortcuts
+MAX_COMMAND max toggle sound
+MAX_COMMAND max tool animmode
+MAX_COMMAND max tool center
+MAX_COMMAND max tool dualplanes
+MAX_COMMAND max tool hlist
+MAX_COMMAND max tool maximize
+MAX_COMMAND max tool x
+MAX_COMMAND max tool xy
+MAX_COMMAND max tool y
+MAX_COMMAND max tool z
+MAX_COMMAND max tool zoom
+MAX_COMMAND max tool zoomall
+MAX_COMMAND max tool zoomextents
+MAX_COMMAND max tool zoomextents all
+MAX_COMMAND max tool zoomregion
+MAX_COMMAND max trajectories
+MAX_COMMAND max treeview
+MAX_COMMAND max truck
+MAX_COMMAND max tti
+MAX_COMMAND max undo
+MAX_COMMAND max unfreeze all
+MAX_COMMAND max unfreeze by hit
+MAX_COMMAND max unfreeze by name
+MAX_COMMAND max unhide all
+MAX_COMMAND max unhide by name
+MAX_COMMAND max unitsetup
+MAX_COMMAND max unlink
+MAX_COMMAND max utility mode
+MAX_COMMAND max videopost
+MAX_COMMAND max view file
+MAX_COMMAND max view redo
+MAX_COMMAND max viewpreview
+MAX_COMMAND max views redraw
+MAX_COMMAND max views undo
+MAX_COMMAND max vpt back
+MAX_COMMAND max vpt bottom
+MAX_COMMAND max vpt camera
+MAX_COMMAND max vpt disable
+MAX_COMMAND max vpt front
+MAX_COMMAND max vpt grid
+MAX_COMMAND max vpt iso user
+MAX_COMMAND max vpt left
+MAX_COMMAND max vpt persp user
+MAX_COMMAND max vpt right
+MAX_COMMAND max vpt shape
+MAX_COMMAND max vpt spot
+MAX_COMMAND max vpt tab
+MAX_COMMAND max vpt top
+MAX_COMMAND max vpt track
+MAX_COMMAND max vptconfig
+MAX_COMMAND max wire facet
+MAX_COMMAND max wire smooth
+MAX_COMMAND max zoom in 2x
+MAX_COMMAND max zoom in 2x all
+MAX_COMMAND max zoom out 2x
+MAX_COMMAND max zoom out 2x all
+MAX_COMMAND max zoomext sel
+MAX_COMMAND max zoomext sel all
+
+# MXS_FUNCTION
+MXS_FUNCTION apropos
+MXS_FUNCTION getClassInstances
+MXS_FUNCTION getObjectName
+MXS_FUNCTION getProperty
+MXS_FUNCTION getPropNames
+MXS_FUNCTION hasProperty
+MXS_FUNCTION setProperty
+MXS_FUNCTION showClass
+MXS_FUNCTION showInterfaces
+MXS_FUNCTION showMethods
+MXS_FUNCTION showProperties
+
+# RUNTIME_DISCOVERY
+RUNTIME_DISCOVERY showClass *:* -- list accessible classes by superclass
+RUNTIME_DISCOVERY showClass *.* -- list class properties
+RUNTIME_DISCOVERY showProperties <object> -- list properties for instance
+RUNTIME_DISCOVERY getPropNames <object_or_class> -- retrieve property names
+RUNTIME_DISCOVERY getClassInstances <class> -- list scene instances of class

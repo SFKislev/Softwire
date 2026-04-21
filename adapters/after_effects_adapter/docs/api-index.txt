@@ -1,0 +1,1693 @@
+# Adobe After Effects ExtendScript API Index (mechanically extracted, max available coverage)
+# Sources:
+# - https://github.com/docsforadobe/after-effects-scripting-guide
+# - https://ae-scripting.docsforadobe.dev/print_page/
+# - https://download.macromedia.com/pub/developer/aftereffects/scripting/After-Effects-CS6-Scripting-Guide.pdf
+# Extraction: deterministic parse of docs headings + full matchname table extraction + strict symbol regex from print/legacy docs
+# Extracted: 2026-04-21
+# Format: one symbol per line (CLASS, MATCHNAME, ENUM, PROPERTY, METHOD)
+
+# CLASSES
+CLASS Application
+CLASS AVItem
+CLASS AVLayer
+CLASS CameraLayer
+CLASS CharacterRange
+CLASS Collection
+CLASS CompItem
+CLASS ComposedLineRange
+CLASS FileSource
+CLASS FolderItem
+CLASS Font
+CLASS Fonts
+CLASS FootageItem
+CLASS FootageSource
+CLASS Global functions
+CLASS ImportOptions
+CLASS Item
+CLASS ItemCollection
+CLASS KeyframeEase
+CLASS Layer
+CLASS LayerCollection
+CLASS LightLayer
+CLASS MarkerValue
+CLASS MaskPropertyGroup
+CLASS OMCollection
+CLASS OutputModule
+CLASS ParagraphRange
+CLASS PlaceholderSource
+CLASS Preferences
+CLASS Project
+CLASS Property
+CLASS PropertyBase
+CLASS PropertyGroup
+CLASS RenderQueue
+CLASS RenderQueueItem
+CLASS RQItemCollection
+CLASS Settings
+CLASS Shape
+CLASS ShapeLayer
+CLASS SolidSource
+CLASS System
+CLASS TextDocument
+CLASS TextLayer
+CLASS ThreeDModelLayer
+CLASS View
+CLASS Viewer
+CLASS ViewOptions
+
+# MATCHNAMES
+MATCHNAME ADBE 3D Glasses
+MATCHNAME ADBE 3D Glasses2
+MATCHNAME ADBE 3D Tracker
+MATCHNAME ADBE 3DText Back Ambient
+MATCHNAME ADBE 3DText Back Bright
+MATCHNAME ADBE 3DText Back Diffuse
+MATCHNAME ADBE 3DText Back Fresnel
+MATCHNAME ADBE 3DText Back Gloss
+MATCHNAME ADBE 3DText Back Hue
+MATCHNAME ADBE 3DText Back IOR
+MATCHNAME ADBE 3DText Back Metal
+MATCHNAME ADBE 3DText Back Opacity
+MATCHNAME ADBE 3DText Back Reflection
+MATCHNAME ADBE 3DText Back RGB
+MATCHNAME ADBE 3DText Back Sat
+MATCHNAME ADBE 3DText Back Shininess
+MATCHNAME ADBE 3DText Back Specular
+MATCHNAME ADBE 3DText Back Xparency
+MATCHNAME ADBE 3DText Back XparRoll
+MATCHNAME ADBE 3DText Bevel Ambient
+MATCHNAME ADBE 3DText Bevel Bright
+MATCHNAME ADBE 3DText Bevel Depth
+MATCHNAME ADBE 3DText Bevel Diffuse
+MATCHNAME ADBE 3DText Bevel Fresnel
+MATCHNAME ADBE 3DText Bevel Gloss
+MATCHNAME ADBE 3DText Bevel Hue
+MATCHNAME ADBE 3DText Bevel IOR
+MATCHNAME ADBE 3DText Bevel Metal
+MATCHNAME ADBE 3DText Bevel Opacity
+MATCHNAME ADBE 3DText Bevel Reflection
+MATCHNAME ADBE 3DText Bevel RGB
+MATCHNAME ADBE 3DText Bevel Sat
+MATCHNAME ADBE 3DText Bevel Shininess
+MATCHNAME ADBE 3DText Bevel Specular
+MATCHNAME ADBE 3DText Bevel Xparency
+MATCHNAME ADBE 3DText Bevel XparRoll
+MATCHNAME ADBE 3DText Extrude Depth
+MATCHNAME ADBE 3DText Front Ambient
+MATCHNAME ADBE 3DText Front Bright
+MATCHNAME ADBE 3DText Front Diffuse
+MATCHNAME ADBE 3DText Front Fresnel
+MATCHNAME ADBE 3DText Front Gloss
+MATCHNAME ADBE 3DText Front Hue
+MATCHNAME ADBE 3DText Front IOR
+MATCHNAME ADBE 3DText Front Metal
+MATCHNAME ADBE 3DText Front Opacity
+MATCHNAME ADBE 3DText Front Reflection
+MATCHNAME ADBE 3DText Front RGB
+MATCHNAME ADBE 3DText Front Sat
+MATCHNAME ADBE 3DText Front Shininess
+MATCHNAME ADBE 3DText Front Specular
+MATCHNAME ADBE 3DText Front Xparency
+MATCHNAME ADBE 3DText Front XparRoll
+MATCHNAME ADBE 3DText Side Ambient
+MATCHNAME ADBE 3DText Side Bright
+MATCHNAME ADBE 3DText Side Diffuse
+MATCHNAME ADBE 3DText Side Fresnel
+MATCHNAME ADBE 3DText Side Gloss
+MATCHNAME ADBE 3DText Side Hue
+MATCHNAME ADBE 3DText Side IOR
+MATCHNAME ADBE 3DText Side Metal
+MATCHNAME ADBE 3DText Side Opacity
+MATCHNAME ADBE 3DText Side Reflection
+MATCHNAME ADBE 3DText Side RGB
+MATCHNAME ADBE 3DText Side Sat
+MATCHNAME ADBE 3DText Side Shininess
+MATCHNAME ADBE 3DText Side Specular
+MATCHNAME ADBE 3DText Side Xparency
+MATCHNAME ADBE 3DText Side XparRoll
+MATCHNAME ADBE 4ColorGradient
+MATCHNAME ADBE Adv Blend Group
+MATCHNAME ADBE AIF Perlin Noise 3D
+MATCHNAME ADBE Alpha Levels2
+MATCHNAME ADBE Alpha Levels3
+MATCHNAME ADBE Ambient Coefficient
+MATCHNAME ADBE Anchor Point
+MATCHNAME ADBE Angle Control
+MATCHNAME ADBE Apply Color LUT
+MATCHNAME ADBE Apply Color LUT2
+MATCHNAME ADBE Arithmetic
+MATCHNAME ADBE ATG Extract
+MATCHNAME ADBE Aud BT
+MATCHNAME ADBE Aud Delay
+MATCHNAME ADBE Aud HiLo
+MATCHNAME ADBE Aud Modulator
+MATCHNAME ADBE Aud Reverb
+MATCHNAME ADBE Aud Reverse
+MATCHNAME ADBE Aud Stereo Mixer
+MATCHNAME ADBE Aud Tone
+MATCHNAME ADBE Aud_Flange
+MATCHNAME ADBE Audio Group
+MATCHNAME ADBE Audio Levels
+MATCHNAME ADBE AudSpect
+MATCHNAME ADBE AudWave
+MATCHNAME ADBE AutoColor
+MATCHNAME ADBE AutoContrast
+MATCHNAME ADBE AutoLevels
+MATCHNAME ADBE AUX CHANNEL EXTRACT
+MATCHNAME ADBE AV Layer
+MATCHNAME ADBE B Channel Blend
+MATCHNAME ADBE Basic 3D
+MATCHNAME ADBE Basic Text2
+MATCHNAME ADBE Bevel Alpha
+MATCHNAME ADBE Bevel Depth
+MATCHNAME ADBE Bevel Edges
+MATCHNAME ADBE BEZMESH
+MATCHNAME ADBE Bilateral
+MATCHNAME ADBE Black&White
+MATCHNAME ADBE Blend
+MATCHNAME ADBE Blend Interior
+MATCHNAME ADBE Blend Options Group
+MATCHNAME ADBE Blend Ranges
+MATCHNAME ADBE Block Dissolve
+MATCHNAME ADBE Box Blur
+MATCHNAME ADBE Box Blur2
+MATCHNAME ADBE Brightness & Contrast
+MATCHNAME ADBE Brightness & Contrast 2
+MATCHNAME ADBE Broadcast Colors
+MATCHNAME ADBE Brush Strokes
+MATCHNAME ADBE Bulge
+MATCHNAME ADBE Calculations
+MATCHNAME ADBE Camera Aperture
+MATCHNAME ADBE Camera Blur Level
+MATCHNAME ADBE Camera Depth of Field
+MATCHNAME ADBE Camera Focus Distance
+MATCHNAME ADBE Camera Layer
+MATCHNAME ADBE Camera Lens Blur
+MATCHNAME ADBE Camera Options Group
+MATCHNAME ADBE Camera Zoom
+MATCHNAME ADBE CameraShakeDeblur
+MATCHNAME ADBE Cartoonify
+MATCHNAME ADBE Cell Pattern
+MATCHNAME ADBE Change Color
+MATCHNAME ADBE Change To Color
+MATCHNAME ADBE Channel Blur
+MATCHNAME ADBE Channel Combiner
+MATCHNAME ADBE CHANNEL MIXER
+MATCHNAME ADBE Checkbox Control
+MATCHNAME ADBE Checkerboard
+MATCHNAME ADBE Cineon Converter
+MATCHNAME ADBE Cineon Converter2
+MATCHNAME ADBE Circle
+MATCHNAME ADBE Color Balance
+MATCHNAME ADBE Color Balance (HLS)
+MATCHNAME ADBE Color Balance 2
+MATCHNAME ADBE Color Control
+MATCHNAME ADBE Color Difference Key
+MATCHNAME ADBE Color Emboss
+MATCHNAME ADBE Color Key
+MATCHNAME ADBE Color Link
+MATCHNAME ADBE Color Range
+MATCHNAME ADBE Compander
+MATCHNAME ADBE Compound Arithmetic
+MATCHNAME ADBE Compound Blur
+MATCHNAME ADBE Corner Pin
+MATCHNAME ADBE CurvesCustom
+MATCHNAME ADBE Deflicker
+MATCHNAME ADBE DEPTH FIELD
+MATCHNAME ADBE DEPTH MATTE
+MATCHNAME ADBE Difference
+MATCHNAME ADBE Difference Matte2
+MATCHNAME ADBE Diffuse Coefficient
+MATCHNAME ADBE Displacement Map
+MATCHNAME ADBE Drop Shadow
+MATCHNAME ADBE Dropdown Control
+MATCHNAME ADBE Dust & Scratches
+MATCHNAME ADBE Easy Levels
+MATCHNAME ADBE Easy Levels2
+MATCHNAME ADBE Echo
+MATCHNAME ADBE Effect Parade
+MATCHNAME ADBE ELLIPSE
+MATCHNAME ADBE Emboss
+MATCHNAME ADBE Equalize
+MATCHNAME ADBE Exposure
+MATCHNAME ADBE Exposure2
+MATCHNAME ADBE Extract
+MATCHNAME ADBE Extrsn Depth
+MATCHNAME ADBE Extrsn Options Group
+MATCHNAME ADBE Eyedropper Fill
+MATCHNAME ADBE Fast Blur
+MATCHNAME ADBE Fill
+MATCHNAME ADBE Find Edges
+MATCHNAME ADBE FOG_3D
+MATCHNAME ADBE Fractal
+MATCHNAME ADBE Fractal Noise
+MATCHNAME ADBE FreePin3
+MATCHNAME ADBE Fresnel Coefficient
+MATCHNAME ADBE G Channel Blend
+MATCHNAME ADBE Gamma/Pedestal/Gain2
+MATCHNAME ADBE Gaussian Blur
+MATCHNAME ADBE Gaussian Blur 2
+MATCHNAME ADBE Geometry
+MATCHNAME ADBE Geometry2
+MATCHNAME ADBE Glo2
+MATCHNAME ADBE Global Altitude2
+MATCHNAME ADBE Global Angle2
+MATCHNAME ADBE Glossiness Coefficient
+MATCHNAME ADBE Gradient Wipe
+MATCHNAME ADBE Grid
+MATCHNAME ADBE GROW BOUNDS
+MATCHNAME ADBE HDR ToneMap
+MATCHNAME ADBE Hole Bevel Depth
+MATCHNAME ADBE HUE SATURATION
+MATCHNAME ADBE ID MATTE
+MATCHNAME ADBE Index of Refraction
+MATCHNAME ADBE Invert
+MATCHNAME ADBE Iris Aspect Ratio
+MATCHNAME ADBE Iris Diffraction Fringe
+MATCHNAME ADBE Iris Highlight Gain
+MATCHNAME ADBE Iris Highlight Threshold
+MATCHNAME ADBE Iris Hightlight Saturation
+MATCHNAME ADBE Iris Rotation
+MATCHNAME ADBE Iris Roundness
+MATCHNAME ADBE Iris Shape
+MATCHNAME ADBE IRIS_WIPE
+MATCHNAME ADBE KeyCleaner
+MATCHNAME ADBE Laser
+MATCHNAME ADBE Layer Control
+MATCHNAME ADBE Layer Fill Opacity2
+MATCHNAME ADBE Layer Overrides
+MATCHNAME ADBE Layer Source Alternate
+MATCHNAME ADBE Leave Color
+MATCHNAME ADBE Lens Flare
+MATCHNAME ADBE Light Color
+MATCHNAME ADBE Light Cone Angle
+MATCHNAME ADBE Light Cone Feather 2
+MATCHNAME ADBE Light Falloff Distance
+MATCHNAME ADBE Light Falloff Start
+MATCHNAME ADBE Light Falloff Type
+MATCHNAME ADBE Light Intensity
+MATCHNAME ADBE Light Layer
+MATCHNAME ADBE Light Options Group
+MATCHNAME ADBE Light Shadow Darkness
+MATCHNAME ADBE Light Shadow Diffusion
+MATCHNAME ADBE Light Transmission
+MATCHNAME ADBE Lightning
+MATCHNAME ADBE Lightning 2
+MATCHNAME ADBE Linear Color Key2
+MATCHNAME ADBE Linear Wipe
+MATCHNAME ADBE LIQUIFY
+MATCHNAME ADBE Luma Key
+MATCHNAME ADBE Lumetri
+MATCHNAME ADBE Magnify
+MATCHNAME ADBE Marker
+MATCHNAME ADBE Mask Parade
+MATCHNAME ADBE Material Options Group
+MATCHNAME ADBE Matte Choker
+MATCHNAME ADBE Median
+MATCHNAME ADBE MESH WARP
+MATCHNAME ADBE Metal Coefficient
+MATCHNAME ADBE Minimax
+MATCHNAME ADBE Mirror
+MATCHNAME ADBE Mosaic
+MATCHNAME ADBE Motion Blur
+MATCHNAME ADBE MTrackers
+MATCHNAME ADBE Noise
+MATCHNAME ADBE Noise Alpha
+MATCHNAME ADBE Noise Alpha2
+MATCHNAME ADBE Noise HLS
+MATCHNAME ADBE Noise HLS Auto
+MATCHNAME ADBE Noise HLS Auto2
+MATCHNAME ADBE Noise HLS2
+MATCHNAME ADBE Numbers2
+MATCHNAME ADBE Offset
+MATCHNAME ADBE OFMotionBlur
+MATCHNAME ADBE Opacity
+MATCHNAME ADBE Optics Compensation
+MATCHNAME ADBE Orientation
+MATCHNAME ADBE Paint
+MATCHNAME ADBE Paint Bucket
+MATCHNAME ADBE Param EQ
+MATCHNAME ADBE Path Text
+MATCHNAME ADBE Photo Filter
+MATCHNAME ADBE PhotoFilterPS
+MATCHNAME ADBE Plane Curvature
+MATCHNAME ADBE Plane Options Group
+MATCHNAME ADBE Plane Subdivision
+MATCHNAME ADBE Playgnd
+MATCHNAME ADBE Point Control
+MATCHNAME ADBE Point3D Control
+MATCHNAME ADBE Polar Coordinates
+MATCHNAME ADBE Position
+MATCHNAME ADBE Position_0
+MATCHNAME ADBE Position_1
+MATCHNAME ADBE Position_2
+MATCHNAME ADBE Posterize
+MATCHNAME ADBE Posterize Time
+MATCHNAME ADBE Pro Levels
+MATCHNAME ADBE Pro Levels2
+MATCHNAME ADBE ProfileToProfile
+MATCHNAME ADBE PS Arbitrary Map
+MATCHNAME ADBE PSL Bevel Emboss
+MATCHNAME ADBE PSL Drop Shadow
+MATCHNAME ADBE PSL Inner Glow
+MATCHNAME ADBE PSL Inner Shadow
+MATCHNAME ADBE PSL Outer Glow
+MATCHNAME ADBE PSL Solid Fill
+MATCHNAME ADBE R Channel Blend
+MATCHNAME ADBE Radial Blur
+MATCHNAME ADBE Radial Shadow
+MATCHNAME ADBE Radial Wipe
+MATCHNAME ADBE Ramp
+MATCHNAME ADBE Reduce Interlace Flicker
+MATCHNAME ADBE RefineMatte
+MATCHNAME ADBE RefineMatte2
+MATCHNAME ADBE RefineRBMatte
+MATCHNAME ADBE Reflection Coefficient
+MATCHNAME ADBE Remove Color Matting
+MATCHNAME ADBE RESHAPE
+MATCHNAME ADBE Ripple
+MATCHNAME ADBE Rolling Shutter
+MATCHNAME ADBE Root Vectors Group
+MATCHNAME ADBE Rotate X
+MATCHNAME ADBE Rotate Y
+MATCHNAME ADBE Rotate Z
+MATCHNAME ADBE Roughen Edges
+MATCHNAME ADBE Samurai
+MATCHNAME ADBE Scale
+MATCHNAME ADBE Scatter
+MATCHNAME ADBE SCHMEAR
+MATCHNAME ADBE Scribble Fill
+MATCHNAME ADBE SelectiveColor
+MATCHNAME ADBE Set Channels
+MATCHNAME ADBE Set Matte2
+MATCHNAME ADBE Set Matte3
+MATCHNAME ADBE ShadowHighlight
+MATCHNAME ADBE Sharpen
+MATCHNAME ADBE Shift Channels
+MATCHNAME ADBE Shininess Coefficient
+MATCHNAME ADBE Simple Choker
+MATCHNAME ADBE Slider Control
+MATCHNAME ADBE Smart Blur
+MATCHNAME ADBE Solid Composite
+MATCHNAME ADBE Specular Coefficient
+MATCHNAME ADBE Spherize
+MATCHNAME ADBE Spill Suppressor
+MATCHNAME ADBE Spill2
+MATCHNAME ADBE Strobe
+MATCHNAME ADBE Stroke
+MATCHNAME ADBE SubspaceStabilizer
+MATCHNAME ADBE Text Anchor Point 3D
+MATCHNAME ADBE Text Anchor Point Align
+MATCHNAME ADBE Text Animator
+MATCHNAME ADBE Text Animator Properties
+MATCHNAME ADBE Text Animators
+MATCHNAME ADBE Text Blur
+MATCHNAME ADBE Text Character Offset
+MATCHNAME ADBE Text Character Replace
+MATCHNAME ADBE Text Document
+MATCHNAME ADBE Text Fill Brightness
+MATCHNAME ADBE Text Fill Color
+MATCHNAME ADBE Text Fill Hue
+MATCHNAME ADBE Text Fill Opacity
+MATCHNAME ADBE Text Fill Saturation
+MATCHNAME ADBE Text First Margin
+MATCHNAME ADBE Text Force Align Path
+MATCHNAME ADBE Text Index End
+MATCHNAME ADBE Text Index Offset
+MATCHNAME ADBE Text Index Start
+MATCHNAME ADBE Text Last Margin
+MATCHNAME ADBE Text Layer
+MATCHNAME ADBE Text Levels Max Ease
+MATCHNAME ADBE Text Levels Min Ease
+MATCHNAME ADBE Text Line Anchor
+MATCHNAME ADBE Text Line Spacing
+MATCHNAME ADBE Text More Options
+MATCHNAME ADBE Text Opacity
+MATCHNAME ADBE Text Path Options
+MATCHNAME ADBE Text Percent End
+MATCHNAME ADBE Text Percent Offset
+MATCHNAME ADBE Text Percent Start
+MATCHNAME ADBE Text Perpendicular To Path
+MATCHNAME ADBE Text Position 3D
+MATCHNAME ADBE Text Properties
+MATCHNAME ADBE Text Random Seed
+MATCHNAME ADBE Text Range Advanced
+MATCHNAME ADBE Text Range Units
+MATCHNAME ADBE Text Reverse Path
+MATCHNAME ADBE Text Rotation
+MATCHNAME ADBE Text Rotation X
+MATCHNAME ADBE Text Rotation Y
+MATCHNAME ADBE Text Scale 3D
+MATCHNAME ADBE Text Selector
+MATCHNAME ADBE Text Selector Max Amount
+MATCHNAME ADBE Text Selector Mode
+MATCHNAME ADBE Text Selector Smoothness
+MATCHNAME ADBE Text Selectors
+MATCHNAME ADBE Text Skew
+MATCHNAME ADBE Text Skew Axis
+MATCHNAME ADBE Text Stroke Brightness
+MATCHNAME ADBE Text Stroke Color
+MATCHNAME ADBE Text Stroke Hue
+MATCHNAME ADBE Text Stroke Opacity
+MATCHNAME ADBE Text Stroke Saturation
+MATCHNAME ADBE Text Stroke Width
+MATCHNAME ADBE Text Track Type
+MATCHNAME ADBE Text Tracking Amount
+MATCHNAME ADBE Text Variable Font Spacing
+MATCHNAME ADBE Texturize
+MATCHNAME ADBE Three-Way Color Corrector
+MATCHNAME ADBE Threshold
+MATCHNAME ADBE Threshold2
+MATCHNAME ADBE Tile
+MATCHNAME ADBE Time Displacement
+MATCHNAME ADBE Time Remapping
+MATCHNAME ADBE Timecode
+MATCHNAME ADBE Timewarp
+MATCHNAME ADBE Tint
+MATCHNAME ADBE Transform Group
+MATCHNAME ADBE Transp Rolloff
+MATCHNAME ADBE Transparency Coefficient
+MATCHNAME ADBE Tritone
+MATCHNAME ADBE Turbulent Displace
+MATCHNAME ADBE Twirl
+MATCHNAME ADBE Unsharp Mask
+MATCHNAME ADBE Unsharp Mask2
+MATCHNAME ADBE Upscale
+MATCHNAME ADBE Vector Anchor
+MATCHNAME ADBE Vector Blend Mode
+MATCHNAME ADBE Vector Composite Order
+MATCHNAME ADBE Vector Correlation
+MATCHNAME ADBE Vector Ellipse Position
+MATCHNAME ADBE Vector Ellipse Size
+MATCHNAME ADBE Vector Fill Color
+MATCHNAME ADBE Vector Fill Opacity
+MATCHNAME ADBE Vector Fill Rule
+MATCHNAME ADBE Vector Filter - Merge
+MATCHNAME ADBE Vector Filter - Offset
+MATCHNAME ADBE Vector Filter - PB
+MATCHNAME ADBE Vector Filter - RC
+MATCHNAME ADBE Vector Filter - Repeater
+MATCHNAME ADBE Vector Filter - Roughen
+MATCHNAME ADBE Vector Filter - Trim
+MATCHNAME ADBE Vector Filter - Twist
+MATCHNAME ADBE Vector Filter - Wiggler
+MATCHNAME ADBE Vector Filter - Zigzag
+MATCHNAME ADBE Vector Grad Colors
+MATCHNAME ADBE Vector Grad End Pt
+MATCHNAME ADBE Vector Grad HiLite Angle
+MATCHNAME ADBE Vector Grad HiLite Length
+MATCHNAME ADBE Vector Grad Start Pt
+MATCHNAME ADBE Vector Grad Type
+MATCHNAME ADBE Vector Graphic - Fill
+MATCHNAME ADBE Vector Graphic - G-Fill
+MATCHNAME ADBE Vector Graphic - G-Stroke
+MATCHNAME ADBE Vector Graphic - Stroke
+MATCHNAME ADBE Vector Group
+MATCHNAME ADBE Vector Group Opacity
+MATCHNAME ADBE Vector Layer
+MATCHNAME ADBE Vector Materials Group
+MATCHNAME ADBE Vector Merge Type
+MATCHNAME ADBE Vector Offset Amount
+MATCHNAME ADBE Vector Offset Copies
+MATCHNAME ADBE Vector Offset Copy Offset
+MATCHNAME ADBE Vector Offset Line Join
+MATCHNAME ADBE Vector Offset Miter Limit
+MATCHNAME ADBE Vector Paint
+MATCHNAME ADBE Vector Position
+MATCHNAME ADBE Vector PuckerBloat Amount
+MATCHNAME ADBE Vector Random Seed
+MATCHNAME ADBE Vector Rect Position
+MATCHNAME ADBE Vector Rect Roundness
+MATCHNAME ADBE Vector Rect Size
+MATCHNAME ADBE Vector Repeater Copies
+MATCHNAME ADBE Vector Repeater Offset
+MATCHNAME ADBE Vector Repeater Order
+MATCHNAME ADBE Vector Repeater Transform
+MATCHNAME ADBE Vector Rotation
+MATCHNAME ADBE Vector Roughen Detail
+MATCHNAME ADBE Vector Roughen Points
+MATCHNAME ADBE Vector Roughen Size
+MATCHNAME ADBE Vector RoundCorner Radius
+MATCHNAME ADBE Vector Scale
+MATCHNAME ADBE Vector Shape
+MATCHNAME ADBE Vector Shape - Ellipse
+MATCHNAME ADBE Vector Shape - Group
+MATCHNAME ADBE Vector Shape - Rect
+MATCHNAME ADBE Vector Shape - Star
+MATCHNAME ADBE Vector Shape Direction
+MATCHNAME ADBE Vector Skew
+MATCHNAME ADBE Vector Skew Axis
+MATCHNAME ADBE Vector Spatial Phase
+MATCHNAME ADBE Vector Star Inner Radius
+MATCHNAME ADBE Vector Star Inner Roundess
+MATCHNAME ADBE Vector Star Outer Radius
+MATCHNAME ADBE Vector Star Outer Roundess
+MATCHNAME ADBE Vector Star Points
+MATCHNAME ADBE Vector Star Position
+MATCHNAME ADBE Vector Star Rotation
+MATCHNAME ADBE Vector Star Type
+MATCHNAME ADBE Vector Stroke Color
+MATCHNAME ADBE Vector Stroke Dash 1
+MATCHNAME ADBE Vector Stroke Dash 2
+MATCHNAME ADBE Vector Stroke Dash 3
+MATCHNAME ADBE Vector Stroke Dashes
+MATCHNAME ADBE Vector Stroke Gap 1
+MATCHNAME ADBE Vector Stroke Gap 2
+MATCHNAME ADBE Vector Stroke Gap 3
+MATCHNAME ADBE Vector Stroke Line Cap
+MATCHNAME ADBE Vector Stroke Line Join
+MATCHNAME ADBE Vector Stroke Miter Limit
+MATCHNAME ADBE Vector Stroke Offset
+MATCHNAME ADBE Vector Stroke Opacity
+MATCHNAME ADBE Vector Stroke Taper
+MATCHNAME ADBE Vector Stroke Wave
+MATCHNAME ADBE Vector Stroke Width
+MATCHNAME ADBE Vector Taper End Ease
+MATCHNAME ADBE Vector Taper End Length
+MATCHNAME ADBE Vector Taper End Width
+MATCHNAME ADBE Vector Taper Length Units
+MATCHNAME ADBE Vector Taper Start Ease
+MATCHNAME ADBE Vector Taper Start Length
+MATCHNAME ADBE Vector Taper Start Width
+MATCHNAME ADBE Vector Taper Wave Amount
+MATCHNAME ADBE Vector Taper Wave Phase
+MATCHNAME ADBE Vector Taper Wave Units
+MATCHNAME ADBE Vector Taper Wavelength
+MATCHNAME ADBE Vector Temporal Freq
+MATCHNAME ADBE Vector Temporal Phase
+MATCHNAME ADBE Vector Transform Group
+MATCHNAME ADBE Vector Trim End
+MATCHNAME ADBE Vector Trim Offset
+MATCHNAME ADBE Vector Trim Start
+MATCHNAME ADBE Vector Trim Type
+MATCHNAME ADBE Vector Twist Angle
+MATCHNAME ADBE Vector Twist Center
+MATCHNAME ADBE Vector Wiggler Transform
+MATCHNAME ADBE Vector Xform Temporal Freq
+MATCHNAME ADBE Vector Zigzag Detail
+MATCHNAME ADBE Vector Zigzag Points
+MATCHNAME ADBE Vector Zigzag Size
+MATCHNAME ADBE Vectors Group
+MATCHNAME ADBE Venetian Blinds
+MATCHNAME ADBE Vibrance
+MATCHNAME ADBE Wave Warp
+MATCHNAME ADBE Write-on
+MATCHNAME ADBE WRPMESH
+MATCHNAME bevelEmboss/bevelDirection
+MATCHNAME bevelEmboss/bevelStyle
+MATCHNAME bevelEmboss/bevelTechnique
+MATCHNAME bevelEmboss/blur
+MATCHNAME bevelEmboss/enabled
+MATCHNAME bevelEmboss/highlightColor
+MATCHNAME bevelEmboss/highlightMode
+MATCHNAME bevelEmboss/highlightOpacity
+MATCHNAME bevelEmboss/localLightingAltitude
+MATCHNAME bevelEmboss/localLightingAngle
+MATCHNAME bevelEmboss/shadowColor
+MATCHNAME bevelEmboss/shadowMode
+MATCHNAME bevelEmboss/shadowOpacity
+MATCHNAME bevelEmboss/softness
+MATCHNAME bevelEmboss/strengthRatio
+MATCHNAME bevelEmboss/useGlobalAngle
+MATCHNAME chromeFX/blur
+MATCHNAME chromeFX/color
+MATCHNAME chromeFX/distance
+MATCHNAME chromeFX/enabled
+MATCHNAME chromeFX/invert
+MATCHNAME chromeFX/localLightingAngle
+MATCHNAME chromeFX/mode2
+MATCHNAME chromeFX/opacity
+MATCHNAME dropShadow/blur
+MATCHNAME dropShadow/chokeMatte
+MATCHNAME dropShadow/color
+MATCHNAME dropShadow/distance
+MATCHNAME dropShadow/enabled
+MATCHNAME dropShadow/layerConceals
+MATCHNAME dropShadow/localLightingAngle
+MATCHNAME dropShadow/mode2
+MATCHNAME dropShadow/noise
+MATCHNAME dropShadow/opacity
+MATCHNAME dropShadow/useGlobalAngle
+MATCHNAME frameFX/color
+MATCHNAME frameFX/enabled
+MATCHNAME frameFX/mode2
+MATCHNAME frameFX/opacity
+MATCHNAME frameFX/size
+MATCHNAME frameFX/style
+MATCHNAME gradientFill/align
+MATCHNAME gradientFill/angle
+MATCHNAME gradientFill/enabled
+MATCHNAME gradientFill/gradient
+MATCHNAME gradientFill/gradientSmoothness
+MATCHNAME gradientFill/mode2
+MATCHNAME gradientFill/offset
+MATCHNAME gradientFill/opacity
+MATCHNAME gradientFill/reverse
+MATCHNAME gradientFill/scale
+MATCHNAME gradientFill/type
+MATCHNAME innerGlow/AEColorChoice
+MATCHNAME innerGlow/blur
+MATCHNAME innerGlow/chokeMatte
+MATCHNAME innerGlow/color
+MATCHNAME innerGlow/enabled
+MATCHNAME innerGlow/glowTechnique
+MATCHNAME innerGlow/gradient
+MATCHNAME innerGlow/gradientSmoothness
+MATCHNAME innerGlow/innerGlowSource
+MATCHNAME innerGlow/inputRange
+MATCHNAME innerGlow/mode2
+MATCHNAME innerGlow/noise
+MATCHNAME innerGlow/opacity
+MATCHNAME innerGlow/shadingNoise
+MATCHNAME innerShadow/blur
+MATCHNAME innerShadow/chokeMatte
+MATCHNAME innerShadow/color
+MATCHNAME innerShadow/distance
+MATCHNAME innerShadow/enabled
+MATCHNAME innerShadow/localLightingAngle
+MATCHNAME innerShadow/mode2
+MATCHNAME innerShadow/noise
+MATCHNAME innerShadow/opacity
+MATCHNAME innerShadow/useGlobalAngle
+MATCHNAME outerGlow/AEColorChoice
+MATCHNAME outerGlow/blur
+MATCHNAME outerGlow/chokeMatte
+MATCHNAME outerGlow/color
+MATCHNAME outerGlow/enabled
+MATCHNAME outerGlow/glowTechnique
+MATCHNAME outerGlow/gradient
+MATCHNAME outerGlow/gradientSmoothness
+MATCHNAME outerGlow/inputRange
+MATCHNAME outerGlow/mode2
+MATCHNAME outerGlow/noise
+MATCHNAME outerGlow/opacity
+MATCHNAME outerGlow/shadingNoise
+MATCHNAME patternFill/align
+MATCHNAME patternFill/enabled
+MATCHNAME patternFill/mode2
+MATCHNAME patternFill/opacity
+MATCHNAME patternFill/phase
+MATCHNAME patternFill/scale
+MATCHNAME solidFill/color
+MATCHNAME solidFill/enabled
+MATCHNAME solidFill/mode2
+MATCHNAME solidFill/opacity
+
+# ENUMS_AND_CONSTANTS
+ENUM AlphaMode.IGNORE
+ENUM AlphaMode.PREMULTIPLIED
+ENUM AlphaMode.STRAIGHT
+ENUM AutoKernType.METRIC_KERN
+ENUM AutoKernType.NO_AUTO_KERN
+ENUM AutoKernType.OPTICAL_KERN
+ENUM AutoOrientType.ALONG_PATH
+ENUM AutoOrientType.CAMERA_OR_POINT_OF_INTEREST
+ENUM AutoOrientType.CHARACTERS_TOWARD_CAMERA
+ENUM AutoOrientType.NO_AUTO_ORIENT
+ENUM BaselineDirection.BASELINE_VERTICAL_CROSS_STREAM
+ENUM BaselineDirection.BASELINE_VERTICAL_ROTATED
+ENUM BaselineDirection.BASELINE_WITH_STREAM
+ENUM BlendingMode.ADD
+ENUM BlendingMode.ALPHA_ADD
+ENUM BlendingMode.CLASSIC_COLOR_BURN
+ENUM BlendingMode.CLASSIC_COLOR_DODGE
+ENUM BlendingMode.CLASSIC_DIFFERENCE
+ENUM BlendingMode.COLOR
+ENUM BlendingMode.COLOR_BURN
+ENUM BlendingMode.COLOR_DODGE
+ENUM BlendingMode.DANCING_DISSOLVE
+ENUM BlendingMode.DARKEN
+ENUM BlendingMode.DARKER_COLOR
+ENUM BlendingMode.DIFFERENCE
+ENUM BlendingMode.DISSOLVE
+ENUM BlendingMode.DIVIDE
+ENUM BlendingMode.EXCLUSION
+ENUM BlendingMode.HARD_LIGHT
+ENUM BlendingMode.HARD_MIX
+ENUM BlendingMode.HUE
+ENUM BlendingMode.LIGHTEN
+ENUM BlendingMode.LIGHTER_COLOR
+ENUM BlendingMode.LINEAR_BURN
+ENUM BlendingMode.LINEAR_DODGE
+ENUM BlendingMode.LINEAR_LIGHT
+ENUM BlendingMode.LUMINESCENT_PREMUL
+ENUM BlendingMode.LUMINOSITY
+ENUM BlendingMode.MULTIPLY
+ENUM BlendingMode.NORMAL
+ENUM BlendingMode.OVERLAY
+ENUM BlendingMode.PIN_LIGHT
+ENUM BlendingMode.SATURATION
+ENUM BlendingMode.SCREEN
+ENUM BlendingMode.SILHOUETE_ALPHA
+ENUM BlendingMode.SILHOUETTE_LUMA
+ENUM BlendingMode.SOFT_LIGHT
+ENUM BlendingMode.STENCIL_ALPHA
+ENUM BlendingMode.STENCIL_LUMA
+ENUM BlendingMode.SUBTRACT
+ENUM BlendingMode.VIVID_LIGHT
+ENUM BoxAutoFitPolicy.HEIGHT_BASELINE
+ENUM BoxAutoFitPolicy.HEIGHT_CURSOR
+ENUM BoxAutoFitPolicy.HEIGHT_PRECISE_BOUNDS
+ENUM BoxAutoFitPolicy.NONE
+ENUM BoxFirstBaselineAlignment.ASCENT
+ENUM BoxFirstBaselineAlignment.CAP_HEIGHT
+ENUM BoxFirstBaselineAlignment.EM_BOX
+ENUM BoxFirstBaselineAlignment.LEADING
+ENUM BoxFirstBaselineAlignment.LEGACY_METRIC
+ENUM BoxFirstBaselineAlignment.MINIMUM_VALUE_ASIAN
+ENUM BoxFirstBaselineAlignment.MINIMUM_VALUE_ROMAN
+ENUM BoxFirstBaselineAlignment.TYPO_ASCENT
+ENUM BoxFirstBaselineAlignment.X_HEIGHT
+ENUM BoxVerticalAlignment.BOTTOM
+ENUM BoxVerticalAlignment.CENTER
+ENUM BoxVerticalAlignment.JUSTIFY
+ENUM BoxVerticalAlignment.TOP
+ENUM CloseOptions.DO_NOT_SAVE_CHANGES
+ENUM CloseOptions.PROMPT_TO_SAVE_CHANGES
+ENUM CloseOptions.SAVE_CHANGES
+ENUM ComposerEngine.LATIN_CJK_ENGINE
+ENUM ComposerEngine.UNIVERSAL_TYPE_ENGINE
+ENUM CTFontTechnology.CT_ANYTECHNOLOGY
+ENUM CTFontTechnology.CT_ATC_FONT
+ENUM CTFontTechnology.CT_BITMAP_FONT
+ENUM CTFontTechnology.CT_CID_FONT
+ENUM CTFontTechnology.CT_SVG_FONT
+ENUM CTFontTechnology.CT_TRUETYPE_FONT
+ENUM CTFontTechnology.CT_TYPE1_FONT
+ENUM CTFontTechnology.CT_TYPE3_FONT
+ENUM CTFontType.CT_ATC_FONTTYPE
+ENUM CTFontType.CT_BITMAP_FONTTYPE
+ENUM CTFontType.CT_CID_FONTTYPE
+ENUM CTFontType.CT_OPENTYPE_CFF_FONTTYPE
+ENUM CTFontType.CT_OPENTYPE_CID_FONTTYPE
+ENUM CTFontType.CT_OPENTYPE_TT_FONTTYPE
+ENUM CTFontType.CT_SVG_FONTTYPE
+ENUM CTFontType.CT_TRUETYPE_FONTTYPE
+ENUM CTFontType.CT_TYPE1_FONTTYPE
+ENUM CTFontType.CT_TYPE3_FONTTYPE
+ENUM CTScript.CT_ADLAM_SCRIPT
+ENUM CTScript.CT_ARABIC_SCRIPT
+ENUM CTScript.CT_ARMENIAN_SCRIPT
+ENUM CTScript.CT_BALINESE_SCRIPT
+ENUM CTScript.CT_BAMUM_SCRIPT
+ENUM CTScript.CT_BASSAVAH_SCRIPT
+ENUM CTScript.CT_BENGALI_SCRIPT
+ENUM CTScript.CT_BRAHMI_SCRIPT
+ENUM CTScript.CT_BRAVANESE_SCRIPT
+ENUM CTScript.CT_BUGINESE_SCRIPT
+ENUM CTScript.CT_BURMESE_SCRIPT
+ENUM CTScript.CT_CARIAN_SCRIPT
+ENUM CTScript.CT_CHEROKEE_SCRIPT
+ENUM CTScript.CT_COPTIC_SCRIPT
+ENUM CTScript.CT_CYPRIOT_SCRIPT
+ENUM CTScript.CT_CYRILLIC_SCRIPT
+ENUM CTScript.CT_DEVANAGARI_SCRIPT
+ENUM CTScript.CT_DONTKNOW_SCRIPT
+ENUM CTScript.CT_EASTEUROPEANROMAN_SCRIPT
+ENUM CTScript.CT_EGYPTIAN_SCRIPT
+ENUM CTScript.CT_EMOJI_SCRIPT
+ENUM CTScript.CT_EXTENDEDARABIC_SCRIPT
+ENUM CTScript.CT_GEEZ_SCRIPT
+ENUM CTScript.CT_GEORGIAN_SCRIPT
+ENUM CTScript.CT_GLAGOLITIC_SCRIPT
+ENUM CTScript.CT_GOTHIC_SCRIPT
+ENUM CTScript.CT_GREEK_SCRIPT
+ENUM CTScript.CT_GUJARATI_SCRIPT
+ENUM CTScript.CT_GURMUKHI_SCRIPT
+ENUM CTScript.CT_HEBREW_SCRIPT
+ENUM CTScript.CT_IMPERIALARAMAIC_SCRIPT
+ENUM CTScript.CT_JAPANESE_SCRIPT
+ENUM CTScript.CT_JAVANESE_SCRIPT
+ENUM CTScript.CT_KANNADA_SCRIPT
+ENUM CTScript.CT_KAYAHLI_SCRIPT
+ENUM CTScript.CT_KHAROSHTHI_SCRIPT
+ENUM CTScript.CT_KHMER_SCRIPT
+ENUM CTScript.CT_KLINGON_SCRIPT
+ENUM CTScript.CT_KOREAN_SCRIPT
+ENUM CTScript.CT_LAO_SCRIPT
+ENUM CTScript.CT_LAOTIAN_SCRIPT
+ENUM CTScript.CT_LISU_SCRIPT
+ENUM CTScript.CT_LONTARA_SCRIPT
+ENUM CTScript.CT_LYCIAN_SCRIPT
+ENUM CTScript.CT_LYDIAN_SCRIPT
+ENUM CTScript.CT_MALAYALAM_SCRIPT
+ENUM CTScript.CT_MANDAIC_SCRIPT
+ENUM CTScript.CT_MEROITICCURSIVE_SCRIPT
+ENUM CTScript.CT_MONGOLIAN_SCRIPT
+ENUM CTScript.CT_NEWA_SCRIPT
+ENUM CTScript.CT_NEWTAILU_SCRIPT
+ENUM CTScript.CT_NKO_SCRIPT
+ENUM CTScript.CT_OGHAM_SCRIPT
+ENUM CTScript.CT_OLCHIKI_SCRIPT
+ENUM CTScript.CT_OLDHANGUL_SCRIPT
+ENUM CTScript.CT_OLDITALIC_SCRIPT
+ENUM CTScript.CT_ORIYA_SCRIPT
+ENUM CTScript.CT_ORKHON_SCRIPT
+ENUM CTScript.CT_OSAGE_SCRIPT
+ENUM CTScript.CT_PAHLAVI_SCRIPT
+ENUM CTScript.CT_PARTHIAN_SCRIPT
+ENUM CTScript.CT_PERSIAN_SCRIPT
+ENUM CTScript.CT_PHOENICIAN_SCRIPT
+ENUM CTScript.CT_RIGHTLEFT_SCRIPT
+ENUM CTScript.CT_ROHINGYA_SCRIPT
+ENUM CTScript.CT_ROMAN_SCRIPT
+ENUM CTScript.CT_RUNIC_SCRIPT
+ENUM CTScript.CT_SCRIPT
+ENUM CTScript.CT_SHAVIAN_SCRIPT
+ENUM CTScript.CT_SIMPLIFIEDCHINESE_SCRIPT
+ENUM CTScript.CT_SINHALESE_SCRIPT
+ENUM CTScript.CT_SORASOMPENG_SCRIPT
+ENUM CTScript.CT_SUMAKKCUNEIFORM_SCRIPT
+ENUM CTScript.CT_SUNDANESE_SCRIPT
+ENUM CTScript.CT_SYRIAC_SCRIPT
+ENUM CTScript.CT_TAILE_SCRIPT
+ENUM CTScript.CT_TAITHAM_SCRIPT
+ENUM CTScript.CT_TAIVIET_SCRIPT
+ENUM CTScript.CT_TAMIL_SCRIPT
+ENUM CTScript.CT_TELUGU_SCRIPT
+ENUM CTScript.CT_THAANA_SCRIPT
+ENUM CTScript.CT_THAI_SCRIPT
+ENUM CTScript.CT_TIBETAN_SCRIPT
+ENUM CTScript.CT_TIFINAGH_SCRIPT
+ENUM CTScript.CT_TRADITIONALCHINESE_SCRIPT
+ENUM CTScript.CT_UCAS_SCRIPT
+ENUM CTScript.CT_UGARITIC_SCRIPT
+ENUM CTScript.CT_VAI_SCRIPT
+ENUM CTScript.CT_VIETNAMESE_SCRIPT
+ENUM DigitSet.ARABIC_DIGITS
+ENUM DigitSet.ARABIC_DIGITS_RTL
+ENUM DigitSet.DEFAULT_DIGITS
+ENUM DigitSet.FARSI_DIGITS
+ENUM DigitSet.HINDI_DIGITS
+ENUM FastPreviewType.FP_ADAPTIVE_RESOLUTION
+ENUM FastPreviewType.FP_DRAFT
+ENUM FastPreviewType.FP_FAST_DRAFT
+ENUM FastPreviewType.FP_OFF
+ENUM FastPreviewType.FP_WIREFRAME
+ENUM FeetFramesFilmType.MM16
+ENUM FeetFramesFilmType.MM35
+ENUM FieldSeparationType.LOWER_FIELD_FIRST
+ENUM FieldSeparationType.OFF
+ENUM FieldSeparationType.UPPER_FIELD_FIRST
+ENUM FontBaselineOption.FONT_FAUXED_SUBSCRIPT
+ENUM FontBaselineOption.FONT_FAUXED_SUPERSCRIPT
+ENUM FontBaselineOption.FONT_NORMAL_BASELINE
+ENUM FontCapsOption.FONT_ALL_CAPS
+ENUM FontCapsOption.FONT_ALL_SMALL_CAPS
+ENUM FontCapsOption.FONT_NORMAL_CAPS
+ENUM FontCapsOption.FONT_SMALL_CAPS
+ENUM FootageTimecodeDisplayStartType.FTCS_START_0
+ENUM FootageTimecodeDisplayStartType.FTCS_USE_SOURCE_MEDIA
+ENUM FrameBlendingType.FRAME_MIX
+ENUM FrameBlendingType.NO_FRAME_BLEND
+ENUM FrameBlendingType.PIXEL_MOTION
+ENUM FramesCountType.FC_START_0
+ENUM FramesCountType.FC_START_1
+ENUM FramesCountType.FC_TIMECODE_CONVERSION
+ENUM GetSettingsFormat.NUMBER
+ENUM GetSettingsFormat.NUMBER_SETTABLE
+ENUM GetSettingsFormat.SPEC
+ENUM GetSettingsFormat.STRING
+ENUM GetSettingsFormat.STRING_SETTABLE
+ENUM GpuAccelType.CUDA
+ENUM GpuAccelType.METAL
+ENUM GpuAccelType.OPENCL
+ENUM GpuAccelType.SOFTWARE
+ENUM ImportAsType.COMP
+ENUM ImportAsType.COMP_CROPPED_LAYERS
+ENUM ImportAsType.FOOTAGE
+ENUM ImportAsType.PROJECT
+ENUM KeyframeInterpolationType.BEZIER
+ENUM KeyframeInterpolationType.HOLD
+ENUM KeyframeInterpolationType.LINEAR
+ENUM LayerQuality.BEST
+ENUM LayerQuality.DRAFT
+ENUM LayerQuality.WIREFRAME
+ENUM LayerSamplingQuality.BICUBIC
+ENUM LayerSamplingQuality.BILINEAR
+ENUM LeadingType.JAPANESE_LEADING_TYPE
+ENUM LeadingType.ROMAN_LEADING_TYPE
+ENUM LightType.AMBIENT
+ENUM LightType.ENVIRONMENT
+ENUM LightType.PARALLEL
+ENUM LightType.POINT
+ENUM LightType.SPOT
+ENUM LineJoinType.LINE_JOIN_BEVEL
+ENUM LineJoinType.LINE_JOIN_MITER
+ENUM LineJoinType.LINE_JOIN_ROUND
+ENUM LineOrientation.HORIZONTAL
+ENUM LineOrientation.VERTICAL_LEFT_TO_RIGHT
+ENUM LineOrientation.VERTICAL_RIGHT_TO_LEFT
+ENUM LogType.ERRORS_AND_PER_FRAME_INFO
+ENUM LogType.ERRORS_AND_SETTINGS
+ENUM LogType.ERRORS_ONLY
+ENUM MaskFeatherFalloff.FFO_LINEAR
+ENUM MaskFeatherFalloff.FFO_SMOOTH
+ENUM MaskMode.ADD
+ENUM MaskMode.DARKEN
+ENUM MaskMode.DIFFERENCE
+ENUM MaskMode.INTERSECT
+ENUM MaskMode.LIGHTEN
+ENUM MaskMode.NONE
+ENUM MaskMode.SUBTRACT
+ENUM MaskMotionBlur.OFF
+ENUM MaskMotionBlur.SAME_AS_LAYER
+ENUM ParagraphDirection.DIRECTION_LEFT_TO_RIGHT
+ENUM ParagraphDirection.DIRECTION_RIGHT_TO_LEFT
+ENUM ParagraphJustification.CENTER_JUSTIFY
+ENUM ParagraphJustification.FULL_JUSTIFY_LASTLINE_CENTER
+ENUM ParagraphJustification.FULL_JUSTIFY_LASTLINE_FULL
+ENUM ParagraphJustification.FULL_JUSTIFY_LASTLINE_LEFT
+ENUM ParagraphJustification.FULL_JUSTIFY_LASTLINE_RIGHT
+ENUM ParagraphJustification.LEFT_JUSTIFY
+ENUM ParagraphJustification.MULTIPLE_JUSTIFICATIONS
+ENUM ParagraphJustification.RIGHT_JUSTIFY
+ENUM PostRenderAction.IMPORT
+ENUM PostRenderAction.IMPORT_AND_REPLACE_USAGE
+ENUM PostRenderAction.NONE
+ENUM PostRenderAction.SET_PROXY
+ENUM PropertyType.INDEXED_GROUP
+ENUM PropertyType.NAMED_GROUP
+ENUM PropertyType.PROPERTY
+ENUM PropertyValueType.COLOR
+ENUM PropertyValueType.CUSTOM_VALUE
+ENUM PropertyValueType.LAYER_INDEX
+ENUM PropertyValueType.MARKER
+ENUM PropertyValueType.MASK_INDEX
+ENUM PropertyValueType.NO_VALUE
+ENUM PropertyValueType.SHAPE
+ENUM PropertyValueType.TEXT_DOCUMENT
+ENUM PulldownMethod.ADVANCE_24P
+ENUM PulldownMethod.PULLDOWN_3_2
+ENUM PulldownPhase.OFF
+ENUM PurgeTarget.ALL_CACHES
+ENUM PurgeTarget.ALL_MEMORY_CACHES
+ENUM PurgeTarget.IMAGE_CACHES
+ENUM PurgeTarget.SNAPSHOT_CACHES
+ENUM PurgeTarget.UNDO_CACHES
+ENUM RemovePulldown.OFF
+ENUM RemovePulldown.SSWWW
+ENUM RemovePulldown.SSWWW_24P_ADVANCE
+ENUM RemovePulldown.SWWWS
+ENUM RemovePulldown.SWWWS_24P_ADVANCE
+ENUM RemovePulldown.WSSWW
+ENUM RemovePulldown.WSSWW_24P_ADVANCE
+ENUM RemovePulldown.WWSSW
+ENUM RemovePulldown.WWSSW_24P_ADVANCE
+ENUM RemovePulldown.WWWSS
+ENUM RemovePulldown.WWWSS_24P_ADVANCE
+ENUM ResolveType.ACCEPT_THEIRS
+ENUM ResolveType.ACCEPT_THEIRS_AND_COPY
+ENUM ResolveType.ACCEPT_YOURS
+ENUM RQItemStatus.DONE
+ENUM RQItemStatus.ERR_STOPPED
+ENUM RQItemStatus.NEEDS_OUTPUT
+ENUM RQItemStatus.QUEUED
+ENUM RQItemStatus.RENDERING
+ENUM RQItemStatus.UNQUEUED
+ENUM RQItemStatus.USER_STOPPED
+ENUM RQItemStatus.WILL_CONTINUE
+ENUM SceneEditDetectionMode.MARKERS
+ENUM SceneEditDetectionMode.NONE
+ENUM SceneEditDetectionMode.SPLIT
+ENUM SceneEditDetectionMode.SPLIT_PRECOMP
+ENUM Status.UNQUEUED
+ENUM SubstitutedFontReplacementMatchPolicy.CTFI_EQUAL
+ENUM SubstitutedFontReplacementMatchPolicy.DISABLED
+ENUM TimeDisplayType.FRAMES
+ENUM TimeDisplayType.TIMECODE
+ENUM TrackMatteType.ALPHA
+ENUM TrackMatteType.ALPHA_INVERTED
+ENUM TrackMatteType.LUMA
+ENUM TrackMatteType.LUMA_INVERTED
+ENUM TrackMatteType.NO_TRACK_MATTE
+ENUM ViewerType.VIEWER_COMPOSITION
+ENUM ViewerType.VIEWER_FOOTAGE
+ENUM ViewerType.VIEWER_LAYER
+
+# PROPERTIES
+PROPERTY app.activeViewer
+PROPERTY app.availableGPUAccelTypes
+PROPERTY app.buildName
+PROPERTY app.buildNumber
+PROPERTY app.disableRendering
+PROPERTY app.effects
+PROPERTY app.exitAfterLaunchAndEval
+PROPERTY app.exitCode
+PROPERTY app.fonts
+PROPERTY app.isoLanguage
+PROPERTY app.isRenderEngine
+PROPERTY app.isWatchFolder
+PROPERTY app.memoryInUse
+PROPERTY app.onError
+PROPERTY app.preferences
+PROPERTY app.project
+PROPERTY app.saveProjectOnCrash
+PROPERTY app.settings
+PROPERTY app.version
+PROPERTY AVItem.duration
+PROPERTY AVItem.footageMissing
+PROPERTY AVItem.frameDuration
+PROPERTY AVItem.frameRate
+PROPERTY AVItem.hasAudio
+PROPERTY AVItem.hasVideo
+PROPERTY AVItem.height
+PROPERTY AVItem.isMediaReplacementCompatible
+PROPERTY AVItem.name
+PROPERTY AVItem.pixelAspect
+PROPERTY AVItem.proxySource
+PROPERTY AVItem.time
+PROPERTY AVItem.usedIn
+PROPERTY AVItem.useProxy
+PROPERTY AVItem.width
+PROPERTY AVLayer.adjustmentLayer
+PROPERTY AVLayer.audioActive
+PROPERTY AVLayer.audioEnabled
+PROPERTY AVLayer.blendingMode
+PROPERTY AVLayer.canSetCollapseTransformation
+PROPERTY AVLayer.canSetTimeRemapEnabled
+PROPERTY AVLayer.collapseTransformation
+PROPERTY AVLayer.effectsActive
+PROPERTY AVLayer.environmentLayer
+PROPERTY AVLayer.frameBlending
+PROPERTY AVLayer.frameBlendingType
+PROPERTY AVLayer.guideLayer
+PROPERTY AVLayer.hasAudio
+PROPERTY AVLayer.hasTrackMatte
+PROPERTY AVLayer.height
+PROPERTY AVLayer.isNameFromSource
+PROPERTY AVLayer.isTrackMatte
+PROPERTY AVLayer.motionBlur
+PROPERTY AVLayer.preserveTransparency
+PROPERTY AVLayer.quality
+PROPERTY AVLayer.samplingQuality
+PROPERTY AVLayer.source
+PROPERTY AVLayer.threeDLayer
+PROPERTY AVLayer.threeDPerChar
+PROPERTY AVLayer.timeRemapEnabled
+PROPERTY AVLayer.trackMatteLayer
+PROPERTY AVLayer.trackMatteType
+PROPERTY AVLayer.width
+PROPERTY CharacterRange.characterEnd
+PROPERTY CharacterRange.characterStart
+PROPERTY CharacterRange.fillColor
+PROPERTY CharacterRange.isRangeValid
+PROPERTY CharacterRange.kerning
+PROPERTY CharacterRange.strokeColor
+PROPERTY CharacterRange.strokeOverFill
+PROPERTY CharacterRange.text
+PROPERTY CompItem.activeCamera
+PROPERTY CompItem.bgColor
+PROPERTY CompItem.counters
+PROPERTY CompItem.displayStartFrame
+PROPERTY CompItem.displayStartTime
+PROPERTY CompItem.draft3d
+PROPERTY CompItem.dropFrame
+PROPERTY CompItem.frameBlending
+PROPERTY CompItem.frameDuration
+PROPERTY CompItem.hideShyLayers
+PROPERTY CompItem.layers
+PROPERTY CompItem.markerProperty
+PROPERTY CompItem.motionBlur
+PROPERTY CompItem.motionBlurAdaptiveSampleLimit
+PROPERTY CompItem.motionBlurSamplesPerFrame
+PROPERTY CompItem.motionGraphicsTemplateControllerCount
+PROPERTY CompItem.motionGraphicsTemplateName
+PROPERTY CompItem.numLayers
+PROPERTY CompItem.preserveNestedFrameRate
+PROPERTY CompItem.preserveNestedResolution
+PROPERTY CompItem.renderer
+PROPERTY CompItem.renderers
+PROPERTY CompItem.resolutionFactor
+PROPERTY CompItem.selectedLayers
+PROPERTY CompItem.selectedProperties
+PROPERTY CompItem.shutterAngle
+PROPERTY CompItem.shutterPhase
+PROPERTY CompItem.workAreaDuration
+PROPERTY CompItem.workAreaStart
+PROPERTY ComposedLineRange.characterEnd
+PROPERTY ComposedLineRange.characterStart
+PROPERTY ComposedLineRange.isRangeValid
+PROPERTY FileSource.file
+PROPERTY FileSource.missingFootagePath
+PROPERTY FolderItem.items
+PROPERTY FolderItem.numItems
+PROPERTY FontObject.designAxesData
+PROPERTY FontObject.designVector
+PROPERTY FontObject.familyName
+PROPERTY FontObject.familyPrefix
+PROPERTY FontObject.fontID
+PROPERTY FontObject.fullName
+PROPERTY FontObject.hasDesignAxes
+PROPERTY FontObject.isFromAdobeFonts
+PROPERTY FontObject.isSubstitute
+PROPERTY FontObject.location
+PROPERTY FontObject.nativeFamilyName
+PROPERTY FontObject.nativeFullName
+PROPERTY FontObject.nativeStyleName
+PROPERTY FontObject.otherFontsWithSameDict
+PROPERTY FontObject.postScriptName
+PROPERTY FontObject.styleName
+PROPERTY FontObject.technology
+PROPERTY FontObject.type
+PROPERTY FontObject.version
+PROPERTY FontObject.writingScripts
+PROPERTY FontsObject.allFonts
+PROPERTY FontsObject.favoriteFontFamilyList
+PROPERTY FontsObject.fontsDuplicateByPostScriptName
+PROPERTY FontsObject.fontServerRevision
+PROPERTY FontsObject.fontsWithDefaultDesignAxes
+PROPERTY FontsObject.freezeSyncSubstitutedFonts
+PROPERTY FontsObject.missingOrSubstitutedFonts
+PROPERTY FontsObject.mruFontFamilyList
+PROPERTY FontsObject.substitutedFontReplacementMatchPolicy
+PROPERTY FootageItem.file
+PROPERTY FootageItem.mainSource
+PROPERTY FootageSource.alphaMode
+PROPERTY FootageSource.conformFrameRate
+PROPERTY FootageSource.displayFrameRate
+PROPERTY FootageSource.fieldSeparationType
+PROPERTY FootageSource.hasAlpha
+PROPERTY FootageSource.highQualityFieldSeparation
+PROPERTY FootageSource.invertAlpha
+PROPERTY FootageSource.isStill
+PROPERTY FootageSource.loop
+PROPERTY FootageSource.nativeFrameRate
+PROPERTY FootageSource.premulColor
+PROPERTY FootageSource.removePulldown
+PROPERTY ImportOptions.file
+PROPERTY ImportOptions.forceAlphabetical
+PROPERTY ImportOptions.importAs
+PROPERTY ImportOptions.rangeEnd
+PROPERTY ImportOptions.rangeStart
+PROPERTY ImportOptions.sequence
+PROPERTY Item.comment
+PROPERTY Item.dynamicLinkGUID
+PROPERTY Item.guides
+PROPERTY Item.id
+PROPERTY Item.label
+PROPERTY Item.name
+PROPERTY Item.parentFolder
+PROPERTY Item.selected
+PROPERTY Item.typeName
+PROPERTY KeyframeEase.influence
+PROPERTY KeyframeEase.speed
+PROPERTY Layer.autoOrient
+PROPERTY Layer.comment
+PROPERTY Layer.containingComp
+PROPERTY Layer.hasVideo
+PROPERTY Layer.id
+PROPERTY Layer.index
+PROPERTY Layer.inPoint
+PROPERTY Layer.isNameSet
+PROPERTY Layer.label
+PROPERTY Layer.locked
+PROPERTY Layer.marker
+PROPERTY Layer.nullLayer
+PROPERTY Layer.outPoint
+PROPERTY Layer.parent
+PROPERTY Layer.selectedProperties
+PROPERTY Layer.shy
+PROPERTY Layer.solo
+PROPERTY Layer.startTime
+PROPERTY Layer.stretch
+PROPERTY Layer.time
+PROPERTY LightLayer.lightType
+PROPERTY MarkerValue.chapter
+PROPERTY MarkerValue.comment
+PROPERTY MarkerValue.cuePointName
+PROPERTY MarkerValue.duration
+PROPERTY MarkerValue.eventCuePoint
+PROPERTY MarkerValue.frameTarget
+PROPERTY MarkerValue.label
+PROPERTY MarkerValue.protectedRegion
+PROPERTY MarkerValue.url
+PROPERTY MaskPropertyGroup.color
+PROPERTY MaskPropertyGroup.inverted
+PROPERTY MaskPropertyGroup.locked
+PROPERTY MaskPropertyGroup.maskFeatherFalloff
+PROPERTY MaskPropertyGroup.maskMode
+PROPERTY MaskPropertyGroup.maskMotionBlur
+PROPERTY MaskPropertyGroup.rotoBezier
+PROPERTY OutputModule.file
+PROPERTY OutputModule.includeSourceXMP
+PROPERTY OutputModule.name
+PROPERTY OutputModule.postRenderAction
+PROPERTY OutputModule.templates
+PROPERTY ParagraphRange.characterEnd
+PROPERTY ParagraphRange.characterStart
+PROPERTY ParagraphRange.isRangeValid
+PROPERTY Project.activeItem
+PROPERTY Project.bitsPerChannel
+PROPERTY Project.compensateForSceneReferredProfiles
+PROPERTY Project.dirty
+PROPERTY Project.displayStartFrame
+PROPERTY Project.expressionEngine
+PROPERTY Project.feetFramesFilmType
+PROPERTY Project.file
+PROPERTY Project.footageTimecodeDisplayStartType
+PROPERTY Project.framesCountType
+PROPERTY Project.framesUseFeetFrames
+PROPERTY Project.gpuAccelType
+PROPERTY Project.items
+PROPERTY Project.linearBlending
+PROPERTY Project.linearizeWorkingSpace
+PROPERTY Project.numItems
+PROPERTY Project.renderQueue
+PROPERTY Project.revision
+PROPERTY Project.rootFolder
+PROPERTY Project.selection
+PROPERTY Project.timeDisplayType
+PROPERTY Project.toolType
+PROPERTY Project.transparencyGridThumbnails
+PROPERTY Project.usedFonts
+PROPERTY Project.workingGamma
+PROPERTY Project.workingSpace
+PROPERTY Project.xmpPacket
+PROPERTY Property.alternateSource
+PROPERTY Property.canSetAlternateSource
+PROPERTY Property.canSetExpression
+PROPERTY Property.canVaryOverTime
+PROPERTY Property.dimensionsSeparated
+PROPERTY Property.essentialPropertySource
+PROPERTY Property.expression
+PROPERTY Property.expressionEnabled
+PROPERTY Property.expressionError
+PROPERTY Property.hasMax
+PROPERTY Property.hasMin
+PROPERTY Property.isDropdownEffect
+PROPERTY Property.isSeparationFollower
+PROPERTY Property.isSeparationLeader
+PROPERTY Property.isSpatial
+PROPERTY Property.isTimeVarying
+PROPERTY Property.maxValue
+PROPERTY Property.minValue
+PROPERTY Property.numKeys
+PROPERTY Property.propertyIndex
+PROPERTY Property.propertyParameters
+PROPERTY Property.propertyValueType
+PROPERTY Property.selectedKeys
+PROPERTY Property.separationDimension
+PROPERTY Property.separationLeader
+PROPERTY Property.unitsText
+PROPERTY Property.value
+PROPERTY Property.valueText
+PROPERTY PropertyBase.active
+PROPERTY PropertyBase.canSetEnabled
+PROPERTY PropertyBase.elided
+PROPERTY PropertyBase.enabled
+PROPERTY PropertyBase.isEffect
+PROPERTY PropertyBase.isMask
+PROPERTY PropertyBase.isModified
+PROPERTY PropertyBase.matchName
+PROPERTY PropertyBase.name
+PROPERTY PropertyBase.parentProperty
+PROPERTY PropertyBase.propertyDepth
+PROPERTY PropertyBase.propertyIndex
+PROPERTY PropertyBase.propertyType
+PROPERTY PropertyBase.selected
+PROPERTY PropertyGroup.numProperties
+PROPERTY RenderQueue.canQueueInAME
+PROPERTY renderQueue.canQueueInAME
+PROPERTY renderQueue.items
+PROPERTY RenderQueue.items
+PROPERTY renderQueue.numItems
+PROPERTY RenderQueue.numItems
+PROPERTY RenderQueue.queueNotify
+PROPERTY renderQueue.queueNotify
+PROPERTY RenderQueue.rendering
+PROPERTY renderQueue.rendering
+PROPERTY RenderQueueItem.comp
+PROPERTY RenderQueueItem.elapsedSeconds
+PROPERTY RenderQueueItem.logType
+PROPERTY RenderQueueItem.numOutputModules
+PROPERTY RenderQueueItem.onStatusChanged
+PROPERTY RenderQueueItem.outputModules
+PROPERTY RenderQueueItem.queueItemNotify
+PROPERTY RenderQueueItem.render
+PROPERTY RenderQueueItem.skipFrames
+PROPERTY RenderQueueItem.startTime
+PROPERTY RenderQueueItem.status
+PROPERTY RenderQueueItem.templates
+PROPERTY RenderQueueItem.timeSpanDuration
+PROPERTY RenderQueueItem.timeSpanStart
+PROPERTY Shape.closed
+PROPERTY Shape.featherInterps
+PROPERTY Shape.featherRadii
+PROPERTY Shape.featherRelCornerAngles
+PROPERTY Shape.featherRelSegLocs
+PROPERTY Shape.featherSegLocs
+PROPERTY Shape.featherTensions
+PROPERTY Shape.featherTypes
+PROPERTY Shape.inTangents
+PROPERTY Shape.outTangents
+PROPERTY Shape.vertices
+PROPERTY SolidSource.color
+PROPERTY System.machineName
+PROPERTY System.osName
+PROPERTY System.osVersion
+PROPERTY System.userName
+PROPERTY TextDocument.allCaps
+PROPERTY TextDocument.applyFill
+PROPERTY TextDocument.applyStroke
+PROPERTY TextDocument.autoHyphenate
+PROPERTY TextDocument.autoKernType
+PROPERTY TextDocument.autoLeading
+PROPERTY TextDocument.baselineDirection
+PROPERTY TextDocument.baselineLocs
+PROPERTY TextDocument.baselineShift
+PROPERTY TextDocument.boxAutoFitPolicy
+PROPERTY TextDocument.boxFirstBaselineAlignment
+PROPERTY TextDocument.boxFirstBaselineAlignmentMinimum
+PROPERTY TextDocument.boxInsetSpacing
+PROPERTY TextDocument.boxOverflow
+PROPERTY TextDocument.boxText
+PROPERTY TextDocument.boxTextPos
+PROPERTY TextDocument.boxTextSize
+PROPERTY TextDocument.boxVerticalAlignment
+PROPERTY TextDocument.composedLineCount
+PROPERTY TextDocument.composerEngine
+PROPERTY TextDocument.digitSet
+PROPERTY TextDocument.direction
+PROPERTY TextDocument.endIndent
+PROPERTY TextDocument.everyLineComposer
+PROPERTY TextDocument.fauxBold
+PROPERTY TextDocument.fauxItalic
+PROPERTY TextDocument.fillColor
+PROPERTY TextDocument.firstLineIndent
+PROPERTY TextDocument.font
+PROPERTY TextDocument.fontBaselineOption
+PROPERTY TextDocument.fontCapsOption
+PROPERTY TextDocument.fontFamily
+PROPERTY TextDocument.fontLocation
+PROPERTY TextDocument.fontObject
+PROPERTY TextDocument.fontSize
+PROPERTY TextDocument.fontStyle
+PROPERTY TextDocument.hangingRoman
+PROPERTY TextDocument.horizontalScale
+PROPERTY TextDocument.justification
+PROPERTY TextDocument.kerning
+PROPERTY TextDocument.leading
+PROPERTY TextDocument.leadingType
+PROPERTY TextDocument.ligature
+PROPERTY TextDocument.lineJoinType
+PROPERTY TextDocument.lineOrientation
+PROPERTY TextDocument.noBreak
+PROPERTY TextDocument.paragraphCount
+PROPERTY TextDocument.pointText
+PROPERTY TextDocument.smallCaps
+PROPERTY TextDocument.spaceAfter
+PROPERTY TextDocument.spaceBefore
+PROPERTY TextDocument.startIndent
+PROPERTY TextDocument.strokeColor
+PROPERTY TextDocument.strokeOverFill
+PROPERTY TextDocument.strokeWidth
+PROPERTY TextDocument.subscript
+PROPERTY TextDocument.superscript
+PROPERTY TextDocument.text
+PROPERTY TextDocument.tracking
+PROPERTY TextDocument.tsume
+PROPERTY TextDocument.verticalScale
+PROPERTY View.active
+PROPERTY View.options
+PROPERTY Viewer.active
+PROPERTY Viewer.activeViewIndex
+PROPERTY Viewer.maximized
+PROPERTY Viewer.type
+PROPERTY Viewer.views
+PROPERTY ViewOptions.channels
+PROPERTY ViewOptions.checkerboards
+PROPERTY ViewOptions.exposure
+PROPERTY ViewOptions.fastPreview
+PROPERTY ViewOptions.guidesLocked
+PROPERTY ViewOptions.guidesSnap
+PROPERTY ViewOptions.guidesVisibility
+PROPERTY ViewOptions.rulers
+PROPERTY ViewOptions.zoom
+
+# METHODS
+METHOD app.activate(...)
+METHOD app.beginSuppressDialogs(...)
+METHOD app.beginUndoGroup(...)
+METHOD app.cancelTask(...)
+METHOD app.endSuppressDialogs(...)
+METHOD app.endUndoGroup(...)
+METHOD app.endWatchFolder(...)
+METHOD app.executeCommand(...)
+METHOD app.findMenuCommandId(...)
+METHOD app.newProject(...)
+METHOD app.open(...)
+METHOD app.openFast(...)
+METHOD app.parseSwatchFile(...)
+METHOD app.pauseWatchFolder(...)
+METHOD app.purge(...)
+METHOD app.quit(...)
+METHOD app.restart(...)
+METHOD app.scheduleTask(...)
+METHOD app.setMemoryUsageLimits(...)
+METHOD app.setMultiFrameRenderingConfig(...)
+METHOD app.setSavePreferencesOnQuit(...)
+METHOD app.watchFolder(...)
+METHOD AVItem.setProxy(...)
+METHOD AVItem.setProxyToNone(...)
+METHOD AVItem.setProxyWithPlaceholder(...)
+METHOD AVItem.setProxyWithSequence(...)
+METHOD AVItem.setProxyWithSolid(...)
+METHOD AVLayer.addToMotionGraphicsTemplate(...)
+METHOD AVLayer.addToMotionGraphicsTemplateAs(...)
+METHOD AVLayer.audioActiveAtTime(...)
+METHOD AVLayer.calculateTransformFromPoints(...)
+METHOD AVLayer.canAddToMotionGraphicsTemplate(...)
+METHOD AVLayer.compPointToSource(...)
+METHOD AVLayer.openInViewer(...)
+METHOD AVLayer.removeTrackMatte(...)
+METHOD AVLayer.replaceSource(...)
+METHOD AVLayer.setTrackMatte(...)
+METHOD AVLayer.sourcePointToComp(...)
+METHOD AVLayer.sourceRectAtTime(...)
+METHOD CharacterRange.pasteFrom(...)
+METHOD CharacterRange.toString(...)
+METHOD CompItem.duplicate(...)
+METHOD CompItem.exportAsMotionGraphicsTemplate(...)
+METHOD CompItem.getMotionGraphicsTemplateControllerName(...)
+METHOD CompItem.layer(...)
+METHOD CompItem.openInEssentialGraphics(...)
+METHOD CompItem.openInViewer(...)
+METHOD CompItem.setMotionGraphicsControllerName(...)
+METHOD ComposedLineRange.characterRange(...)
+METHOD ComposedLineRange.toString(...)
+METHOD FileSource.reload(...)
+METHOD FolderItem.item(...)
+METHOD FontObject.hasGlyphsFor(...)
+METHOD FontObject.hasSameDict(...)
+METHOD FontObject.postScriptNameForDesignVector(...)
+METHOD FontsObject.getCTScriptForString(...)
+METHOD FontsObject.getDefaultFontForCTScript(...)
+METHOD FontsObject.getFontByID(...)
+METHOD FontsObject.getFontsByFamilyNameAndStyleName(...)
+METHOD FontsObject.getFontsByPostScriptName(...)
+METHOD FontsObject.pollForAndPushNonSystemFontFoldersChanges(...)
+METHOD FontsObject.setDefaultFontForCTScript(...)
+METHOD FootageItem.openInViewer(...)
+METHOD FootageItem.replace(...)
+METHOD FootageItem.replaceWithPlaceholder(...)
+METHOD FootageItem.replaceWithSequence(...)
+METHOD FootageItem.replaceWithSolid(...)
+METHOD FootageSource.guessAlphaMode(...)
+METHOD FootageSource.guessPulldown(...)
+METHOD Global functions.clearOutput(...)
+METHOD Global functions.currentFormatToTime(...)
+METHOD Global functions.generateRandomNumber(...)
+METHOD Global functions.getEnumAsString(...)
+METHOD Global functions.isValid(...)
+METHOD Global functions.timeToCurrentFormat(...)
+METHOD Global functions.write(...)
+METHOD Global functions.writeLn(...)
+METHOD ImportOptions.canImportAs(...)
+METHOD ImportOptions.isFileNameNumbered(...)
+METHOD Item.addGuide(...)
+METHOD Item.remove(...)
+METHOD Item.removeGuide(...)
+METHOD Item.setGuide(...)
+METHOD ItemCollection.addComp(...)
+METHOD ItemCollection.addFolder(...)
+METHOD Layer.activeAtTime(...)
+METHOD Layer.applyPreset(...)
+METHOD Layer.copyToComp(...)
+METHOD Layer.doSceneEditDetection(...)
+METHOD Layer.duplicate(...)
+METHOD Layer.moveAfter(...)
+METHOD Layer.moveBefore(...)
+METHOD Layer.moveToBeginning(...)
+METHOD Layer.moveToEnd(...)
+METHOD Layer.remove(...)
+METHOD Layer.setParentWithJump(...)
+METHOD LayerCollection.add(...)
+METHOD LayerCollection.addBoxText(...)
+METHOD LayerCollection.addCamera(...)
+METHOD LayerCollection.addLight(...)
+METHOD LayerCollection.addNull(...)
+METHOD LayerCollection.addShape(...)
+METHOD LayerCollection.addSolid(...)
+METHOD LayerCollection.addText(...)
+METHOD LayerCollection.addVerticalBoxText(...)
+METHOD LayerCollection.addVerticalText(...)
+METHOD LayerCollection.byName(...)
+METHOD LayerCollection.precompose(...)
+METHOD MarkerValue.getParameters(...)
+METHOD MarkerValue.setParameters(...)
+METHOD OMCollection.add(...)
+METHOD OutputModule.applyTemplate(...)
+METHOD OutputModule.getSetting(...)
+METHOD OutputModule.getSettings(...)
+METHOD OutputModule.remove(...)
+METHOD OutputModule.saveAsTemplate(...)
+METHOD OutputModule.setSetting(...)
+METHOD OutputModule.setSettings(...)
+METHOD ParagraphRange.characterRange(...)
+METHOD ParagraphRange.toString(...)
+METHOD Preferences.deletePref(...)
+METHOD Preferences.getPrefAsBool(...)
+METHOD Preferences.getPrefAsFloat(...)
+METHOD Preferences.getPrefAsLong(...)
+METHOD Preferences.getPrefAsString(...)
+METHOD Preferences.havePref(...)
+METHOD Preferences.reload(...)
+METHOD Preferences.savePrefAsBool(...)
+METHOD Preferences.savePrefAsFloat(...)
+METHOD Preferences.savePrefAsLong(...)
+METHOD Preferences.savePrefAsString(...)
+METHOD Preferences.saveToDisk(...)
+METHOD Project.autoFixExpressions(...)
+METHOD project.autoFixExpressions(...)
+METHOD Project.close(...)
+METHOD project.close(...)
+METHOD project.closeTeamProject(...)
+METHOD project.consolidateFootage(...)
+METHOD Project.consolidateFootage(...)
+METHOD project.convertTeamProjectToProject(...)
+METHOD project.importFile(...)
+METHOD Project.importFile(...)
+METHOD Project.importFileWithDialog(...)
+METHOD project.importFileWithDialog(...)
+METHOD Project.importPlaceholder(...)
+METHOD project.importPlaceholder(...)
+METHOD project.isAnyTeamProjectOpen(...)
+METHOD project.isLoggedInToTeamProject(...)
+METHOD project.isResolveCommandEnabled(...)
+METHOD project.isShareCommandEnabled(...)
+METHOD project.isSyncCommandEnabled(...)
+METHOD project.isTeamProjectEnabled(...)
+METHOD project.isTeamProjectOpen(...)
+METHOD Project.item(...)
+METHOD project.item(...)
+METHOD Project.itemByID(...)
+METHOD project.itemByID(...)
+METHOD Project.layerByID(...)
+METHOD project.layerByID(...)
+METHOD project.listColorProfiles(...)
+METHOD Project.listColorProfiles(...)
+METHOD project.listTeamProjects(...)
+METHOD project.newTeamProject(...)
+METHOD project.openTeamProject(...)
+METHOD project.reduceProject(...)
+METHOD Project.reduceProject(...)
+METHOD Project.removeUnusedFootage(...)
+METHOD project.removeUnusedFootage(...)
+METHOD project.replaceFont(...)
+METHOD Project.replaceFont(...)
+METHOD project.resolveConflict(...)
+METHOD Project.save(...)
+METHOD project.save(...)
+METHOD Project.saveWithDialog(...)
+METHOD project.saveWithDialog(...)
+METHOD Project.setDefaultImportFolder(...)
+METHOD project.setDefaultImportFolder(...)
+METHOD project.shareTeamProject(...)
+METHOD Project.showWindow(...)
+METHOD project.showWindow(...)
+METHOD project.syncTeamProject(...)
+METHOD Property.addKey(...)
+METHOD Property.addToMotionGraphicsTemplate(...)
+METHOD Property.addToMotionGraphicsTemplateAs(...)
+METHOD Property.canAddToMotionGraphicsTemplate(...)
+METHOD Property.getSeparationFollower(...)
+METHOD Property.isInterpolationTypeValid(...)
+METHOD Property.keyInInterpolationType(...)
+METHOD Property.keyInSpatialTangent(...)
+METHOD Property.keyInTemporalEase(...)
+METHOD Property.keyLabel(...)
+METHOD Property.keyOutInterpolationType(...)
+METHOD Property.keyOutSpatialTangent(...)
+METHOD Property.keyOutTemporalEase(...)
+METHOD Property.keyRoving(...)
+METHOD Property.keySelected(...)
+METHOD Property.keySpatialAutoBezier(...)
+METHOD Property.keySpatialContinuous(...)
+METHOD Property.keyTemporalAutoBezier(...)
+METHOD Property.keyTemporalContinuous(...)
+METHOD Property.keyTime(...)
+METHOD Property.keyValue(...)
+METHOD Property.nearestKeyIndex(...)
+METHOD Property.removeKey(...)
+METHOD Property.setAlternateSource(...)
+METHOD Property.setInterpolationTypeAtKey(...)
+METHOD Property.setLabelAtKey(...)
+METHOD Property.setPropertyParameters(...)
+METHOD Property.setRovingAtKey(...)
+METHOD Property.setSelectedAtKey(...)
+METHOD Property.setSpatialAutoBezierAtKey(...)
+METHOD Property.setSpatialContinuousAtKey(...)
+METHOD Property.setSpatialTangentsAtKey(...)
+METHOD Property.setTemporalAutoBezierAtKey(...)
+METHOD Property.setTemporalContinuousAtKey(...)
+METHOD Property.setTemporalEaseAtKey(...)
+METHOD Property.setValue(...)
+METHOD Property.setValueAtKey(...)
+METHOD Property.setValueAtTime(...)
+METHOD Property.setValuesAtTimes(...)
+METHOD Property.valueAtTime(...)
+METHOD PropertyBase.duplicate(...)
+METHOD PropertyBase.moveTo(...)
+METHOD PropertyBase.propertyGroup(...)
+METHOD PropertyBase.remove(...)
+METHOD PropertyGroup.addProperty(...)
+METHOD PropertyGroup.addVariableFontAxis(...)
+METHOD PropertyGroup.canAddProperty(...)
+METHOD PropertyGroup.property(...)
+METHOD RenderQueue.item(...)
+METHOD renderQueue.item(...)
+METHOD RenderQueue.pauseRendering(...)
+METHOD renderQueue.pauseRendering(...)
+METHOD renderQueue.queueInAME(...)
+METHOD RenderQueue.queueInAME(...)
+METHOD RenderQueue.render(...)
+METHOD renderQueue.render(...)
+METHOD RenderQueue.showWindow(...)
+METHOD renderQueue.showWindow(...)
+METHOD RenderQueue.stopRendering(...)
+METHOD renderQueue.stopRendering(...)
+METHOD RenderQueueItem.applyTemplate(...)
+METHOD RenderQueueItem.duplicate(...)
+METHOD RenderQueueItem.getSetting(...)
+METHOD RenderQueueItem.getSettings(...)
+METHOD RenderQueueItem.outputModule(...)
+METHOD RenderQueueItem.remove(...)
+METHOD RenderQueueItem.saveAsTemplate(...)
+METHOD RenderQueueItem.setSetting(...)
+METHOD RenderQueueItem.setSettings(...)
+METHOD RQItemCollection.add(...)
+METHOD Settings.getSetting(...)
+METHOD Settings.haveSetting(...)
+METHOD Settings.saveSetting(...)
+METHOD System.callSystem(...)
+METHOD TextDocument.characterRange(...)
+METHOD TextDocument.composedLineCharacterIndexesAt(...)
+METHOD TextDocument.composedLineRange(...)
+METHOD TextDocument.paragraphCharacterIndexesAt(...)
+METHOD TextDocument.paragraphRange(...)
+METHOD TextDocument.resetCharStyle(...)
+METHOD TextDocument.resetParagraphStyle(...)
+METHOD View.setActive(...)
+METHOD Viewer.setActive(...)

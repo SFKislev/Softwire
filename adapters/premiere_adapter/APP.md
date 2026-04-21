@@ -15,6 +15,32 @@ Context:
 Get-Content adapters/premiere_adapter/examples/context.jsx -Raw | python adapters/premiere_adapter/premiere_bridge.py --stdin
 ```
 
+## Local Memory
+
+If `APP.local.md` exists in this directory, review it before performing an
+operation when local installation details, prior failures, or version-specific
+behavior may matter.
+
+After completing an operation, if you encountered a repeatable issue or
+verified something worth remembering about this local installation, add a short
+note to `APP.local.md`.
+
+Keep notes concise and factual. Record only local, reusable insights such as
+verified quirks, recovery steps, version-specific gaps, or runtime-discovered
+details. Do not copy general guidance from `APP.md`, and do not add temporary
+task-specific notes.
+
+API lookup workflow:
+
+- Use `docs/api-index.txt` as the primary operation index.
+- Workflow for every task:
+  1. Understand the user's intent.
+  2. Search (`rg`) `docs/api-index.txt` for matching operations.
+  3. If needed, introspect the live app/runtime to resolve ambiguity.
+  4. If still needed, search official documentation online.
+  5. Avoid over-relying on training, as it's fragile and can break. Do not directly read the index file, which can be heavy.
+
+
 Connection recovery:
 
 If `premiere_bridge.py` says the local eval endpoint is unreachable, the CEP
@@ -45,15 +71,14 @@ Restart Premiere after reinstalling.
 
 Premiere-specific notes:
 
-- This adapter is not COM-only. Premiere exposes file-type ProgIDs on Windows,
-  but not a practical `Premiere.Application` automation object for this bridge.
-- The CEP panel must be installed and opened once inside Premiere before the
-  shell bridge can read the session file and reach the local eval endpoint.
-- After one-time setup, Premiere may auto-open the panel in later sessions
-  because the manifest uses `AutoVisible` and the panel calls
-  `app.setExtensionPersistent(...)`. If it does not auto-open, instruct the user
-  to open `Window > Extensions > Creative Adapter Bridge`; do not ask them to
-  manage ports or tokens.
+- This adapter uses a CEP panel rather than a COM automation bridge.
+- The CEP panel must be open inside Premiere before the shell bridge can read
+  the session file and reach the local eval endpoint.
+- The manifest uses `AutoVisible`, and the panel calls
+  `app.setExtensionPersistent(...)`. The panel may auto-open in later sessions.
+  If it does not, instruct the user to open
+  `Window > Extensions > Creative Adapter Bridge`; do not ask them to manage
+  ports or tokens.
 - The CEP panel generates a random token on startup and writes it with the eval
   URL to `%APPDATA%\creative-adapters\premiere.json`. The Python bridge reads
   this file automatically and sends `X-Bridge-Token`.
@@ -62,5 +87,14 @@ Premiere-specific notes:
   does not guarantee automatic opening after a full app restart.
 - Timeline/project operations can be version-sensitive. Check local examples and
   docs before editing sequences, tracks, clips, exports, or project settings.
+- Premiere exposes a QE (Quality Engineering) DOM via `app.enableQE()`. QE is an
+  internal, unsupported surface: methods can change between versions and may be
+  unstable. Use QE only when the supported ExtendScript DOM does not provide the
+  required operation.
+- Typical QE flow: call `app.enableQE()`, access `qe.project` / `qe.sequence`
+  objects, perform the minimal required action, then re-validate project state.
 - Do not render, export, relink, transcode, or change project files unless the
   user explicitly asks.
+- Grep-friendly API index: `docs/api-index.txt` (records are prefixed with
+  `CLASS`, `PROPERTY`, `METHOD`; QE records use `QE_INTERFACE`, `QE_PROPERTY`,
+  `QE_METHOD`, `QE_TYPE`).

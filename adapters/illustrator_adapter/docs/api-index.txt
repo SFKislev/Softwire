@@ -1,0 +1,2468 @@
+# Adobe Illustrator ExtendScript API Index
+# Source: docsforadobe/Types-for-Adobe Illustrator/2022/index.d.ts
+# Extracted: mechanically via extract_api_index.py
+# Format: KIND  Symbol
+#
+# NOTE: Live effect name strings are runtime-only. Use app.liveEffectsList to discover them.
+
+# ============================================================
+# CLASSS  (140)
+# ============================================================
+
+CLASS	Artboards
+CLASS	Documents
+CLASS	Layers
+CLASS	GroupItems
+CLASS	PageItems
+CLASS	PathItems
+CLASS	PathPoints
+CLASS	CompoundPathItems
+CLASS	Stories
+CLASS	TextFrameItems
+CLASS	LegacyTextItems
+CLASS	TextRanges
+CLASS	InsertionPoints
+CLASS	Characters
+CLASS	Words
+CLASS	Lines
+CLASS	Paragraphs
+CLASS	CharacterStyles
+CLASS	ParagraphStyles
+CLASS	Spots
+CLASS	Swatches
+CLASS	SwatchGroups
+CLASS	Gradients
+CLASS	GradientStops
+CLASS	Patterns
+CLASS	Symbols
+CLASS	SymbolItems
+CLASS	Brushes
+CLASS	ArtStyles
+CLASS	TextFonts
+CLASS	Tags
+CLASS	RasterItems
+CLASS	PlacedItems
+CLASS	EmbeddedItems
+CLASS	MeshItems
+CLASS	GraphItems
+CLASS	PluginItems
+CLASS	NonNativeItems
+CLASS	Views
+CLASS	Variables
+CLASS	DataSets
+CLASS	OpenOptions
+CLASS	FXGSaveOptions
+CLASS	EPSSaveOptions
+CLASS	PDFSaveOptions
+CLASS	IllustratorSaveOptions
+CLASS	Matrix
+CLASS	ExportOptionsJPEG
+CLASS	ExportOptionsPNG8
+CLASS	ExportOptionsPNG24
+CLASS	ExportOptionsGIF
+CLASS	ExportOptionsPhotoshop
+CLASS	ExportOptionsSVG
+CLASS	ExportOptionsWebOptimizedSVG
+CLASS	ExportOptionsFlash
+CLASS	ExportOptionsAutoCAD
+CLASS	ExportOptionsTIFF
+CLASS	Color
+CLASS	LabColor
+CLASS	Dimensions
+CLASS	RGBColor
+CLASS	CMYKColor
+CLASS	GrayColor
+CLASS	NoColor
+CLASS	SpotColor
+CLASS	PatternColor
+CLASS	GradientColor
+CLASS	TabStopInfo
+CLASS	Printer
+CLASS	PrinterInfo
+CLASS	PPDFile
+CLASS	PPDFileInfo
+CLASS	Paper
+CLASS	PaperInfo
+CLASS	Screen
+CLASS	ScreenInfo
+CLASS	ScreenSpotFunction
+CLASS	Ink
+CLASS	InkInfo
+CLASS	DocumentPreset
+CLASS	PrintOptions
+CLASS	PrintPaperOptions
+CLASS	PrintJobOptions
+CLASS	PrintColorSeparationOptions
+CLASS	PrintCoordinateOptions
+CLASS	PrintPageMarksOptions
+CLASS	PrintFontOptions
+CLASS	PrintPostScriptOptions
+CLASS	PrintColorManagementOptions
+CLASS	PrintFlattenerOptions
+CLASS	ImageCaptureOptions
+CLASS	RasterEffectOptions
+CLASS	RasterizeOptions
+CLASS	Application
+CLASS	Document
+CLASS	Layer
+CLASS	View
+CLASS	Gradient
+CLASS	GradientStop
+CLASS	Preferences
+CLASS	Spot
+CLASS	Variable
+CLASS	DataSet
+CLASS	Swatch
+CLASS	SwatchGroup
+CLASS	Pattern
+CLASS	Symbol
+CLASS	Brush
+CLASS	ArtStyle
+CLASS	TextFont
+CLASS	PageItem
+CLASS	CompoundPathItem
+CLASS	Tag
+CLASS	PathItem
+CLASS	PathPoint
+CLASS	RasterItem
+CLASS	PlacedItem
+CLASS	EmbedItem
+CLASS	GraphItem
+CLASS	NonNativeItem
+CLASS	MeshItem
+CLASS	PluginItem
+CLASS	GroupItem
+CLASS	SymbolItem
+CLASS	TextPath
+CLASS	Story
+CLASS	TextFrame
+CLASS	LegacyTextItem
+CLASS	TextRange
+CLASS	InsertionPoint
+CLASS	CharacterStyle
+CLASS	ParagraphStyle
+CLASS	CharacterAttributes
+CLASS	ParagraphAttributes
+CLASS	OpenOptionsPhotoshop
+CLASS	OpenOptionsPDF
+CLASS	OpenOptionsAutoCAD
+CLASS	TracingOptions
+CLASS	TracingObject
+CLASS	Artboard
+
+# ============================================================
+# ENUMS  (733)
+# ============================================================
+
+ENUM	ScreenMode
+ENUM	ScreenMode.DESKTOP = 2
+ENUM	ScreenMode.FULLSCREEN = 3
+ENUM	ScreenMode.MULTIWINDOW = 1
+ENUM	ColorType
+ENUM	ColorType.CMYK = 1
+ENUM	ColorType.GRADIENT = 4
+ENUM	ColorType.GRAY = 0
+ENUM	ColorType.None = 6
+ENUM	ColorType.PATTERN = 2
+ENUM	ColorType.RGB = 5
+ENUM	ColorType.SPOT = 3
+ENUM	DocumentColorSpace
+ENUM	DocumentColorSpace.CMYK = 2
+ENUM	DocumentColorSpace.RGB = 1
+ENUM	DocumentPresetType
+ENUM	DocumentPresetType.BasicCMYK = 5
+ENUM	DocumentPresetType.BasicRGB = 6
+ENUM	DocumentPresetType.Mobile = 3
+ENUM	DocumentPresetType.Print = 1
+ENUM	DocumentPresetType.Video = 4
+ENUM	DocumentPresetType.Web = 2
+ENUM	DocumentRasterResolution
+ENUM	DocumentRasterResolution.HighResolution = 3
+ENUM	DocumentRasterResolution.MediumResolution = 2
+ENUM	DocumentRasterResolution.ScreenResolution = 1
+ENUM	DocumentTransparencyGrid
+ENUM	DocumentTransparencyGrid.TransparencyGridBlue = 7
+ENUM	DocumentTransparencyGrid.TransparencyGridDark = 3
+ENUM	DocumentTransparencyGrid.TransparencyGridGreen = 6
+ENUM	DocumentTransparencyGrid.TransparencyGridLight = 1
+ENUM	DocumentTransparencyGrid.TransparencyGridMedium = 2
+ENUM	DocumentTransparencyGrid.TransparencyGridNone = 0
+ENUM	DocumentTransparencyGrid.TransparencyGridOrange = 5
+ENUM	DocumentTransparencyGrid.TransparencyGridPurple = 8
+ENUM	DocumentTransparencyGrid.TransparencyGridRed = 4
+ENUM	DocumentPreviewMode
+ENUM	DocumentPreviewMode.DefaultPreview = 1
+ENUM	DocumentPreviewMode.OverprintPreview = 3
+ENUM	DocumentPreviewMode.PixelPreview = 2
+ENUM	DocumentArtboardLayout
+ENUM	DocumentArtboardLayout.Column = 4
+ENUM	DocumentArtboardLayout.GridByCol = 2
+ENUM	DocumentArtboardLayout.GridByRow = 1
+ENUM	DocumentArtboardLayout.RLGridByCol = 6
+ENUM	DocumentArtboardLayout.RLGridByRow = 5
+ENUM	DocumentArtboardLayout.RLRow = 7
+ENUM	DocumentArtboardLayout.Row = 3
+ENUM	ImageColorSpace
+ENUM	ImageColorSpace.CMYK = 3
+ENUM	ImageColorSpace.DeviceN = 6
+ENUM	ImageColorSpace.GrayScale = 1
+ENUM	ImageColorSpace.Indexed = 7
+ENUM	ImageColorSpace.LAB = 4
+ENUM	ImageColorSpace.RGB = 2
+ENUM	ImageColorSpace.Separation = 5
+ENUM	StrokeCap
+ENUM	StrokeCap.BUTTENDCAP = 1
+ENUM	StrokeCap.PROJECTINGENDCAP = 3
+ENUM	StrokeCap.ROUNDENDCAP = 2
+ENUM	StrokeJoin
+ENUM	StrokeJoin.BEVELENDJOIN = 3
+ENUM	StrokeJoin.MITERENDJOIN = 1
+ENUM	StrokeJoin.ROUNDENDJOIN = 2
+ENUM	PathPointSelection
+ENUM	PathPointSelection.ANCHORPOINT = 2
+ENUM	PathPointSelection.LEFTDIRECTION = 3
+ENUM	PathPointSelection.LEFTRIGHTPOINT = 5
+ENUM	PathPointSelection.NOSELECTION = 1
+ENUM	PathPointSelection.RIGHTDIRECTION = 4
+ENUM	PointType
+ENUM	PointType.CORNER = 2
+ENUM	PointType.SMOOTH = 1
+ENUM	TextType
+ENUM	TextType.AREATEXT = 1
+ENUM	TextType.PATHTEXT = 2
+ENUM	TextType.POINTTEXT = 0
+ENUM	TextAntialias
+ENUM	TextAntialias.CRISP = 3
+ENUM	TextAntialias.NONE = 1
+ENUM	TextAntialias.SHARP = 2
+ENUM	TextAntialias.STRONG = 4
+ENUM	GradientType
+ENUM	GradientType.LINEAR = 1
+ENUM	GradientType.RADIAL = 2
+ENUM	TextOrientation
+ENUM	TextOrientation.HORIZONTAL = 0
+ENUM	TextOrientation.VERTICAL = 1
+ENUM	CropOptions
+ENUM	CropOptions.Japanese = 2
+ENUM	CropOptions.Standard = 1
+ENUM	RasterLinkState
+ENUM	RasterLinkState.DATAFROMFILE = 2
+ENUM	RasterLinkState.DATAMODIFIED = 3
+ENUM	RasterLinkState.NODATA = 1
+ENUM	TabStopAlignment
+ENUM	TabStopAlignment.Center = 1
+ENUM	TabStopAlignment.Decimal = 3
+ENUM	TabStopAlignment.Left = 0
+ENUM	TabStopAlignment.Right = 2
+ENUM	Justification
+ENUM	Justification.CENTER = 2
+ENUM	Justification.FULLJUSTIFY = 6
+ENUM	Justification.FULLJUSTIFYLASTLINECENTER = 5
+ENUM	Justification.FULLJUSTIFYLASTLINELEFT = 3
+ENUM	Justification.FULLJUSTIFYLASTLINERIGHT = 4
+ENUM	Justification.LEFT = 0
+ENUM	Justification.RIGHT = 1
+ENUM	Transformation
+ENUM	Transformation.BOTTOM = 7
+ENUM	Transformation.BOTTOMLEFT = 4
+ENUM	Transformation.BOTTOMRIGHT = 10
+ENUM	Transformation.CENTER = 6
+ENUM	Transformation.DOCUMENTORIGIN = 1
+ENUM	Transformation.LEFT = 3
+ENUM	Transformation.RIGHT = 9
+ENUM	Transformation.TOP = 5
+ENUM	Transformation.TOPLEFT = 2
+ENUM	Transformation.TOPRIGHT = 8
+ENUM	LibraryType
+ENUM	LibraryType.BRUSHES = 3
+ENUM	LibraryType.GRAPHICSTYLES = 4
+ENUM	LibraryType.ILLUSTRATORARTWORK = 1
+ENUM	LibraryType.SWATCHES = 2
+ENUM	LibraryType.SYMBOLS = 5
+ENUM	DocumentType
+ENUM	DocumentType.EPS = 2
+ENUM	DocumentType.FXG = 4
+ENUM	DocumentType.ILLUSTRATOR = 1
+ENUM	DocumentType.PDF = 3
+ENUM	ExportType
+ENUM	ExportType.AUTOCAD = 8
+ENUM	ExportType.FLASH = 7
+ENUM	ExportType.GIF = 6
+ENUM	ExportType.JPEG = 1
+ENUM	ExportType.PHOTOSHOP = 2
+ENUM	ExportType.PNG24 = 5
+ENUM	ExportType.PNG8 = 4
+ENUM	ExportType.SVG = 3
+ENUM	ExportType.TIFF = 9
+ENUM	ExportType.WOSVG = 10
+ENUM	ColorReductionMethod
+ENUM	ColorReductionMethod.ADAPTIVE = 0x41647074
+ENUM	ColorReductionMethod.PERCEPTUAL = 0x50726370
+ENUM	ColorReductionMethod.SELECTIVE = 0x536c7476
+ENUM	ColorReductionMethod.WEB = 0x57656220
+ENUM	ColorDitherMethod
+ENUM	ColorDitherMethod.DIFFUSION = 0x4466736e
+ENUM	ColorDitherMethod.NOISE = 0x424e6f69
+ENUM	ColorDitherMethod.NOREDUCTION = 0x4e6f6e65
+ENUM	ColorDitherMethod.PATTERNDITHER = 0x5074726e
+ENUM	Compatibility
+ENUM	Compatibility.ILLUSTRATOR10 = 10
+ENUM	Compatibility.ILLUSTRATOR11 = 11
+ENUM	Compatibility.ILLUSTRATOR12 = 12
+ENUM	Compatibility.ILLUSTRATOR13 = 13
+ENUM	Compatibility.ILLUSTRATOR14 = 14
+ENUM	Compatibility.ILLUSTRATOR15 = 15
+ENUM	Compatibility.ILLUSTRATOR16 = 16
+ENUM	Compatibility.ILLUSTRATOR17 = 17
+ENUM	Compatibility.ILLUSTRATOR3 = 3
+ENUM	Compatibility.ILLUSTRATOR8 = 8
+ENUM	Compatibility.ILLUSTRATOR9 = 9
+ENUM	Compatibility.JAPANESEVERSION3 = 3
+ENUM	PDFXStandard
+ENUM	PDFXStandard.PDFX1A2001 = 2
+ENUM	PDFXStandard.PDFX1A2003 = 3
+ENUM	PDFXStandard.PDFX32001 = 4
+ENUM	PDFXStandard.PDFX32002 = 4
+ENUM	PDFXStandard.PDFX32003 = 5
+ENUM	PDFXStandard.PDFX42007 = 6
+ENUM	PDFXStandard.PDFXNONE = 1
+ENUM	PDFCompatibility
+ENUM	PDFCompatibility.ACROBAT4 = 4
+ENUM	PDFCompatibility.ACROBAT5 = 5
+ENUM	PDFCompatibility.ACROBAT6 = 6
+ENUM	PDFCompatibility.ACROBAT7 = 7
+ENUM	PDFCompatibility.ACROBAT8 = 8
+ENUM	PhotoshopCompatibility
+ENUM	PhotoshopCompatibility.PHOTOSHOP6 = 2
+ENUM	PhotoshopCompatibility.PHOTOSHOP8 = 1
+ENUM	CompressionQuality
+ENUM	CompressionQuality.AUTOMATICJPEG2000HIGH = 18
+ENUM	CompressionQuality.AUTOMATICJPEG2000LOSSLESS = 20
+ENUM	CompressionQuality.AUTOMATICJPEG2000LOW = 16
+ENUM	CompressionQuality.AUTOMATICJPEG2000MAXIMUM = 19
+ENUM	CompressionQuality.AUTOMATICJPEG2000MEDIUM = 17
+ENUM	CompressionQuality.AUTOMATICJPEG2000MINIMUM = 15
+ENUM	CompressionQuality.AUTOMATICJPEGHIGH = 13
+ENUM	CompressionQuality.AUTOMATICJPEGLOW = 11
+ENUM	CompressionQuality.AUTOMATICJPEGMAXIMUM = 14
+ENUM	CompressionQuality.AUTOMATICJPEGMEDIUM = 12
+ENUM	CompressionQuality.AUTOMATICJPEGMINIMUM = 10
+ENUM	CompressionQuality.JPEG2000HIGH = 24
+ENUM	CompressionQuality.JPEG2000LOSSLESS = 26
+ENUM	CompressionQuality.JPEG2000LOW = 22
+ENUM	CompressionQuality.JPEG2000MAXIMUM = 25
+ENUM	CompressionQuality.JPEG2000MEDIUM = 23
+ENUM	CompressionQuality.JPEG2000MINIMUM = 21
+ENUM	CompressionQuality.JPEGHIGH = 6
+ENUM	CompressionQuality.JPEGLOW = 4
+ENUM	CompressionQuality.JPEGMAXIMUM = 7
+ENUM	CompressionQuality.JPEGMEDIUM = 5
+ENUM	CompressionQuality.JPEGMINIMUM = 3
+ENUM	CompressionQuality.None = 1
+ENUM	CompressionQuality.ZIP4BIT = 8
+ENUM	CompressionQuality.ZIP8BIT = 9
+ENUM	ColorConversion
+ENUM	ColorConversion.COLORCONVERSIONREPURPOSE = 2
+ENUM	ColorConversion.COLORCONVERSIONTODEST = 1
+ENUM	ColorConversion.None = 0
+ENUM	ColorDestination
+ENUM	ColorDestination.COLORDESTINATIONDOCCMYK = 1
+ENUM	ColorDestination.COLORDESTINATIONDOCRGB = 3
+ENUM	ColorDestination.COLORDESTINATIONPROFILE = 5
+ENUM	ColorDestination.COLORDESTINATIONWORKINGCMYK = 2
+ENUM	ColorDestination.COLORDESTINATIONWORKINGRGB = 4
+ENUM	ColorDestination.None = 0
+ENUM	ColorProfile
+ENUM	ColorProfile.INCLUDEALLPROFILE = 1
+ENUM	ColorProfile.INCLUDEDESTPROFILE = 4
+ENUM	ColorProfile.INCLUDERGBPROFILE = 3
+ENUM	ColorProfile.LEAVEPROFILEUNCHANGED = 2
+ENUM	ColorProfile.None = 0
+ENUM	MonochromeCompression
+ENUM	MonochromeCompression.CCIT3 = 1
+ENUM	MonochromeCompression.CCIT4 = 2
+ENUM	MonochromeCompression.MONOZIP = 3
+ENUM	MonochromeCompression.None = 0
+ENUM	MonochromeCompression.RUNLENGTH = 4
+ENUM	PDFTrimMarkWeight
+ENUM	PDFTrimMarkWeight.TRIMMARKWEIGHT0125 = 1
+ENUM	PDFTrimMarkWeight.TRIMMARKWEIGHT025 = 2
+ENUM	PDFTrimMarkWeight.TRIMMARKWEIGHT05 = 3
+ENUM	PDFOverprint
+ENUM	PDFOverprint.DISCARDPDFOVERPRINT = 2
+ENUM	PDFOverprint.PRESERVEPDFOVERPRINT = 1
+ENUM	PDFPrintAllowedEnum
+ENUM	PDFPrintAllowedEnum.PRINT128HIGHRESOLUTION = 3
+ENUM	PDFPrintAllowedEnum.PRINT128LOWRESOLUTION = 2
+ENUM	PDFPrintAllowedEnum.PRINT128NONE = 1
+ENUM	PDFPrintAllowedEnum.PRINT40HIGHRESOLUTION = 5
+ENUM	PDFPrintAllowedEnum.PRINT40NONE = 4
+ENUM	PDFChangesAllowedEnum
+ENUM	PDFChangesAllowedEnum.CHANGE128ANYCHANGES = 5
+ENUM	PDFChangesAllowedEnum.CHANGE128COMMENTING = 4
+ENUM	PDFChangesAllowedEnum.CHANGE128EDITPAGE = 2
+ENUM	PDFChangesAllowedEnum.CHANGE128FILLFORM = 3
+ENUM	PDFChangesAllowedEnum.CHANGE128NONE = 1
+ENUM	PDFChangesAllowedEnum.CHANGE40ANYCHANGES = 9
+ENUM	PDFChangesAllowedEnum.CHANGE40COMMENTING = 7
+ENUM	PDFChangesAllowedEnum.CHANGE40NONE = 6
+ENUM	PDFChangesAllowedEnum.CHANGE40PAGELAYOUT = 8
+ENUM	DownsampleMethod
+ENUM	DownsampleMethod.AVERAGEDOWNSAMPLE = 1
+ENUM	DownsampleMethod.BICUBICDOWNSAMPLE = 3
+ENUM	DownsampleMethod.NODOWNSAMPLE = 0
+ENUM	DownsampleMethod.SUBSAMPLE = 2
+ENUM	EPSPreview
+ENUM	EPSPreview.BWMACINTOSH = 2
+ENUM	EPSPreview.BWTIFF = 4
+ENUM	EPSPreview.COLORMACINTOSH = 3
+ENUM	EPSPreview.COLORTIFF = 6
+ENUM	EPSPreview.None = 1
+ENUM	EPSPreview.TRANSPARENTCOLORTIFF = 5
+ENUM	EPSPostScriptLevelEnum
+ENUM	EPSPostScriptLevelEnum.LEVEL2 = 2
+ENUM	EPSPostScriptLevelEnum.LEVEL3 = 3
+ENUM	PrinterPostScriptLevelEnum
+ENUM	PrinterPostScriptLevelEnum.PSLEVEL1 = 1
+ENUM	PrinterPostScriptLevelEnum.PSLEVEL2 = 2
+ENUM	PrinterPostScriptLevelEnum.PSLEVEL3 = 3
+ENUM	SaveOptions
+ENUM	SaveOptions.DONOTSAVECHANGES = 2
+ENUM	SaveOptions.PROMPTTOSAVECHANGES = 3
+ENUM	SaveOptions.SAVECHANGES = 1
+ENUM	RulerUnits
+ENUM	RulerUnits.Centimeters = 3
+ENUM	RulerUnits.Inches = 2
+ENUM	RulerUnits.Millimeters = 6
+ENUM	RulerUnits.Picas = 5
+ENUM	RulerUnits.Pixels = 8
+ENUM	RulerUnits.Points = 4
+ENUM	RulerUnits.Qs = 7
+ENUM	RulerUnits.Unknown = 1
+ENUM	BlendModes
+ENUM	BlendModes.COLORBLEND = 14
+ENUM	BlendModes.COLORBURN = 7
+ENUM	BlendModes.COLORDODGE = 6
+ENUM	BlendModes.DARKEN = 8
+ENUM	BlendModes.DIFFERENCE = 10
+ENUM	BlendModes.EXCLUSION = 11
+ENUM	BlendModes.HARDLIGHT = 5
+ENUM	BlendModes.HUE = 12
+ENUM	BlendModes.LIGHTEN = 9
+ENUM	BlendModes.LUMINOSITY = 15
+ENUM	BlendModes.MULTIPLY = 1
+ENUM	BlendModes.NORMAL = 0
+ENUM	BlendModes.OVERLAY = 3
+ENUM	BlendModes.SATURATIONBLEND = 13
+ENUM	BlendModes.SCREEN = 2
+ENUM	BlendModes.SOFTLIGHT = 4
+ENUM	KnockoutState
+ENUM	KnockoutState.DISABLED = 0
+ENUM	KnockoutState.ENABLED = 1
+ENUM	KnockoutState.INHERITED = 2
+ENUM	KnockoutState.Unknown = -1
+ENUM	ZOrderMethod
+ENUM	ZOrderMethod.BRINGFORWARD = 2
+ENUM	ZOrderMethod.BRINGTOFRONT = 1
+ENUM	ZOrderMethod.SENDBACKWARD = 3
+ENUM	ZOrderMethod.SENDTOBACK = 4
+ENUM	SVGDTDVersion
+ENUM	SVGDTDVersion.SVG1_0 = 1
+ENUM	SVGDTDVersion.SVG1_1 = 2
+ENUM	SVGDTDVersion.SVGBASIC1_1 = 5
+ENUM	SVGDTDVersion.SVGTINY1_1 = 3
+ENUM	SVGDTDVersion.SVGTINY1_1PLUS = 4
+ENUM	SVGDTDVersion.SVGTINY1_2 = 6
+ENUM	SVGFontType
+ENUM	SVGFontType.OUTLINEFONT = 3
+ENUM	SVGFontType.SVGFONT = 2
+ENUM	SVGFontSubsetting
+ENUM	SVGFontSubsetting.ALLGLYPHS = 7
+ENUM	SVGFontSubsetting.COMMONENGLISH = 3
+ENUM	SVGFontSubsetting.COMMONROMAN = 5
+ENUM	SVGFontSubsetting.GLYPHSUSED = 2
+ENUM	SVGFontSubsetting.GLYPHSUSEDPLUSENGLISH = 4
+ENUM	SVGFontSubsetting.GLYPHSUSEDPLUSROMAN = 6
+ENUM	SVGFontSubsetting.None = 1
+ENUM	SVGDocumentEncoding
+ENUM	SVGDocumentEncoding.ASCII = 1
+ENUM	SVGDocumentEncoding.UTF16 = 3
+ENUM	SVGDocumentEncoding.UTF8 = 2
+ENUM	SVGCSSPropertyLocation
+ENUM	SVGCSSPropertyLocation.ENTITIES = 2
+ENUM	SVGCSSPropertyLocation.PRESENTATIONATTRIBUTES = 4
+ENUM	SVGCSSPropertyLocation.STYLEATTRIBUTES = 1
+ENUM	SVGCSSPropertyLocation.STYLEELEMENTS = 3
+ENUM	SVGIdType
+ENUM	SVGIdType.SVGIDMINIMAL = 0
+ENUM	SVGIdType.SVGIDREGULAR = 1
+ENUM	SVGIdType.SVGIDUNIQUE = 2
+ENUM	RasterImageLocation
+ENUM	RasterImageLocation.EMBED = 0
+ENUM	RasterImageLocation.LINK = 1
+ENUM	RasterImageLocation.PRESERVE = 2
+ENUM	OutputFlattening
+ENUM	OutputFlattening.PRESERVEAPPEARANCE = 1
+ENUM	OutputFlattening.PRESERVEPATHS = 0
+ENUM	ColorModel
+ENUM	ColorModel.PROCESS = 1
+ENUM	ColorModel.REGISTRATION = 0
+ENUM	ColorModel.SPOT = 2
+ENUM	SpotColorKind
+ENUM	SpotColorKind.SPOTCMYK = 0
+ENUM	SpotColorKind.SPOTLAB = 2
+ENUM	SpotColorKind.SPOTRGB = 1
+ENUM	FlashExportStyle
+ENUM	FlashExportStyle.ARTBOARDSTOFILES = 5
+ENUM	FlashExportStyle.ASFLASHFILE = 1
+ENUM	FlashExportStyle.LAYERSASFILES = 3
+ENUM	FlashExportStyle.LAYERSASFRAMES = 2
+ENUM	FlashExportStyle.LAYERSASSYMBOLS = 4
+ENUM	ArtClippingOption
+ENUM	ArtClippingOption.OUTPUTARTBOARDBOUNDS = 2
+ENUM	ArtClippingOption.OUTPUTARTBOUNDS = 1
+ENUM	ArtClippingOption.OUTPUTCROPRECTBOUNDS = 3
+ENUM	FlashExportVersion
+ENUM	FlashExportVersion.FLASHVERSION1 = 1
+ENUM	FlashExportVersion.FLASHVERSION2 = 2
+ENUM	FlashExportVersion.FLASHVERSION3 = 3
+ENUM	FlashExportVersion.FLASHVERSION4 = 4
+ENUM	FlashExportVersion.FLASHVERSION5 = 5
+ENUM	FlashExportVersion.FLASHVERSION6 = 6
+ENUM	FlashExportVersion.FLASHVERSION7 = 7
+ENUM	FlashExportVersion.FLASHVERSION8 = 8
+ENUM	FlashExportVersion.FLASHVERSION9 = 9
+ENUM	FlashImageFormat
+ENUM	FlashImageFormat.LOSSLESS = 1
+ENUM	FlashImageFormat.LOSSY = 2
+ENUM	LayerOrderType
+ENUM	LayerOrderType.BOTTOMUP = 1
+ENUM	LayerOrderType.TOPDOWN = 2
+ENUM	BlendAnimationType
+ENUM	BlendAnimationType.INBUILD = 2
+ENUM	BlendAnimationType.INSEQUENCE = 1
+ENUM	BlendAnimationType.NOBLENDANIMATION = 0
+ENUM	FlashJPEGMethod
+ENUM	FlashJPEGMethod.Optimized = 2
+ENUM	FlashJPEGMethod.Standard = 1
+ENUM	FlashPlaybackSecurity
+ENUM	FlashPlaybackSecurity.PlaybackLocal = 1
+ENUM	FlashPlaybackSecurity.PlaybackNetwork = 2
+ENUM	VariableKind
+ENUM	VariableKind.GRAPH = 5
+ENUM	VariableKind.IMAGE = 4
+ENUM	VariableKind.TEXTUAL = 3
+ENUM	VariableKind.Unknown = 1
+ENUM	VariableKind.VISIBILITY = 2
+ENUM	AutoCADExportFileFormat
+ENUM	AutoCADExportFileFormat.DWG = 1
+ENUM	AutoCADExportFileFormat.DXF = 0
+ENUM	AutoCADCompatibility
+ENUM	AutoCADCompatibility.AutoCADRelease13 = 0
+ENUM	AutoCADCompatibility.AutoCADRelease14 = 1
+ENUM	AutoCADCompatibility.AutoCADRelease15 = 2
+ENUM	AutoCADCompatibility.AutoCADRelease18 = 3
+ENUM	AutoCADCompatibility.AutoCADRelease21 = 4
+ENUM	AutoCADCompatibility.AutoCADRelease24 = 5
+ENUM	AutoCADUnit
+ENUM	AutoCADUnit.Centimeters = 4
+ENUM	AutoCADUnit.Inches = 2
+ENUM	AutoCADUnit.Millimeters = 3
+ENUM	AutoCADUnit.Picas = 1
+ENUM	AutoCADUnit.Pixels = 5
+ENUM	AutoCADUnit.Points = 0
+ENUM	AutoCADColors
+ENUM	AutoCADColors.Max16Colors = 1
+ENUM	AutoCADColors.Max256Colors = 2
+ENUM	AutoCADColors.Max8Colors = 0
+ENUM	AutoCADColors.TrueColors = 3
+ENUM	AutoCADRasterFormat
+ENUM	AutoCADRasterFormat.JPEG = 1
+ENUM	AutoCADRasterFormat.PNG = 0
+ENUM	AutoCADExportOption
+ENUM	AutoCADExportOption.MaximumEditability = 1
+ENUM	AutoCADExportOption.PreserveAppearance = 0
+ENUM	AutoCADGlobalScaleOption
+ENUM	AutoCADGlobalScaleOption.FitArtboard = 1
+ENUM	AutoCADGlobalScaleOption.OriginalSize = 0
+ENUM	AutoCADGlobalScaleOption.ScaleByValue = 2
+ENUM	TIFFByteOrder
+ENUM	TIFFByteOrder.IBMPC = 0
+ENUM	TIFFByteOrder.MACINTOSH = 1
+ENUM	UserInteractionLevel
+ENUM	UserInteractionLevel.DISPLAYALERTS = 2
+ENUM	UserInteractionLevel.DONTDISPLAYALERTS = -1
+ENUM	PolarityValues
+ENUM	PolarityValues.NEGATIVE = -1
+ENUM	PolarityValues.POSITIVE = 1
+ENUM	JavaScriptExecutionMode
+ENUM	JavaScriptExecutionMode.BeforeRunning = 3
+ENUM	JavaScriptExecutionMode.OnRuntimeError = 2
+ENUM	JavaScriptExecutionMode.never = 1
+ENUM	PrintArtworkDesignation
+ENUM	PrintArtworkDesignation.ALLLAYERS = 2
+ENUM	PrintArtworkDesignation.VISIBLELAYERS = 1
+ENUM	PrintArtworkDesignation.VISIBLEPRINTABLELAYERS = 0
+ENUM	PrintingBounds
+ENUM	PrintingBounds.ARTBOARDBOUNDS = 0
+ENUM	PrintingBounds.ARTWORKBOUNDS = 1
+ENUM	PrintingBounds.CROPBOUNDS = 2
+ENUM	PrintColorSeparationMode
+ENUM	PrintColorSeparationMode.COMPOSITE = 0
+ENUM	PrintColorSeparationMode.HOSTBASEDSEPARATION = 1
+ENUM	PrintColorSeparationMode.INRIPSEPARATION = 2
+ENUM	PrintOrientation
+ENUM	PrintOrientation.AUTOROTATE = 4
+ENUM	PrintOrientation.LANDSCAPE = 1
+ENUM	PrintOrientation.PORTRAIT = 0
+ENUM	PrintOrientation.REVERSELANDSCAPE = 3
+ENUM	PrintOrientation.REVERSEPORTRAIT = 2
+ENUM	PrintPosition
+ENUM	PrintPosition.TRANSLATEBOTTOM = 8
+ENUM	PrintPosition.TRANSLATEBOTTOMLEFT = 7
+ENUM	PrintPosition.TRANSLATEBOTTOMRIGHT = 9
+ENUM	PrintPosition.TRANSLATECENTER = 5
+ENUM	PrintPosition.TRANSLATELEFT = 4
+ENUM	PrintPosition.TRANSLATERIGHT = 6
+ENUM	PrintPosition.TRANSLATETOP = 2
+ENUM	PrintPosition.TRANSLATETOPLEFT = 1
+ENUM	PrintPosition.TRANSLATETOPRIGHT = 3
+ENUM	PrintTiling
+ENUM	PrintTiling.TILEFULLPAGES = 1
+ENUM	PrintTiling.TILEIMAGEABLEAREAS = 2
+ENUM	PrintTiling.TILESINGLEFULLPAGE = 0
+ENUM	PageMarksTypes
+ENUM	PageMarksTypes.Japanese = 1
+ENUM	PageMarksTypes.Roman = 0
+ENUM	PrintFontDownloadMode
+ENUM	PrintFontDownloadMode.DOWNLOADCOMPLETE = 2
+ENUM	PrintFontDownloadMode.DOWNLOADNONE = 0
+ENUM	PrintFontDownloadMode.DOWNLOADSUBSET = 1
+ENUM	FontSubstitutionPolicy
+ENUM	FontSubstitutionPolicy.SUBSTITUTEDEVICE = 2
+ENUM	FontSubstitutionPolicy.SUBSTITUTEOBLIQUE = 0
+ENUM	FontSubstitutionPolicy.SUBSTITUTETINT = 1
+ENUM	PostScriptImageCompressionType
+ENUM	PostScriptImageCompressionType.IMAGECOMPRESSIONNONE = 0
+ENUM	PostScriptImageCompressionType.JPEG = 2
+ENUM	PostScriptImageCompressionType.RLE = 1
+ENUM	PrintColorProfile
+ENUM	PrintColorProfile.CUSTOMPROFILE = 3
+ENUM	PrintColorProfile.OLDSTYLEPROFILE = 0
+ENUM	PrintColorProfile.PRINTERPROFILE = 2
+ENUM	PrintColorProfile.SOURCEPROFILE = 1
+ENUM	PrintColorIntent
+ENUM	PrintColorIntent.ABSOLUTECOLORIMETRIC = 3
+ENUM	PrintColorIntent.PERCEPTUALINTENT = 0
+ENUM	PrintColorIntent.RELATIVECOLORIMETRIC = 2
+ENUM	PrintColorIntent.SATURATIONINTENT = 1
+ENUM	PrinterTypeEnum
+ENUM	PrinterTypeEnum.NONPOSTSCRIPTPRINTER = 2
+ENUM	PrinterTypeEnum.POSTSCRIPTPRINTER = 1
+ENUM	PrinterTypeEnum.Unknown = 0
+ENUM	PrinterColorMode
+ENUM	PrinterColorMode.BLACKANDWHITEPRINTER = 2
+ENUM	PrinterColorMode.COLORPRINTER = 0
+ENUM	PrinterColorMode.GRAYSCALEPRINTER = 1
+ENUM	InkPrintStatus
+ENUM	InkPrintStatus.CONVERTINK = 2
+ENUM	InkPrintStatus.DISABLEINK = 0
+ENUM	InkPrintStatus.ENABLEINK = 1
+ENUM	InkType
+ENUM	InkType.BLACKINK = 3
+ENUM	InkType.CUSTOMINK = 4
+ENUM	InkType.CYANINK = 0
+ENUM	InkType.MAGENTAINK = 1
+ENUM	InkType.YELLOWINK = 2
+ENUM	TrappingType
+ENUM	TrappingType.IGNOREOPAQUE = 3
+ENUM	TrappingType.NORMALTRAPPING = 0
+ENUM	TrappingType.OPAQUE = 2
+ENUM	TrappingType.TRANSPARENT = 1
+ENUM	AutoKernType
+ENUM	AutoKernType.AUTO = 1
+ENUM	AutoKernType.METRICSROMANONLY = 3
+ENUM	AutoKernType.NOAUTOKERN = 0
+ENUM	AutoKernType.OPTICAL = 2
+ENUM	AutoLeadingType
+ENUM	AutoLeadingType.BOTTOMTOBOTTOM = 0
+ENUM	AutoLeadingType.TOPTOTOP = 1
+ENUM	CaseChangeType
+ENUM	CaseChangeType.LOWERCASE = 1
+ENUM	CaseChangeType.SENTENCECASE = 3
+ENUM	CaseChangeType.TITLECASE = 2
+ENUM	CaseChangeType.UPPERCASE = 0
+ENUM	FontCapsOption
+ENUM	FontCapsOption.ALLCAPS = 2
+ENUM	FontCapsOption.ALLSMALLCAPS = 3
+ENUM	FontCapsOption.NORMALCAPS = 0
+ENUM	FontCapsOption.SMALLCAPS = 1
+ENUM	FontBaselineOption
+ENUM	FontBaselineOption.NORMALBASELINE = 0
+ENUM	FontBaselineOption.SUBSCRIPT = 2
+ENUM	FontBaselineOption.SUPERSCRIPT = 1
+ENUM	FontOpenTypePositionOption
+ENUM	FontOpenTypePositionOption.DENOMINATOR = 4
+ENUM	FontOpenTypePositionOption.NUMERATOR = 3
+ENUM	FontOpenTypePositionOption.OPENTYPEDEFAULT = 0
+ENUM	FontOpenTypePositionOption.OPENTYPESUBSCRIPT = 2
+ENUM	FontOpenTypePositionOption.OPENTYPESUPERSCRIPT = 1
+ENUM	FigureStyleType
+ENUM	FigureStyleType.DEFAULTFIGURESTYLE = 0
+ENUM	FigureStyleType.PROPORTIONAL = 3
+ENUM	FigureStyleType.PROPORTIONALOLDSTYLE = 2
+ENUM	FigureStyleType.TABULAR = 1
+ENUM	FigureStyleType.TABULAROLDSTYLE = 4
+ENUM	BaselineDirectionType
+ENUM	BaselineDirectionType.Standard = 1
+ENUM	BaselineDirectionType.TateChuYoko = 3
+ENUM	BaselineDirectionType.VerticalRotated = 2
+ENUM	LanguageType
+ENUM	LanguageType.ARABIC = 39
+ENUM	LanguageType.BENGALIINDIA = 51
+ENUM	LanguageType.BOKMALNORWEGIAN = 8
+ENUM	LanguageType.BRAZILLIANPORTUGUESE = 11
+ENUM	LanguageType.BULGARIAN = 20
+ENUM	LanguageType.CANADIANFRENCH = 3
+ENUM	LanguageType.CATALAN = 17
+ENUM	LanguageType.CHINESE = 29
+ENUM	LanguageType.CZECH = 22
+ENUM	LanguageType.DANISH = 16
+ENUM	LanguageType.DUTCH = 15
+ENUM	LanguageType.DUTCH2005REFORM = 43
+ENUM	LanguageType.ENGLISH = 0
+ENUM	LanguageType.FARSI = 41
+ENUM	LanguageType.FINNISH = 1
+ENUM	LanguageType.GERMAN2006REFORM = 42
+ENUM	LanguageType.GREEK = 25
+ENUM	LanguageType.GUJARATI = 53
+ENUM	LanguageType.HINDI = 49
+ENUM	LanguageType.HUNGARIAN = 28
+ENUM	LanguageType.ICELANDIC = 27
+ENUM	LanguageType.ITALIAN = 7
+ENUM	LanguageType.JAPANESE = 30
+ENUM	LanguageType.KANNADA = 57
+ENUM	LanguageType.MALAYALAM = 58
+ENUM	LanguageType.MARATHI = 50
+ENUM	LanguageType.NYNORSKNORWEGIAN = 9
+ENUM	LanguageType.OLDGERMAN = 5
+ENUM	LanguageType.ORIYA = 54
+ENUM	LanguageType.POLISH = 23
+ENUM	LanguageType.PUNJABI = 52
+ENUM	LanguageType.RUMANIAN = 24
+ENUM	LanguageType.RUSSIAN = 18
+ENUM	LanguageType.SERBIAN = 21
+ENUM	LanguageType.SPANISH = 12
+ENUM	LanguageType.STANDARDFRENCH = 2
+ENUM	LanguageType.STANDARDGERMAN = 4
+ENUM	LanguageType.STANDARDPORTUGUESE = 10
+ENUM	LanguageType.SWEDISH = 13
+ENUM	LanguageType.SWISSGERMAN = 6
+ENUM	LanguageType.SWISSGERMAN2006REFORM = 44
+ENUM	LanguageType.TAMIL = 55
+ENUM	LanguageType.TELUGU = 56
+ENUM	LanguageType.TURKISH = 26
+ENUM	LanguageType.UKENGLISH = 14
+ENUM	LanguageType.UKRANIAN = 19
+ENUM	AlternateGlyphsForm
+ENUM	AlternateGlyphsForm.DEFAULTFORM = 0
+ENUM	AlternateGlyphsForm.EXPERT = 2
+ENUM	AlternateGlyphsForm.FULLWIDTH = 8
+ENUM	AlternateGlyphsForm.HALFWIDTH = 5
+ENUM	AlternateGlyphsForm.JIS04FORM = 11
+ENUM	AlternateGlyphsForm.JIS78FORM = 3
+ENUM	AlternateGlyphsForm.JIS83FORM = 4
+ENUM	AlternateGlyphsForm.JIS90FORM = 10
+ENUM	AlternateGlyphsForm.PROPORTIONALWIDTH = 9
+ENUM	AlternateGlyphsForm.QUARTERWIDTH = 7
+ENUM	AlternateGlyphsForm.THIRDWIDTH = 6
+ENUM	AlternateGlyphsForm.TRADITIONAL = 1
+ENUM	StyleRunAlignmentType
+ENUM	StyleRunAlignmentType.ROMANBASELINE = 2
+ENUM	StyleRunAlignmentType.bottom = 0
+ENUM	StyleRunAlignmentType.center = 3
+ENUM	StyleRunAlignmentType.icfBottom = 1
+ENUM	StyleRunAlignmentType.icfTop = 4
+ENUM	StyleRunAlignmentType.top = 5
+ENUM	WariChuJustificationType
+ENUM	WariChuJustificationType.Center = 2
+ENUM	WariChuJustificationType.Left = 0
+ENUM	WariChuJustificationType.Right = 1
+ENUM	WariChuJustificationType.WARICHUAUTOJUSTIFY = 7
+ENUM	WariChuJustificationType.WARICHUFULLJUSTIFY = 6
+ENUM	WariChuJustificationType.WARICHUFULLJUSTIFYLASTLINECENTER = 5
+ENUM	WariChuJustificationType.WARICHUFULLJUSTIFYLASTLINELEFT = 3
+ENUM	WariChuJustificationType.WARICHUFULLJUSTIFYLASTLINERIGHT = 4
+ENUM	BurasagariTypeEnum
+ENUM	BurasagariTypeEnum.Forced = 2
+ENUM	BurasagariTypeEnum.None = 0
+ENUM	BurasagariTypeEnum.Standard = 1
+ENUM	KinsokuOrderEnum
+ENUM	KinsokuOrderEnum.PUSHIN = 0
+ENUM	KinsokuOrderEnum.PUSHOUTFIRST = 1
+ENUM	KinsokuOrderEnum.PUSHOUTONLY = 2
+ENUM	PDFBoxType
+ENUM	PDFBoxType.PDFARTBOX = 0
+ENUM	PDFBoxType.PDFBLEEDBOX = 3
+ENUM	PDFBoxType.PDFBOUNDINGBOX = 5
+ENUM	PDFBoxType.PDFCROPBOX = 1
+ENUM	PDFBoxType.PDFMEDIABOX = 4
+ENUM	PDFBoxType.PDFTRIMBOX = 2
+ENUM	TracingMethodType
+ENUM	TracingMethodType.TRACINGMETHODABUTTING = 0
+ENUM	TracingMethodType.TRACINGMETHODOVERLAPPING = 1
+ENUM	TracingModeType
+ENUM	TracingModeType.TRACINGMODEBLACKANDWHITE = 2
+ENUM	TracingModeType.TRACINGMODECOLOR = 0
+ENUM	TracingModeType.TRACINGMODEGRAY = 1
+ENUM	TracingColorType
+ENUM	TracingColorType.TRACINGFULLCOLOR = 1
+ENUM	TracingColorType.TRACINGLIMITEDCOLOR = 0
+ENUM	ViewType
+ENUM	ViewType.TRACINGVIEWIMAGE = 4
+ENUM	ViewType.TRACINGVIEWVECTOROUTLINES = 2
+ENUM	ViewType.TRACINGVIEWVECTOROUTLINESWITHTRACING = 1
+ENUM	ViewType.TRACINGVIEWVECTORTRACINGRESULT = 0
+ENUM	ViewType.TRACINGVIEWVECTORWITHTRANSPARENTIMAGE = 3
+ENUM	RasterizationColorModel
+ENUM	RasterizationColorModel.BITMAP = 3
+ENUM	RasterizationColorModel.DEFAULTCOLORMODEL = 1
+ENUM	RasterizationColorModel.GRAYSCALE = 2
+ENUM	AntiAliasingMethod
+ENUM	AntiAliasingMethod.ARTOPTIMIZED = 1
+ENUM	AntiAliasingMethod.None = 0
+ENUM	AntiAliasingMethod.TYPEOPTIMIZED = 2
+ENUM	ColorConvertPurpose
+ENUM	ColorConvertPurpose.defaultpurpose = 0
+ENUM	ColorConvertPurpose.dummypurpose = 4
+ENUM	ColorConvertPurpose.exportpurpose = 2
+ENUM	ColorConvertPurpose.previewpurpose = 1
+ENUM	FXGVersion
+ENUM	FXGVersion.VERSION1PT0 = 1
+ENUM	FXGVersion.VERSION2PT0 = 2
+ENUM	FiltersPreservePolicy
+ENUM	FiltersPreservePolicy.EXPANDFILTERS = 1
+ENUM	FiltersPreservePolicy.KEEPFILTERSEDITABLE = 3
+ENUM	FiltersPreservePolicy.RASTERIZEFILTERS = 2
+ENUM	TextPreservePolicy
+ENUM	TextPreservePolicy.AUTOMATICALLYCONVERTTEXT = 4
+ENUM	TextPreservePolicy.KEEPTEXTEDITABLE = 3
+ENUM	TextPreservePolicy.OUTLINETEXT = 1
+ENUM	TextPreservePolicy.RASTERIZETEXT = 2
+ENUM	GradientsPreservePolicy
+ENUM	GradientsPreservePolicy.AUTOMATICALLYCONVERTGRADIENTS = 4
+ENUM	GradientsPreservePolicy.KEEPGRADIENTSEDITABLE = 3
+ENUM	BlendsExpandPolicy
+ENUM	BlendsExpandPolicy.AUTOMATICALLYCONVERTBLENDS = 1
+ENUM	BlendsExpandPolicy.RASTERIZEBLENDS = 2
+ENUM	CoordinateSystem
+ENUM	CoordinateSystem.ARTBOARDCOORDINATESYSTEM = 1
+ENUM	CoordinateSystem.DOCUMENTCOORDINATESYSTEM = 0
+ENUM	SymbolRegistrationPoint
+ENUM	SymbolRegistrationPoint.SYMBOLBOTTOMLEFTPOINT = 7
+ENUM	SymbolRegistrationPoint.SYMBOLBOTTOMMIDDLEPOINT = 8
+ENUM	SymbolRegistrationPoint.SYMBOLBOTTOMRIGHTPOINT = 9
+ENUM	SymbolRegistrationPoint.SYMBOLCENTERPOINT = 5
+ENUM	SymbolRegistrationPoint.SYMBOLMIDDLELEFTPOINT = 4
+ENUM	SymbolRegistrationPoint.SYMBOLMIDDLERIGHTPOINT = 6
+ENUM	SymbolRegistrationPoint.SYMBOLTOPLEFTPOINT = 1
+ENUM	SymbolRegistrationPoint.SYMBOLTOPMIDDLEPOINT = 2
+ENUM	SymbolRegistrationPoint.SYMBOLTOPRIGHTPOINT = 3
+ENUM	PerspectiveGridPlaneType
+ENUM	PerspectiveGridPlaneType.FLOORPLANE = 3
+ENUM	PerspectiveGridPlaneType.LEFTPLANE = 1
+ENUM	PerspectiveGridPlaneType.NOPLANE = 0
+ENUM	PerspectiveGridPlaneType.RIGHTPLANE = 2
+ENUM	FirstBaselineType
+ENUM	FirstBaselineType.BASELINEASCENT = 0
+ENUM	FirstBaselineType.BASELINECAPHEIGHT = 1
+ENUM	FirstBaselineType.BASELINEEMBOXHEIGHT = 4
+ENUM	FirstBaselineType.BASELINEFIXED = 5
+ENUM	FirstBaselineType.BASELINELEADING = 2
+ENUM	FirstBaselineType.BASELINELEGACY = 6
+ENUM	FirstBaselineType.BASELINEXHEIGHT = 3
+ENUM	DocumentLayoutStyle
+ENUM	DocumentLayoutStyle.CASCADE = 0
+ENUM	DocumentLayoutStyle.CONSOLIDATEALL = 4
+ENUM	DocumentLayoutStyle.FLOATALL = 3
+ENUM	DocumentLayoutStyle.HORIZONTALTILE = 1
+ENUM	DocumentLayoutStyle.VERTICALTILE = 2
+
+# ============================================================
+# PROPERTYS  (1217)
+# ============================================================
+
+PROPERTY	Artboards.length: number
+PROPERTY	Artboards.parent: object
+PROPERTY	Artboards.typename: string
+PROPERTY	Documents.length: number
+PROPERTY	Documents.parent: object
+PROPERTY	Documents.typename: string
+PROPERTY	Documents.documentColorSpace: DocumentColorSpace,
+PROPERTY	Documents.width: number,
+PROPERTY	Documents.height: number,
+PROPERTY	Documents.numArtboards: number,
+PROPERTY	Documents.artboardLayout: DocumentArtboardLayout,
+PROPERTY	Documents.artboardSpacing: number,
+PROPERTY	Documents.artboardRowsOrCols: number,
+PROPERTY	Documents.startupPreset: string,
+PROPERTY	Documents.presetSettings: DocumentPreset,
+PROPERTY	Documents.showOptionsDialog: boolean,
+PROPERTY	Layers.length: number
+PROPERTY	Layers.parent: object
+PROPERTY	Layers.typename: string
+PROPERTY	GroupItems.length: number
+PROPERTY	GroupItems.parent: object
+PROPERTY	GroupItems.typename: string
+PROPERTY	PageItems.length: number
+PROPERTY	PageItems.parent: object
+PROPERTY	PageItems.typename: string
+PROPERTY	PathItems.length: number
+PROPERTY	PathItems.parent: object
+PROPERTY	PathItems.typename: string
+PROPERTY	PathItems.top: number,
+PROPERTY	PathItems.left: number,
+PROPERTY	PathItems.width: number,
+PROPERTY	PathItems.height: number,
+PROPERTY	PathItems.reversed: boolean,
+PROPERTY	PathItems.inscribed: boolean,
+PROPERTY	PathItems.centerX: number,
+PROPERTY	PathItems.centerY: number,
+PROPERTY	PathItems.radius: number,
+PROPERTY	PathItems.sides: number,
+PROPERTY	PathItems.reversed: boolean,
+PROPERTY	PathItems.top: number,
+PROPERTY	PathItems.left: number,
+PROPERTY	PathItems.width: number,
+PROPERTY	PathItems.height: number,
+PROPERTY	PathItems.horizontalRadius: number,
+PROPERTY	PathItems.verticalRadius: number,
+PROPERTY	PathItems.reversed: boolean,
+PROPERTY	PathItems.centerX: number,
+PROPERTY	PathItems.centerY: number,
+PROPERTY	PathItems.radius: number,
+PROPERTY	PathItems.innerRadius: number,
+PROPERTY	PathItems.points: number,
+PROPERTY	PathItems.reversed: boolean,
+PROPERTY	PathPoints.length: number
+PROPERTY	PathPoints.parent: object
+PROPERTY	PathPoints.typename: string
+PROPERTY	CompoundPathItems.length: number
+PROPERTY	CompoundPathItems.parent: object
+PROPERTY	CompoundPathItems.typename: string
+PROPERTY	Stories.length: number
+PROPERTY	Stories.parent: object
+PROPERTY	Stories.typename: string
+PROPERTY	TextFrameItems.length: number
+PROPERTY	TextFrameItems.parent: object
+PROPERTY	TextFrameItems.typename: string
+PROPERTY	TextFrameItems.textPath: PathItem,
+PROPERTY	TextFrameItems.orientation: TextOrientation,
+PROPERTY	TextFrameItems.baseFrame: TextFrame,
+PROPERTY	TextFrameItems.postFix: boolean,
+PROPERTY	TextFrameItems.textPath: PathItem,
+PROPERTY	TextFrameItems.startTValue: number,
+PROPERTY	TextFrameItems.endTValue: number,
+PROPERTY	TextFrameItems.orientation: TextOrientation,
+PROPERTY	TextFrameItems.baseFrame: TextFrame,
+PROPERTY	TextFrameItems.postFix: boolean,
+PROPERTY	LegacyTextItems.length: number
+PROPERTY	LegacyTextItems.parent: object
+PROPERTY	LegacyTextItems.typename: string
+PROPERTY	TextRanges.length: number
+PROPERTY	TextRanges.parent: object
+PROPERTY	TextRanges.typename: string
+PROPERTY	InsertionPoints.length: number
+PROPERTY	InsertionPoints.parent: object
+PROPERTY	InsertionPoints.typename: string
+PROPERTY	Characters.length: number
+PROPERTY	Characters.parent: object
+PROPERTY	Characters.typename: string
+PROPERTY	Words.length: number
+PROPERTY	Words.parent: object
+PROPERTY	Words.typename: string
+PROPERTY	Lines.length: number
+PROPERTY	Lines.parent: object
+PROPERTY	Lines.typename: string
+PROPERTY	Paragraphs.length: number
+PROPERTY	Paragraphs.parent: object
+PROPERTY	Paragraphs.typename: string
+PROPERTY	CharacterStyles.length: number
+PROPERTY	CharacterStyles.parent: object
+PROPERTY	CharacterStyles.typename: string
+PROPERTY	ParagraphStyles.length: number
+PROPERTY	ParagraphStyles.parent: object
+PROPERTY	ParagraphStyles.typename: string
+PROPERTY	Spots.length: number
+PROPERTY	Spots.parent: object
+PROPERTY	Spots.typename: string
+PROPERTY	Swatches.length: number
+PROPERTY	Swatches.parent: object
+PROPERTY	Swatches.typename: string
+PROPERTY	SwatchGroups.length: number
+PROPERTY	SwatchGroups.parent: object
+PROPERTY	SwatchGroups.typename: string
+PROPERTY	Gradients.length: number
+PROPERTY	Gradients.parent: object
+PROPERTY	Gradients.typename: string
+PROPERTY	GradientStops.length: number
+PROPERTY	GradientStops.parent: object
+PROPERTY	GradientStops.typename: string
+PROPERTY	Patterns.length: number
+PROPERTY	Patterns.parent: object
+PROPERTY	Patterns.typename: string
+PROPERTY	Symbols.length: number
+PROPERTY	Symbols.parent: object
+PROPERTY	Symbols.typename: string
+PROPERTY	SymbolItems.length: number
+PROPERTY	SymbolItems.parent: object
+PROPERTY	SymbolItems.typename: string
+PROPERTY	Brushes.length: number
+PROPERTY	Brushes.parent: object
+PROPERTY	Brushes.typename: string
+PROPERTY	ArtStyles.length: number
+PROPERTY	ArtStyles.parent: object
+PROPERTY	ArtStyles.typename: string
+PROPERTY	TextFonts.length: number
+PROPERTY	TextFonts.parent: object
+PROPERTY	TextFonts.typename: string
+PROPERTY	Tags.length: number
+PROPERTY	Tags.parent: object
+PROPERTY	Tags.typename: string
+PROPERTY	RasterItems.length: number
+PROPERTY	RasterItems.parent: object
+PROPERTY	RasterItems.typename: string
+PROPERTY	PlacedItems.length: number
+PROPERTY	PlacedItems.parent: object
+PROPERTY	PlacedItems.typename: string
+PROPERTY	EmbeddedItems.length: number
+PROPERTY	EmbeddedItems.parent: object
+PROPERTY	EmbeddedItems.typename: string
+PROPERTY	MeshItems.length: number
+PROPERTY	MeshItems.parent: object
+PROPERTY	MeshItems.typename: string
+PROPERTY	GraphItems.length: number
+PROPERTY	GraphItems.parent: object
+PROPERTY	GraphItems.typename: string
+PROPERTY	PluginItems.length: number
+PROPERTY	PluginItems.parent: object
+PROPERTY	PluginItems.typename: string
+PROPERTY	NonNativeItems.length: number
+PROPERTY	NonNativeItems.parent: object
+PROPERTY	NonNativeItems.typename: string
+PROPERTY	Views.length: number
+PROPERTY	Views.parent: object
+PROPERTY	Views.typename: string
+PROPERTY	Variables.length: number
+PROPERTY	Variables.parent: object
+PROPERTY	Variables.typename: string
+PROPERTY	DataSets.length: number
+PROPERTY	DataSets.parent: object
+PROPERTY	DataSets.typename: string
+PROPERTY	OpenOptions.addToRecentFiles: boolean
+PROPERTY	OpenOptions.convertCropAreaToArtboard: boolean
+PROPERTY	OpenOptions.convertTilesToArtboard: boolean
+PROPERTY	OpenOptions.createArtboardWithArtworkBoundingBox: boolean
+PROPERTY	OpenOptions.openAs: LibraryType
+PROPERTY	OpenOptions.preserveLegacyArtboard: boolean
+PROPERTY	OpenOptions.updateLegacyGradientMesh: boolean
+PROPERTY	OpenOptions.updateLegacyText: boolean
+PROPERTY	FXGSaveOptions.artboardRange: string
+PROPERTY	FXGSaveOptions.blendsPolicy: BlendsExpandPolicy
+PROPERTY	FXGSaveOptions.downsampleLinkedImages: boolean
+PROPERTY	FXGSaveOptions.filtersPolicy: FiltersPreservePolicy
+PROPERTY	FXGSaveOptions.gradientsPolicy: GradientsPreservePolicy
+PROPERTY	FXGSaveOptions.includeMetadata: boolean
+PROPERTY	FXGSaveOptions.includeUnusedSymbols: boolean
+PROPERTY	FXGSaveOptions.preserveEditingCapabilities: boolean
+PROPERTY	FXGSaveOptions.saveMultipleArtboards: boolean
+PROPERTY	FXGSaveOptions.textPolicy: TextPreservePolicy
+PROPERTY	FXGSaveOptions.version: FXGVersion
+PROPERTY	EPSSaveOptions.artboardRange: string
+PROPERTY	EPSSaveOptions.cmykPostScript: boolean
+PROPERTY	EPSSaveOptions.compatibility: Compatibility
+PROPERTY	EPSSaveOptions.compatibleGradientPrinting: boolean
+PROPERTY	EPSSaveOptions.embedAllFonts: boolean
+PROPERTY	EPSSaveOptions.embedLinkedFiles: boolean
+PROPERTY	EPSSaveOptions.flattenOutput: OutputFlattening
+PROPERTY	EPSSaveOptions.includeDocumentThumbnails: boolean
+PROPERTY	EPSSaveOptions.overprint: PDFOverprint
+PROPERTY	EPSSaveOptions.postScript: EPSPostScriptLevelEnum
+PROPERTY	EPSSaveOptions.preview: EPSPreview
+PROPERTY	EPSSaveOptions.saveMultipleArtboards: boolean
+PROPERTY	PDFSaveOptions.acrobatLayers: boolean
+PROPERTY	PDFSaveOptions.artboardRange: string
+PROPERTY	PDFSaveOptions.bleedLink: boolean
+PROPERTY	PDFSaveOptions.bleedOffsetRect: Rect
+PROPERTY	PDFSaveOptions.colorBars: boolean
+PROPERTY	PDFSaveOptions.colorCompression: CompressionQuality
+PROPERTY	PDFSaveOptions.colorConversionID: ColorConversion
+PROPERTY	PDFSaveOptions.colorDestinationID: ColorDestination
+PROPERTY	PDFSaveOptions.colorDownsampling: number
+PROPERTY	PDFSaveOptions.colorDownsamplingImageThreshold: number
+PROPERTY	PDFSaveOptions.colorDownsamplingMethod: DownsampleMethod
+PROPERTY	PDFSaveOptions.colorProfileID: ColorProfile
+PROPERTY	PDFSaveOptions.colorTileSize: number
+PROPERTY	PDFSaveOptions.compatibility: PDFCompatibility
+PROPERTY	PDFSaveOptions.compressArt: boolean
+PROPERTY	PDFSaveOptions.documentPassword: string
+PROPERTY	PDFSaveOptions.enableAccess: boolean
+PROPERTY	PDFSaveOptions.enableCopy: boolean
+PROPERTY	PDFSaveOptions.enableCopyAccess: boolean
+PROPERTY	PDFSaveOptions.enablePlainText: boolean
+PROPERTY	PDFSaveOptions.flattenerOptions: PrintFlattenerOptions
+PROPERTY	PDFSaveOptions.flattenerPreset: string
+PROPERTY	PDFSaveOptions.fontSubsetThreshold: number
+PROPERTY	PDFSaveOptions.generateThumbnails: boolean
+PROPERTY	PDFSaveOptions.grayscaleCompression: CompressionQuality
+PROPERTY	PDFSaveOptions.grayscaleDownsampling: number
+PROPERTY	PDFSaveOptions.grayscaleDownsamplingImageThreshold: number
+PROPERTY	PDFSaveOptions.grayscaleDownsamplingMethod: DownsampleMethod
+PROPERTY	PDFSaveOptions.grayscaleTileSize: number
+PROPERTY	PDFSaveOptions.monochromeCompression: MonochromeCompression
+PROPERTY	PDFSaveOptions.monochromeDownsampling: number
+PROPERTY	PDFSaveOptions.monochromeDownsamplingImageThreshold: number
+PROPERTY	PDFSaveOptions.monochromeDownsamplingMethod: DownsampleMethod
+PROPERTY	PDFSaveOptions.offset: number
+PROPERTY	PDFSaveOptions.optimization: boolean
+PROPERTY	PDFSaveOptions.outputCondition: string
+PROPERTY	PDFSaveOptions.outputConditionID: string
+PROPERTY	PDFSaveOptions.outputIntentProfile: string
+PROPERTY	PDFSaveOptions.pDFAllowPrinting: PDFPrintAllowedEnum
+PROPERTY	PDFSaveOptions.pDFChangesAllowed: PDFChangesAllowedEnum
+PROPERTY	PDFSaveOptions.pDFPreset: string
+PROPERTY	PDFSaveOptions.pDFXStandard: PDFXStandard
+PROPERTY	PDFSaveOptions.pDFXStandardDescription: string
+PROPERTY	PDFSaveOptions.pageInformation: boolean
+PROPERTY	PDFSaveOptions.pageMarksType: PageMarksTypes
+PROPERTY	PDFSaveOptions.permissionPassword: string
+PROPERTY	PDFSaveOptions.preserveEditability: boolean
+PROPERTY	PDFSaveOptions.printerResolution: number
+PROPERTY	PDFSaveOptions.registrationMarks: boolean
+PROPERTY	PDFSaveOptions.registryName: string
+PROPERTY	PDFSaveOptions.requireDocumentPassword: boolean
+PROPERTY	PDFSaveOptions.requirePermissionPassword: boolean
+PROPERTY	PDFSaveOptions.trapped: boolean
+PROPERTY	PDFSaveOptions.trimMarkWeight: PDFTrimMarkWeight
+PROPERTY	PDFSaveOptions.trimMarks: boolean
+PROPERTY	PDFSaveOptions.viewAfterSaving: boolean
+PROPERTY	IllustratorSaveOptions.artboardRange: string
+PROPERTY	IllustratorSaveOptions.compatibility: Compatibility
+PROPERTY	IllustratorSaveOptions.compressed: boolean
+PROPERTY	IllustratorSaveOptions.embedICCProfile: boolean
+PROPERTY	IllustratorSaveOptions.embedLinkedFiles: boolean
+PROPERTY	IllustratorSaveOptions.flattenOutput: OutputFlattening
+PROPERTY	IllustratorSaveOptions.fontSubsetThreshold: number
+PROPERTY	IllustratorSaveOptions.pdfCompatible: boolean
+PROPERTY	IllustratorSaveOptions.saveMultipleArtboards: boolean
+PROPERTY	Matrix.mValueA: number
+PROPERTY	Matrix.mValueB: number
+PROPERTY	Matrix.mValueC: number
+PROPERTY	Matrix.mValueD: number
+PROPERTY	Matrix.mValueTX: number
+PROPERTY	Matrix.mValueTY: number
+PROPERTY	ExportOptionsJPEG.antiAliasing: boolean
+PROPERTY	ExportOptionsJPEG.artBoardClipping: boolean
+PROPERTY	ExportOptionsJPEG.blurAmount: number
+PROPERTY	ExportOptionsJPEG.horizontalScale: number
+PROPERTY	ExportOptionsJPEG.matte: boolean
+PROPERTY	ExportOptionsJPEG.matteColor: RGBColor
+PROPERTY	ExportOptionsJPEG.optimization: boolean
+PROPERTY	ExportOptionsJPEG.qualitySetting: number
+PROPERTY	ExportOptionsJPEG.saveAsHTML: boolean
+PROPERTY	ExportOptionsJPEG.verticalScale: number
+PROPERTY	ExportOptionsPNG8.antiAliasing: boolean
+PROPERTY	ExportOptionsPNG8.artBoardClipping: boolean
+PROPERTY	ExportOptionsPNG8.colorCount: number
+PROPERTY	ExportOptionsPNG8.colorDither: ColorDitherMethod
+PROPERTY	ExportOptionsPNG8.colorReduction: ColorReductionMethod
+PROPERTY	ExportOptionsPNG8.ditherPercent: number
+PROPERTY	ExportOptionsPNG8.horizontalScale: number
+PROPERTY	ExportOptionsPNG8.interlaced: boolean
+PROPERTY	ExportOptionsPNG8.matte: boolean
+PROPERTY	ExportOptionsPNG8.matteColor: RGBColor
+PROPERTY	ExportOptionsPNG8.saveAsHTML: boolean
+PROPERTY	ExportOptionsPNG8.transparency: boolean
+PROPERTY	ExportOptionsPNG8.verticalScale: number
+PROPERTY	ExportOptionsPNG8.webSnap: number
+PROPERTY	ExportOptionsPNG24.antiAliasing: boolean
+PROPERTY	ExportOptionsPNG24.artBoardClipping: boolean
+PROPERTY	ExportOptionsPNG24.dimensions: Dimensions
+PROPERTY	ExportOptionsPNG24.horizontalScale: number
+PROPERTY	ExportOptionsPNG24.matte: boolean
+PROPERTY	ExportOptionsPNG24.matteColor: RGBColor
+PROPERTY	ExportOptionsPNG24.saveAsHTML: boolean
+PROPERTY	ExportOptionsPNG24.transparency: boolean
+PROPERTY	ExportOptionsPNG24.verticalScale: number
+PROPERTY	ExportOptionsGIF.antiAliasing: boolean
+PROPERTY	ExportOptionsGIF.artBoardClipping: boolean
+PROPERTY	ExportOptionsGIF.colorCount: number
+PROPERTY	ExportOptionsGIF.colorDither: ColorDitherMethod
+PROPERTY	ExportOptionsGIF.colorReduction: ColorReductionMethod
+PROPERTY	ExportOptionsGIF.ditherPercent: number
+PROPERTY	ExportOptionsGIF.horizontalScale: number
+PROPERTY	ExportOptionsGIF.infoLossPercent: number
+PROPERTY	ExportOptionsGIF.interlaced: boolean
+PROPERTY	ExportOptionsGIF.matte: boolean
+PROPERTY	ExportOptionsGIF.matteColor: RGBColor
+PROPERTY	ExportOptionsGIF.saveAsHTML: boolean
+PROPERTY	ExportOptionsGIF.transparency: boolean
+PROPERTY	ExportOptionsGIF.verticalScale: number
+PROPERTY	ExportOptionsGIF.webSnap: number
+PROPERTY	ExportOptionsPhotoshop.antiAliasing: boolean
+PROPERTY	ExportOptionsPhotoshop.artboardRange: string
+PROPERTY	ExportOptionsPhotoshop.editableText: boolean
+PROPERTY	ExportOptionsPhotoshop.embedICCProfile: boolean
+PROPERTY	ExportOptionsPhotoshop.imageColorSpace: ImageColorSpace
+PROPERTY	ExportOptionsPhotoshop.maximumEditability: boolean
+PROPERTY	ExportOptionsPhotoshop.resolution: number
+PROPERTY	ExportOptionsPhotoshop.saveMultipleArtboards: boolean
+PROPERTY	ExportOptionsPhotoshop.warnings: boolean
+PROPERTY	ExportOptionsPhotoshop.writeLayers: boolean
+PROPERTY	ExportOptionsSVG.DTD: SVGDTDVersion
+PROPERTY	ExportOptionsSVG.artboardRange: string
+PROPERTY	ExportOptionsSVG.compressed: boolean
+PROPERTY	ExportOptionsSVG.coordinatePrecision: number
+PROPERTY	ExportOptionsSVG.cssProperties: SVGCSSPropertyLocation
+PROPERTY	ExportOptionsSVG.documentEncoding: SVGDocumentEncoding
+PROPERTY	ExportOptionsSVG.embedRasterImages: boolean
+PROPERTY	ExportOptionsSVG.fontSubsetting: SVGFontSubsetting
+PROPERTY	ExportOptionsSVG.fontType: SVGFontType
+PROPERTY	ExportOptionsSVG.includeFileInfo: boolean
+PROPERTY	ExportOptionsSVG.includeUnusedStyles: boolean
+PROPERTY	ExportOptionsSVG.includeVariablesAndDatasets: boolean
+PROPERTY	ExportOptionsSVG.optimizeForSVGViewer: boolean
+PROPERTY	ExportOptionsSVG.preserveEditability: boolean
+PROPERTY	ExportOptionsSVG.sVGAutoKerning: boolean
+PROPERTY	ExportOptionsSVG.sVGTextOnPath: boolean
+PROPERTY	ExportOptionsSVG.saveMultipleArtboards: boolean
+PROPERTY	ExportOptionsSVG.slices: boolean
+PROPERTY	ExportOptionsWebOptimizedSVG.artboardRange: string
+PROPERTY	ExportOptionsWebOptimizedSVG.coordinatePrecision: number
+PROPERTY	ExportOptionsWebOptimizedSVG.cssProperties: SVGCSSPropertyLocation
+PROPERTY	ExportOptionsWebOptimizedSVG.fontType: SVGFontType
+PROPERTY	ExportOptionsWebOptimizedSVG.rasterImageLocation: RasterImageLocation
+PROPERTY	ExportOptionsWebOptimizedSVG.saveMultipleArtboards: boolean
+PROPERTY	ExportOptionsWebOptimizedSVG.svgId: SVGIdType
+PROPERTY	ExportOptionsWebOptimizedSVG.svgMinify: boolean
+PROPERTY	ExportOptionsWebOptimizedSVG.svgResponsive: boolean
+PROPERTY	ExportOptionsFlash.artClipping: ArtClippingOption
+PROPERTY	ExportOptionsFlash.artboardRange: string
+PROPERTY	ExportOptionsFlash.backgroundColor: RGBColor
+PROPERTY	ExportOptionsFlash.backgroundLayers: Layer[]
+PROPERTY	ExportOptionsFlash.blendAnimation: BlendAnimationType
+PROPERTY	ExportOptionsFlash.compressed: boolean
+PROPERTY	ExportOptionsFlash.convertTextToOutlines: boolean
+PROPERTY	ExportOptionsFlash.curveQuality: number
+PROPERTY	ExportOptionsFlash.exportAllSymbols: boolean
+PROPERTY	ExportOptionsFlash.exportStyle: FlashExportStyle
+PROPERTY	ExportOptionsFlash.exportVersion: FlashExportVersion
+PROPERTY	ExportOptionsFlash.frameRate: number
+PROPERTY	ExportOptionsFlash.ignoreTextKerning: boolean
+PROPERTY	ExportOptionsFlash.imageFormat: FlashImageFormat
+PROPERTY	ExportOptionsFlash.includeMetadata: boolean
+PROPERTY	ExportOptionsFlash.jpegMethod: FlashJPEGMethod
+PROPERTY	ExportOptionsFlash.jpegQuality: number
+PROPERTY	ExportOptionsFlash.layerOrder: LayerOrderType
+PROPERTY	ExportOptionsFlash.looping: boolean
+PROPERTY	ExportOptionsFlash.playbackAccess: FlashPlaybackSecurity
+PROPERTY	ExportOptionsFlash.preserveAppearance: boolean
+PROPERTY	ExportOptionsFlash.readOnly: boolean
+PROPERTY	ExportOptionsFlash.replacing: SaveOptions
+PROPERTY	ExportOptionsFlash.resolution: number
+PROPERTY	ExportOptionsFlash.saveMultipleArtboards: boolean
+PROPERTY	ExportOptionsAutoCAD.alterPathsForAppearance: boolean
+PROPERTY	ExportOptionsAutoCAD.colors: AutoCADColors
+PROPERTY	ExportOptionsAutoCAD.convertTextToOutlines: boolean
+PROPERTY	ExportOptionsAutoCAD.exportFileFormat: AutoCADExportFileFormat
+PROPERTY	ExportOptionsAutoCAD.exportOption: AutoCADExportOption
+PROPERTY	ExportOptionsAutoCAD.exportSelectedArtOnly: boolean
+PROPERTY	ExportOptionsAutoCAD.rasterFormat: AutoCADRasterFormat
+PROPERTY	ExportOptionsAutoCAD.scaleLineweights: boolean
+PROPERTY	ExportOptionsAutoCAD.unit: AutoCADUnit
+PROPERTY	ExportOptionsAutoCAD.unitScaleRatio: number
+PROPERTY	ExportOptionsAutoCAD.version: AutoCADCompatibility
+PROPERTY	ExportOptionsTIFF.antiAliasing: AntiAliasingMethod
+PROPERTY	ExportOptionsTIFF.artboardRange: string
+PROPERTY	ExportOptionsTIFF.byteOrder: TIFFByteOrder
+PROPERTY	ExportOptionsTIFF.embedICCProfile: boolean
+PROPERTY	ExportOptionsTIFF.imageColorSpace: ImageColorSpace
+PROPERTY	ExportOptionsTIFF.lZWCompression: boolean
+PROPERTY	ExportOptionsTIFF.resolution: number
+PROPERTY	ExportOptionsTIFF.saveMultipleArtboards: boolean
+PROPERTY	LabColor.a: number
+PROPERTY	LabColor.b: number
+PROPERTY	LabColor.l: number
+PROPERTY	Dimensions.height: number
+PROPERTY	Dimensions.width: number
+PROPERTY	RGBColor.blue: number
+PROPERTY	RGBColor.green: number
+PROPERTY	RGBColor.red: number
+PROPERTY	CMYKColor.black: number
+PROPERTY	CMYKColor.cyan: number
+PROPERTY	CMYKColor.magenta: number
+PROPERTY	CMYKColor.yellow: number
+PROPERTY	GrayColor.gray: number
+PROPERTY	SpotColor.spot: Spot
+PROPERTY	SpotColor.tint: number
+PROPERTY	PatternColor.matrix: Matrix
+PROPERTY	PatternColor.pattern: Pattern
+PROPERTY	PatternColor.reflect: boolean
+PROPERTY	PatternColor.reflectAngle: number
+PROPERTY	PatternColor.rotation: number
+PROPERTY	PatternColor.scaleFactor: Point | [number, number]
+PROPERTY	PatternColor.shearAngle: number
+PROPERTY	PatternColor.shearAxis: number
+PROPERTY	PatternColor.shiftAngle: number
+PROPERTY	PatternColor.shiftDistance: number
+PROPERTY	GradientColor.angle: number
+PROPERTY	GradientColor.gradient: Gradient
+PROPERTY	GradientColor.hiliteAngle: number
+PROPERTY	GradientColor.hiliteLength: number
+PROPERTY	GradientColor.length: number
+PROPERTY	GradientColor.matrix: Matrix
+PROPERTY	GradientColor.origin: Point | [number, number]
+PROPERTY	TabStopInfo.alignment: TabStopAlignment
+PROPERTY	TabStopInfo.decimalCharacter: string
+PROPERTY	TabStopInfo.leader: string
+PROPERTY	TabStopInfo.position: number
+PROPERTY	Printer.name: string
+PROPERTY	Printer.printerInfo: PrinterInfo
+PROPERTY	PrinterInfo.binaryPrintingSupport: boolean
+PROPERTY	PrinterInfo.colorSupport: PrinterColorMode
+PROPERTY	PrinterInfo.customPaperSupport: boolean
+PROPERTY	PrinterInfo.customPaperTransverseSupport: boolean
+PROPERTY	PrinterInfo.deviceResolution: number
+PROPERTY	PrinterInfo.inRIPSeparationSupport: boolean
+PROPERTY	PrinterInfo.maxDeviceResolution: number
+PROPERTY	PrinterInfo.maxPaperHeight: number
+PROPERTY	PrinterInfo.maxPaperHeightOffset: number
+PROPERTY	PrinterInfo.maxPaperWidth: number
+PROPERTY	PrinterInfo.maxPaperWidthOffset: number
+PROPERTY	PrinterInfo.minPaperHeight: number
+PROPERTY	PrinterInfo.minPaperHeightOffset: number
+PROPERTY	PrinterInfo.minPaperWidth: number
+PROPERTY	PrinterInfo.minPaperWidthOffset: number
+PROPERTY	PrinterInfo.paperSizes: Paper[]
+PROPERTY	PrinterInfo.postScriptLevel: PrinterPostScriptLevelEnum
+PROPERTY	PrinterInfo.printerType: PrinterTypeEnum
+PROPERTY	PPDFile.PPDInfo: PPDFileInfo
+PROPERTY	PPDFile.name: string
+PROPERTY	PPDFileInfo.PPDFilePath: File
+PROPERTY	PPDFileInfo.languageLevel: string
+PROPERTY	PPDFileInfo.screenList: Screen[]
+PROPERTY	PPDFileInfo.screenSpotFunctionList: ScreenSpotFunction[]
+PROPERTY	Paper.name: string
+PROPERTY	Paper.paperInfo: PaperInfo
+PROPERTY	PaperInfo.customPaper: boolean
+PROPERTY	PaperInfo.height: number
+PROPERTY	PaperInfo.imageableArea: Rect
+PROPERTY	PaperInfo.width: number
+PROPERTY	Screen.name: string
+PROPERTY	Screen.screenInfo: ScreenInfo
+PROPERTY	ScreenInfo.angle: number
+PROPERTY	ScreenInfo.defaultScreen: boolean
+PROPERTY	ScreenInfo.frequency: number
+PROPERTY	ScreenSpotFunction.name: string
+PROPERTY	ScreenSpotFunction.spotFunction: string
+PROPERTY	Ink.inkInfo: InkInfo
+PROPERTY	Ink.name: string
+PROPERTY	InkInfo.angle: number
+PROPERTY	InkInfo.customColor: Color
+PROPERTY	InkInfo.density: number
+PROPERTY	InkInfo.dotShape: string
+PROPERTY	InkInfo.frequency: number
+PROPERTY	InkInfo.kind: InkType
+PROPERTY	InkInfo.printingStatus: InkPrintStatus
+PROPERTY	InkInfo.trapping: TrappingType
+PROPERTY	InkInfo.trappingOrder: number
+PROPERTY	DocumentPreset.artboardLayout: DocumentArtboardLayout
+PROPERTY	DocumentPreset.artboardRowsOrCols: number
+PROPERTY	DocumentPreset.artboardSpacing: number
+PROPERTY	DocumentPreset.colorMode: DocumentColorSpace
+PROPERTY	DocumentPreset.height: number
+PROPERTY	DocumentPreset.numArtboards: number
+PROPERTY	DocumentPreset.previewMode: DocumentPreviewMode
+PROPERTY	DocumentPreset.rasterResolution: DocumentRasterResolution
+PROPERTY	DocumentPreset.title: string
+PROPERTY	DocumentPreset.transparencyGrid: DocumentTransparencyGrid
+PROPERTY	DocumentPreset.units: RulerUnits
+PROPERTY	DocumentPreset.width: number
+PROPERTY	PrintOptions.PPDName: string
+PROPERTY	PrintOptions.colorManagementOptions: PrintColorManagementOptions
+PROPERTY	PrintOptions.colorSeparationOptions: PrintColorSeparationOptions
+PROPERTY	PrintOptions.coordinateOptions: PrintCoordinateOptions
+PROPERTY	PrintOptions.flattenerOptions: PrintFlattenerOptions
+PROPERTY	PrintOptions.flattenerPreset: string
+PROPERTY	PrintOptions.fontOptions: PrintFontOptions
+PROPERTY	PrintOptions.jobOptions: PrintJobOptions
+PROPERTY	PrintOptions.pageMarksOptions: PrintPageMarksOptions
+PROPERTY	PrintOptions.paperOptions: PrintPaperOptions
+PROPERTY	PrintOptions.postScriptOptions: PrintPostScriptOptions
+PROPERTY	PrintOptions.printPreset: string
+PROPERTY	PrintOptions.printerName: string
+PROPERTY	PrintPaperOptions.height: number
+PROPERTY	PrintPaperOptions.name: string
+PROPERTY	PrintPaperOptions.offset: number
+PROPERTY	PrintPaperOptions.transverse: boolean
+PROPERTY	PrintPaperOptions.width: number
+PROPERTY	PrintJobOptions.artboardRange: string
+PROPERTY	PrintJobOptions.bitmapResolution: number
+PROPERTY	PrintJobOptions.collate: boolean
+PROPERTY	PrintJobOptions.copies: number
+PROPERTY	PrintJobOptions.designation: PrintArtworkDesignation
+PROPERTY	PrintJobOptions.file: File
+PROPERTY	PrintJobOptions.name: string
+PROPERTY	PrintJobOptions.printAllArtboards: boolean
+PROPERTY	PrintJobOptions.printArea: PrintingBounds
+PROPERTY	PrintJobOptions.printAsBitmap: boolean
+PROPERTY	PrintJobOptions.reversePages: boolean
+PROPERTY	PrintColorSeparationOptions.colorSeparationMode: PrintColorSeparationMode
+PROPERTY	PrintColorSeparationOptions.convertSpotColors: boolean
+PROPERTY	PrintColorSeparationOptions.inkList: Ink[]
+PROPERTY	PrintColorSeparationOptions.overPrintBlack: boolean
+PROPERTY	PrintCoordinateOptions.emulsion: boolean
+PROPERTY	PrintCoordinateOptions.fitToPage: boolean
+PROPERTY	PrintCoordinateOptions.horizontalScale: number
+PROPERTY	PrintCoordinateOptions.orientation: PrintOrientation
+PROPERTY	PrintCoordinateOptions.position: PrintPosition
+PROPERTY	PrintCoordinateOptions.tiling: PrintTiling
+PROPERTY	PrintCoordinateOptions.verticalScale: number
+PROPERTY	PrintPageMarksOptions.bleedOffsetRect: Rect
+PROPERTY	PrintPageMarksOptions.colorBars: boolean
+PROPERTY	PrintPageMarksOptions.marksOffsetRect: Rect
+PROPERTY	PrintPageMarksOptions.pageInfoMarks: boolean
+PROPERTY	PrintPageMarksOptions.pageMarksType: PageMarksTypes
+PROPERTY	PrintPageMarksOptions.registrationMarks: boolean
+PROPERTY	PrintPageMarksOptions.trimMarks: boolean
+PROPERTY	PrintPageMarksOptions.trimMarksWeight: number
+PROPERTY	PrintFontOptions.downloadFonts: PrintFontDownloadMode
+PROPERTY	PrintFontOptions.fontSubstitution: FontSubstitutionPolicy
+PROPERTY	PrintPostScriptOptions.binaryPrinting: boolean
+PROPERTY	PrintPostScriptOptions.compatibleShading: boolean
+PROPERTY	PrintPostScriptOptions.forceContinuousTone: boolean
+PROPERTY	PrintPostScriptOptions.imageCompression: PostScriptImageCompressionType
+PROPERTY	PrintPostScriptOptions.negativePrinting: boolean
+PROPERTY	PrintPostScriptOptions.postScriptLevel: PrinterPostScriptLevelEnum
+PROPERTY	PrintPostScriptOptions.shadingResolution: number
+PROPERTY	PrintColorManagementOptions.colorProfileMode: PrintColorProfile
+PROPERTY	PrintColorManagementOptions.intent: PrintColorIntent
+PROPERTY	PrintColorManagementOptions.name: string
+PROPERTY	PrintFlattenerOptions.clipComplexRegions: boolean
+PROPERTY	PrintFlattenerOptions.convertStrokesToOutlines: boolean
+PROPERTY	PrintFlattenerOptions.convertTextToOutlines: boolean
+PROPERTY	PrintFlattenerOptions.flatteningBalance: number
+PROPERTY	PrintFlattenerOptions.gradientResolution: number
+PROPERTY	PrintFlattenerOptions.overprint: PDFOverprint
+PROPERTY	PrintFlattenerOptions.rasterizationResolution: number
+PROPERTY	ImageCaptureOptions.antiAliasing: boolean
+PROPERTY	ImageCaptureOptions.matte: boolean
+PROPERTY	ImageCaptureOptions.matteColor: RGBColor
+PROPERTY	ImageCaptureOptions.resolution: number
+PROPERTY	ImageCaptureOptions.transparency: boolean
+PROPERTY	RasterEffectOptions.antiAliasing: boolean
+PROPERTY	RasterEffectOptions.clippingMask: boolean
+PROPERTY	RasterEffectOptions.colorModel: RasterizationColorModel
+PROPERTY	RasterEffectOptions.convertSpotColors: boolean
+PROPERTY	RasterEffectOptions.padding: number
+PROPERTY	RasterEffectOptions.resolution: number
+PROPERTY	RasterEffectOptions.transparency: boolean
+PROPERTY	RasterizeOptions.antiAliasingMethod: AntiAliasingMethod
+PROPERTY	RasterizeOptions.backgroundBlack: boolean
+PROPERTY	RasterizeOptions.clippingMask: boolean
+PROPERTY	RasterizeOptions.colorModel: RasterizationColorModel
+PROPERTY	RasterizeOptions.convertSpotColors: boolean
+PROPERTY	RasterizeOptions.convertTextToOutlines: boolean
+PROPERTY	RasterizeOptions.includeLayers: boolean
+PROPERTY	RasterizeOptions.padding: number
+PROPERTY	RasterizeOptions.resolution: number
+PROPERTY	RasterizeOptions.transparency: boolean
+PROPERTY	Application.PDFPresetsList: string[]
+PROPERTY	Application.PPDFileList: PPDFile[]
+PROPERTY	Application.activeDocument: Document
+PROPERTY	Application.browserAvailable: boolean
+PROPERTY	Application.buildNumber: string
+PROPERTY	Application.colorSettingsList: File[]
+PROPERTY	Application.coordinateSystem: CoordinateSystem
+PROPERTY	Application.defaultColorSettings: File
+PROPERTY	Application.documents: Documents
+PROPERTY	Application.flattenerPresetsList: string[]
+PROPERTY	Application.freeMemory: number
+PROPERTY	Application.locale: string
+PROPERTY	Application.name: string
+PROPERTY	Application.parent: object
+PROPERTY	Application.pasteRemembersLayers: boolean
+PROPERTY	Application.path: File
+PROPERTY	Application.preferences: Preferences
+PROPERTY	Application.printPresetsList: string[]
+PROPERTY	Application.printerList: Printer[]
+PROPERTY	Application.scriptingVersion: string
+PROPERTY	Application.selection: any
+PROPERTY	Application.startupPresetsList: string[]
+PROPERTY	Application.textFonts: TextFonts
+PROPERTY	Application.tracingPresetsList: string[]
+PROPERTY	Application.typename: string
+PROPERTY	Application.userAdobeID: string
+PROPERTY	Application.userGUID: string
+PROPERTY	Application.userInteractionLevel: UserInteractionLevel
+PROPERTY	Application.version: string
+PROPERTY	Application.visible: boolean
+PROPERTY	Application.sessionIndex: number,
+PROPERTY	Application.destinationSequenceID: number,
+PROPERTY	Application.destinationIndex: number,
+PROPERTY	Application.srcItemIDData: string,
+PROPERTY	Application.type: string,
+PROPERTY	Application.sessionIndex: number,
+PROPERTY	Application.moveThisID: string,
+PROPERTY	Application.newSessionIndex: number,
+PROPERTY	Application.destinationSequenceID: string,
+PROPERTY	Application.destinationIndex: number,
+PROPERTY	Application.sessionIndex: number,
+PROPERTY	Application.replaceThisID: number,
+PROPERTY	Application.srcItemIDData: string,
+PROPERTY	Application.type: string,
+PROPERTY	Application.sessionIndex: number,
+PROPERTY	Application.item: string,
+PROPERTY	Application.dataID: string,
+PROPERTY	Application.data: string,
+PROPERTY	Application.sourceColorSpace: ImageColorSpace,
+PROPERTY	Application.sourceColor: number[],
+PROPERTY	Application.destColorSpace: ImageColorSpace,
+PROPERTY	Application.colorConvertPurpose: ColorConvertPurpose,
+PROPERTY	Application.sourceHasAlpha: boolean,
+PROPERTY	Application.destHasAlpha: boolean,
+PROPERTY	Document.XMPString: string
+PROPERTY	Document.activeDataSet: DataSet
+PROPERTY	Document.activeLayer: Layer
+PROPERTY	Document.activeView: View
+PROPERTY	Document.artboards: Artboards
+PROPERTY	Document.brushes: Brushes
+PROPERTY	Document.characterStyles: CharacterStyles
+PROPERTY	Document.colorProfileName: string
+PROPERTY	Document.compoundPathItems: CompoundPathItems
+PROPERTY	Document.cropBox: Rect
+PROPERTY	Document.cropStyle: CropOptions
+PROPERTY	Document.dataSets: DataSets
+PROPERTY	Document.defaultFillColor: Color
+PROPERTY	Document.defaultFillOverprint: boolean
+PROPERTY	Document.defaultFilled: boolean
+PROPERTY	Document.defaultStrokeCap: StrokeCap
+PROPERTY	Document.defaultStrokeColor: Color
+PROPERTY	Document.defaultStrokeDashOffset: number
+PROPERTY	Document.defaultStrokeDashes: number[]
+PROPERTY	Document.defaultStrokeJoin: StrokeJoin
+PROPERTY	Document.defaultStrokeMiterLimit: number
+PROPERTY	Document.defaultStrokeOverprint: boolean
+PROPERTY	Document.defaultStrokeWidth: number
+PROPERTY	Document.defaultStroked: boolean
+PROPERTY	Document.documentColorSpace: DocumentColorSpace
+PROPERTY	Document.embeddedItems: EmbeddedItems
+PROPERTY	Document.fullName: File
+PROPERTY	Document.geometricBounds: Rect
+PROPERTY	Document.gradients: Gradients
+PROPERTY	Document.graphItems: GraphItems
+PROPERTY	Document.graphicStyles: ArtStyles
+PROPERTY	Document.groupItems: GroupItems
+PROPERTY	Document.height: number
+PROPERTY	Document.inkList: Ink[]
+PROPERTY	Document.kinsokuSet: string[]
+PROPERTY	Document.layers: Layers
+PROPERTY	Document.legacyTextItems: LegacyTextItems
+PROPERTY	Document.meshItems: MeshItems
+PROPERTY	Document.mojikumiSet: string[]
+PROPERTY	Document.name: string
+PROPERTY	Document.nonNativeItems: NonNativeItems
+PROPERTY	Document.outputResolution: number
+PROPERTY	Document.pageItems: PageItems
+PROPERTY	Document.pageOrigin: Point | [number, number]
+PROPERTY	Document.paragraphStyles: ParagraphStyles
+PROPERTY	Document.parent: object
+PROPERTY	Document.path: File
+PROPERTY	Document.pathItems: PathItems
+PROPERTY	Document.patterns: Patterns
+PROPERTY	Document.placedItems: PlacedItems
+PROPERTY	Document.pluginItems: PluginItems
+PROPERTY	Document.printTiles: boolean
+PROPERTY	Document.rasterEffectSettings: RasterEffectOptions
+PROPERTY	Document.rasterItems: RasterItems
+PROPERTY	Document.rulerOrigin: Point | [number, number]
+PROPERTY	Document.rulerUnits: RulerUnits
+PROPERTY	Document.saved: boolean
+PROPERTY	Document.selection: any
+PROPERTY	Document.showPlacedImages: boolean
+PROPERTY	Document.splitLongPaths: boolean
+PROPERTY	Document.spots: Spots
+PROPERTY	Document.stationery: boolean
+PROPERTY	Document.stories: Stories
+PROPERTY	Document.swatchGroups: SwatchGroups
+PROPERTY	Document.swatches: Swatches
+PROPERTY	Document.symbolItems: SymbolItems
+PROPERTY	Document.symbols: Symbols
+PROPERTY	Document.tags: Tags
+PROPERTY	Document.textFrames: TextFrameItems
+PROPERTY	Document.tileFullPages: boolean
+PROPERTY	Document.typename: string
+PROPERTY	Document.useDefaultScreen: boolean
+PROPERTY	Document.variables: Variables
+PROPERTY	Document.variablesLocked: boolean
+PROPERTY	Document.views: Views
+PROPERTY	Document.visibleBounds: Rect
+PROPERTY	Document.width: number
+PROPERTY	Document.coordinate: Point | [number, number],
+PROPERTY	Document.source: CoordinateSystem,
+PROPERTY	Document.destination: CoordinateSystem,
+PROPERTY	Document.importFile: File,
+PROPERTY	Document.isLinked: boolean,
+PROPERTY	Document.libraryName: string,
+PROPERTY	Document.itemName: string,
+PROPERTY	Document.elementRef: string,
+PROPERTY	Document.modifiedTime: number,
+PROPERTY	Document.creationTime: number,
+PROPERTY	Document.adobeStockId: string,
+PROPERTY	Document.adobeStockLicense: string,
+PROPERTY	Document.artboardLayout: DocumentArtboardLayout,
+PROPERTY	Document.artboardRowsOrCols: number,
+PROPERTY	Document.artboardSpacing: number,
+PROPERTY	Document.artboardMoveArtwork: boolean,
+PROPERTY	Layer.absoluteZOrderPosition: number
+PROPERTY	Layer.artworkKnockout: KnockoutState
+PROPERTY	Layer.blendingMode: BlendModes
+PROPERTY	Layer.color: RGBColor
+PROPERTY	Layer.compoundPathItems: CompoundPathItems
+PROPERTY	Layer.dimPlacedImages: boolean
+PROPERTY	Layer.graphItems: GraphItems
+PROPERTY	Layer.groupItems: GroupItems
+PROPERTY	Layer.hasSelectedArtwork: boolean
+PROPERTY	Layer.isIsolated: boolean
+PROPERTY	Layer.layers: Layers
+PROPERTY	Layer.legacyTextItems: LegacyTextItems
+PROPERTY	Layer.locked: boolean
+PROPERTY	Layer.meshItems: MeshItems
+PROPERTY	Layer.name: string
+PROPERTY	Layer.nonNativeItems: NonNativeItems
+PROPERTY	Layer.opacity: number
+PROPERTY	Layer.pageItems: PageItems
+PROPERTY	Layer.parent: object
+PROPERTY	Layer.pathItems: PathItems
+PROPERTY	Layer.placedItems: PlacedItems
+PROPERTY	Layer.pluginItems: PluginItems
+PROPERTY	Layer.preview: boolean
+PROPERTY	Layer.printable: boolean
+PROPERTY	Layer.rasterItems: RasterItems
+PROPERTY	Layer.sliced: boolean
+PROPERTY	Layer.symbolItems: SymbolItems
+PROPERTY	Layer.textFrames: TextFrameItems
+PROPERTY	Layer.typename: string
+PROPERTY	Layer.visible: boolean
+PROPERTY	Layer.zOrderPosition: number
+PROPERTY	View.bounds: Rect
+PROPERTY	View.centerPoint: Point | [number, number]
+PROPERTY	View.parent: object
+PROPERTY	View.screenMode: ScreenMode
+PROPERTY	View.typename: string
+PROPERTY	View.zoom: number
+PROPERTY	Gradient.gradientStops: GradientStops
+PROPERTY	Gradient.name: string
+PROPERTY	Gradient.parent: object
+PROPERTY	Gradient.type: GradientType
+PROPERTY	Gradient.typename: string
+PROPERTY	GradientStop.color: Color
+PROPERTY	GradientStop.midPoint: number
+PROPERTY	GradientStop.opacity: number
+PROPERTY	GradientStop.parent: object
+PROPERTY	GradientStop.rampPoint: number
+PROPERTY	GradientStop.typename: string
+PROPERTY	Preferences.AutoCADFileOptions: OpenOptionsAutoCAD
+PROPERTY	Preferences.PDFFileOptions: OpenOptionsPDF
+PROPERTY	Preferences.parent: object
+PROPERTY	Preferences.photoshopFileOptions: OpenOptionsPhotoshop
+PROPERTY	Preferences.typename: string
+PROPERTY	Spot.color: Color
+PROPERTY	Spot.colorType: ColorModel
+PROPERTY	Spot.name: string
+PROPERTY	Spot.parent: object
+PROPERTY	Spot.spotKind: SpotColorKind
+PROPERTY	Spot.typename: string
+PROPERTY	Variable.kind: VariableKind
+PROPERTY	Variable.name: string
+PROPERTY	Variable.pageItems: PageItems
+PROPERTY	Variable.parent: object
+PROPERTY	Variable.typename: string
+PROPERTY	DataSet.name: string
+PROPERTY	DataSet.parent: object
+PROPERTY	DataSet.typename: string
+PROPERTY	Swatch.color: Color
+PROPERTY	Swatch.name: string
+PROPERTY	Swatch.parent: object
+PROPERTY	Swatch.typename: string
+PROPERTY	SwatchGroup.name: string
+PROPERTY	SwatchGroup.parent: object
+PROPERTY	SwatchGroup.typename: string
+PROPERTY	Pattern.name: string
+PROPERTY	Pattern.parent: object
+PROPERTY	Pattern.typename: string
+PROPERTY	Symbol.name: string
+PROPERTY	Symbol.parent: object
+PROPERTY	Symbol.typename: string
+PROPERTY	Brush.name: string
+PROPERTY	Brush.parent: object
+PROPERTY	Brush.typename: string
+PROPERTY	ArtStyle.name: string
+PROPERTY	ArtStyle.parent: object
+PROPERTY	ArtStyle.typename: string
+PROPERTY	TextFont.family: string
+PROPERTY	TextFont.name: string
+PROPERTY	TextFont.parent: object
+PROPERTY	TextFont.style: string
+PROPERTY	TextFont.typename: string
+PROPERTY	PageItem.URL: string
+PROPERTY	PageItem.absoluteZOrderPosition: number
+PROPERTY	PageItem.artworkKnockout: KnockoutState
+PROPERTY	PageItem.blendingMode: BlendModes
+PROPERTY	PageItem.controlBounds: Rect
+PROPERTY	PageItem.editable: boolean
+PROPERTY	PageItem.geometricBounds: Rect
+PROPERTY	PageItem.height: number
+PROPERTY	PageItem.hidden: boolean
+PROPERTY	PageItem.isIsolated: boolean
+PROPERTY	PageItem.layer: Layer
+PROPERTY	PageItem.left: number
+PROPERTY	PageItem.locked: boolean
+PROPERTY	PageItem.name: string
+PROPERTY	PageItem.note: string
+PROPERTY	PageItem.opacity: number
+PROPERTY	PageItem.parent: object
+PROPERTY	PageItem.pixelAligned: boolean
+PROPERTY	PageItem.position: Point | [number, number]
+PROPERTY	PageItem.selected: boolean
+PROPERTY	PageItem.sliced: boolean
+PROPERTY	PageItem.tags: Tags
+PROPERTY	PageItem.top: number
+PROPERTY	PageItem.typename: string
+PROPERTY	PageItem.visibilityVariable: any
+PROPERTY	PageItem.visibleBounds: Rect
+PROPERTY	PageItem.width: number
+PROPERTY	PageItem.wrapInside: boolean
+PROPERTY	PageItem.wrapOffset: number
+PROPERTY	PageItem.wrapped: boolean
+PROPERTY	PageItem.zOrderPosition: number
+PROPERTY	PageItem.positionX: number,
+PROPERTY	PageItem.positionY: number,
+PROPERTY	PageItem.perspectiveGridPlane: PerspectiveGridPlaneType,
+PROPERTY	PageItem.scaleX: number,
+PROPERTY	PageItem.scaleY: number,
+PROPERTY	PageItem.changePositions: boolean,
+PROPERTY	PageItem.changeFillPatterns: boolean,
+PROPERTY	PageItem.changeFillGradients: boolean,
+PROPERTY	PageItem.changeStrokePattern: boolean,
+PROPERTY	PageItem.changeLineWidths: number,
+PROPERTY	PageItem.scaleAbout: Transformation,
+PROPERTY	PageItem.angle: number,
+PROPERTY	PageItem.changePositions: boolean,
+PROPERTY	PageItem.changeFillPatterns: boolean,
+PROPERTY	PageItem.changeFillGradients: boolean,
+PROPERTY	PageItem.changeStrokePattern: boolean,
+PROPERTY	PageItem.rotateAbout: Transformation,
+PROPERTY	PageItem.transformationMatrix: Matrix,
+PROPERTY	PageItem.changePositions: boolean,
+PROPERTY	PageItem.changeFillPatterns: boolean,
+PROPERTY	PageItem.changeFillGradients: boolean,
+PROPERTY	PageItem.changeStrokePattern: boolean,
+PROPERTY	PageItem.changeLineWidths: number,
+PROPERTY	PageItem.transformAbout: Transformation,
+PROPERTY	PageItem.deltaX: number,
+PROPERTY	PageItem.deltaY: number,
+PROPERTY	PageItem.transformObjects: boolean,
+PROPERTY	PageItem.transformFillPatterns: boolean,
+PROPERTY	PageItem.transformFillGradients: boolean,
+PROPERTY	PageItem.transformStrokePattern: boolean,
+PROPERTY	CompoundPathItem.uuid: string
+PROPERTY	CompoundPathItem.pathItems: PathItems
+PROPERTY	Tag.name: string
+PROPERTY	Tag.parent: object
+PROPERTY	Tag.typename: string
+PROPERTY	Tag.value: string
+PROPERTY	PathItem.uuid: string
+PROPERTY	PathItem.area: number
+PROPERTY	PathItem.clipping: boolean
+PROPERTY	PathItem.closed: boolean
+PROPERTY	PathItem.evenodd: boolean
+PROPERTY	PathItem.fillColor: Color
+PROPERTY	PathItem.fillOverprint: boolean
+PROPERTY	PathItem.filled: boolean
+PROPERTY	PathItem.guides: boolean
+PROPERTY	PathItem.length: number
+PROPERTY	PathItem.pathPoints: PathPoints
+PROPERTY	PathItem.polarity: PolarityValues
+PROPERTY	PathItem.resolution: number
+PROPERTY	PathItem.selectedPathPoints: PathPoints
+PROPERTY	PathItem.strokeCap: StrokeCap
+PROPERTY	PathItem.strokeColor: Color
+PROPERTY	PathItem.strokeDashOffset: number
+PROPERTY	PathItem.strokeDashes: number[]
+PROPERTY	PathItem.strokeJoin: StrokeJoin
+PROPERTY	PathItem.strokeMiterLimit: number
+PROPERTY	PathItem.strokeOverprint: boolean
+PROPERTY	PathItem.strokeWidth: number
+PROPERTY	PathItem.stroked: boolean
+PROPERTY	PathPoint.anchor: Point | [number, number]
+PROPERTY	PathPoint.leftDirection: Point | [number, number]
+PROPERTY	PathPoint.parent: object
+PROPERTY	PathPoint.pointType: PointType
+PROPERTY	PathPoint.rightDirection: Point | [number, number]
+PROPERTY	PathPoint.selected: PathPointSelection
+PROPERTY	PathPoint.typename: string
+PROPERTY	RasterItem.bitsPerChannel: number
+PROPERTY	RasterItem.boundingBox: Rect
+PROPERTY	RasterItem.channels: number
+PROPERTY	RasterItem.colorants: string[]
+PROPERTY	RasterItem.colorizedGrayscale: boolean
+PROPERTY	RasterItem.contentVariable: any
+PROPERTY	RasterItem.embedded: boolean
+PROPERTY	RasterItem.file: File
+PROPERTY	RasterItem.imageColorSpace: ImageColorSpace
+PROPERTY	RasterItem.matrix: Matrix
+PROPERTY	RasterItem.overprint: boolean
+PROPERTY	RasterItem.status: RasterLinkState
+PROPERTY	RasterItem.transparent: boolean
+PROPERTY	PlacedItem.boundingBox: Rect
+PROPERTY	PlacedItem.contentVariable: any
+PROPERTY	PlacedItem.file: File
+PROPERTY	PlacedItem.matrix: Matrix
+PROPERTY	EmbedItem.file: File
+PROPERTY	GraphItem.contentVariable: any
+PROPERTY	PluginItem.isTracing: boolean
+PROPERTY	PluginItem.tracing: TracingObject
+PROPERTY	GroupItem.clipped: boolean
+PROPERTY	GroupItem.compoundPathItems: CompoundPathItems
+PROPERTY	GroupItem.graphItems: GraphItems
+PROPERTY	GroupItem.groupItems: GroupItems
+PROPERTY	GroupItem.legacyTextItems: LegacyTextItems
+PROPERTY	GroupItem.meshItems: MeshItems
+PROPERTY	GroupItem.nonNativeItems: NonNativeItems
+PROPERTY	GroupItem.pageItems: PageItems
+PROPERTY	GroupItem.pathItems: PathItems
+PROPERTY	GroupItem.placedItems: PlacedItems
+PROPERTY	GroupItem.pluginItems: PluginItems
+PROPERTY	GroupItem.rasterItems: RasterItems
+PROPERTY	GroupItem.symbolItems: SymbolItems
+PROPERTY	GroupItem.textFrames: TextFrameItems
+PROPERTY	SymbolItem.symbol: Symbol
+PROPERTY	TextPath.area: number
+PROPERTY	TextPath.blendingMode: BlendModes
+PROPERTY	TextPath.clipping: boolean
+PROPERTY	TextPath.closed: boolean
+PROPERTY	TextPath.editable: boolean
+PROPERTY	TextPath.evenodd: boolean
+PROPERTY	TextPath.fillColor: Color
+PROPERTY	TextPath.fillOverprint: boolean
+PROPERTY	TextPath.filled: boolean
+PROPERTY	TextPath.guides: boolean
+PROPERTY	TextPath.height: number
+PROPERTY	TextPath.left: number
+PROPERTY	TextPath.note: string
+PROPERTY	TextPath.opacity: number
+PROPERTY	TextPath.parent: object
+PROPERTY	TextPath.pathPoints: PathPoints
+PROPERTY	TextPath.polarity: PolarityValues
+PROPERTY	TextPath.position: Point | [number, number]
+PROPERTY	TextPath.resolution: number
+PROPERTY	TextPath.selectedPathPoints: PathPoints
+PROPERTY	TextPath.strokeCap: StrokeCap
+PROPERTY	TextPath.strokeColor: Color
+PROPERTY	TextPath.strokeDashOffset: number
+PROPERTY	TextPath.strokeDashes: number[]
+PROPERTY	TextPath.strokeJoin: StrokeJoin
+PROPERTY	TextPath.strokeMiterLimit: number
+PROPERTY	TextPath.strokeOverprint: boolean
+PROPERTY	TextPath.strokeWidth: number
+PROPERTY	TextPath.stroked: boolean
+PROPERTY	TextPath.top: number
+PROPERTY	TextPath.typename: string
+PROPERTY	TextPath.width: number
+PROPERTY	Story.characters: Characters
+PROPERTY	Story.insertionPoints: InsertionPoints
+PROPERTY	Story.length: number
+PROPERTY	Story.lines: Lines
+PROPERTY	Story.paragraphs: Paragraphs
+PROPERTY	Story.parent: object
+PROPERTY	Story.textFrames: TextFrameItems
+PROPERTY	Story.textRange: TextRange
+PROPERTY	Story.textRanges: TextRanges
+PROPERTY	Story.textSelection: TextRange[]
+PROPERTY	Story.typename: string
+PROPERTY	Story.words: Words
+PROPERTY	TextFrame.anchor: Point | [number, number]
+PROPERTY	TextFrame.antialias: TextAntialias
+PROPERTY	TextFrame.characters: Characters
+PROPERTY	TextFrame.columnCount: number
+PROPERTY	TextFrame.columnGutter: number
+PROPERTY	TextFrame.contentVariable: any
+PROPERTY	TextFrame.contents: string
+PROPERTY	TextFrame.endTValue: number
+PROPERTY	TextFrame.firstBaseline: FirstBaselineType
+PROPERTY	TextFrame.firstBaselineMin: number
+PROPERTY	TextFrame.flowLinksHorizontally: boolean
+PROPERTY	TextFrame.insertionPoints: InsertionPoints
+PROPERTY	TextFrame.kind: TextType
+PROPERTY	TextFrame.lines: Lines
+PROPERTY	TextFrame.matrix: Matrix
+PROPERTY	TextFrame.nextFrame: TextFrame
+PROPERTY	TextFrame.opticalAlignment: boolean
+PROPERTY	TextFrame.orientation: TextOrientation
+PROPERTY	TextFrame.paragraphs: Paragraphs
+PROPERTY	TextFrame.previousFrame: TextFrame
+PROPERTY	TextFrame.rowCount: number
+PROPERTY	TextFrame.rowGutter: number
+PROPERTY	TextFrame.spacing: number
+PROPERTY	TextFrame.startTValue: number
+PROPERTY	TextFrame.story: Story
+PROPERTY	TextFrame.textPath: TextPath
+PROPERTY	TextFrame.textRange: TextRange
+PROPERTY	TextFrame.textRanges: TextRanges
+PROPERTY	TextFrame.textSelection: TextRange[]
+PROPERTY	TextFrame.words: Words
+PROPERTY	TextFrame.textString: string,
+PROPERTY	TextFrame.fontSize: number,
+PROPERTY	TextFrame.textColor: Color,
+PROPERTY	TextFrame.destinationPath: File,
+PROPERTY	LegacyTextItem.converted: boolean
+PROPERTY	TextRange.characterAttributes: CharacterAttributes
+PROPERTY	TextRange.characterOffset: number
+PROPERTY	TextRange.characterStyles: CharacterStyles
+PROPERTY	TextRange.characters: Characters
+PROPERTY	TextRange.contents: string
+PROPERTY	TextRange.insertionPoints: InsertionPoints
+PROPERTY	TextRange.kerning: number
+PROPERTY	TextRange.length: number
+PROPERTY	TextRange.lines: Lines
+PROPERTY	TextRange.paragraphAttributes: ParagraphAttributes
+PROPERTY	TextRange.paragraphStyles: ParagraphStyles
+PROPERTY	TextRange.paragraphs: Paragraphs
+PROPERTY	TextRange.parent: object
+PROPERTY	TextRange.story: Story
+PROPERTY	TextRange.textRanges: TextRanges
+PROPERTY	TextRange.textSelection: TextRange[]
+PROPERTY	TextRange.typename: string
+PROPERTY	TextRange.words: Words
+PROPERTY	InsertionPoint.characters: Characters
+PROPERTY	InsertionPoint.lines: Lines
+PROPERTY	InsertionPoint.paragraphs: Paragraphs
+PROPERTY	InsertionPoint.parent: object
+PROPERTY	InsertionPoint.story: Story
+PROPERTY	InsertionPoint.textRanges: TextRanges
+PROPERTY	InsertionPoint.typename: string
+PROPERTY	InsertionPoint.words: Words
+PROPERTY	CharacterStyle.characterAttributes: CharacterAttributes
+PROPERTY	CharacterStyle.name: string
+PROPERTY	CharacterStyle.parent: object
+PROPERTY	CharacterStyle.typename: string
+PROPERTY	ParagraphStyle.characterAttributes: CharacterAttributes
+PROPERTY	ParagraphStyle.name: string
+PROPERTY	ParagraphStyle.paragraphAttributes: ParagraphAttributes
+PROPERTY	ParagraphStyle.parent: object
+PROPERTY	ParagraphStyle.typename: string
+PROPERTY	CharacterAttributes.Tsume: number
+PROPERTY	CharacterAttributes.akiLeft: number
+PROPERTY	CharacterAttributes.akiRight: number
+PROPERTY	CharacterAttributes.alignment: StyleRunAlignmentType
+PROPERTY	CharacterAttributes.alternateGlyphs: AlternateGlyphsForm
+PROPERTY	CharacterAttributes.autoLeading: boolean
+PROPERTY	CharacterAttributes.baselineDirection: BaselineDirectionType
+PROPERTY	CharacterAttributes.baselinePosition: FontBaselineOption
+PROPERTY	CharacterAttributes.baselineShift: number
+PROPERTY	CharacterAttributes.capitalization: FontCapsOption
+PROPERTY	CharacterAttributes.connectionForms: boolean
+PROPERTY	CharacterAttributes.contextualLigature: boolean
+PROPERTY	CharacterAttributes.discretionaryLigature: boolean
+PROPERTY	CharacterAttributes.figureStyle: FigureStyleType
+PROPERTY	CharacterAttributes.fillColor: Color
+PROPERTY	CharacterAttributes.fractions: boolean
+PROPERTY	CharacterAttributes.horizontalScale: number
+PROPERTY	CharacterAttributes.italics: boolean
+PROPERTY	CharacterAttributes.kerningMethod: AutoKernType
+PROPERTY	CharacterAttributes.language: LanguageType
+PROPERTY	CharacterAttributes.leading: number
+PROPERTY	CharacterAttributes.ligature: boolean
+PROPERTY	CharacterAttributes.noBreak: boolean
+PROPERTY	CharacterAttributes.openTypePosition: FontOpenTypePositionOption
+PROPERTY	CharacterAttributes.ordinals: boolean
+PROPERTY	CharacterAttributes.ornaments: boolean
+PROPERTY	CharacterAttributes.overprintFill: boolean
+PROPERTY	CharacterAttributes.overprintStroke: boolean
+PROPERTY	CharacterAttributes.parent: object
+PROPERTY	CharacterAttributes.proportionalMetrics: boolean
+PROPERTY	CharacterAttributes.rotation: number
+PROPERTY	CharacterAttributes.size: number
+PROPERTY	CharacterAttributes.strikeThrough: boolean
+PROPERTY	CharacterAttributes.strokeColor: Color
+PROPERTY	CharacterAttributes.strokeWeight: number
+PROPERTY	CharacterAttributes.stylisticAlternates: boolean
+PROPERTY	CharacterAttributes.swash: boolean
+PROPERTY	CharacterAttributes.tateChuYokoHorizontal: number
+PROPERTY	CharacterAttributes.tateChuYokoVertical: number
+PROPERTY	CharacterAttributes.textFont: TextFont
+PROPERTY	CharacterAttributes.titling: boolean
+PROPERTY	CharacterAttributes.tracking: number
+PROPERTY	CharacterAttributes.typename: string
+PROPERTY	CharacterAttributes.underline: boolean
+PROPERTY	CharacterAttributes.verticalScale: number
+PROPERTY	CharacterAttributes.wariChuCharactersAfterBreak: number
+PROPERTY	CharacterAttributes.wariChuCharactersBeforeBreak: number
+PROPERTY	CharacterAttributes.wariChuEnabled: boolean
+PROPERTY	CharacterAttributes.wariChuJustification: WariChuJustificationType
+PROPERTY	CharacterAttributes.wariChuLineGap: number
+PROPERTY	CharacterAttributes.wariChuLines: number
+PROPERTY	CharacterAttributes.wariChuScale: number
+PROPERTY	ParagraphAttributes.autoLeadingAmount: number
+PROPERTY	ParagraphAttributes.bunriKinshi: boolean
+PROPERTY	ParagraphAttributes.burasagariType: BurasagariTypeEnum
+PROPERTY	ParagraphAttributes.desiredGlyphScaling: number
+PROPERTY	ParagraphAttributes.desiredLetterSpacing: number
+PROPERTY	ParagraphAttributes.desiredWordSpacing: number
+PROPERTY	ParagraphAttributes.everyLineComposer: boolean
+PROPERTY	ParagraphAttributes.firstLineIndent: number
+PROPERTY	ParagraphAttributes.hyphenateCapitalizedWords: boolean
+PROPERTY	ParagraphAttributes.hyphenation: boolean
+PROPERTY	ParagraphAttributes.hyphenationPreference: number
+PROPERTY	ParagraphAttributes.hyphenationZone: number
+PROPERTY	ParagraphAttributes.justification: Justification
+PROPERTY	ParagraphAttributes.kinsoku: string
+PROPERTY	ParagraphAttributes.kinsokuOrder: KinsokuOrderEnum
+PROPERTY	ParagraphAttributes.kurikaeshiMojiShori: boolean
+PROPERTY	ParagraphAttributes.leadingType: AutoLeadingType
+PROPERTY	ParagraphAttributes.leftIndent: number
+PROPERTY	ParagraphAttributes.maximumConsecutiveHyphens: number
+PROPERTY	ParagraphAttributes.maximumGlyphScaling: number
+PROPERTY	ParagraphAttributes.maximumLetterSpacing: number
+PROPERTY	ParagraphAttributes.maximumWordSpacing: number
+PROPERTY	ParagraphAttributes.minimumAfterHyphen: number
+PROPERTY	ParagraphAttributes.minimumBeforeHyphen: number
+PROPERTY	ParagraphAttributes.minimumGlyphScaling: number
+PROPERTY	ParagraphAttributes.minimumHyphenatedWordSize: number
+PROPERTY	ParagraphAttributes.minimumLetterSpacing: number
+PROPERTY	ParagraphAttributes.minimumWordSpacing: number
+PROPERTY	ParagraphAttributes.mojikumi: string
+PROPERTY	ParagraphAttributes.parent: object
+PROPERTY	ParagraphAttributes.rightIndent: number
+PROPERTY	ParagraphAttributes.romanHanging: boolean
+PROPERTY	ParagraphAttributes.singleWordJustification: Justification
+PROPERTY	ParagraphAttributes.spaceAfter: number
+PROPERTY	ParagraphAttributes.spaceBefore: number
+PROPERTY	ParagraphAttributes.tabStops: TabStopInfo[]
+PROPERTY	ParagraphAttributes.typename: string
+PROPERTY	OpenOptionsPhotoshop.layerComp: string
+PROPERTY	OpenOptionsPhotoshop.parent: object
+PROPERTY	OpenOptionsPhotoshop.preserveHiddenLayers: boolean
+PROPERTY	OpenOptionsPhotoshop.preserveImageMaps: boolean
+PROPERTY	OpenOptionsPhotoshop.preserveLayers: boolean
+PROPERTY	OpenOptionsPhotoshop.preserveSlices: boolean
+PROPERTY	OpenOptionsPhotoshop.typename: string
+PROPERTY	OpenOptionsPDF.pDFCropToBox: PDFBoxType
+PROPERTY	OpenOptionsPDF.pageToOpen: number
+PROPERTY	OpenOptionsPDF.parent: object
+PROPERTY	OpenOptionsPDF.typename: string
+PROPERTY	OpenOptionsAutoCAD.centerArtwork: boolean
+PROPERTY	OpenOptionsAutoCAD.globalScaleOption: AutoCADGlobalScaleOption
+PROPERTY	OpenOptionsAutoCAD.globalScalePercent: number
+PROPERTY	OpenOptionsAutoCAD.mergeLayers: boolean
+PROPERTY	OpenOptionsAutoCAD.parent: object
+PROPERTY	OpenOptionsAutoCAD.scaleLineweights: boolean
+PROPERTY	OpenOptionsAutoCAD.selectedLayoutName: string
+PROPERTY	OpenOptionsAutoCAD.typename: string
+PROPERTY	OpenOptionsAutoCAD.unit: AutoCADUnit
+PROPERTY	OpenOptionsAutoCAD.unitScaleRatio: number
+PROPERTY	TracingOptions.colorFidelity: number
+PROPERTY	TracingOptions.colorGroup: string
+PROPERTY	TracingOptions.cornerFidelity: number
+PROPERTY	TracingOptions.fills: boolean
+PROPERTY	TracingOptions.grayLevels: number
+PROPERTY	TracingOptions.ignoreWhite: boolean
+PROPERTY	TracingOptions.maxStrokeWeight: number
+PROPERTY	TracingOptions.noiseFidelity: number
+PROPERTY	TracingOptions.palette: string
+PROPERTY	TracingOptions.parent: object
+PROPERTY	TracingOptions.pathFidelity: number
+PROPERTY	TracingOptions.preset: string
+PROPERTY	TracingOptions.snapCurveToLines: boolean
+PROPERTY	TracingOptions.strokes: boolean
+PROPERTY	TracingOptions.threshold: number
+PROPERTY	TracingOptions.tracingColorTypeValue: TracingColorType
+PROPERTY	TracingOptions.tracingColors: number
+PROPERTY	TracingOptions.tracingMethod: TracingMethodType
+PROPERTY	TracingOptions.tracingMode: TracingModeType
+PROPERTY	TracingOptions.typename: string
+PROPERTY	TracingOptions.viewMode: ViewType
+PROPERTY	TracingObject.anchorCount: number
+PROPERTY	TracingObject.parent: object
+PROPERTY	TracingObject.pathCount: number
+PROPERTY	TracingObject.sourceArt: PageItem
+PROPERTY	TracingObject.tracingOptions: TracingOptions
+PROPERTY	TracingObject.typename: string
+PROPERTY	TracingObject.usedColorCount: number
+PROPERTY	Artboard.artboardRect: Rect
+PROPERTY	Artboard.name: string
+PROPERTY	Artboard.parent: object
+PROPERTY	Artboard.rulerOrigin: Point | [number, number]
+PROPERTY	Artboard.rulerPAR: number
+PROPERTY	Artboard.showCenter: boolean
+PROPERTY	Artboard.showCrossHairs: boolean
+PROPERTY	Artboard.showSafeAreas: boolean
+PROPERTY	Artboard.typename: string
+
+# ============================================================
+# METHODS  (311)
+# ============================================================
+
+METHOD	Artboards.add(artboardRect: Rect): Artboard
+METHOD	Artboards.getActiveArtboardIndex(): number
+METHOD	Artboards.getByName(name: string): Artboard
+METHOD	Artboards.getByName(artboardName: string): Artboard
+METHOD	Artboards.insert(artboardRect: Rect, index: number): void
+METHOD	Artboards.remove(index: number): void
+METHOD	Artboards.removeAll(): void
+METHOD	Artboards.setActiveArtboardIndex(index: number): void
+METHOD	Documents.addDocumentWithDialogOption(startupPreset: string, showOptionsDialog?: boolean): Document
+METHOD	Documents.arrange(layoutStyle: DocumentLayoutStyle): boolean
+METHOD	Documents.getByName(name: string): Document
+METHOD	Layers.add(): Layer
+METHOD	Layers.getByName(name: string): Layer
+METHOD	Layers.removeAll(): void
+METHOD	GroupItems.add(): GroupItem
+METHOD	GroupItems.createFromFile(imageFile: File): GroupItem
+METHOD	GroupItems.getByName(name: string): GroupItem
+METHOD	GroupItems.removeAll(): void
+METHOD	PageItems.getByName(name: string): PageItem
+METHOD	PathItems.add(): PathItem
+METHOD	PathItems.getByName(name: string): PathItem
+METHOD	PathItems.rectangle(top: number, left: number, width: number, height: number, reversed?: boolean): PathItem
+METHOD	PathItems.removeAll(): void
+METHOD	PathPoints.add(): PathPoint
+METHOD	PathPoints.getByName(name: string): PathPoint
+METHOD	PathPoints.removeAll(): void
+METHOD	CompoundPathItems.add(): CompoundPathItem
+METHOD	CompoundPathItems.getByName(name: string): CompoundPathItem
+METHOD	CompoundPathItems.removeAll(): void
+METHOD	Stories.getByName(name: string): Story
+METHOD	TextFrameItems.add(): TextFrame
+METHOD	TextFrameItems.getByName(name: string): TextFrame
+METHOD	TextFrameItems.pointText(anchor: Point | [number, number], orientation?: TextOrientation): TextFrame
+METHOD	TextFrameItems.removeAll(): void
+METHOD	LegacyTextItems.convertToNative(): boolean
+METHOD	LegacyTextItems.getByName(name: string): LegacyTextItem
+METHOD	TextRanges.getByName(name: string): TextRange
+METHOD	InsertionPoints.getByName(name: string): InsertionPoint
+METHOD	Characters.add(contents: string): TextRange
+METHOD	Characters.addBefore(contents: string): TextRange
+METHOD	Characters.getByName(name: string): TextRange
+METHOD	Characters.removeAll(): void
+METHOD	Words.add(contents: string): TextRange
+METHOD	Words.addBefore(contents: string): TextRange
+METHOD	Words.getByName(name: string): TextRange
+METHOD	Words.removeAll(): void
+METHOD	Lines.getByName(name: string): TextRange
+METHOD	Paragraphs.add(contents: string): TextRange
+METHOD	Paragraphs.addBefore(contents: string): TextRange
+METHOD	Paragraphs.getByName(name: string): TextRange
+METHOD	Paragraphs.removeAll(): void
+METHOD	CharacterStyles.add(name: string): CharacterStyle
+METHOD	CharacterStyles.getByName(name: string): CharacterStyle
+METHOD	CharacterStyles.removeAll(): void
+METHOD	ParagraphStyles.add(name: string): ParagraphStyle
+METHOD	ParagraphStyles.getByName(name: string): ParagraphStyle
+METHOD	ParagraphStyles.removeAll(): void
+METHOD	Spots.add(): Spot
+METHOD	Spots.getByName(name: string): Spot
+METHOD	Spots.removeAll(): void
+METHOD	Swatches.add(): Swatch
+METHOD	Swatches.getByName(name: string): Swatch
+METHOD	Swatches.getSelected(includeSwatchInGroup?: boolean): Swatch[]
+METHOD	Swatches.removeAll(): void
+METHOD	SwatchGroups.add(): SwatchGroup
+METHOD	SwatchGroups.getByName(name: string): SwatchGroup
+METHOD	SwatchGroups.getSelected(): SwatchGroup[]
+METHOD	SwatchGroups.removeAll(): void
+METHOD	Gradients.add(): Gradient
+METHOD	Gradients.getByName(name: string): Gradient
+METHOD	Gradients.removeAll(): void
+METHOD	GradientStops.add(): GradientStop
+METHOD	GradientStops.getByName(name: string): GradientStop
+METHOD	GradientStops.removeAll(): void
+METHOD	Patterns.add(): Pattern
+METHOD	Patterns.getByName(name: string): Pattern
+METHOD	Patterns.removeAll(): void
+METHOD	Symbols.add(sourceArt: PageItem, registrationPoint?: SymbolRegistrationPoint): Symbol
+METHOD	Symbols.getByName(name: string): Symbol
+METHOD	Symbols.removeAll(): void
+METHOD	SymbolItems.add(symbol: Symbol): SymbolItem
+METHOD	SymbolItems.getByName(name: string): SymbolItem
+METHOD	SymbolItems.removeAll(): void
+METHOD	Brushes.add(brushDefinition: File, brushName?: string): Brush
+METHOD	Brushes.addAndLoad(brushDefinition: File): Brush
+METHOD	Brushes.getByName(name: string): Brush
+METHOD	ArtStyles.getByName(name: string): ArtStyle
+METHOD	ArtStyles.removeAll(): void
+METHOD	TextFonts.getByName(name: string): TextFont
+METHOD	TextFonts.getCurrentFont(): string
+METHOD	TextFonts.getFontByName(fontName: string): TextFont
+METHOD	TextFonts.isFontAvailable(fontName: string): boolean
+METHOD	Tags.add(): Tag
+METHOD	Tags.getByName(name: string): Tag
+METHOD	Tags.removeAll(): void
+METHOD	RasterItems.getByName(name: string): RasterItem
+METHOD	RasterItems.removeAll(): void
+METHOD	PlacedItems.add(): PlacedItem
+METHOD	PlacedItems.getByName(name: string): PlacedItem
+METHOD	PlacedItems.removeAll(): void
+METHOD	EmbeddedItems.add(): EmbedItem
+METHOD	EmbeddedItems.getByName(name: string): EmbedItem
+METHOD	EmbeddedItems.removeAll(): void
+METHOD	MeshItems.getByName(name: string): MeshItem
+METHOD	MeshItems.removeAll(): void
+METHOD	GraphItems.getByName(name: string): GraphItem
+METHOD	GraphItems.removeAll(): void
+METHOD	PluginItems.getByName(name: string): PluginItem
+METHOD	PluginItems.removeAll(): void
+METHOD	NonNativeItems.getByName(name: string): NonNativeItem
+METHOD	Views.getByName(name: string): View
+METHOD	Variables.add(): Variable
+METHOD	Variables.getByName(name: string): Variable
+METHOD	Variables.removeAll(): void
+METHOD	DataSets.add(): DataSet
+METHOD	DataSets.getByName(name: string): DataSet
+METHOD	DataSets.removeAll(): void
+METHOD	Application.aATClear(): string
+METHOD	Application.aATDuplicateItem(sessionIndex: number, item: string): string
+METHOD	Application.aATEditItem(sessionIndex: number, item: string): string
+METHOD	Application.aATErrorsExist(): boolean
+METHOD	Application.aATExecuteSession(): void
+METHOD	Application.aATExecuteSessionFromFile(file: File): void
+METHOD	Application.aATFileRelativeChanged(path: string, relative: string, newRelative: string): string
+METHOD	Application.aATFileSaveDialog(path: string, relative: string, type: string): string
+METHOD	Application.aATGetEditorDialogFile(): File
+METHOD	Application.aATGetErrorDialogFile(): File
+METHOD	Application.aATGetListOfRelativePaths(): string
+METHOD	Application.aATGetSession(): string
+METHOD	Application.aATLoadLibExtension(): string
+METHOD	Application.aATLoadModel(): string
+METHOD	Application.aATLoadSessionFile(): string
+METHOD	Application.aATLoadUIExtension(): string
+METHOD	Application.aATRemoveItem(sessionIndex: number, item: string): string
+METHOD	Application.aATSaveAsSession(): string
+METHOD	Application.aATSaveSession(): string
+METHOD	Application.applyDataToItem(sessionIndex: number, item: string, data: string): string
+METHOD	Application.beep(): void
+METHOD	Application.beginSyncSettingsAutomationTest(): boolean
+METHOD	Application.beginTypekitFontAutomationTest(): boolean
+METHOD	Application.concatenateMatrix(matrix: Matrix, secondMatrix: Matrix): Matrix
+METHOD	Application.concatenateRotationMatrix(matrix: Matrix, angle: number): Matrix
+METHOD	Application.concatenateScaleMatrix(matrix: Matrix, scaleX?: number, scaleY?: number): Matrix
+METHOD	Application.concatenateTranslationMatrix(matrix: Matrix, deltaX?: number, deltaY?: number): Matrix
+METHOD	Application.copy(): void
+METHOD	Application.cut(): void
+METHOD	Application.deleteWorkspace(workspaceName: string): boolean
+METHOD	Application.doScript(action: string, from: string, dialogs?: boolean): void
+METHOD	Application.dumpPGFFile(file: File, documentColorSpace?: DocumentColorSpace, pGFFile?: File): boolean
+METHOD	Application.executeMenuCommand(menuCommandString: string): void
+METHOD	Application.getCCXUserJSONData(mode?: string): string
+METHOD	Application.getExecutionOutput(): string
+METHOD	Application.getHelloJSONData(): string
+METHOD	Application.getIdentityMatrix(): Matrix
+METHOD	Application.getPPDFileInfo(name: string): PPDFileInfo
+METHOD	Application.getPresetFileOfType(presetType: DocumentPresetType): File
+METHOD	Application.getPresetSettings(preset: string): DocumentPreset
+METHOD	Application.getRotationMatrix(angle?: number): Matrix
+METHOD	Application.getScaleMatrix(scaleX?: number, scaleY?: number): Matrix
+METHOD	Application.getScriptableHelpGroup(): any
+METHOD	Application.getTranslationMatrix(deltaX?: number, deltaY?: number): Matrix
+METHOD	Application.getVersionString(): string
+METHOD	Application.invertMatrix(matrix: Matrix): Matrix
+METHOD	Application.isEqualMatrix(matrix: Matrix, secondMatrix: Matrix): boolean
+METHOD	Application.isFillActive(): boolean
+METHOD	Application.isSingularMatrix(matrix: Matrix): boolean
+METHOD	Application.isStrokeActive(): boolean
+METHOD	Application.isTouchWorkspace(): boolean
+METHOD	Application.isUserSharingAppUsageData(): boolean
+METHOD	Application.launchExtension(extensionID: string): number
+METHOD	Application.loadAction(actionFilePath: File): void
+METHOD	Application.loadColorSettings(fileSpec: File): void
+METHOD	Application.open(file: File, documentColorSpace?: DocumentColorSpace, options?: any): Document
+METHOD	Application.openCloudLibraryAssetForEditing(assetURL: File, thumbnailURL: File, options?: any): Document
+METHOD	Application.paste(): void
+METHOD	Application.quit(): void
+METHOD	Application.redo(): void
+METHOD	Application.redraw(): void
+METHOD	Application.reflectCSAW(outputFolder: File): void
+METHOD	Application.resetWorkspace(): boolean
+METHOD	Application.runAPITest(testName: string): void
+METHOD	Application.saveWorkspace(workspaceName: string): boolean
+METHOD	Application.sendScriptMessage(pluginName: string, messageSelector: string, inputString: string): string
+METHOD	Application.setThumbnailOptionsForCloudLibrary(options: any): void
+METHOD	Application.showColorPicker(color: Color): Color
+METHOD	Application.showPresets(fileSpec: File): string[]
+METHOD	Application.switchWorkspace(workspaceName: string): boolean
+METHOD	Application.translatePlaceholderText(text: string): string
+METHOD	Application.translateString(key: string, source: string): string
+METHOD	Application.undo(): void
+METHOD	Application.unloadAction(setName: string, actionName: string): void
+METHOD	Document.activate(): void
+METHOD	Document.close(saving?: SaveOptions): void
+METHOD	Document.exportFile(exportFile: File, exportFormat: ExportType, options?: any): void
+METHOD	Document.exportPDFPreset(file: File): void
+METHOD	Document.exportPerspectiveGridPreset(file: File): void
+METHOD	Document.exportPrintPreset(file: File): void
+METHOD	Document.exportSelectionAsAi(exportFile: File): void
+METHOD	Document.exportSelectionAsPNG(exportFile: File, options?: any): void
+METHOD	Document.exportVariables(file: File): void
+METHOD	Document.fitArtboardToSelectedArt(index?: number): boolean
+METHOD	Document.getPerspectiveActivePlane(): PerspectiveGridPlaneType
+METHOD	Document.hidePerspectiveGrid(): boolean
+METHOD	Document.imageCapture(imageFile: File, clipBounds?: Rect, options?: ImageCaptureOptions): void
+METHOD	Document.importCharacterStyles(fileSpec: File): void
+METHOD	Document.importPDFPreset(fileSpec: File, replacingPreset?: boolean): void
+METHOD	Document.importParagraphStyles(fileSpec: File): void
+METHOD	Document.importPerspectiveGridPreset(fileSpec: File, perspectivePreset?: string): void
+METHOD	Document.importPrintPreset(printPreset: string, fileSpec: File): void
+METHOD	Document.importVariables(fileSpec: File): void
+METHOD	Document.print(options?: PrintOptions): void
+METHOD	Document.processGesture(gesturePointsFile: string): void
+METHOD	Document.rasterize(sourceArt: any, clipBounds?: Rect, options?: RasterizeOptions): RasterItem
+METHOD	Document.save(): void
+METHOD	Document.saveAs(saveIn: File, options?: any): void
+METHOD	Document.selectObjectsOnActiveArtboard(): boolean
+METHOD	Document.selectPerspectivePreset(perspectivePreset: string): boolean
+METHOD	Document.setPerspectiveActivePlane(perspectiveGridPlane: PerspectiveGridPlaneType): boolean
+METHOD	Document.showPerspectiveGrid(): boolean
+METHOD	Document.windowCapture(imageFile: File, windowSize: Point | [number, number]): void
+METHOD	Layer.move(relativeObject: object, insertionLocation: any): Layer
+METHOD	Layer.remove(): void
+METHOD	Layer.removeAll(): void
+METHOD	Layer.zOrder(zOrderCmd: ZOrderMethod): void
+METHOD	Gradient.remove(): void
+METHOD	Gradient.removeAll(): void
+METHOD	GradientStop.remove(): void
+METHOD	GradientStop.removeAll(): void
+METHOD	Preferences.getBooleanPreference(key: string): boolean
+METHOD	Preferences.getIntegerPreference(key: string): number
+METHOD	Preferences.getRealPreference(key: string): number
+METHOD	Preferences.getStringPreference(key: string): string
+METHOD	Preferences.removePreference(key: string): void
+METHOD	Preferences.setBooleanPreference(key: string, value: boolean): void
+METHOD	Preferences.setIntegerPreference(key: string, value: number): void
+METHOD	Preferences.setRealPreference(key: string, value: number): void
+METHOD	Preferences.setStringPreference(key: string, value: string): void
+METHOD	Spot.getInternalColor(): number[]
+METHOD	Spot.remove(): void
+METHOD	Spot.removeAll(): void
+METHOD	Variable.remove(): void
+METHOD	Variable.removeAll(): void
+METHOD	DataSet.display(): void
+METHOD	DataSet.remove(): void
+METHOD	DataSet.removeAll(): void
+METHOD	DataSet.update(): void
+METHOD	Swatch.remove(): void
+METHOD	Swatch.removeAll(): void
+METHOD	SwatchGroup.addSpot(spot: Spot): void
+METHOD	SwatchGroup.addSwatch(swatch: Swatch): void
+METHOD	SwatchGroup.getAllSwatches(): Swatch[]
+METHOD	SwatchGroup.remove(): void
+METHOD	SwatchGroup.removeAll(): void
+METHOD	Pattern.remove(): void
+METHOD	Pattern.removeAll(): void
+METHOD	Symbol.duplicate(relativeObject: object, insertionLocation: any): Symbol
+METHOD	Symbol.remove(): void
+METHOD	Symbol.removeAll(): void
+METHOD	Brush.applyTo(artItem: any): void
+METHOD	ArtStyle.applyTo(artItem: any): void
+METHOD	ArtStyle.mergeTo(artItem: any): void
+METHOD	ArtStyle.remove(): void
+METHOD	ArtStyle.removeAll(): void
+METHOD	PageItem.applyEffect(liveEffectXML: string): void
+METHOD	PageItem.duplicate(relativeObject?: object, insertionLocation?: any): PageItem
+METHOD	PageItem.move(relativeObject: object, insertionLocation: any): PageItem
+METHOD	PageItem.remove(): void
+METHOD	PageItem.removeAll(): void
+METHOD	PageItem.sendScriptMessage(pluginName: string, messageSelector: string, inputString: string): string
+METHOD	PageItem.zOrder(zOrderCmd: ZOrderMethod): void
+METHOD	Tag.remove(): void
+METHOD	Tag.removeAll(): void
+METHOD	PathItem.setEntirePath(pathPoints: [number, number][]): void
+METHOD	PathItem.duplicate(relativeObject?: object, insertionLocation?: any): PathItem
+METHOD	PathItem.move(relativeObject: object, insertionLocation: any): PathItem
+METHOD	PathPoint.remove(): void
+METHOD	PathPoint.removeAll(): void
+METHOD	RasterItem.colorize(rasterColor: Color): void
+METHOD	RasterItem.trace(): PluginItem
+METHOD	PlacedItem.embed(): void
+METHOD	PlacedItem.relink(fileSpec: File): void
+METHOD	PlacedItem.trace(): PluginItem
+METHOD	SymbolItem.breakLink(): void
+METHOD	TextPath.setEntirePath(pathPoints: any[]): void
+METHOD	TextFrame.convertAreaObjectToPointObject(): TextFrame
+METHOD	TextFrame.convertPointObjectToAreaObject(): TextFrame
+METHOD	TextFrame.createOutline(): GroupItem
+METHOD	LegacyTextItem.convertToNative(): GroupItem
+METHOD	TextRange.changeCaseTo(type: CaseChangeType): void
+METHOD	TextRange.deSelect(): void
+METHOD	TextRange.duplicate(relativeObject: object, insertionLocation: any): TextRange
+METHOD	TextRange.move(relativeObject: object, insertionLocation: any): TextRange
+METHOD	TextRange.remove(): void
+METHOD	TextRange.removeAll(): void
+METHOD	TextRange.select(addToDocument?: boolean): void
+METHOD	CharacterStyle.add(): CharacterStyle
+METHOD	CharacterStyle.applyTo(textItem: any, clearingOverrides?: boolean): void
+METHOD	CharacterStyle.clear(): void
+METHOD	CharacterStyle.remove(): void
+METHOD	CharacterStyle.removeAll(): void
+METHOD	ParagraphStyle.add(): ParagraphStyle
+METHOD	ParagraphStyle.applyTo(textItem: any, clearingOverrides?: boolean): void
+METHOD	ParagraphStyle.clear(): void
+METHOD	ParagraphStyle.remove(): void
+METHOD	ParagraphStyle.removeAll(): void
+METHOD	TracingOptions.loadFromPreset(presetName: string): boolean
+METHOD	TracingOptions.storeToPreset(presetName: string): boolean
+METHOD	TracingObject.expandTracing(viewed?: boolean): GroupItem
+METHOD	TracingObject.releaseTracing(): PageItem
+METHOD	Artboard.remove(): void
+METHOD	Artboard.removeAll(): void
+
+# ============================================================
+# LIVE EFFECTS  (PageItem.applyEffect)
+# ============================================================
+#
+# applyEffect(liveEffectXML: string) takes a Live Effect XML string.
+# The exact effect name strings are version-specific and NOT documented
+# in a public structured source. Do not guess them.
+#
+# To discover valid effect names for the running Illustrator installation:
+#   var names = app.liveEffectsList;  // returns Array of effect name strings
+#
+# To read back the XML of an effect already applied to an item:
+#   var xml = item.effectsData;       // returns XML string of all applied effects
+#
+# Workflow for applying an effect by name:
+#   1. Call app.liveEffectsList to get the authoritative list for this install
+#   2. Match the user's intent to a name from that list
+#   3. Build the XML string and call item.applyEffect(xml)
+#
+# Do not hardcode effect name strings — they vary by Illustrator version and locale.
+LIVEEFFECT	app.liveEffectsList: string[]
+LIVEEFFECT	PageItem.applyEffect(liveEffectXML: string): void
+LIVEEFFECT	PageItem.effectsData: string
+
+# INTENT ALIASES (user wording -> live effect workflow)
+# These lines are grep anchors for natural-language prompts.
+INTENT_EFFECT	shadow -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	drop shadow -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	inner shadow -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	outer glow -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	glow -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	blur -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	distort -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	warp -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	roughen -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	zig zag -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	stylize -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	3d -> LIVEEFFECT app.liveEffectsList
+INTENT_EFFECT	apply effect -> LIVEEFFECT PageItem.applyEffect(liveEffectXML: string)
+INTENT_EFFECT	effect xml -> LIVEEFFECT PageItem.effectsData

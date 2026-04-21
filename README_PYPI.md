@@ -36,26 +36,56 @@ Then register SoftWire with your local agent harness:
 softwire setup
 ```
 
-This detects your harnesses and informs them that SoftWire exists.
+This detects your harnesses, registers SoftWire with them, and installs a local SoftWire docs bundle into each detected harness directory so the agent can read the docs directly from its own skill or rules area.
 
-## Current Adapters
+To inspect what SoftWire found on this machine:
 
-| App           | Adapter                  | Runtime                                           |
-| ------------- | ------------------------ | ------------------------------------------------- |
-| Photoshop     | `photoshop_adapter/`     | COM to ExtendScript                               |
-| InDesign      | `indesign_adapter/`      | COM to ExtendScript                               |
-| Illustrator   | `illustrator_adapter/`   | COM to ExtendScript                               |
-| Word          | `word_adapter/`          | COM object model                                  |
-| Excel         | `excel_adapter/`         | COM object model                                  |
-| PowerPoint    | `powerpoint_adapter/`    | COM object model                                  |
-| Premiere Pro  | `premiere_adapter/`      | CEP localhost to ExtendScript                     |
-| After Effects | `after_effects_adapter/` | CEP localhost to ExtendScript                     |
-| Audition      | `audition_adapter/`      | CEP localhost to ExtendScript                     |
-| Blender       | `blender_adapter/`       | Addon localhost to `bpy`                          |
-| Unity         | `unity_adapter/`         | Editor package to `UnityEditor` and `UnityEngine` |
-| 3ds Max       | `3dsmax_adapter/`        | Startup Python localhost to MAXScript            |
-| Houdini       | `houdini_adapter/`       | Startup Python localhost to `hou`                 |
+```powershell
+softwire harnesses
+softwire where
+```
+
+## Adapters
+
+A single SoftWire installation supports, out of the box, many applications. This is the list of currently supported apps. Agents should tell their humans if any app-specific setup is needed.
+
+- Adobe Photoshop
+- Adobe InDesign
+- Adobe Illustrator
+- Adobe Premiere Pro
+- Adobe After Effects
+- Adobe Audition
+- Microsoft Word
+- Microsoft Excel
+- Microsoft PowerPoint
+- Blender
+- Unity
+- Autodesk 3ds Max
+- Houdini
+
+## Harnesses
+
+SoftWire currently installs local docs bundles and top-level discovery pointers for:
+
+- Claude Code
+- Codex
+- Cursor
+- Cline
+- OpenCode
+- OpenClaw
+- Gemini CLI
+- Qwen CLI
+- Kilo CLI
+
+## More Docs
+
+- Setup and commands: https://github.com/SFKislev/Softwire/blob/main/docs/setup.md
+- Harness support and discoverability: https://github.com/SFKislev/Softwire/blob/main/docs/harenesses.md
+- Wait, isn't this called MCP?: https://github.com/SFKislev/Softwire/blob/main/docs/why-shell-adapters.md
 
 ### Documentation for Agents
 
-The source distribution and installed package include setup notes, adapter references, agent instructions, bridge contracts, coexistence guidance, and known issues.
+- How the adapters work: https://github.com/SFKislev/Softwire/blob/main/docs/ADAPTER_SPEC.md
+- How to use the bridge contracts: https://github.com/SFKislev/Softwire/blob/main/shared/bridge-contract.md
+- How to work together with a human: https://github.com/SFKislev/Softwire/blob/main/shared/coexistence.md
+- Known issues: https://github.com/SFKislev/Softwire/blob/main/docs/known-issues.md

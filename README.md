@@ -50,6 +50,7 @@ A single softwire installation supports, out of the box, many applications. This
 - Claude Code
 - Codex
 - Cursor
+- Cline
 - OpenCode
 - OpenClaw
 - Gemini CLI

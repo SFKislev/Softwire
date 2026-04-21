@@ -17,6 +17,9 @@ softwire setup
 ```
 
 By default, setup detects local harnesses and registers SoftWire with all of them, so that the agents are aware of this ability. Use `--agent` when you want to target one harness explicitly.
+It also installs a local SoftWire docs bundle into each detected harness
+directory so the agent can read the docs directly from its own skill or rules
+area.
 
 For deterministic setup:
 
@@ -40,17 +43,10 @@ Harness-by-harness discoverability details are documented in [Harness support an
 
 ```powershell
 softwire adapters
-softwire path
+softwire where
+softwire harnesses
 softwire setup
-softwire agent-docs-path
-softwire install-agent-docs codex
-softwire install-agent-docs claude
-softwire install-agent-docs gemini
-softwire install-agent-docs qwen
-softwire install-agent-docs cursor
-softwire install-agent-docs kilo
-softwire install-agent-docs opencode
-softwire install-agent-docs openclaw
+softwire uninstall
 softwire context houdini
 softwire install blender
 ```

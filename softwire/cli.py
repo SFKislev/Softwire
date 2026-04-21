@@ -63,7 +63,7 @@ CONTEXT_EXAMPLES = {
     "word": "context.py",
 }
 
-AGENT_DOC_TARGETS = ("codex", "claude", "gemini", "qwen", "cursor", "kilo", "opencode", "openclaw", "generic", "all")
+AGENT_DOC_TARGETS = ("codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "generic", "all")
 
 HARNESS_CONFIGS = {
     "codex": {
@@ -103,6 +103,13 @@ HARNESS_CONFIGS = {
         "config_dir": Path(".cursor"),
         "global_targets": [
             Path(".cursor") / "skills" / "softwire" / "SKILL.md",
+        ],
+    },
+    "cline": {
+        "commands": ["cline"],
+        "config_dir": Path(".cline"),
+        "global_targets": [
+            Path(".cline") / "skills" / "softwire" / "SKILL.md",
         ],
     },
     "kilo": {
@@ -240,33 +247,15 @@ def powershell_command_literal(parts):
     return "& " + " ".join(quoted)
 
 
-def softwire_bootstrap_powershell():
-    exact = powershell_command_literal(module_command())
-    return (
-        "function Invoke-SoftWire {\n"
-        "    param([Parameter(ValueFromRemainingArguments = $true)][string[]]$SoftWireArgs)\n"
-        "    $softwire = Get-Command softwire -ErrorAction SilentlyContinue\n"
-        "    if ($softwire) {\n"
-        "        & $softwire.Source @SoftWireArgs\n"
-        "        return\n"
-        "    }\n"
-        f"    if (Test-Path {json.dumps(str(Path(sys.executable)))}) {{\n"
-        f"        {exact} @SoftWireArgs\n"
-        "        return\n"
-        "    }\n"
-        "    if (Get-Command py -ErrorAction SilentlyContinue) {\n"
-        "        & py -m softwire.cli @SoftWireArgs\n"
-        "        return\n"
-        "    }\n"
-        "    if (Get-Command python -ErrorAction SilentlyContinue) {\n"
-        "        & python -m softwire.cli @SoftWireArgs\n"
-        "        return\n"
-        "    }\n"
-        "    throw \"SoftWire is installed, but no SoftWire launcher was found. Try running the exact Python interpreter that installed SoftWire.\"\n"
-        "}\n"
-        "\n"
-        "Get-Content \"$(Invoke-SoftWire docs)\" -Raw"
-    )
+def packaged_skill_source():
+    candidates = [
+        ROOT / "skill.md",
+        ROOT / "softwire" / "skill.md",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError("SoftWire skill source not found.")
 
 
 def softwire_install_info():
@@ -274,7 +263,7 @@ def softwire_install_info():
         "root": str(ROOT),
         "pythonExecutable": str(Path(sys.executable).resolve()),
         "scriptsDir": str(scripts_dir()),
-        "docsPath": str(agent_docs_dir() / "common.md"),
+        "docsPath": str(packaged_skill_source()),
         "softwireCommandPath": installed_command("softwire"),
         "softwireOnPath": installed_command("softwire") is not None,
         "scriptsDirOnPath": is_scripts_dir_on_path(),
@@ -300,8 +289,11 @@ def cmd_adapters(_args):
     return 0
 
 
-def agent_docs_dir():
-    return ROOT / "softwire" / "agent_docs"
+def write_text(path, content):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content.rstrip() + "\n", encoding="utf-8")
+    print(path)
+    return True
 
 
 def copy_file(source, target, *, force):
@@ -384,7 +376,65 @@ def remove_if_matches(path, source):
     return True
 
 
-def softwire_pointer_block():
+def adapter_docs_sources():
+    items = []
+    for adapter_path in sorted((ROOT / "adapters").glob("*_adapter")):
+        app_md = adapter_path / "APP.md"
+        if not app_md.exists():
+            continue
+        name = adapter_path.name.removesuffix("_adapter")
+        items.append((name, app_md))
+    return items
+
+
+def pointer_note_text(relative_entry):
+    return f"""# SoftWire
+
+If asked to perform a task in a desktop application, use SoftWire: a Python
+package installed on this machine that lets agents inspect and edit supported
+apps through their scripting APIs.
+
+Read `{relative_entry}` first.
+"""
+
+
+def installed_skill_text(description):
+    body = packaged_skill_source().read_text(encoding="utf-8").rstrip()
+    return f"""---
+name: softwire
+description: {description}
+---
+
+{body}
+"""
+
+
+def install_local_docs_bundle(bundle_dir, *, entry_filename, entry_text, force):
+    ok = True
+    if bundle_dir.exists():
+        if not force:
+            print(f"Directory already exists: {bundle_dir}. Use --force to replace it.", file=sys.stderr)
+            return False
+        for stale_file in ("SKILL.md", "INDEX.md", "AGENTS.md", "common.md"):
+            stale_path = bundle_dir / stale_file
+            if stale_file != entry_filename:
+                remove_file(stale_path)
+        remove_dir(bundle_dir / "shared")
+        remove_dir(bundle_dir / "adapters")
+    bundle_dir.mkdir(parents=True, exist_ok=True)
+    ok = write_text(bundle_dir / entry_filename, entry_text) and ok
+
+    shared_dir = bundle_dir / "shared"
+    ok = copy_file(ROOT / "shared" / "coexistence.md", shared_dir / "coexistence.md", force=True) and ok
+    ok = copy_file(ROOT / "shared" / "bridge-contract.md", shared_dir / "bridge-contract.md", force=True) and ok
+
+    adapters_dir = bundle_dir / "adapters"
+    for name, source in adapter_docs_sources():
+        ok = copy_file(source, adapters_dir / name / "APP.md", force=True) and ok
+    return ok
+
+
+def softwire_pointer_block(entry_path):
     begin = "<!-- SOFTWIRE START -->"
     end = "<!-- SOFTWIRE END -->"
     block = (
@@ -394,21 +444,19 @@ def softwire_pointer_block():
         "supported desktop software directly through local scripting bridges, "
         "without MCP servers.\n\n"
         "When requested to operate supported desktop software, read:\n\n"
-        "```powershell\n"
-        f"{softwire_bootstrap_powershell()}\n"
-        "```\n"
+        f"`{entry_path}`\n"
         f"{end}"
     )
     return begin, end, block
 
 
 def cmd_agent_docs_path(_args):
-    print(agent_docs_dir())
+    print(packaged_skill_source())
     return 0
 
 
 def cmd_docs(_args):
-    print(agent_docs_dir() / "common.md")
+    print(packaged_skill_source())
     return 0
 
 
@@ -499,14 +547,29 @@ def cmd_harnesses(_args):
 
 
 def install_codex_docs(args):
-    source = agent_docs_dir() / "codex"
     ok = True
     if args.path:
-        ok = copy_dir(source, Path(args.path).expanduser() / "softwire", force=args.force) and ok
+            bundle_dir = Path(args.path).expanduser() / "softwire"
+            ok = install_local_docs_bundle(
+                bundle_dir,
+                entry_filename="SKILL.md",
+                entry_text=installed_skill_text(
+                    "Use when Codex needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                ),
+                force=args.force,
+        ) and ok
     else:
         for home in home_candidates():
-            ok = copy_dir(source, home / ".codex" / "skills" / "softwire", force=args.force) and ok
-            begin, end, block = softwire_pointer_block()
+            bundle_dir = home / ".codex" / "skills" / "softwire"
+            ok = install_local_docs_bundle(
+                bundle_dir,
+                entry_filename="SKILL.md",
+                entry_text=installed_skill_text(
+                    "Use when Codex needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                ),
+                force=args.force,
+            ) and ok
+            begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
             agents = home / ".codex" / "AGENTS.md"
             upsert_marked_block(agents, begin, end, block)
             print(agents)
@@ -514,44 +577,75 @@ def install_codex_docs(args):
 
 
 def install_claude_docs(args):
-    source = agent_docs_dir() / "claude" / "softwire.md"
-    skill_source = agent_docs_dir() / "claude_skill"
     ok = True
     if args.path:
         target_root = Path(args.path).expanduser()
-        ok = copy_file(source, target_root / "softwire.md", force=args.force) and ok
-        begin, end, block = softwire_pointer_block()
+        bundle_dir = target_root / "skills" / "softwire"
+        ok = install_local_docs_bundle(
+            bundle_dir,
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Claude needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
+        remove_file(target_root / "softwire.md")
+        begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
         memory = target_root / "CLAUDE.md"
         upsert_marked_block(memory, begin, end, block)
         print(memory)
     else:
         for home in home_candidates():
             target_root = home / ".claude"
-            ok = copy_file(source, target_root / "softwire.md", force=args.force) and ok
-            begin, end, block = softwire_pointer_block()
+            bundle_dir = target_root / "skills" / "softwire"
+            ok = install_local_docs_bundle(
+                bundle_dir,
+                entry_filename="SKILL.md",
+                entry_text=installed_skill_text(
+                    "Use when Claude needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                ),
+                force=args.force,
+            ) and ok
+            remove_file(target_root / "softwire.md")
+            begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
             memory = target_root / "CLAUDE.md"
             upsert_marked_block(memory, begin, end, block)
             print(memory)
-            if skill_source.exists():
-                copy_dir(skill_source, target_root / "skills" / "softwire", force=True)
     return ok
 
 
 def install_gemini_docs(args):
-    source = agent_docs_dir() / "common.md"
     ok = True
     if args.path:
         target_root = Path(args.path).expanduser()
-        ok = copy_file(source, target_root / "softwire.md", force=args.force) and ok
-        begin, end, block = softwire_pointer_block()
+        bundle_dir = target_root / "softwire"
+        ok = install_local_docs_bundle(
+            bundle_dir,
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Gemini needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
+        remove_file(target_root / "softwire.md")
+        begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
         memory = target_root / "GEMINI.md"
         upsert_marked_block(memory, begin, end, block)
         print(memory)
     else:
         for home in home_candidates():
             target_root = home / ".gemini"
-            ok = copy_file(source, target_root / "softwire.md", force=args.force) and ok
-            begin, end, block = softwire_pointer_block()
+            bundle_dir = target_root / "softwire"
+            ok = install_local_docs_bundle(
+                bundle_dir,
+                entry_filename="SKILL.md",
+                entry_text=installed_skill_text(
+                    "Use when Gemini needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                ),
+                force=args.force,
+            ) and ok
+            remove_file(target_root / "softwire.md")
+            begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
             memory = target_root / "GEMINI.md"
             upsert_marked_block(memory, begin, end, block)
             print(memory)
@@ -559,40 +653,106 @@ def install_gemini_docs(args):
 
 
 def install_cursor_docs(args):
-    source = agent_docs_dir() / "cursor"
     ok = True
     if args.path:
-        return copy_dir(source, Path(args.path).expanduser() / "softwire", force=args.force)
+        return install_local_docs_bundle(
+            Path(args.path).expanduser() / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Cursor needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        )
     for home in home_candidates():
-        ok = copy_dir(source, home / ".cursor" / "skills" / "softwire", force=args.force) and ok
+        ok = install_local_docs_bundle(
+            home / ".cursor" / "skills" / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Cursor needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
     return ok
 
 
 def install_kilo_docs(args):
-    source = agent_docs_dir() / "kilo"
     ok = True
     if args.path:
-        return copy_dir(source, Path(args.path).expanduser() / "softwire", force=args.force)
+        return install_local_docs_bundle(
+            Path(args.path).expanduser() / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Kilo needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        )
     for home in home_candidates():
-        ok = copy_dir(source, home / ".kilo" / "skills" / "softwire", force=args.force) and ok
+        ok = install_local_docs_bundle(
+            home / ".kilo" / "skills" / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Kilo needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
+    return ok
+
+
+def install_cline_docs(args):
+    ok = True
+    if args.path:
+        return install_local_docs_bundle(
+            Path(args.path).expanduser() / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Cline needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        )
+    for home in home_candidates():
+        ok = install_local_docs_bundle(
+            home / ".cline" / "skills" / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Cline needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
     return ok
 
 
 def install_qwen_docs(args):
-    source = agent_docs_dir() / "common.md"
     ok = True
     if args.path:
         target_root = Path(args.path).expanduser()
-        ok = copy_file(source, target_root / "softwire.md", force=args.force) and ok
-        begin, end, block = softwire_pointer_block()
+        bundle_dir = target_root / "softwire"
+        ok = install_local_docs_bundle(
+            bundle_dir,
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when Qwen needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
+        remove_file(target_root / "softwire.md")
+        begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
         memory = target_root / "QWEN.md"
         upsert_marked_block(memory, begin, end, block)
         print(memory)
     else:
         for home in home_candidates():
             target_root = home / ".qwen"
-            ok = copy_file(source, target_root / "softwire.md", force=args.force) and ok
-            begin, end, block = softwire_pointer_block()
+            bundle_dir = target_root / "softwire"
+            ok = install_local_docs_bundle(
+                bundle_dir,
+                entry_filename="SKILL.md",
+                entry_text=installed_skill_text(
+                    "Use when Qwen needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                ),
+                force=args.force,
+            ) and ok
+            remove_file(target_root / "softwire.md")
+            begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
             memory = target_root / "QWEN.md"
             upsert_marked_block(memory, begin, end, block)
             print(memory)
@@ -600,34 +760,74 @@ def install_qwen_docs(args):
 
 
 def install_opencode_docs(args):
-    source = agent_docs_dir() / "opencode" / "softwire.md"
     ok = True
     if args.path:
-        return copy_file(source, Path(args.path).expanduser() / "softwire.md", force=args.force)
+        target_root = Path(args.path).expanduser()
+        ok = install_local_docs_bundle(
+            target_root / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when OpenCode needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
+        ok = write_text(target_root / "softwire.md", pointer_note_text("softwire/SKILL.md")) and ok
+        return ok
     for home in home_candidates():
-        ok = copy_file(source, home / ".config" / "opencode" / "agents" / "softwire.md", force=args.force) and ok
+        target_root = home / ".config" / "opencode" / "agents"
+        ok = install_local_docs_bundle(
+            target_root / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when OpenCode needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
+        ok = write_text(target_root / "softwire.md", pointer_note_text("softwire/SKILL.md")) and ok
     return ok
 
 
 def install_openclaw_docs(args):
-    source = agent_docs_dir() / "openclaw"
     ok = True
     if args.path:
-        return copy_dir(source, Path(args.path).expanduser() / "softwire", force=args.force)
+        return install_local_docs_bundle(
+            Path(args.path).expanduser() / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when OpenClaw needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        )
     for home in home_candidates():
-        ok = copy_dir(source, home / ".openclaw" / "skills" / "softwire", force=args.force) and ok
+        ok = install_local_docs_bundle(
+            home / ".openclaw" / "skills" / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when OpenClaw needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
     return ok
 
 
 def install_generic_docs(args):
-    source = agent_docs_dir() / "generic" / "AGENTS.md"
     target = Path(args.path).expanduser() if args.path else Path.cwd() / "AGENTS.md"
-    return copy_file(source, target, force=args.force)
+    bundle_dir = target.parent / "softwire"
+    ok = install_local_docs_bundle(
+        bundle_dir,
+        entry_filename="SKILL.md",
+        entry_text=installed_skill_text(
+            "Use when an agent needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+        ),
+        force=args.force,
+    )
+    ok = write_text(target, pointer_note_text("softwire/SKILL.md")) and ok
+    return ok
 
 
 def uninstall_codex_docs(args):
     removed = False
-    begin, end, _block = softwire_pointer_block()
+    begin, end, _block = softwire_pointer_block("softwire")
     if args.path:
         removed = remove_dir(Path(args.path).expanduser() / "softwire") or removed
     else:
@@ -639,7 +839,7 @@ def uninstall_codex_docs(args):
 
 def uninstall_claude_docs(args):
     removed = False
-    begin, end, _block = softwire_pointer_block()
+    begin, end, _block = softwire_pointer_block("softwire")
     if args.path:
         target_root = Path(args.path).expanduser()
         removed = remove_file(target_root / "softwire.md") or removed
@@ -656,15 +856,17 @@ def uninstall_claude_docs(args):
 
 def uninstall_gemini_docs(args):
     removed = False
-    begin, end, _block = softwire_pointer_block()
+    begin, end, _block = softwire_pointer_block("softwire")
     if args.path:
         target_root = Path(args.path).expanduser()
         removed = remove_file(target_root / "softwire.md") or removed
+        removed = remove_dir(target_root / "softwire") or removed
         removed = remove_marked_block(target_root / "GEMINI.md", begin, end) or removed
     else:
         for home in home_candidates():
             target_root = home / ".gemini"
             removed = remove_file(target_root / "softwire.md") or removed
+            removed = remove_dir(target_root / "softwire") or removed
             removed = remove_marked_block(target_root / "GEMINI.md", begin, end) or removed
     return removed
 
@@ -687,17 +889,28 @@ def uninstall_kilo_docs(args):
     return removed
 
 
+def uninstall_cline_docs(args):
+    removed = False
+    if args.path:
+        return remove_dir(Path(args.path).expanduser() / "softwire")
+    for home in home_candidates():
+        removed = remove_dir(home / ".cline" / "skills" / "softwire") or removed
+    return removed
+
+
 def uninstall_qwen_docs(args):
     removed = False
-    begin, end, _block = softwire_pointer_block()
+    begin, end, _block = softwire_pointer_block("softwire")
     if args.path:
         target_root = Path(args.path).expanduser()
         removed = remove_file(target_root / "softwire.md") or removed
+        removed = remove_dir(target_root / "softwire") or removed
         removed = remove_marked_block(target_root / "QWEN.md", begin, end) or removed
     else:
         for home in home_candidates():
             target_root = home / ".qwen"
             removed = remove_file(target_root / "softwire.md") or removed
+            removed = remove_dir(target_root / "softwire") or removed
             removed = remove_marked_block(target_root / "QWEN.md", begin, end) or removed
     return removed
 
@@ -705,9 +918,14 @@ def uninstall_qwen_docs(args):
 def uninstall_opencode_docs(args):
     removed = False
     if args.path:
-        return remove_file(Path(args.path).expanduser() / "softwire.md")
+        target_root = Path(args.path).expanduser()
+        removed = remove_file(target_root / "softwire.md") or removed
+        removed = remove_dir(target_root / "softwire") or removed
+        return removed
     for home in home_candidates():
-        removed = remove_file(home / ".config" / "opencode" / "agents" / "softwire.md") or removed
+        target_root = home / ".config" / "opencode" / "agents"
+        removed = remove_file(target_root / "softwire.md") or removed
+        removed = remove_dir(target_root / "softwire") or removed
     return removed
 
 
@@ -721,13 +939,14 @@ def uninstall_openclaw_docs(args):
 
 
 def uninstall_generic_docs(args):
-    source = agent_docs_dir() / "generic" / "AGENTS.md"
     target = Path(args.path).expanduser() if args.path else Path.cwd() / "AGENTS.md"
-    return remove_if_matches(target, source)
+    removed = remove_file(target) or False
+    removed = remove_dir(target.parent / "softwire") or removed
+    return removed
 
 
 def cmd_install_agent_docs(args):
-    targets = ("codex", "claude", "gemini", "qwen", "cursor", "kilo", "opencode", "openclaw", "generic") if args.target == "all" else (args.target,)
+    targets = ("codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "generic") if args.target == "all" else (args.target,)
     ok = True
     for target in targets:
         if target == "codex":
@@ -740,6 +959,8 @@ def cmd_install_agent_docs(args):
             ok = install_qwen_docs(args) and ok
         elif target == "cursor":
             ok = install_cursor_docs(args) and ok
+        elif target == "cline":
+            ok = install_cline_docs(args) and ok
         elif target == "kilo":
             ok = install_kilo_docs(args) and ok
         elif target == "opencode":
@@ -757,7 +978,7 @@ def cmd_uninstall(args):
         if not targets:
             targets = ["generic"]
     elif args.agent == "all":
-        targets = ["codex", "claude", "gemini", "qwen", "cursor", "kilo", "opencode", "openclaw", "generic"]
+        targets = ["codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "generic"]
     else:
         targets = [args.agent]
 
@@ -774,6 +995,8 @@ def cmd_uninstall(args):
             removed_any = uninstall_qwen_docs(args) or removed_any
         elif target == "cursor":
             removed_any = uninstall_cursor_docs(args) or removed_any
+        elif target == "cline":
+            removed_any = uninstall_cline_docs(args) or removed_any
         elif target == "kilo":
             removed_any = uninstall_kilo_docs(args) or removed_any
         elif target == "opencode":
@@ -789,10 +1012,11 @@ def cmd_setup(args):
     if args.agent == "auto":
         targets = detect_agent_targets()
         if not targets:
-            targets = ["generic"]
+            print("No AI harness found. SoftWire needs a harness in order to work.", file=sys.stderr)
+            return 1
         chosen = targets
     elif args.agent == "all":
-        chosen = ["codex", "claude", "gemini", "qwen", "cursor", "kilo", "opencode", "openclaw", "generic"]
+        chosen = ["codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw"]
     else:
         chosen = [args.agent]
 

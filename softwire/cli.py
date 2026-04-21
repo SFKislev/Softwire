@@ -420,6 +420,7 @@ def install_local_docs_bundle(bundle_dir, *, entry_filename, entry_text, force):
             if stale_file != entry_filename:
                 remove_file(stale_path)
         remove_dir(bundle_dir / "shared")
+        remove_dir(bundle_dir / "docs")
         remove_dir(bundle_dir / "adapters")
     bundle_dir.mkdir(parents=True, exist_ok=True)
     ok = write_text(bundle_dir / entry_filename, entry_text) and ok
@@ -427,6 +428,9 @@ def install_local_docs_bundle(bundle_dir, *, entry_filename, entry_text, force):
     shared_dir = bundle_dir / "shared"
     ok = copy_file(ROOT / "shared" / "coexistence.md", shared_dir / "coexistence.md", force=True) and ok
     ok = copy_file(ROOT / "shared" / "bridge-contract.md", shared_dir / "bridge-contract.md", force=True) and ok
+
+    docs_dir = bundle_dir / "docs"
+    ok = copy_file(ROOT / "docs" / "known-issues.md", docs_dir / "known-issues.md", force=True) and ok
 
     adapters_dir = bundle_dir / "adapters"
     for name, source in adapter_docs_sources():

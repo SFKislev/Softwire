@@ -31,9 +31,10 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 - Bound scripts carefully to avoid crashing the host: keep scripts small and targeted.
 - All bridge scripts run from workspace root; accepts code through argv, `--stdin`, or `--file`; return JSON on stdout for success or failure.
 - Be skeptical of your pretraining: introspect the running app and consult vendor documentation rather than trying to invent operations.
-- If this is the first time you recall using SoftWire, read the two instruction files that will give you a better understanding of how to be helpful:
+- Read these reference files when relevant:
 - `shared/coexistence.md`
 - `shared/bridge-contract.md`
+- `docs/known-issues.md`
 
 ## Debugging
 - `py -m softwire.cli ...` is the reliable launcher across shell environments.

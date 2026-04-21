@@ -9,11 +9,11 @@ skill or rules directory.
 
 | Harness               | File adjustments                                                                                                                              |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Codex                 | Installs `~/.codex/skills/softwire/` with `SKILL.md`, `shared/*`, and `adapters/*/APP.md`, then upserts a SoftWire pointer block into `~/.codex/AGENTS.md`. |
+| Codex                 | Installs `~/.codex/skills/softwire/` with `SKILL.md`, `shared/*`, `docs/known-issues.md`, and `adapters/*/APP.md`, then upserts a SoftWire pointer block into `~/.codex/AGENTS.md`. |
 | Claude Code           | Installs `~/.claude/skills/softwire/` with the local docs bundle and upserts a SoftWire pointer block into `~/.claude/CLAUDE.md`. |
 | Gemini CLI            | Installs `~/.gemini/softwire/` with the local docs bundle and upserts a SoftWire pointer block into `~/.gemini/GEMINI.md`. |
 | Qwen CLI              | Installs `~/.qwen/softwire/` with the local docs bundle and upserts a SoftWire pointer block into `~/.qwen/QWEN.md`. |
-| Cursor                | Installs a global skill at `~/.cursor/skills/softwire/` with `SKILL.md`, `shared/*`, and `adapters/*/APP.md`. |
+| Cursor                | Installs a global skill at `~/.cursor/skills/softwire/` with `SKILL.md`, `shared/*`, `docs/known-issues.md`, and `adapters/*/APP.md`. |
 | Cline                 | Installs a global skill at `~/.cline/skills/softwire/` with the local docs bundle. |
 | Kilo CLI              | Installs a global skill at `~/.kilo/skills/softwire/` with the local docs bundle. |
 | OpenCode              | Installs `~/.config/opencode/agents/softwire/` with the local docs bundle and writes `~/.config/opencode/agents/softwire.md`. |

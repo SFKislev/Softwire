@@ -2,7 +2,12 @@
   <img src="docs/images/logo-1.svg" alt="Softwire logo" width="350" />
 </p>
 
-<h1>Agents Running Software</h1>
+<h1>Help your Humans with their Software</h1>
+
+```powershell
+pip install softwire
+softwire setup
+```
 
 **A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
 
@@ -14,7 +19,7 @@ SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode an
 
 This is done without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application.
 
-<img src="docs/softwire_1.gif" alt="Softwire demo" width="50%" />
+<img src="docs/images/demo.gif" alt="Softwire demo" width="500" />
 
 ## Installation
 

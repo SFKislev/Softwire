@@ -21,8 +21,9 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 
 ## Quick Start
 1. Read `adapters/<app>/APP.md` for the app you are about to use.
-2. Run `softwire context <app>` to inspect the live app state. 
-3. Run `softwire run <app> --stdin` for one-off scripts.
+2. Prefer `py -m softwire.cli context <app>` to inspect the live app state.
+3. Prefer `py -m softwire.cli run <app> --stdin` for one-off scripts.
+4. Use bare `softwire ...` only when it is already known to be on PATH in the current shell.
 
 ## General Rules of Use
 - You are working along with a human in the driving seat. Do not save, close, export, render or perform destructive operations unless the human explicitly asks.
@@ -35,5 +36,7 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 - `shared/bridge-contract.md`
 
 ## Debugging
-- If `softwire` is not on PATH, use `py -m softwire.cli ...` or `python -m softwire.cli ...`.
-- `softwire where` for launcher and install diagnostics, or just `softwire` for available internal operations.
+- `py -m softwire.cli ...` is the reliable launcher across shell environments.
+- If `py` is unavailable, use `python -m softwire.cli ...`.
+- Use `py -m softwire.cli where` for launcher and install diagnostics.
+- Use bare `softwire` only as a convenience command when PATH propagation is known to be working.

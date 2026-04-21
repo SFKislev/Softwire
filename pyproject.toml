@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "softwire"
-version = "0.1.7"
+version = "0.1.9"
 description = "Local scripting bridges for controlling professional creative software from a shell agent."
 readme = { file = "README_PYPI.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
@@ -31,6 +31,20 @@ softwire = "softwire.cli:main"
 
 [tool.setuptools]
 include-package-data = true
+
+[tool.setuptools.package-data]
+"*" = [
+  "*.md",
+  "*.txt",
+  "docs/*.md",
+  "docs/*.txt",
+  "known-issues.md",
+  "examples/*",
+  "cep/**/*",
+  "addon/*",
+  "inprocess/*",
+  "package/**/*",
+]
 
 [tool.setuptools.packages.find]
 where = ["."]

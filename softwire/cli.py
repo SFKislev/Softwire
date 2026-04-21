@@ -258,6 +258,17 @@ def packaged_skill_source():
     raise FileNotFoundError("SoftWire skill source not found.")
 
 
+def packaged_known_issues_source():
+    candidates = [
+        ROOT / "docs" / "known-issues.md",
+        ROOT / "softwire" / "known-issues.md",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError("SoftWire known-issues source not found.")
+
+
 def softwire_install_info():
     return {
         "root": str(ROOT),
@@ -383,7 +394,11 @@ def adapter_docs_sources():
         if not app_md.exists():
             continue
         name = adapter_path.name.removesuffix("_adapter")
-        items.append((name, app_md))
+        adapter_files = [("APP.md", app_md)]
+        api_index = adapter_path / "docs" / "api-index.txt"
+        if api_index.exists():
+            adapter_files.append(("docs/api-index.txt", api_index))
+        items.append((name, adapter_files))
     return items
 
 
@@ -430,11 +445,12 @@ def install_local_docs_bundle(bundle_dir, *, entry_filename, entry_text, force):
     ok = copy_file(ROOT / "shared" / "bridge-contract.md", shared_dir / "bridge-contract.md", force=True) and ok
 
     docs_dir = bundle_dir / "docs"
-    ok = copy_file(ROOT / "docs" / "known-issues.md", docs_dir / "known-issues.md", force=True) and ok
+    ok = copy_file(packaged_known_issues_source(), docs_dir / "known-issues.md", force=True) and ok
 
     adapters_dir = bundle_dir / "adapters"
-    for name, source in adapter_docs_sources():
-        ok = copy_file(source, adapters_dir / name / "APP.md", force=True) and ok
+    for name, files in adapter_docs_sources():
+        for relative_path, source in files:
+            ok = copy_file(source, adapters_dir / name / relative_path, force=True) and ok
     return ok
 
 

@@ -4,9 +4,22 @@ SoftWire gives agents shell access to the scripting APIs of large desktop
 apps, so they can inspect live app state and make targeted edits without MCP
 servers or UI automation.
 
+Prefer `softwire ...` when that command is on PATH. If it is not, run the same
+subcommands through `py -m softwire.cli ...` or `python -m softwire.cli ...`.
+
+## Common Commands
+
+- `softwire` prints an installation confirmation and lists available actions.
+- `softwire where` shows the install root, docs path, launcher path, and module fallback.
+- `softwire setup` registers SoftWire with detected agent harnesses.
+- `softwire uninstall --agent auto` removes SoftWire registrations from detected harnesses.
+- `softwire adapters` lists supported adapters.
+- `softwire docs` prints the packaged core agent instructions path.
+
 ## Required Workflow
 
-1. Run `softwire path` to find the installed adapter root.
+1. Run `softwire where` to inspect the install root and launcher details. If
+   `softwire` is not on PATH, use `py -m softwire.cli where`.
 2. Read these files from that root before operating an app:
    - `shared/coexistence.md`
    - `shared/bridge-contract.md`

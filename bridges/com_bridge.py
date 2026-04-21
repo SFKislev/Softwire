@@ -3,6 +3,7 @@ import json
 import subprocess
 import sys
 import traceback
+import winreg
 
 import pythoncom
 import win32com.client
@@ -38,10 +39,57 @@ def is_process_running(process_name):
     return process_name.lower() in result.stdout.lower()
 
 
+def progid_candidates(default_progid):
+    candidates = [default_progid]
+    if "." not in default_progid:
+        return candidates
+
+    base, suffix = default_progid.rsplit(".", 1)
+    if suffix.isdigit():
+        base_progid = base
+    else:
+        base_progid = default_progid
+
+    discovered = []
+    try:
+        with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, "") as root:
+            index = 0
+            while True:
+                try:
+                    name = winreg.EnumKey(root, index)
+                except OSError:
+                    break
+                index += 1
+                if not name.startswith(base_progid + "."):
+                    continue
+                version = name[len(base_progid) + 1 :]
+                if version.isdigit():
+                    discovered.append((int(version), name))
+    except OSError:
+        discovered = []
+
+    discovered.sort(reverse=True)
+    for _version, progid in discovered:
+        if progid not in candidates:
+            candidates.append(progid)
+    return candidates
+
+
+def get_active_object_with_fallback(progid):
+    errors = []
+    for candidate in progid_candidates(progid):
+        try:
+            return win32com.client.GetActiveObject(candidate), candidate, errors
+        except Exception as exc:
+            errors.append((candidate, exc))
+    raise RuntimeError("; ".join(f"{name}: {exc}" for name, exc in errors))
+
+
 def connect_app(progid, app_name, process_name=None, allow_launch=False):
     attach_error = None
     try:
-        return win32com.client.GetActiveObject(progid)
+        app, _resolved_progid, _errors = get_active_object_with_fallback(progid)
+        return app
     except Exception as exc:
         attach_error = exc
         if not allow_launch and process_name and not is_process_running(process_name):
@@ -57,7 +105,17 @@ def connect_app(progid, app_name, process_name=None, allow_launch=False):
                 f"Original COM error: {attach_error}. "
                 f"Open {app_name} first, or pass --allow-launch."
             )
-        return win32com.client.Dispatch(progid)
+        dispatch_errors = []
+        for candidate in progid_candidates(progid):
+            try:
+                return win32com.client.Dispatch(candidate)
+            except Exception as dispatch_exc:
+                dispatch_errors.append(f"{candidate}: {dispatch_exc}")
+        raise RuntimeError(
+            f"Could not launch {app_name} via COM ProgID {progid}. "
+            f"Attach errors: {attach_error}. "
+            f"Dispatch attempts: {'; '.join(dispatch_errors)}"
+        )
 
 
 def normalize_result(result):

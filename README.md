@@ -8,11 +8,9 @@
 
 SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install softwire && softwire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
 
-[SoftWire is not an MCP server](https://github.com/SFKislev/Softwire/blob/main/docs/mcp.md). The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
+[SoftWire is not an MCP server](https://github.com/SFKislev/Softwire/blob/main/docs/mcp.md). It is simpler. The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
 
-```text
-agent shell -> bridge command -> app scripting runtime -> JSON result
-```
+> agent shell → bridge command → app scripting runtime → JSON result
 
 This is done without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application.
 
@@ -22,46 +20,48 @@ This is done without brittle screenshots and without schema definitions. The bri
 
 ```powershell
 pip install softwire
-```
-
-Confirm the installation and see the available commands:
-
-```powershell
-softwire
-```
-
-If `softwire` is not on PATH in the current shell, use:
-
-```powershell
-py -m softwire.cli where
-```
-
-Then register SoftWire with your local agent harness:
-
-```powershell
 softwire setup
 ```
 
 This detects your harnesses and informs them that SoftWire exists. For first-run checks, source checkout commands, and app-specific prerequisites, see [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md).
 
-## Current Adapters
+## Current Adapters and Harnesses
 
+<table><tr>
+<td valign="top">
 
-| App           | Adapter                  | Runtime                                          |
-| --------------- | -------------------------- | -------------------------------------------------- |
-| Photoshop     | `photoshop_adapter/`     | COM to ExtendScript                              |
-| InDesign      | `indesign_adapter/`      | COM to ExtendScript                              |
-| Illustrator   | `illustrator_adapter/`   | COM to ExtendScript                              |
-| Word          | `word_adapter/`          | COM object model                                 |
-| Excel         | `excel_adapter/`         | COM object model                                 |
-| PowerPoint    | `powerpoint_adapter/`    | COM object model                                 |
-| Premiere Pro  | `premiere_adapter/`      | CEP localhost to ExtendScript                    |
-| After Effects | `after_effects_adapter/` | CEP localhost to ExtendScript                    |
-| Audition      | `audition_adapter/`      | CEP localhost to ExtendScript                    |
-| Blender       | `blender_adapter/`       | Addon localhost to `bpy`                          |
-| Unity         | `unity_adapter/`         | Editor package to `UnityEditor` and `UnityEngine` |
-| 3ds Max       | `3dsmax_adapter/`        | Startup Python localhost to MAXScript             |
-| Houdini       | `houdini_adapter/`       | Startup Python localhost to `hou`                 |
+**Softwire Adapters**
+
+- [Adobe Photoshop](adapters/photoshop_adapter/APP.md)
+- [Adobe InDesign](adapters/indesign_adapter/APP.md)
+- [Adobe Illustrator](adapters/illustrator_adapter/APP.md)
+- [Adobe Premiere Pro](adapters/premiere_adapter/APP.md)
+- [Adobe After Effects](adapters/after_effects_adapter/APP.md)
+- [Adobe Audition](adapters/audition_adapter/APP.md)
+- [Microsoft Word](adapters/word_adapter/APP.md)
+- [Microsoft Excel](adapters/excel_adapter/APP.md)
+- [Microsoft PowerPoint](adapters/powerpoint_adapter/APP.md)
+- [Blender](adapters/blender_adapter/APP.md)
+- [Unity](adapters/unity_adapter/APP.md)
+- [Autodesk 3ds Max](adapters/3dsmax_adapter/APP.md)
+- [Houdini](adapters/houdini_adapter/APP.md)
+
+</td>
+<td valign="top">
+
+[**Harnesses**](docs/harenesses.md)
+
+- Claude Code
+- Codex
+- Cursor
+- OpenCode
+- OpenClaw
+- Gemini CLI
+- Qwen CLI
+- Kilo CLI
+
+</td>
+</tr></table>
 
 ## More Docs
 

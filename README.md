@@ -25,12 +25,9 @@ softwire setup
 
 This detects your harnesses and informs them that SoftWire exists. For first-run checks, source checkout commands, and app-specific prerequisites, see [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md).
 
-## Current Adapters and Harnesses
+## Adapters
 
-<table><tr>
-<td valign="top">
-
-**Softwire Adapters**
+A single softwire installation supports, out of the box, many applications. This is a list of currently supported apps. Agents, please instruct your humans if any setup is needed.
 
 - [Adobe Photoshop](adapters/photoshop_adapter/APP.md)
 - [Adobe InDesign](adapters/indesign_adapter/APP.md)
@@ -46,10 +43,9 @@ This detects your harnesses and informs them that SoftWire exists. For first-run
 - [Autodesk 3ds Max](adapters/3dsmax_adapter/APP.md)
 - [Houdini](adapters/houdini_adapter/APP.md)
 
-</td>
-<td valign="top">
+## Harnesses
 
-[**Harnesses**](docs/harenesses.md)
+[See which files are edited upon installation](docs/harenesses.md)
 
 - Claude Code
 - Codex
@@ -60,12 +56,8 @@ This detects your harnesses and informs them that SoftWire exists. For first-run
 - Qwen CLI
 - Kilo CLI
 
-</td>
-</tr></table>
-
 ## More Docs
 
-- [Full documentation and source](https://github.com/SFKislev/Softwire)
 - [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md)
 - [Harness support and discoverability](https://github.com/SFKislev/Softwire/blob/main/docs/harenesses.md)
 - [Wait, isn't this called MCP?](https://github.com/SFKislev/Softwire/blob/main/docs/why-shell-adapters.md)

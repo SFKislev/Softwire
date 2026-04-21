@@ -1,4 +1,4 @@
-# Agents Running Software
+# Help your Humans with their Software
 
 **A tiny bridge that lets your coding harness drive professional desktop software - Photoshop, Premiere, Blender, Unity, and more - directly from the shell.**
 

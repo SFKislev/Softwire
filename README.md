@@ -1,5 +1,5 @@
 <p>
-  <img src="docs/images/logo.svg" alt="Softwire logo" width="350" />
+  <img src="docs/images/logo-1.svg" alt="Softwire logo" width="350" />
 </p>
 
 <h1>Agents Running Software</h1>

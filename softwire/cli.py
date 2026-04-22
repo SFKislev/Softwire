@@ -76,7 +76,7 @@ CONTEXT_EXAMPLES = {
     "word": "context.py",
 }
 
-AGENT_DOC_TARGETS = ("codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "generic", "all")
+AGENT_DOC_TARGETS = ("codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "copilot", "generic", "all")
 
 HARNESS_CONFIGS = {
     "codex": {
@@ -144,6 +144,15 @@ HARNESS_CONFIGS = {
         "config_dir": Path(".openclaw"),
         "global_targets": [
             Path(".openclaw") / "skills" / "softwire" / "SKILL.md",
+        ],
+    },
+    "copilot": {
+        "commands": [],
+        "config_dir": Path(".copilot"),
+        "global_targets": [
+            Path(".copilot") / "skills" / "softwire" / "SKILL.md",
+            Path(".copilot") / "instructions" / "softwire.instructions.md",
+            Path(".copilot") / "copilot-instructions.md",
         ],
     },
 }
@@ -242,6 +251,17 @@ def is_scripts_dir_on_path():
 
 def installed_command(name):
     return shutil.which(name)
+
+
+def vscode_copilot_installed():
+    homes = home_candidates()
+    for home in homes:
+        for base in (home / ".vscode" / "extensions", home / ".vscode-insiders" / "extensions"):
+            if not base.exists():
+                continue
+            if any(base.glob("github.copilot-*")) and any(base.glob("github.copilot-chat-*")):
+                return True
+    return False
 
 
 def module_command():
@@ -426,6 +446,20 @@ Read `{relative_entry}` first.
 """
 
 
+def copilot_instruction_text():
+    return """---
+applyTo: "**"
+---
+
+When asked to operate supported desktop software on this machine, use the
+SoftWire skill from `~/.copilot/skills/softwire/SKILL.md`.
+"""
+
+
+def copilot_cli_instruction_text():
+    return """When asked to operate supported desktop software on this machine, use the SoftWire skill from `~/.copilot/skills/softwire/SKILL.md`."""
+
+
 def installed_skill_text(description):
     body = packaged_skill_source().read_text(encoding="utf-8").rstrip()
     return f"""---
@@ -514,6 +548,8 @@ def harness_report():
         detection_reasons = []
         if command_on_path:
             detection_reasons.append("command")
+        if name == "copilot" and vscode_copilot_installed():
+            detection_reasons.append("vscode_extension")
         if any(item["exists"] for item in config_dirs):
             detection_reasons.append("config_dir")
 
@@ -843,6 +879,37 @@ def install_openclaw_docs(args):
     return ok
 
 
+def install_copilot_docs(args):
+    ok = True
+    if args.path:
+        target_root = Path(args.path).expanduser()
+        bundle_dir = target_root / "skills" / "softwire"
+        ok = install_local_docs_bundle(
+            bundle_dir,
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when GitHub Copilot needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
+        ok = write_text(target_root / "instructions" / "softwire.instructions.md", copilot_instruction_text()) and ok
+        ok = write_text(target_root / "copilot-instructions.md", copilot_cli_instruction_text()) and ok
+        return ok
+    for home in home_candidates():
+        target_root = home / ".copilot"
+        ok = install_local_docs_bundle(
+            target_root / "skills" / "softwire",
+            entry_filename="SKILL.md",
+            entry_text=installed_skill_text(
+                "Use when GitHub Copilot needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            ),
+            force=args.force,
+        ) and ok
+        ok = write_text(target_root / "instructions" / "softwire.instructions.md", copilot_instruction_text()) and ok
+        ok = write_text(target_root / "copilot-instructions.md", copilot_cli_instruction_text()) and ok
+    return ok
+
+
 def install_generic_docs(args):
     target = Path(args.path).expanduser() if args.path else Path.cwd() / "AGENTS.md"
     bundle_dir = target.parent / "softwire"
@@ -971,6 +1038,22 @@ def uninstall_openclaw_docs(args):
     return removed
 
 
+def uninstall_copilot_docs(args):
+    removed = False
+    if args.path:
+        target_root = Path(args.path).expanduser()
+        removed = remove_file(target_root / "instructions" / "softwire.instructions.md") or removed
+        removed = remove_file(target_root / "copilot-instructions.md") or removed
+        removed = remove_dir(target_root / "skills" / "softwire") or removed
+        return removed
+    for home in home_candidates():
+        target_root = home / ".copilot"
+        removed = remove_file(target_root / "instructions" / "softwire.instructions.md") or removed
+        removed = remove_file(target_root / "copilot-instructions.md") or removed
+        removed = remove_dir(target_root / "skills" / "softwire") or removed
+    return removed
+
+
 def uninstall_generic_docs(args):
     target = Path(args.path).expanduser() if args.path else Path.cwd() / "AGENTS.md"
     removed = remove_file(target) or False
@@ -979,7 +1062,7 @@ def uninstall_generic_docs(args):
 
 
 def cmd_install_agent_docs(args):
-    targets = ("codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "generic") if args.target == "all" else (args.target,)
+    targets = ("codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "copilot", "generic") if args.target == "all" else (args.target,)
     ok = True
     for target in targets:
         if target == "codex":
@@ -1000,6 +1083,8 @@ def cmd_install_agent_docs(args):
             ok = install_opencode_docs(args) and ok
         elif target == "openclaw":
             ok = install_openclaw_docs(args) and ok
+        elif target == "copilot":
+            ok = install_copilot_docs(args) and ok
         elif target == "generic":
             ok = install_generic_docs(args) and ok
     return 0 if ok else 1
@@ -1011,7 +1096,7 @@ def cmd_uninstall(args):
         if not targets:
             targets = ["generic"]
     elif args.agent == "all":
-        targets = ["codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "generic"]
+        targets = ["codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "copilot", "generic"]
     else:
         targets = [args.agent]
 
@@ -1036,6 +1121,8 @@ def cmd_uninstall(args):
             removed_any = uninstall_opencode_docs(args) or removed_any
         elif target == "openclaw":
             removed_any = uninstall_openclaw_docs(args) or removed_any
+        elif target == "copilot":
+            removed_any = uninstall_copilot_docs(args) or removed_any
         elif target == "generic":
             removed_any = uninstall_generic_docs(args) or removed_any
     return 0 if removed_any else 1
@@ -1049,7 +1136,7 @@ def cmd_setup(args):
             return 1
         chosen = targets
     elif args.agent == "all":
-        chosen = ["codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw"]
+        chosen = ["codex", "claude", "gemini", "qwen", "cursor", "cline", "kilo", "opencode", "openclaw", "copilot"]
     else:
         chosen = [args.agent]
 

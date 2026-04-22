@@ -54,6 +54,7 @@ A single softwire installation supports, out of the box, many applications. This
 
 - Claude Code
 - Codex
+- Copilot
 - Cursor
 - OpenCode
 - OpenClaw

@@ -1,8 +1,7 @@
 include AGENTS.md
 include README.md
 recursive-include docs *
-include skill.md
-recursive-include softwire skill.md
+recursive-include softwire *.md
 recursive-include shared *
 recursive-include tools *
 recursive-include adapters *

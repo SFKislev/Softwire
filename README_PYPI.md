@@ -75,6 +75,7 @@ SoftWire currently installs local docs bundles and top-level discovery pointers 
 
 - Claude Code
 - Codex
+- Copilot
 - Cursor
 - Cline
 - OpenCode

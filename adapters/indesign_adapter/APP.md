@@ -53,5 +53,8 @@ InDesign-specific notes:
 - For measurements, set and restore `app.scriptPreferences.measurementUnit`
   inside the script.
 - Prefer one bounded `DoScript` call per requested edit.
+- For visually judged layout or page changes, prefer the temporary
+  preview-verification workflow in `shared/coexistence.md` instead of assuming
+  the visible result.
 - Grep-friendly operation index: `docs/api-index.txt` (records are prefixed with
   `CLASS`, `ENUM`, `PROPERTY`, `METHOD`).

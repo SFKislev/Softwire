@@ -71,6 +71,9 @@ powershell -ExecutionPolicy Bypass -File adapters/3dsmax_adapter/install_bridge.
 - For MAXScript calls from Python, prefer `MaxPlus.Core.EvalMAXScript(...)` and
   convert results to simple strings/numbers/lists before assigning `_result`.
 - For bounded MAXScript edits, prefer `undo "<label>" on (...)`.
+- For visually judged scene or viewport changes, prefer the temporary
+  preview-verification workflow in `shared/coexistence.md` instead of assuming
+  the visible result.
 - Do not save, render, export, reset the scene, switch files, or alter the
   user's selection/viewport unless explicitly asked.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with

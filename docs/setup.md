@@ -48,6 +48,8 @@ softwire harnesses
 softwire setup
 softwire uninstall
 softwire context houdini
+softwire modal photoshop
+softwire modal photoshop --dismiss
 softwire install blender
 ```
 
@@ -67,6 +69,25 @@ Get-Content <adapter>/examples/context.<ext> -Raw | python <adapter>/<app>_bridg
 
 Open the target app yourself before running the command. Bridges connect to
 running instances and will not launch apps unless you pass `--allow-launch`.
+
+## Recover a Blocking Modal
+
+When an app is stuck behind a modal dialog, the scripting bridge may time out
+while the host app is still waiting for UI input. Inspect the app's current
+top-level windows with:
+
+```powershell
+softwire modal photoshop
+```
+
+To attempt a safe cancel-style dismissal of the most likely blocking dialog:
+
+```powershell
+softwire modal photoshop --dismiss
+```
+
+Use `--action escape` to send only Escape, or `--action close` when you
+explicitly want to try a direct window close request.
 
 ## Probe Adobe COM Registration
 

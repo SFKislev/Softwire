@@ -93,6 +93,9 @@ Premiere-specific notes:
   required operation.
 - Typical QE flow: call `app.enableQE()`, access `qe.project` / `qe.sequence`
   objects, perform the minimal required action, then re-validate project state.
+- For visually judged sequence or frame changes, prefer the temporary
+  preview-verification workflow in `shared/coexistence.md` instead of assuming
+  the visible result.
 - Do not render, export, relink, transcode, or change project files unless the
   user explicitly asks.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with

@@ -40,6 +40,38 @@ The cleanup tool matches checked-in `*_bridge.py` paths and ignores unrelated Py
 
 COM-backed bridges run the app call in a watchdog subprocess by default. If the host app blocks inside COM, the bridge should return JSON timeout failure instead of hanging indefinitely. Use `--timeout <seconds>` on the app bridge to adjust the watchdog, or `--timeout 0` only when deliberately allowing a long COM operation.
 
+## Modal Recovery
+
+When a desktop app is blocked behind a modal dialog, the scripting runtime may
+be unreachable even though the app process is still alive. In that state, do
+not keep retrying the same bridge call blindly.
+
+For Windows apps with a known process name, inspect the app's top-level windows
+first:
+
+```powershell
+py -m softwire.cli modal <app>
+```
+
+If the output shows a likely blocking dialog, you can attempt a bounded
+dismissal outside the app scripting runtime:
+
+```powershell
+py -m softwire.cli modal <app> --dismiss
+```
+
+Notes:
+
+- This is a Windows-side UI recovery path, not an adapter scripting call.
+- Prefer inspection before dismissal so the human can confirm the target dialog.
+- `--dismiss` defaults to a cancel-style action. Use `--action escape` to send
+  only Escape, or `--action close` only when you explicitly want a stronger
+  close request.
+- Treat the result as provisional until you re-run context or another read-only
+  probe through the bridge and confirm the app is responsive again.
+- This works best for standard top-level modal dialogs. Some custom in-app UI
+  surfaces may remain opaque or non-dismissible through this mechanism.
+
 ## API Discovery
 
 For any call not already documented by the adapter or local examples, discover the surface in this order. Do not trust pretraining for version-specific features.

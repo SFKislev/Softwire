@@ -70,6 +70,9 @@ Blender-specific notes:
 - For user-visible edits, include an undo label and call
   `bpy.ops.ed.undo_push(message="<label>")` after the mutation when Blender's
   undo system supports the operation.
+- For visually judged scene, material, lighting, or camera changes, prefer the
+  temporary preview-verification workflow in `shared/coexistence.md` instead of
+  assuming the visible result.
 - Do not save, render, export, change files, switch scenes, or alter the user's
   selection/viewport unless explicitly asked.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with

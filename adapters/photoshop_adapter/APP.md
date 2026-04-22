@@ -52,9 +52,7 @@ Photoshop-specific notes:
 - `app.runMenuItem(stringIDToTypeID("<id>"))` is useful for menu commands.
 - `app.doAction("<action name>", "<action set name>")` runs an installed
   Photoshop action.
-- Modal filter internals are often opaque after the dialog opens; do not claim
-  a setting was applied unless the script verified it.
-- Do not save, close documents, export, print, or change the active document
-  unless the user explicitly asks.
+- For visually judged edits, prefer the temporary preview-verification workflow
+  in `shared/coexistence.md` instead of assuming the edit looks correct.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with
   `CLASS`, `ENUMCLASS`, `ENUM`, `PROPERTY`, `METHOD`).

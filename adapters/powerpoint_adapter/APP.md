@@ -63,5 +63,8 @@ PowerPoint-specific notes:
   a shape's capabilities before mutating text.
 - Many PowerPoint/Office constants are available through `constants`, but
   verify constants at runtime if unsure.
+- For visually judged slide layout or formatting changes, prefer the temporary
+  preview-verification workflow in `shared/coexistence.md` instead of assuming
+  the visible result.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with
   `CLASS`, `ENUM`, `PROPERTY`, `METHOD`, `EVENT`, `CONSTANT`).

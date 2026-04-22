@@ -62,6 +62,9 @@ Houdini-specific notes:
   `setInput`) over UI automation.
 - Houdini does not expose a universal Python undo wrapper for arbitrary HOM
   edits. Keep edits bounded and report script errors directly.
+- For visually judged scene or viewport changes, prefer the temporary
+  preview-verification workflow in `shared/coexistence.md` instead of assuming
+  the visible result.
 - Do not save, render, export, change desktops, or switch files unless
   explicitly asked.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with

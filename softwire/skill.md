@@ -5,23 +5,23 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 > agent shell -> bridge command -> app scripting runtime -> JSON result
 
 ## Available Adapters
-- `adapters/3dsmax_adapter/APP.md`
-- `adapters/after_effects_adapter/APP.md`
-- `adapters/audition_adapter/APP.md`
-- `adapters/blender_adapter/APP.md`
-- `adapters/excel_adapter/APP.md`
-- `adapters/houdini_adapter/APP.md`
-- `adapters/illustrator_adapter/APP.md`
-- `adapters/indesign_adapter/APP.md`
-- `adapters/photoshop_adapter/APP.md`
-- `adapters/powerpoint_adapter/APP.md`
-- `adapters/premiere_adapter/APP.md`
-- `adapters/unity_adapter/APP.md`
-- `adapters/word_adapter/APP.md`
+- `adapters/3dsmax/APP.md`
+- `adapters/after_effects/APP.md`
+- `adapters/audition/APP.md`
+- `adapters/blender/APP.md`
+- `adapters/excel/APP.md`
+- `adapters/houdini/APP.md`
+- `adapters/illustrator/APP.md`
+- `adapters/indesign/APP.md`
+- `adapters/photoshop/APP.md`
+- `adapters/powerpoint/APP.md`
+- `adapters/premiere/APP.md`
+- `adapters/unity/APP.md`
+- `adapters/word/APP.md`
 
 ## Quick Start
-1. Read `adapters/<app>_adapter/APP.md` for the app you are about to use.
-2. Search `adapters/<app>_adapter/docs/api-index.txt` with `rg` for relevant symbols.
+1. Read `adapters/<app>/APP.md` for the app you are about to use.
+2. Search `adapters/<app>/docs/api-index.txt` with `rg` for relevant symbols.
 3. Prefer `py -m softwire.cli context <app>` to inspect the live app state.
 4. Prefer `py -m softwire.cli run <app> --stdin` for one-off scripts.
 
@@ -40,4 +40,5 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 - `py -m softwire.cli ...` is the reliable launcher across shell environments.
 - If `py` is unavailable, use `python -m softwire.cli ...`.
 - Use `py -m softwire.cli where` for launcher and install diagnostics.
+- If a Windows app is blocked by a modal, use `py -m softwire.cli modal <app>` to inspect likely dialog windows and `py -m softwire.cli modal <app> --dismiss` to attempt a bounded cancel-style dismissal outside the app scripting runtime.
 - Use bare `softwire` only as a convenience command when PATH propagation is known to be working.

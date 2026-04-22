@@ -60,5 +60,8 @@ Word-specific notes:
   Python indexing for most Word collections.
 - Many Word constants are available through `constants`, for example
   `constants.wdCollapseEnd`, but verify constants at runtime if unsure.
+- For visually judged page layout or formatting changes, prefer the temporary
+  preview-verification workflow in `shared/coexistence.md` instead of assuming
+  the visible result.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with
   `CLASS`, `ENUM`, `PROPERTY`, `METHOD`, `EVENT`, `CONSTANT`).

@@ -47,6 +47,19 @@ BRIDGES = {
     "word": "word_bridge.py",
 }
 
+PROCESS_NAMES = {
+    "3dsmax": "3dsmax.exe",
+    "blender": "blender.exe",
+    "excel": "EXCEL.EXE",
+    "houdini": "houdini.exe",
+    "illustrator": "Illustrator.exe",
+    "indesign": "InDesign.exe",
+    "photoshop": "Photoshop.exe",
+    "powerpoint": "POWERPNT.EXE",
+    "premiere": "Adobe Premiere Pro.exe",
+    "word": "WINWORD.EXE",
+}
+
 CONTEXT_EXAMPLES = {
     "3dsmax": "context.py",
     "after_effects": "context.jsx",
@@ -1093,6 +1106,37 @@ def cmd_run(args):
     return run_process(command, input_text=input_text)
 
 
+def cmd_modal(args):
+    if os.name != "nt":
+        print("Modal window inspection is currently Windows-only.", file=sys.stderr)
+        return 1
+
+    process_name = PROCESS_NAMES.get(args.adapter)
+    if not process_name:
+        print(
+            f"{args.adapter} does not currently define a process name for modal recovery.",
+            file=sys.stderr,
+        )
+        return 1
+
+    from softwire.windows_ui import dismiss_process_modal, list_process_windows
+
+    if args.dismiss:
+        payload = dismiss_process_modal(
+            process_name,
+            action=args.action,
+            settle_ms=args.settle_ms,
+        )
+        stream = sys.stdout if payload.get("ok") else sys.stderr
+        print(json.dumps(payload, indent=2), file=stream)
+        return 0 if payload.get("ok") else 1
+
+    payload = list_process_windows(process_name)
+    payload["ok"] = True
+    print(json.dumps(payload, indent=2))
+    return 0
+
+
 def cmd_install(args):
     if os.name != "nt":
         print("Adapter installers are currently Windows-only.", file=sys.stderr)
@@ -1232,6 +1276,30 @@ def build_parser():
     run_parser.add_argument("--file", help="Read code from a file.")
     run_parser.set_defaults(func=cmd_run)
 
+    modal_parser = subparsers.add_parser(
+        "modal",
+        help="Inspect or dismiss likely blocking modal windows for an app.",
+    )
+    modal_parser.add_argument("adapter", type=adapter_name, help="Adapter name, for example: photoshop")
+    modal_parser.add_argument(
+        "--dismiss",
+        action="store_true",
+        help="Attempt to dismiss the most likely modal window for the target app.",
+    )
+    modal_parser.add_argument(
+        "--action",
+        choices=("cancel", "escape", "close"),
+        default="cancel",
+        help="Dismiss strategy. Defaults to cancel.",
+    )
+    modal_parser.add_argument(
+        "--settle-ms",
+        type=int,
+        default=400,
+        help="Milliseconds to wait before re-checking whether the modal closed.",
+    )
+    modal_parser.set_defaults(func=cmd_modal)
+
     install_parser = subparsers.add_parser("install", help="Run an adapter-specific installer.")
     install_parser.add_argument("adapter", type=adapter_name, help="Adapter name, for example: photoshop")
     install_parser.add_argument("installer_args", nargs=argparse.REMAINDER)
@@ -1254,6 +1322,7 @@ def print_start_summary():
     print("  adapters   List supported adapters.")
     print("  context    Run a context smoke test for an adapter.")
     print("  run        Run code through an adapter bridge.")
+    print("  modal      Inspect or dismiss a likely blocking app modal.")
     print("  install    Run an adapter-specific installer.")
     print("  uninstall  Remove SoftWire registrations from detected agent locations.")
 

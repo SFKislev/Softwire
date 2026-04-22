@@ -55,6 +55,8 @@ Illustrator-specific notes:
 - Many appearance effects live in Illustrator Live Effects rather than direct
   DOM properties. Discover available effect names at runtime with
   `app.liveEffectsList`, then apply via `PageItem.applyEffect(liveEffectXML)`.
+- For visually judged edits, prefer the temporary preview-verification workflow
+  in `shared/coexistence.md` instead of assuming the result looks correct.
 - Do not save, close documents, export, package, relink assets, or change the
   active document unless the user explicitly asks.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with

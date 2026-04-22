@@ -71,6 +71,8 @@ After Effects-specific notes:
   `app.setExtensionPersistent(...)`. The panel may auto-open in later sessions.
   If it does not, instruct the user to open
   `Window > Extensions > Creative Adapter Bridge`.
+- For visually judged comp changes, prefer the temporary preview-verification
+  workflow in `shared/coexistence.md` instead of assuming the visible result.
 - Do not render, export, collect files, relink footage, save, or close projects
   unless the user explicitly asks.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with

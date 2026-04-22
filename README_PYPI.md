@@ -43,7 +43,13 @@ To inspect what SoftWire found on this machine:
 ```powershell
 softwire harnesses
 softwire where
+softwire modal photoshop
+softwire modal photoshop --dismiss
 ```
+
+`softwire modal <app>` inspects top-level windows for a supported desktop app.
+Use `--dismiss` when the app is blocked behind a modal and you want SoftWire to
+attempt a cancel-style close outside the app's scripting runtime.
 
 ## Adapters
 

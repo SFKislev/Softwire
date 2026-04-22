@@ -19,3 +19,14 @@ through scripting APIs and cannot visually inspect the final result, so this set
 
 Writing scripts into a live desktop app is delicate. Any script you submit runs inside the host application's own scripting runtime, and a poorly bounded script can make the app slow, bloated, modal, or unstable even if the shell bridge times
 out or exits. Keep scripts small and targeted. Avoid unbounded enumeration, large cross-document scans, expensive layout/render calculations, broad media analysis, full asset-library searches, or open-ended loops unless the user explicitly asks and accepts the risk. Prefer narrow probes, caps, filters, known object names, active selections, and incremental verification. Do not ask the host app to perform complicated work beyond what its scripting/runtime surface can reasonably handle in a short interactive step.
+
+**Visual verification**
+
+When the real success condition is visual and the scripting API cannot confirm it reliably, prefer a temporary preview-verification loop instead of guessing:
+
+1. Use the app's scripting/export surface to write a temporary preview image, not a full-resolution deliverable.
+2. Keep it modest in size so the check is fast, typically a mid-resolution PNG or similar lightweight preview.
+3. Inspect that preview from the terminal to verify the visible result.
+4. Delete the temporary preview file after inspection unless the user asked to keep it.
+
+Do not treat preview export as a default for every task. Use it when visual ambiguity is high, when the user asked for verification, or when the operation's success cannot be established from the object model alone.

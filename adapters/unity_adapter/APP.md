@@ -66,6 +66,9 @@ Unity-specific notes:
   project settings, or change scenes unless explicitly asked.
 - Prefer undo-backed commands. The included create/transform/component actions
   use Unity's `Undo` API where applicable.
+- For visually judged scene or Game view changes, prefer the temporary
+  preview-verification workflow in `shared/coexistence.md` instead of assuming
+  the visible result.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with
   `CLASS`, `CONSTRUCTOR`, `METHOD`, `PROPERTY`).
 

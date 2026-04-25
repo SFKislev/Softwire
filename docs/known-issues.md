@@ -1,5 +1,23 @@
 # Known Issues
 
+## Premiere Pro 26+ on macOS — CEP Panel Not Available
+
+**Symptom:** After installing the CEP panel and enabling debug mode, `Window > Extensions` does not appear in Premiere Pro 26 on macOS. Only `Window > Find Extensions on Exchange` is present.
+
+**Cause:** Adobe removed the CEP extension loader from the macOS build of Premiere Pro starting with version 26.0. The same version on Windows still shows the Extensions menu. This is an intentional platform-specific change by Adobe.
+
+**Fix:** Downgrade to Premiere Pro 25.x, which still supports CEP panels on macOS. Premiere Pro 25.x requires a project to be open before `Window > Extensions` appears — it is not visible on the start screen.
+
+A permanent fix requires porting the Premiere adapter from CEP to UXP (Adobe's new extension platform).
+
+## Session File Not Found on macOS — Wrong Path Expected
+
+**Symptom:** On macOS, bridge commands fail with "session file not found" even though the app and its panel are running correctly.
+
+**Cause:** The session file is written to `~/creative-adapters/<app>.json` on macOS (using `$HOME` as the root since `$APPDATA` is not set). Some documentation and error messages reference the Windows path `%APPDATA%\creative-adapters\`.
+
+**Fix:** On macOS, check `~/creative-adapters/<app>.json`. If the file is missing, the panel has not started its HTTP server yet — open or reopen the panel from `Window > Extensions > Creative Adapter Bridge`.
+
 ## Stale or Mismatched Bridge Sessions
 
 **Symptom:** One agent harness (e.g. Codex) can reach the app; another (e.g. Claude Code) gets an `EvalScript error` or "endpoint unreachable" on the same machine.
@@ -13,8 +31,14 @@
 
 If context still fails after both steps, check that the session file exists and is recent:
 
+**Windows:**
 ```powershell
 Get-Item "$env:APPDATA\creative-adapters\premiere.json" | Select LastWriteTime
+```
+
+**macOS:**
+```bash
+ls -l ~/creative-adapters/premiere.json
 ```
 
 The timestamp should be within the last few minutes.

@@ -1,9 +1,8 @@
 # Premiere Pro Adapter Prototype
 
-Premiere Pro does not expose the same local COM script dispatch surface as
-Photoshop, InDesign, and Illustrator. This adapter therefore
-uses a tiny CEP panel inside Premiere to expose ExtendScript evaluation on
-localhost.
+Premiere Pro does not expose the same local COM or AppleScript script dispatch
+surface as Photoshop, InDesign, and Illustrator. This adapter uses a tiny CEP
+panel inside Premiere to expose ExtendScript evaluation on localhost.
 
 ## Shape
 
@@ -17,26 +16,20 @@ Shell
   python adapters/premiere_adapter/premiere_bridge.py --stdin
 ```
 
+## Platform Support
+
+| Platform | Status |
+|----------|--------|
+| Windows  | Fully supported |
+| macOS (Premiere ≤ 25.x) | Supported — see macOS install below |
+| macOS (Premiere 26+) | **Not supported** — CEP panel UI removed in this version |
+
 ## Install CEP Panel
 
-From the workspace root:
+**Windows** — from the workspace root:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File adapters/premiere_adapter/install_cep_bridge.ps1
-```
-
-Manual equivalent:
-
-Copy this folder:
-
-```text
-adapters/premiere_adapter/cep/com.creativeadapters.premiere
-```
-
-to the user CEP extensions directory:
-
-```text
-%APPDATA%\Adobe\CEP\extensions\com.creativeadapters.premiere
 ```
 
 For unsigned local development panels, enable CEP debug mode:
@@ -47,47 +40,64 @@ reg add HKCU\Software\Adobe\CSXS.10 /v PlayerDebugMode /t REG_SZ /d 1 /f
 reg add HKCU\Software\Adobe\CSXS.11 /v PlayerDebugMode /t REG_SZ /d 1 /f
 reg add HKCU\Software\Adobe\CSXS.12 /v PlayerDebugMode /t REG_SZ /d 1 /f
 reg add HKCU\Software\Adobe\CSXS.13 /v PlayerDebugMode /t REG_SZ /d 1 /f
-reg add HKCU\Software\Adobe\CSXS.14 /v PlayerDebugMode /t REG_SZ /d 1 /f
-reg add HKCU\Software\Adobe\CSXS.15 /v PlayerDebugMode /t REG_SZ /d 1 /f
-reg add HKCU\Software\Adobe\CSXS.16 /v PlayerDebugMode /t REG_SZ /d 1 /f
 ```
 
-Restart Premiere, then open the bridge once:
+**macOS** — copy the panel manually:
+
+```bash
+mkdir -p ~/Library/Application\ Support/Adobe/CEP/extensions
+cp -r adapters/premiere_adapter/cep/com.creativeadapters.premiere \
+  ~/Library/Application\ Support/Adobe/CEP/extensions/
+```
+
+Enable CEP debug mode:
+
+```bash
+defaults write com.adobe.CSXS.9  PlayerDebugMode 1
+defaults write com.adobe.CSXS.10 PlayerDebugMode 1
+defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+defaults write com.adobe.CSXS.15 PlayerDebugMode 1
+```
+
+Restart Premiere, **open or create a project** (the Extensions menu is not
+available on the start screen), then open the bridge:
 
 ```text
 Window > Extensions > Creative Adapter Bridge
 ```
 
-Leave the panel open or docked while using the shell bridge.
+On macOS the panel appears directly in the Window menu, not under a submenu.
 
-The extension manifest uses `AutoVisible`, and the panel asks Premiere to keep
-it loaded via `app.setExtensionPersistent(...)`. After this one-time setup,
-Premiere may reopen the bridge automatically in later sessions. If it does not,
-open `Window > Extensions > Creative Adapter Bridge` manually; no token or port
-setup is required.
+Leave the panel open or docked while using the shell bridge.
 
 ## Local Session File
 
 When the panel starts, it writes a per-session connection file:
 
 ```text
-%APPDATA%\creative-adapters\premiere.json
+Windows : %APPDATA%\creative-adapters\premiere.json
+macOS   : ~/creative-adapters/premiere.json
 ```
 
-The file contains the current localhost URL and a random bridge token. The
-Python bridge reads it automatically and sends `X-Bridge-Token`; users should
-not need to copy or manage the token.
+The Python bridge reads it automatically and sends `X-Bridge-Token`. Users
+should not need to copy or manage the token.
 
-This prevents unrelated webpages or local HTTP clients from posting arbitrary
-scripts into the open Premiere project without the token. If the session file
-is missing or stale, open `Window > Extensions > Creative Adapter Bridge` again.
+If the session file is missing or stale, open `Window > Extensions > Creative
+Adapter Bridge` again.
 
 ## First Live Test
 
-From the workspace root:
-
+**Windows:**
 ```powershell
 Get-Content adapters/premiere_adapter/examples/context.jsx -Raw | python adapters/premiere_adapter/premiere_bridge.py --stdin
+```
+
+**macOS:**
+```bash
+cat adapters/premiere_adapter/examples/context.jsx | python adapters/premiere_adapter/premiere_bridge.py --stdin
 ```
 
 Expected result:
@@ -96,7 +106,12 @@ Expected result:
 {"ok": true, "result": {"app": "Adobe Premiere Pro", "...": "..."}}
 ```
 
-## Notes
+## ExtendScript Notes
 
-This connector is intentionally different from the COM adapters. The bridge
-process is inside Premiere because that is where `evalScript` is available.
+- Premiere runs ExtendScript (ES3-era JavaScript). `JSON.stringify` is not
+  available — use a manual serialisation helper for structured output.
+- `app.project.createNewSequence(name, id)` works but the second argument
+  (preset path) is ignored by the ExtendScript API; the sequence is created
+  with default settings.
+- A project must be open before the bridge can be used. The Extensions menu
+  does not appear on the Premiere start screen.

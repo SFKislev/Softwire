@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(py -m softwire.cli run *)",
+      "Bash(py -m softwire.cli context *)",
+      "Bash(py -m softwire.cli modal *)",
+      "Bash(py -m softwire.cli where)",
+      "Bash(py -m softwire.cli adapters)"
+    ]
+  }
+}

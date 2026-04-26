@@ -22,11 +22,15 @@ out or exits. Keep scripts small and targeted. Avoid unbounded enumeration, larg
 
 **Visual verification**
 
-When the real success condition is visual and the scripting API cannot confirm it reliably, prefer a temporary preview-verification loop instead of guessing:
+When the real success condition is visual and the scripting API cannot confirm it reliably, run a consistent preview loop instead of guessing:
 
-1. Use the app's scripting/export surface to write a temporary preview image, not a full-resolution deliverable.
-2. Keep it modest in size so the check is fast, typically a mid-resolution PNG or similar lightweight preview.
-3. Inspect that preview from the terminal to verify the visible result.
-4. Delete the temporary preview file after inspection unless the user asked to keep it.
+1. Export a throwaway one-time PNG preview to a temp/scratch path using the app's own scripting/export surface.
+2. Keep preview size modest so checks are quick.
+3. Inspect that PNG in the terminal to verify the visible result.
+4. Delete the preview file after inspection unless the user explicitly asks to keep it.
 
-Do not treat preview export as a default for every task. Use it when visual ambiguity is high, when the user asked for verification, or when the operation's success cannot be established from the object model alone.
+Do not substitute OS screenshots, clipboard captures, screen grabs, or other ad-hoc methods when scripted preview export is available.
+
+For visual tasks (composition, typography placement, color/lighting, effects, layout, or anything judged by appearance), run at least one preview-inspection loop before claiming completion.
+
+Do not treat preview export as a default for every task. Use it when visual ambiguity is high, when the user asked for verification, or when success cannot be established from the object model alone.

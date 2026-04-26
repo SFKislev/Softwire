@@ -49,6 +49,9 @@ Photoshop-specific notes:
 
 - Use `app.activeDocument.suspendHistory("<label>", "main()")` for multi-step
   edits that should undo as one step.
+- Prefer native Photoshop blending options/layer styles (for example: Outer
+  Glow, Drop Shadow, Bevel/Emboss, Gradient Overlay) when they can achieve the
+  requested effect. 
 - `app.runMenuItem(stringIDToTypeID("<id>"))` is useful for menu commands.
 - `app.doAction("<action name>", "<action set name>")` runs an installed
   Photoshop action.

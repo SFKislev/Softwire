@@ -1243,14 +1243,15 @@ def cmd_update(args):
         return 1
 
     if running_from_windows_softwire_exe() and not args.docs_only:
-        fallback = format_command_for_display([sys.executable, "-m", "softwire.cli", "update"])
-        print(
-            "Cannot update SoftWire while running through softwire.exe on Windows, "
-            "because pip must replace that executable.",
-            file=sys.stderr,
-        )
-        print(f"Run this instead: {fallback}", file=sys.stderr)
-        return 1
+        relaunch = [sys.executable, "-m", "softwire.cli", "update"]
+        if args.agent != "auto":
+            relaunch += ["--agent", args.agent]
+        if args.package_only:
+            relaunch.append("--package-only")
+        if args.force_docs:
+            relaunch.append("--force-docs")
+        print("Relaunching via Python module so pip can replace softwire.exe...")
+        return run_external_process(relaunch)
 
     before_version = installed_softwire_version()
     if not args.docs_only:

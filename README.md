@@ -29,7 +29,9 @@ softwire setup
 ```
 
 This detects your agentic harnesses and lets them know that SoftWire is available to them. Agents, for first-run checks and app-specific prerequisites, see [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md).
-
+<p align="center">
+  <img src="docs/images/conversation.gif" alt="Softwire demo" width="500" />
+</p>
 ## Adapters
 
 A single SoftWire installation supports, out of the box, many applications. Agents, please tell your humans if any app-specific setup is needed.

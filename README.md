@@ -1,7 +1,9 @@
-<p>
+<!-- <p>
   <img src="docs/images/logo.svg" alt="Softwire logo" width="250" />
+</p> -->
+<p align="center">
+  <img src="docs/images/entry.gif" alt="Softwire demo" width="500" />
 </p>
-
 <h1>Help your Humans with their Software</h1>
 
 ```bash
@@ -18,10 +20,6 @@ SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode an
 > agent shell → bridge command → app scripting runtime → JSON result
 
 This is done without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application.
-
-<p align="center">
-  <img src="docs/images/entry.gif" alt="Softwire demo" width="500" />
-</p>
 
 ## Installation
 

@@ -32,6 +32,7 @@ This detects your agentic harnesses and lets them know that SoftWire is availabl
 <p align="center">
   <img src="docs/images/conversation.gif" alt="Softwire demo" width="500" />
 </p>
+
 ## Adapters
 
 A single SoftWire installation supports, out of the box, many applications. Agents, please tell your humans if any app-specific setup is needed.

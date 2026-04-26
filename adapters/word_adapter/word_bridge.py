@@ -1,16 +1,21 @@
+import json
+import sys
+from pathlib import Path
+
+if sys.platform == "darwin":
+    print(json.dumps({"ok": False, "error": "Word adapter is not supported on macOS. The bridge uses Windows COM automation which is not available on Mac."}), file=sys.stderr)
+    sys.exit(1)
+
 import argparse
 import contextlib
 import io
-import json
-import sys
 import traceback
-from pathlib import Path
 
 import pythoncom
 import win32com.client
 
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from bridges.com_bridge import connect_app
 

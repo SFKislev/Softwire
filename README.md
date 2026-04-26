@@ -4,14 +4,14 @@
 
 <h1>Help your Humans with their Software</h1>
 
-```powershell
+```bash
 pip install softwire
 softwire setup
 ```
 
 **A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
 
-SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install softwire && softwire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
+SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install softwire && softwire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines. Supports **Windows and macOS**.
 
 [SoftWire is not an MCP server](https://github.com/SFKislev/Softwire/blob/main/docs/mcp.md). It is simpler. The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
 
@@ -23,7 +23,7 @@ This is done without brittle screenshots and without schema definitions. The bri
 
 ## Installation
 
-```powershell
+```bash
 pip install softwire
 softwire setup
 ```
@@ -34,19 +34,21 @@ This detects your harnesses and informs them that SoftWire exists. For first-run
 
 A single softwire installation supports, out of the box, many applications. This is a list of currently supported apps. Agents, please instruct your humans if any setup is needed.
 
-- [Adobe Photoshop](adapters/photoshop_adapter/APP.md)
-- [Adobe InDesign](adapters/indesign_adapter/APP.md)
-- [Adobe Illustrator](adapters/illustrator_adapter/APP.md)
-- [Adobe Premiere Pro](adapters/premiere_adapter/APP.md)
-- [Adobe After Effects](adapters/after_effects_adapter/APP.md)
-- [Adobe Audition](adapters/audition_adapter/APP.md)
-- [Microsoft Word](adapters/word_adapter/APP.md)
-- [Microsoft Excel](adapters/excel_adapter/APP.md)
-- [Microsoft PowerPoint](adapters/powerpoint_adapter/APP.md)
-- [Blender](adapters/blender_adapter/APP.md)
-- [Unity](adapters/unity_adapter/APP.md)
-- [Autodesk 3ds Max](adapters/3dsmax_adapter/APP.md)
-- [Houdini](adapters/houdini_adapter/APP.md)
+| App | Windows | macOS |
+|-----|---------|-------|
+| [Adobe Photoshop](adapters/photoshop_adapter/APP.md) | ✅ | ✅ |
+| [Adobe Illustrator](adapters/illustrator_adapter/APP.md) | ✅ | ✅ |
+| [Adobe InDesign](adapters/indesign_adapter/APP.md) | ✅ | ✅ |
+| [Adobe Premiere Pro](adapters/premiere_adapter/APP.md) | ✅ | ✅ (≤ 25.x) |
+| [Adobe After Effects](adapters/after_effects_adapter/APP.md) | ✅ | ✅ |
+| [Adobe Audition](adapters/audition_adapter/APP.md) | ✅ | ✅ |
+| [Blender](adapters/blender_adapter/APP.md) | ✅ | ✅ |
+| [Unity](adapters/unity_adapter/APP.md) | ✅ | ✅ |
+| [SideFX Houdini](adapters/houdini_adapter/APP.md) | ✅ | ✅ |
+| [Autodesk 3ds Max](adapters/3dsmax_adapter/APP.md) | ✅ | ❌ (Windows only) |
+| [Microsoft Word](adapters/word_adapter/APP.md) | ✅ | ❌ (Windows only) |
+| [Microsoft Excel](adapters/excel_adapter/APP.md) | ✅ | ❌ (Windows only) |
+| [Microsoft PowerPoint](adapters/powerpoint_adapter/APP.md) | ✅ | ❌ (Windows only) |
 
 ## Harnesses
 

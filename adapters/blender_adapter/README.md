@@ -17,31 +17,45 @@ Shell
 
 ## Install Addon
 
-From the workspace root:
+**Windows** — from the workspace root:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File adapters/blender_adapter/install_addon.ps1
 ```
 
-Then open Blender and enable:
+**macOS** — install manually inside Blender:
 
 ```text
-Edit > Preferences > Add-ons > Creative Adapter Bridge
+Edit > Preferences > Add-ons > Install...
 ```
 
-When the addon starts, it writes:
+Point the file picker at:
 
 ```text
-%APPDATA%\creative-adapters\blender.json
+adapters/blender_adapter/addon/creative_adapter_bridge.py
 ```
 
-The shell bridge reads that file automatically and sends `X-Bridge-Token`.
+Then enable **Creative Adapter Bridge** in the add-ons list.
+
+When the addon starts, it writes a session file the shell bridge reads automatically:
+
+```text
+Windows : %APPDATA%\creative-adapters\blender.json
+macOS   : ~/creative-adapters/blender.json
+```
+
 Users should not need to copy or manage tokens or ports.
 
 ## First Live Test
 
+**Windows:**
 ```powershell
 Get-Content adapters/blender_adapter/examples/context.py -Raw | python adapters/blender_adapter/blender_bridge.py --stdin
+```
+
+**macOS:**
+```bash
+cat adapters/blender_adapter/examples/context.py | python adapters/blender_adapter/blender_bridge.py --stdin
 ```
 
 Expected result:

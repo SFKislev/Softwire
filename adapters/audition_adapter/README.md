@@ -18,10 +18,28 @@ Shell
 
 ## Install CEP Panel
 
-From the workspace root:
+**Windows** — from the workspace root:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File adapters/audition_adapter/install_cep_bridge.ps1
+```
+
+**macOS** — copy the panel manually:
+
+```bash
+mkdir -p ~/Library/Application\ Support/Adobe/CEP/extensions
+cp -r adapters/audition_adapter/cep/com.creativeadapters.audition \
+  ~/Library/Application\ Support/Adobe/CEP/extensions/
+```
+
+Enable CEP debug mode (if not already set):
+
+```bash
+defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+defaults write com.adobe.CSXS.15 PlayerDebugMode 1
 ```
 
 Restart Audition, then open the bridge once:
@@ -37,7 +55,8 @@ Leave the panel open or docked while using the shell bridge.
 When the panel starts, it writes:
 
 ```text
-%APPDATA%\creative-adapters\audition.json
+Windows : %APPDATA%\creative-adapters\audition.json
+macOS   : ~/creative-adapters/audition.json
 ```
 
 The Python bridge reads that file automatically and sends `X-Bridge-Token`.
@@ -45,8 +64,14 @@ Users should not need to copy or manage tokens or ports.
 
 ## First Live Test
 
+**Windows:**
 ```powershell
 Get-Content adapters/audition_adapter/examples/context.jsx -Raw | python adapters/audition_adapter/audition_bridge.py --stdin
+```
+
+**macOS:**
+```bash
+cat adapters/audition_adapter/examples/context.jsx | python adapters/audition_adapter/audition_bridge.py --stdin
 ```
 
 Expected result:

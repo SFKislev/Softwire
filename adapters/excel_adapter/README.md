@@ -3,7 +3,14 @@
 This folder lets a coding agent drive a running Microsoft Excel instance
 through Windows COM using only shell commands.
 
-## Portable Hook
+## Platform Support
+
+**Windows only.** The bridge uses Windows COM automation (`pythoncom` /
+`win32com`), which is not available on macOS. Running the bridge on Mac exits
+immediately with a clear error. A macOS port would require a different
+scripting surface (Office AppleScript dictionary or Office Add-in JS API).
+
+## Portable Hook (Windows)
 
 The bridge uses the generic COM ProgID:
 

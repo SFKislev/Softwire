@@ -2,16 +2,27 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/illustrator_adapter/illustrator_bridge.py --stdin
 ```
 
-Runtime: COM `Illustrator.Application` -> `DoJavaScript`.
+Runtime:
+
+- Windows: COM `Illustrator.Application` -> `DoJavaScript`.
+- macOS: AppleScript `do javascript`.
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/illustrator_adapter/examples/context.jsx -Raw | python adapters/illustrator_adapter/illustrator_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/illustrator_adapter/examples/context.jsx | python adapters/illustrator_adapter/illustrator_bridge.py --stdin
 ```
 
 ## Local Memory
@@ -42,8 +53,8 @@ API lookup workflow:
 Connection recovery:
 
 If the bridge cannot connect, ask the user to open Illustrator and retry the
-context command. This adapter connects to the running COM application by
-default; do not launch Illustrator unless the user explicitly asks.
+context command. This adapter connects to the running app by default; do not
+launch Illustrator unless the user explicitly asks.
 
 Illustrator-specific notes:
 

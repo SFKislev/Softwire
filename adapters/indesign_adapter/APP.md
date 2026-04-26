@@ -2,16 +2,27 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/indesign_adapter/indesign_bridge.py --stdin
 ```
 
-Runtime: COM `InDesign.Application` -> `DoScript(JavaScript)`.
+Runtime:
+
+- Windows: COM `InDesign.Application` -> `DoScript(JavaScript)`.
+- macOS: AppleScript `do script ... language JavaScript`.
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/indesign_adapter/examples/context.jsx -Raw | python adapters/indesign_adapter/indesign_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/indesign_adapter/examples/context.jsx | python adapters/indesign_adapter/indesign_bridge.py --stdin
 ```
 
 ## Local Memory
@@ -42,8 +53,8 @@ API lookup workflow:
 Connection recovery:
 
 If the bridge cannot connect, ask the user to open InDesign and retry the
-context command. This adapter connects to the running COM application by
-default; do not launch InDesign unless the user explicitly asks.
+context command. This adapter connects to the running app by default; do not
+launch InDesign unless the user explicitly asks.
 
 InDesign-specific notes:
 

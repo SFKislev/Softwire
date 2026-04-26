@@ -2,7 +2,7 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/audition_adapter/audition_bridge.py --stdin
 ```
 
@@ -11,8 +11,16 @@ ExtendScript.
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/audition_adapter/examples/context.jsx -Raw | python adapters/audition_adapter/audition_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/audition_adapter/examples/context.jsx | python adapters/audition_adapter/audition_bridge.py --stdin
 ```
 
 ## Local Memory
@@ -59,6 +67,9 @@ panel:
 powershell -ExecutionPolicy Bypass -File adapters/audition_adapter/install_cep_bridge.ps1
 ```
 
+On macOS, follow the manual CEP install steps in
+`adapters/audition_adapter/README.md`.
+
 Restart Audition after reinstalling.
 
 Audition-specific notes:
@@ -68,8 +79,9 @@ Audition-specific notes:
   ExtendScript to communicate with Audition.
 - Adobe's CEP samples use Audition host ID `AUDT`.
 - The CEP panel generates a random token on startup and writes it with the eval
-  URL to `%APPDATA%\creative-adapters\audition.json`. The Python bridge reads
-  this file automatically and sends `X-Bridge-Token`.
+  URL to a user-scoped session file: `%APPDATA%\creative-adapters\audition.json`
+  on Windows or `~/creative-adapters/audition.json` on macOS. The Python bridge
+  reads this file automatically and sends `X-Bridge-Token`.
 - Do not save, export, mix down, batch process, relink media, close sessions, or
   overwrite audio files unless the user explicitly asks.
 - Grep-friendly API index: `docs/api-index.txt` (records are prefixed with

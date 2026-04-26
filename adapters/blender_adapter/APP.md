@@ -2,7 +2,7 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/blender_adapter/blender_bridge.py --stdin
 ```
 
@@ -11,8 +11,16 @@ Blender's main thread.
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/blender_adapter/examples/context.py -Raw | python adapters/blender_adapter/blender_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/blender_adapter/examples/context.py | python adapters/blender_adapter/blender_bridge.py --stdin
 ```
 
 ## Local Memory
@@ -55,16 +63,17 @@ If the addon is missing, install it:
 powershell -ExecutionPolicy Bypass -File adapters/blender_adapter/install_addon.ps1
 ```
 
-Then restart Blender or use `Edit > Preferences > Add-ons` to enable
-`Creative Adapter Bridge`.
+On macOS, install `adapters/blender_adapter/addon/creative_adapter_bridge.py`
+through Blender's add-on installer, then enable `Creative Adapter Bridge`.
 
 Blender-specific notes:
 
 - Blender has no out-of-process `bpy`; Python runs inside Blender. This adapter
   therefore installs an in-process addon.
 - The addon generates a random token on startup and writes it with the eval URL
-  to `%APPDATA%\creative-adapters\blender.json`. The Python bridge reads this
-  file automatically and sends `X-Bridge-Token`.
+  to a user-scoped session file: `%APPDATA%\creative-adapters\blender.json` on
+  Windows or `~/creative-adapters/blender.json` on macOS. The Python bridge
+  reads this file automatically and sends `X-Bridge-Token`.
 - Scripts run in a persistent namespace with `bpy` already imported. Set
   `_result` in the script to return structured data.
 - For user-visible edits, include an undo label and call

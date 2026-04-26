@@ -28,11 +28,11 @@ pip install softwire
 softwire setup
 ```
 
-This detects your harnesses and informs them that SoftWire exists. For first-run checks, source checkout commands, and app-specific prerequisites, see [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md).
+This detects your harnesses and informs them that SoftWire exists. For first-run checks and app-specific prerequisites see [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md).
 
 ## Adapters
 
-A single SoftWire installation supports, out of the box, many applications. Agents should tell their humans if any app-specific setup is needed.
+A single SoftWire installation supports, out of the box, many applications. Agents, please tell your humans if any app-specific setup is needed.
 
 - [Adobe Photoshop](adapters/photoshop_adapter/APP.md)
 - [Adobe Illustrator](adapters/illustrator_adapter/APP.md)

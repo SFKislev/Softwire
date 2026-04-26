@@ -22,8 +22,8 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 ## Quick Start
 1. Read `adapters/<app>/APP.md` for the app you are about to use.
 2. Search `adapters/<app>/docs/api-index.txt` with `rg` for relevant symbols.
-3. Prefer `py -m softwire.cli context <app>` to inspect the live app state.
-4. Prefer `py -m softwire.cli run <app> --stdin` for one-off scripts.
+3. Prefer `py -m softwire.cli context <app>` on Windows, or `python3 -m softwire.cli context <app>` on macOS/Linux, to inspect the live app state.
+4. Prefer `py -m softwire.cli run <app> --stdin` on Windows, or `python3 -m softwire.cli run <app> --stdin` on macOS/Linux, for one-off scripts.
 
 ## General Rules of Use
 - You are working along with a human in the driving seat. Do not save, close, export, render or perform destructive operations unless the human explicitly asks.
@@ -31,14 +31,16 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 - Bound scripts carefully to avoid crashing the host: keep scripts small and targeted.
 - All bridge scripts run from workspace root; accepts code through argv, `--stdin`, or `--file`; return JSON on stdout for success or failure.
 - Be skeptical of your pretraining: introspect the running app and consult vendor documentation rather than trying to invent operations.
-- Read these reference files when relevant:
+- SoftWire was developed and tested against specific app and OS versions. One could expect local quirks, version mismatches and blocked automation paths. You need to understand the bridge architecture and make small, local compatibility fixes or scaffolds when needed, so the adapter works in the user's actual environment (without rewriting the full project). Make these small and robust, so that they work between sessions.
+- Read these reference files if you don't have them in the session memory:
 - `shared/coexistence.md`
 - `shared/bridge-contract.md`
 - `docs/known-issues.md`
 
 ## Debugging
-- `py -m softwire.cli ...` is the reliable launcher across shell environments.
-- If `py` is unavailable, use `python -m softwire.cli ...`.
-- Use `py -m softwire.cli where` for launcher and install diagnostics.
+- Depending on the app and OS, adapters may use Windows COM, macOS AppleScript, or a local in-app bridge, but the shell workflow stays the same.
+- On Windows, `py -m softwire.cli ...` is the reliable launcher; on macOS/Linux, use `python3 -m softwire.cli ...`.
+- If those are unavailable, use the Python executable that installed SoftWire: `<python> -m softwire.cli ...`.
+- Use `py -m softwire.cli where` on Windows, or `python3 -m softwire.cli where` on macOS/Linux, for launcher and install diagnostics.
 - If a Windows app is blocked by a modal, use `py -m softwire.cli modal <app>` to inspect likely dialog windows and `py -m softwire.cli modal <app> --dismiss` to attempt a bounded cancel-style dismissal outside the app scripting runtime.
 - Use bare `softwire` only as a convenience command when PATH propagation is known to be working.

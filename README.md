@@ -32,23 +32,21 @@ This detects your harnesses and informs them that SoftWire exists. For first-run
 
 ## Adapters
 
-A single softwire installation supports, out of the box, many applications. This is a list of currently supported apps. Agents, please instruct your humans if any setup is needed.
+A single SoftWire installation supports, out of the box, many applications. Agents should tell their humans if any app-specific setup is needed.
 
-| App | Windows | macOS |
-|-----|---------|-------|
-| [Adobe Photoshop](adapters/photoshop_adapter/APP.md) | ✅ | ✅ |
-| [Adobe Illustrator](adapters/illustrator_adapter/APP.md) | ✅ | ✅ |
-| [Adobe InDesign](adapters/indesign_adapter/APP.md) | ✅ | ✅ |
-| [Adobe Premiere Pro](adapters/premiere_adapter/APP.md) | ✅ | ✅ (≤ 25.x) |
-| [Adobe After Effects](adapters/after_effects_adapter/APP.md) | ✅ | ✅ |
-| [Adobe Audition](adapters/audition_adapter/APP.md) | ✅ | ✅ |
-| [Blender](adapters/blender_adapter/APP.md) | ✅ | ✅ |
-| [Unity](adapters/unity_adapter/APP.md) | ✅ | ✅ |
-| [SideFX Houdini](adapters/houdini_adapter/APP.md) | ✅ | ✅ |
-| [Autodesk 3ds Max](adapters/3dsmax_adapter/APP.md) | ✅ | ❌ (Windows only) |
-| [Microsoft Word](adapters/word_adapter/APP.md) | ✅ | ❌ (Windows only) |
-| [Microsoft Excel](adapters/excel_adapter/APP.md) | ✅ | ❌ (Windows only) |
-| [Microsoft PowerPoint](adapters/powerpoint_adapter/APP.md) | ✅ | ❌ (Windows only) |
+- [Adobe Photoshop](adapters/photoshop_adapter/APP.md)
+- [Adobe Illustrator](adapters/illustrator_adapter/APP.md)
+- [Adobe InDesign](adapters/indesign_adapter/APP.md)
+- [Adobe Premiere Pro](adapters/premiere_adapter/APP.md)
+- [Adobe After Effects](adapters/after_effects_adapter/APP.md)
+- [Adobe Audition](adapters/audition_adapter/APP.md)
+- [Blender](adapters/blender_adapter/APP.md)
+- [Unity](adapters/unity_adapter/APP.md)
+- [SideFX Houdini](adapters/houdini_adapter/APP.md)
+- [Autodesk 3ds Max](adapters/3dsmax_adapter/APP.md)
+- [Microsoft Word](adapters/word_adapter/APP.md)
+- [Microsoft Excel](adapters/excel_adapter/APP.md)
+- [Microsoft PowerPoint](adapters/powerpoint_adapter/APP.md)
 
 ## Harnesses
 

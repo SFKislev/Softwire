@@ -39,7 +39,24 @@ The bridge must:
 
 Bridge commands should remain easy to identify as `*_bridge.py` Python processes. `tools/cleanup_bridges.py` relies on checked-in bridge script paths to list and stop stale bridge processes without touching unrelated Python work.
 
-## Windows COM Adapter Template
+## OS-Level Script Dispatch
+
+If an app exposes an operating-system automation surface, prefer that before
+shipping an in-app extension. The bridge should still keep the same shell
+contract regardless of transport.
+
+Common transports:
+
+- Windows COM automation, such as Adobe `DoJavaScript`, InDesign `DoScript`, or
+  Microsoft Office object models.
+- macOS AppleScript dispatch into app scripting runtimes, such as Adobe
+  `do javascript` or InDesign `do script ... language JavaScript`.
+
+Use platform checks inside the bridge only to choose the transport or return a
+clear unsupported-platform error. Keep app-specific behavior in the script sent
+to the app or in `APP.md`, not in platform-specific forks of the adapter docs.
+
+## Windows COM Template
 
 Use `bridges.com_bridge.run_bridge`:
 
@@ -70,6 +87,29 @@ run_bridge(
 )
 ```
 
+## macOS AppleScript Template
+
+Use `bridges.applescript_bridge.run_bridge` when the app can execute a script
+through AppleScript:
+
+```python
+from bridges.applescript_bridge import run_bridge
+
+
+if __name__ == "__main__":
+    raise SystemExit(
+        run_bridge(
+            app_name="Photoshop",
+            script_name="JavaScript",
+            execute_line="do javascript {content}",
+        )
+    )
+```
+
+For apps whose process/application name varies by installed version, the bridge
+may auto-detect the running process name, but it should still avoid hard-coded
+install paths and should prefer connecting to an already-running app.
+
 ## Context Script Requirements
 
 The first example for each app should be a read-only context script. It should return:
@@ -84,7 +124,10 @@ Do not depend on a global `JSON` object. Older ExtendScript runtimes may not pro
 
 ## Portability Rules
 
-- Use generic ProgIDs like `Photoshop.Application`, `InDesign.Application`, and `Illustrator.Application`.
+- Use generic Windows ProgIDs like `Photoshop.Application`,
+  `InDesign.Application`, and `Illustrator.Application`.
+- On macOS, address the running application by its scriptable application name
+  or detected process name rather than by a filesystem path.
 - Don't hard-code `C:\Program Files\Adobe\...` paths in bridge code.
 - Keep local install paths out of required commands.
 - Put app-version-specific notes in `APP.md` or optional docs, not in bridge logic.
@@ -100,9 +143,14 @@ shared/bridge-contract.md
 
 Put only app-specific, non-obvious facts in `adapters/<app>_adapter/APP.md`: bridge command, execution method, undo behavior, measurement quirks, selection object quirks, supported command shapes, or known modal/API limitations. Please help your human install this if he or you encounter issues.
 
-## Non-COM Apps
+## In-App Bridge Extensions
 
 If an app does not expose an OS-level script dispatch surface, the adapter can ship an in-app bridge extension. Keep the same shell contract: the external bridge command still accepts code through stdin/file/argv and returns JSON. The in-app bridge is only the transport into the app runtime. For local HTTP-backed apps, use `bridges.local_http_bridge.run_bridge` for the external Python command. The in-app panel/addon should write
-`%APPDATA%\creative-adapters\<session_name>.json` with the current eval URL and token, then require `X-Bridge-Token` on every eval request.
+a user-scoped session file with the current eval URL and token, then require `X-Bridge-Token` on every eval request.
+
+Session file locations:
+
+- Windows: `%APPDATA%\creative-adapters\<session_name>.json`
+- macOS/Linux: `~/creative-adapters/<session_name>.json`
 
 If the host runtime does not support arbitrary string eval, do not fake it. Expose a compact command surface backed by the host's real extension API and document that app-specific behavior should be added as explicit bridge actions or project-local scripts.

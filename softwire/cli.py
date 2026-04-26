@@ -623,7 +623,7 @@ def install_codex_docs(args):
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Codex needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                    "Use when Codex needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
         ) and ok
@@ -634,7 +634,7 @@ def install_codex_docs(args):
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Codex needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                    "Use when Codex needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
             ) and ok
@@ -654,7 +654,7 @@ def install_claude_docs(args):
             bundle_dir,
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Claude needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Claude needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -671,7 +671,7 @@ def install_claude_docs(args):
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Claude needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                    "Use when Claude needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
             ) and ok
@@ -692,7 +692,7 @@ def install_gemini_docs(args):
             bundle_dir,
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Gemini needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Gemini needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -709,7 +709,7 @@ def install_gemini_docs(args):
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Gemini needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                    "Use when Gemini needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
             ) and ok
@@ -728,7 +728,7 @@ def install_cursor_docs(args):
             Path(args.path).expanduser() / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Cursor needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Cursor needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         )
@@ -737,7 +737,7 @@ def install_cursor_docs(args):
             home / ".cursor" / "skills" / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Cursor needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Cursor needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -751,7 +751,7 @@ def install_kilo_docs(args):
             Path(args.path).expanduser() / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Kilo needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Kilo needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         )
@@ -760,7 +760,7 @@ def install_kilo_docs(args):
             home / ".kilo" / "skills" / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Kilo needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Kilo needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -774,7 +774,7 @@ def install_cline_docs(args):
             Path(args.path).expanduser() / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Cline needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Cline needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         )
@@ -783,7 +783,7 @@ def install_cline_docs(args):
             home / ".cline" / "skills" / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Cline needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Cline needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -799,7 +799,7 @@ def install_qwen_docs(args):
             bundle_dir,
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Qwen needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when Qwen needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -816,7 +816,7 @@ def install_qwen_docs(args):
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Qwen needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                    "Use when Qwen needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
             ) and ok
@@ -836,7 +836,7 @@ def install_opencode_docs(args):
             target_root / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when OpenCode needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when OpenCode needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -848,7 +848,7 @@ def install_opencode_docs(args):
             target_root / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when OpenCode needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when OpenCode needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -863,7 +863,7 @@ def install_openclaw_docs(args):
             Path(args.path).expanduser() / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when OpenClaw needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when OpenClaw needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         )
@@ -872,7 +872,7 @@ def install_openclaw_docs(args):
             home / ".openclaw" / "skills" / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when OpenClaw needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when OpenClaw needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -888,7 +888,7 @@ def install_copilot_docs(args):
             bundle_dir,
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when GitHub Copilot needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when GitHub Copilot needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -901,7 +901,7 @@ def install_copilot_docs(args):
             target_root / "skills" / "softwire",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when GitHub Copilot needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+                "Use when GitHub Copilot needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -917,7 +917,7 @@ def install_generic_docs(args):
         bundle_dir,
         entry_filename="SKILL.md",
         entry_text=installed_skill_text(
-            "Use when an agent needs to inspect, install, test, or run SoftWire adapters to control supported Windows desktop apps through local scripting bridges.",
+            "Use when an agent needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
         ),
         force=args.force,
     )

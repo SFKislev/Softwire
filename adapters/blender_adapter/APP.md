@@ -68,21 +68,12 @@ through Blender's add-on installer, then enable `Creative Adapter Bridge`.
 
 Blender-specific notes:
 
-- Blender has no out-of-process `bpy`; Python runs inside Blender. This adapter
-  therefore installs an in-process addon.
-- The addon generates a random token on startup and writes it with the eval URL
-  to a user-scoped session file: `%APPDATA%\creative-adapters\blender.json` on
-  Windows or `~/creative-adapters/blender.json` on macOS. The Python bridge
-  reads this file automatically and sends `X-Bridge-Token`.
-- Scripts run in a persistent namespace with `bpy` already imported. Set
-  `_result` in the script to return structured data.
-- For user-visible edits, include an undo label and call
-  `bpy.ops.ed.undo_push(message="<label>")` after the mutation when Blender's
+- Blender has no out-of-process `bpy`; Python runs inside Blender. This adapter therefore installs an in-process addon.
+- If the human asks you for a model, it's often better to find an existing model online than you start modeling, which can be difficult.
+- The addon generates a random token on startup and writes it with the eval URL to a user-scoped session file: `%APPDATA%\creative-adapters\blender.json` on Windows or `~/creative-adapters/blender.json` on macOS. The Python bridge reads this file automatically and sends `X-Bridge-Token`.
+- Scripts run in a persistent namespace with `bpy` already imported. Set `_result` in the script to return structured data.
+- For user-visible edits, include an undo label and call `bpy.ops.ed.undo_push(message="<label>")` after the mutation when Blender's
   undo system supports the operation.
-- For visually judged scene, material, lighting, or camera changes, prefer the
-  temporary preview-verification workflow in `shared/coexistence.md` instead of
-  assuming the visible result.
-- Do not save, render, export, change files, switch scenes, or alter the user's
-  selection/viewport unless explicitly asked.
-- Grep-friendly API index: `docs/api-index.txt` (records are prefixed with
-  `MODULE`, `CLASS`, `OPERATOR`, `METHOD`, `PROPERTY`).
+- For visually judged scene, material, lighting, or camera changes, prefer the temporary review-verification workflow in `shared/coexistence.md` instead of assuming the visible result.
+- Do not save, render, export, change files, switch scenes, or alter the user's selection/viewport unless explicitly asked.
+- Grep-friendly API index: `docs/api-index.txt` (records are prefixed with `MODULE`, `CLASS`, `OPERATOR`, `METHOD`, `PROPERTY`).

@@ -59,22 +59,13 @@ powershell -ExecutionPolicy Bypass -File adapters/3dsmax_adapter/install_bridge.
 
 3ds Max-specific notes:
 
-- Startup uses a MAXScript loader that calls `python.ExecuteFile(...)` to load
-  the bridge during app startup.
-- The bridge generates a random token on startup and writes it with the eval URL
-  to `%APPDATA%\creative-adapters\3dsmax.json`. The Python bridge reads this
-  file automatically and sends `X-Bridge-Token`.
-- The bridge queues incoming scripts from the HTTP thread and uses a PySide2
-  `QTimer` to execute them on Max's UI thread when PySide2 is available.
-- Scripts run in a persistent namespace with `MaxPlus` imported. Set `_result`
-  in the script to return structured data.
-- For MAXScript calls from Python, prefer `MaxPlus.Core.EvalMAXScript(...)` and
-  convert results to simple strings/numbers/lists before assigning `_result`.
+- Startup uses a MAXScript loader that calls `python.ExecuteFile(...)` to load the bridge during app startup.
+- If the human asks you for a model, it's often better to find an existing model online than you start modeling, which can be difficult. 
+- The bridge generates a random token on startup and writes it with the eval URL to `%APPDATA%\creative-adapters\3dsmax.json`. The Python bridge reads this file automatically and sends `X-Bridge-Token`.
+- The bridge queues incoming scripts from the HTTP thread and uses a PySide2 `QTimer` to execute them on Max's UI thread when PySide2 is available.
+- Scripts run in a persistent namespace with `MaxPlus` imported. Set `_result` in the script to return structured data.
+- For MAXScript calls from Python, prefer `MaxPlus.Core.EvalMAXScript(...)` and convert results to simple strings/numbers/lists before assigning `_result`.
 - For bounded MAXScript edits, prefer `undo "<label>" on (...)`.
-- For visually judged scene or viewport changes, prefer the temporary
-  preview-verification workflow in `shared/coexistence.md` instead of assuming
-  the visible result.
-- Do not save, render, export, reset the scene, switch files, or alter the
-  user's selection/viewport unless explicitly asked.
-- Grep-friendly API index: `docs/api-index.txt` (records are prefixed with
-  `MAX_COMMAND`, `MXS_FUNCTION`, `RUNTIME_DISCOVERY`).
+- For visually judged scene or viewport changes, prefer the temporary preview-verification workflow in `shared/coexistence.md` instead of assuming the visible result.
+- Do not save, render, export, reset the scene, switch files, or alter the user's selection/viewport unless explicitly asked.
+- Grep-friendly API index: `docs/api-index.txt` (records are prefixed with `MAX_COMMAND`, `MXS_FUNCTION`, `RUNTIME_DISCOVERY`).

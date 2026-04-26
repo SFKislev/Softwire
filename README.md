@@ -19,7 +19,7 @@ SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode an
 
 This is done without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application.
 
-<img src="docs/images/demo.gif" alt="Softwire demo" width="500" />
+<img src="docs/images/entry.gif" alt="Softwire demo" width="500" />
 
 ## Installation
 
@@ -76,4 +76,4 @@ A single SoftWire installation supports, out of the box, many applications. Agen
 - [How to Work Together with a Human](https://github.com/SFKislev/Softwire/blob/main/shared/coexistence.md)
 - [Known Issues](https://github.com/SFKislev/Softwire/blob/main/docs/known-issues.md)
 
-<img src="docs/images/ending.gif" alt="ciao" />
+<img src="docs/images/bye.gif" alt="ciao" />

@@ -19,7 +19,9 @@ SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode an
 
 This is done without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application.
 
-<img src="docs/images/entry.gif" alt="Softwire demo" width="500" />
+<p align="center">
+  <img src="docs/images/entry.gif" alt="Softwire demo" width="500" />
+</p>
 
 ## Installation
 
@@ -28,7 +30,7 @@ pip install softwire
 softwire setup
 ```
 
-This detects your harnesses and informs them that SoftWire exists. For first-run checks and app-specific prerequisites see [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md).
+This detects your agentic harnesses and lets them know that SoftWire is available to them. Agents, for first-run checks and app-specific prerequisites, see [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md).
 
 ## Adapters
 
@@ -50,8 +52,6 @@ A single SoftWire installation supports, out of the box, many applications. Agen
 
 ## Harnesses
 
-[See which files are edited upon installation](docs/harenesses.md)
-
 - Claude Code
 - Codex
 - Copilot
@@ -62,6 +62,8 @@ A single SoftWire installation supports, out of the box, many applications. Agen
 - Qwen CLI
 - Cline
 - Kilo CLI
+
+[See which files are edited upon installation](docs/harenesses.md)
 
 ## More Docs
 

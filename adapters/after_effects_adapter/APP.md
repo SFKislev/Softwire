@@ -2,7 +2,7 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/after_effects_adapter/after_effects_bridge.py --stdin
 ```
 
@@ -11,8 +11,16 @@ Effects ExtendScript.
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/after_effects_adapter/examples/context.jsx -Raw | python adapters/after_effects_adapter/after_effects_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/after_effects_adapter/examples/context.jsx | python adapters/after_effects_adapter/after_effects_bridge.py --stdin
 ```
 
 ## Local Memory
@@ -59,14 +67,19 @@ panel:
 powershell -ExecutionPolicy Bypass -File adapters/after_effects_adapter/install_cep_bridge.ps1
 ```
 
+On macOS, follow the manual CEP install steps in
+`adapters/after_effects_adapter/README.md`.
+
 Restart After Effects after reinstalling.
 
 After Effects-specific notes:
 
 - This adapter uses a CEP panel rather than a COM automation bridge.
 - The CEP panel generates a random token on startup and writes it with the eval
-  URL to `%APPDATA%\creative-adapters\after_effects.json`. The Python bridge
-  reads this file automatically and sends `X-Bridge-Token`.
+  URL to a user-scoped session file:
+  `%APPDATA%\creative-adapters\after_effects.json` on Windows or
+  `~/creative-adapters/after_effects.json` on macOS. The Python bridge reads
+  this file automatically and sends `X-Bridge-Token`.
 - The manifest uses `AutoVisible`, and the panel attempts
   `app.setExtensionPersistent(...)`. The panel may auto-open in later sessions.
   If it does not, instruct the user to open

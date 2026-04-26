@@ -2,7 +2,7 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/unity_adapter/unity_bridge.py --stdin
 ```
 
@@ -11,8 +11,16 @@ Runtime: Unity Editor package -> tokenized localhost command endpoint ->
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/unity_adapter/examples/context.json -Raw | python adapters/unity_adapter/unity_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/unity_adapter/examples/context.json | python adapters/unity_adapter/unity_bridge.py --stdin
 ```
 
 ## Local Memory
@@ -59,8 +67,10 @@ Unity-specific notes:
 - For deeper project-specific behavior, add explicit actions to the package or
   create project-local Editor scripts. Do not pretend arbitrary C# was executed.
 - The package generates a random token on Editor startup and writes it with the
-  eval URL to `%APPDATA%\creative-adapters\unity.json`. The Python bridge reads
-  this file automatically and sends `X-Bridge-Token`.
+  eval URL to a user-scoped session file:
+  `%APPDATA%\creative-adapters\unity.json` on Windows or
+  `~/creative-adapters/unity.json` on macOS. The Python bridge reads this file
+  automatically and sends `X-Bridge-Token`.
 - Commands run on Unity's main Editor thread.
 - Do not enter/exit Play Mode, save scenes, build, import large assets, edit
   project settings, or change scenes unless explicitly asked.

@@ -2,7 +2,7 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/houdini_adapter/houdini_bridge.py --stdin
 ```
 
@@ -11,8 +11,16 @@ localhost eval endpoint -> Houdini Object Model (`hou`).
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/houdini_adapter/examples/context.py -Raw | python adapters/houdini_adapter/houdini_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/houdini_adapter/examples/context.py | python adapters/houdini_adapter/houdini_bridge.py --stdin
 ```
 
 ## Local Memory

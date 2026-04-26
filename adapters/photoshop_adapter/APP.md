@@ -2,16 +2,27 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/photoshop_adapter/photoshop_bridge.py --stdin
 ```
 
-Runtime: COM `Photoshop.Application` -> `DoJavaScript`.
+Runtime:
+
+- Windows: COM `Photoshop.Application` -> `DoJavaScript`.
+- macOS: AppleScript `do javascript`.
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/photoshop_adapter/examples/context.jsx -Raw | python adapters/photoshop_adapter/photoshop_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/photoshop_adapter/examples/context.jsx | python adapters/photoshop_adapter/photoshop_bridge.py --stdin
 ```
 
 ## Local Memory
@@ -42,8 +53,8 @@ API lookup workflow:
 Connection recovery:
 
 If the bridge cannot connect, ask the user to open Photoshop and retry the
-context command. This adapter connects to the running COM application by
-default; do not launch Photoshop unless the user explicitly asks.
+context command. This adapter connects to the running app by default; do not
+launch Photoshop unless the user explicitly asks.
 
 Photoshop-specific notes:
 

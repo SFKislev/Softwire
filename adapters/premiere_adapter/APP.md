@@ -2,7 +2,7 @@
 
 Bridge:
 
-```powershell
+```bash
 python adapters/premiere_adapter/premiere_bridge.py --stdin
 ```
 
@@ -11,8 +11,16 @@ Premiere Pro ExtendScript.
 
 Context:
 
+Windows:
+
 ```powershell
 Get-Content adapters/premiere_adapter/examples/context.jsx -Raw | python adapters/premiere_adapter/premiere_bridge.py --stdin
+```
+
+macOS:
+
+```bash
+cat adapters/premiere_adapter/examples/context.jsx | python adapters/premiere_adapter/premiere_bridge.py --stdin
 ```
 
 ## Local Memory
@@ -48,8 +56,8 @@ panel is not running in Premiere or the session file points at an old panel
 session.
 
 If it says the session file is missing, the fix is the same: open the CEP panel
-so it can write `%APPDATA%\creative-adapters\premiere.json`. Do not ask the user
-to create or copy the token manually.
+so it can write the session file. Do not ask the user to create or copy the
+token manually.
 
 Ask the user to:
 
@@ -67,6 +75,10 @@ panel:
 powershell -ExecutionPolicy Bypass -File adapters/premiere_adapter/install_cep_bridge.ps1
 ```
 
+On macOS, follow the manual CEP install steps in
+`adapters/premiere_adapter/README.md`. Premiere Pro 26+ on macOS does not load
+CEP panels; see `docs/known-issues.md`.
+
 Restart Premiere after reinstalling.
 
 Premiere-specific notes:
@@ -80,8 +92,9 @@ Premiere-specific notes:
   `Window > Extensions > Creative Adapter Bridge`; do not ask them to manage
   ports or tokens.
 - The CEP panel generates a random token on startup and writes it with the eval
-  URL to `%APPDATA%\creative-adapters\premiere.json`. The Python bridge reads
-  this file automatically and sends `X-Bridge-Token`.
+  URL to a user-scoped session file: `%APPDATA%\creative-adapters\premiere.json`
+  on Windows or `~/creative-adapters/premiere.json` on macOS. The Python bridge
+  reads this file automatically and sends `X-Bridge-Token`.
 - The panel calls `app.setExtensionPersistent("com.creativeadapters.premiere.panel", 1)`
   when loaded. This keeps it in memory during the current Premiere session, but
   does not guarantee automatic opening after a full app restart.

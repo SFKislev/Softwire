@@ -12,8 +12,16 @@ All bridge scripts:
 
 Run context first:
 
+Windows:
+
 ```powershell
-Get-Content adapters/<app>_adapter/examples/context.<jsx|py> -Raw | python adapters/<app>_adapter/<app>_bridge.py --stdin
+Get-Content adapters/<app>_adapter/examples/context.<jsx|py|json> -Raw | python adapters/<app>_adapter/<app>_bridge.py --stdin
+```
+
+macOS/Linux shell:
+
+```bash
+cat adapters/<app>_adapter/examples/context.<jsx|py|json> | python adapters/<app>_adapter/<app>_bridge.py --stdin
 ```
 
 For non-trivial scripts, prefer stdin over command-line quoting.

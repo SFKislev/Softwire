@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "softwire"
-version = "0.1.13"
+version = "0.1.19"
 description = "Local scripting bridges for controlling professional creative software from a shell agent."
 readme = { file = "README_PYPI.md", content-type = "text/markdown" }
 requires-python = ">=3.10"

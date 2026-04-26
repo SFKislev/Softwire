@@ -1,4 +1,5 @@
 import argparse
+import importlib.metadata
 import json
 import os
 import shutil
@@ -192,6 +193,62 @@ def run_process(args, *, input_text=None):
     return proc.returncode
 
 
+def run_external_process(args, *, cwd=None):
+    proc = subprocess.run(
+        args,
+        cwd=str(cwd or Path.home()),
+        text=True,
+        check=False,
+    )
+    return proc.returncode
+
+
+def installed_softwire_version():
+    proc = subprocess.run(
+        [sys.executable, "-m", "pip", "show", "softwire"],
+        cwd=str(Path.home()),
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if proc.returncode == 0:
+        for line in proc.stdout.splitlines():
+            if line.startswith("Version:"):
+                version = line.split(":", 1)[1].strip()
+                if version:
+                    return version
+
+    try:
+        return importlib.metadata.version("softwire")
+    except importlib.metadata.PackageNotFoundError:
+        return None
+
+
+def running_from_windows_softwire_exe():
+    if os.name != "nt":
+        return False
+    if Path(sys.argv[0]).name.lower() in {"softwire", "softwire.exe"}:
+        return True
+
+    try:
+        import ctypes
+
+        ctypes.windll.kernel32.GetCommandLineW.restype = ctypes.c_wchar_p
+        command_line = (ctypes.windll.kernel32.GetCommandLineW() or "").lstrip()
+    except Exception:
+        return False
+
+    if command_line.startswith('"'):
+        executable = command_line.split('"', 2)[1]
+    else:
+        executable = command_line.split(maxsplit=1)[0] if command_line else ""
+    return (
+        Path(executable).name.lower() == "softwire.exe"
+        or "\\softwire.exe" in command_line.lower()
+        or "/softwire.exe" in command_line.lower()
+    )
+
+
 def normalize_path_key(path):
     text = str(path)
     return text.lower() if os.name == "nt" else text
@@ -300,6 +357,17 @@ def packaged_known_issues_source():
         if candidate.exists():
             return candidate
     raise FileNotFoundError("SoftWire known-issues source not found.")
+
+
+def packaged_setup_source():
+    candidates = [
+        ROOT / "docs" / "setup.md",
+        ROOT / "softwire" / "setup.md",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError("SoftWire setup source not found.")
 
 
 def softwire_install_info():
@@ -423,6 +491,8 @@ def remove_if_matches(path, source):
 def adapter_docs_sources():
     items = []
     for adapter_path in sorted((ROOT / "adapters").glob("*_adapter")):
+        if adapter_path.name.startswith("~"):
+            continue
         app_md = adapter_path / "APP.md"
         if not app_md.exists():
             continue
@@ -493,6 +563,7 @@ def install_local_docs_bundle(bundle_dir, *, entry_filename, entry_text, force):
 
     docs_dir = bundle_dir / "docs"
     ok = copy_file(packaged_known_issues_source(), docs_dir / "known-issues.md", force=True) and ok
+    ok = copy_file(packaged_setup_source(), docs_dir / "setup.md", force=True) and ok
 
     adapters_dir = bundle_dir / "adapters"
     for name, files in adapter_docs_sources():
@@ -1166,6 +1237,66 @@ def cmd_setup(args):
     return 0 if ok else 1
 
 
+def cmd_update(args):
+    if args.docs_only and args.package_only:
+        print("--docs-only and --package-only cannot be used together.", file=sys.stderr)
+        return 1
+
+    if running_from_windows_softwire_exe() and not args.docs_only:
+        fallback = format_command_for_display([sys.executable, "-m", "softwire.cli", "update"])
+        print(
+            "Cannot update SoftWire while running through softwire.exe on Windows, "
+            "because pip must replace that executable.",
+            file=sys.stderr,
+        )
+        print(f"Run this instead: {fallback}", file=sys.stderr)
+        return 1
+
+    before_version = installed_softwire_version()
+    if not args.docs_only:
+        if before_version:
+            print(f"Current SoftWire version: {before_version}")
+        print("Updating the SoftWire Python package with pip...")
+        pip_command = [
+            sys.executable,
+            "-m",
+            "pip",
+            "install",
+            "--upgrade",
+            "--no-cache-dir",
+            "softwire",
+        ]
+        rc = run_external_process(pip_command)
+        if rc != 0:
+            return rc
+
+    if args.package_only:
+        return 0
+
+    after_version = installed_softwire_version()
+    if not args.docs_only and not args.force_docs and before_version and after_version and before_version == after_version:
+        print("")
+        print(f"SoftWire is already up to date ({after_version or 'unknown version'}). Agent documentation was not refreshed.")
+        print("Use `python -m softwire.cli update --force-docs` to refresh docs anyway.")
+        return 0
+
+    print("")
+    if args.docs_only:
+        print("Refreshing SoftWire agent documentation...")
+    else:
+        print(f"SoftWire changed from {before_version or 'unknown'} to {after_version or 'unknown'}. Refreshing agent documentation...")
+    setup_command = [
+        sys.executable,
+        "-m",
+        "softwire.cli",
+        "setup",
+        "--force",
+        "--agent",
+        args.agent,
+    ]
+    return run_external_process(setup_command)
+
+
 def cmd_context(args):
     name = args.adapter
     context = adapter_dir(name) / "examples" / CONTEXT_EXAMPLES[name]
@@ -1298,6 +1429,33 @@ def build_parser():
     setup_parser.add_argument("--force", action="store_true", help="Replace existing SoftWire docs.")
     setup_parser.set_defaults(func=cmd_setup)
 
+    update_parser = subparsers.add_parser(
+        "update",
+        help="Upgrade SoftWire and refresh installed agent documentation.",
+    )
+    update_parser.add_argument(
+        "--agent",
+        choices=AGENT_DOC_TARGETS + ("auto",),
+        default="auto",
+        help="Agent harness docs to refresh after package update. Defaults to auto.",
+    )
+    update_parser.add_argument(
+        "--docs-only",
+        action="store_true",
+        help="Skip pip upgrade and only refresh installed agent documentation.",
+    )
+    update_parser.add_argument(
+        "--package-only",
+        action="store_true",
+        help="Only upgrade the Python package; do not refresh agent documentation.",
+    )
+    update_parser.add_argument(
+        "--force-docs",
+        action="store_true",
+        help="Refresh agent documentation even if the package version did not change.",
+    )
+    update_parser.set_defaults(func=cmd_update)
+
     uninstall_parser = subparsers.add_parser(
         "uninstall",
         help="Remove SoftWire registrations from detected agent locations.",
@@ -1404,6 +1562,7 @@ def print_start_summary():
     print("")
     print("Start here:")
     print("  setup      Do this first so detected agents can discover SoftWire.")
+    print("  update     Upgrade SoftWire and refresh installed agent documentation.")
     print("  where      Show install location and launcher details.")
     print("  harnesses  List detected agent harnesses and their target locations.")
     print("  adapters   List supported adapters.")

@@ -20,10 +20,11 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 - `adapters/word/APP.md`
 
 ## Quick Start
-1. Read `adapters/<app>/APP.md` for the app you are about to use.
-2. Search `adapters/<app>/docs/api-index.txt` with `rg` for relevant symbols.
-3. Prefer `py -m softwire.cli context <app>` on Windows, or `python3 -m softwire.cli context <app>` on macOS/Linux, to inspect the live app state.
-4. Prefer `py -m softwire.cli run <app> --stdin` on Windows, or `python3 -m softwire.cli run <app> --stdin` on macOS/Linux, for one-off scripts.
+1. At the start of a SoftWire session, run `py -m softwire.cli update` on Windows, or `python3 -m softwire.cli update` on macOS/Linux, once to make sure SoftWire is up to date.
+2. Read `adapters/<app>/APP.md` for the app you are about to use.
+3. Search `adapters/<app>/docs/api-index.txt` with `rg` for relevant symbols.
+4. Prefer `py -m softwire.cli context <app>` on Windows, or `python3 -m softwire.cli context <app>` on macOS/Linux, to inspect the live app state.
+5. Prefer `py -m softwire.cli run <app> --stdin` on Windows, or `python3 -m softwire.cli run <app> --stdin` on macOS/Linux, for one-off scripts.
 
 ## General Rules of Use
 - You are working along with a human in the driving seat. Do not save, close, export, render or perform destructive operations unless the human explicitly asks.
@@ -35,6 +36,7 @@ Softwire is not an MCP server. The agent sends a script through a small bridge c
 - Read these reference files if you don't have them in the session memory:
 - `shared/coexistence.md`
 - `shared/bridge-contract.md`
+- `docs/setup.md`
 - `docs/known-issues.md`
 
 ## Debugging

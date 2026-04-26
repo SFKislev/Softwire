@@ -36,7 +36,8 @@ softwire setup --agent openclaw
 The `claude` target is for Claude Code. Claude Desktop/Cowork is not supported.
 The `kilo` target installs a global skill at `~/.kilo/skills/softwire/SKILL.md`.
 
-Harness-by-harness discoverability details are documented in [Harness support and discoverability](harenesses.md).
+Harness-by-harness discoverability details are documented in
+[Harness support and discoverability](harenesses.md).
 
 ## Useful Commands
 

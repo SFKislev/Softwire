@@ -7,7 +7,7 @@ softwire setup
 
 **A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
 
-SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install softwire && softwire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines. Supports **Windows and macOS**.
+SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install softwire && softwire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
 
 [SoftWire is not an MCP server](https://github.com/SFKislev/Softwire/blob/main/docs/mcp.md). It is simpler. The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
 

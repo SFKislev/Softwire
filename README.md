@@ -70,14 +70,13 @@ A single Flue installation supports, out of the box, many applications. Agents, 
 
 [See which files are edited upon installation](docs/harnesses.md)
 
-## Documentation for Humans
-
+## Documentation
+### For Humans
 - [Setup and commands](https://github.com/SFKislev/flue/blob/main/docs/setup.md)
 - [Harness support and discoverability](https://github.com/SFKislev/flue/blob/main/docs/harnesses.md)
 - [Wait, isn't this called MCP?](https://github.com/SFKislev/flue/blob/main/docs/why-shell-adapters.md)
 
-### Documentation for Agents
-
+### For Agents
 - [How the Adapters work](https://github.com/SFKislev/flue/blob/main/docs/ADAPTER_SPEC.md)
 - [How to use the Bridge Contracts](https://github.com/SFKislev/flue/blob/main/shared/bridge-contract.md)
 - [How to Work Together with a Human](https://github.com/SFKislev/flue/blob/main/shared/coexistence.md)

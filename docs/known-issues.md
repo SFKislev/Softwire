@@ -74,7 +74,7 @@ Refer to the API Discovery order in `shared/bridge-contract.md`: introspect firs
 
 **Symptom:** A bridge call succeeds, but the agent cannot tell whether the visual result is actually correct - for example, whether a filter looks right, a shadow is too strong, an alignment is off, or a retouch was applied as intended. Often, the agent can't even tell if the effect is visible.
 
-**Cause:** SoftWire gives the agent access to the app's scripting runtime, not to the user's screen. The agent can inspect structured app state, but it usually cannot visually verify the final rendered result the way a human can.
+**Cause:** Flue gives the agent access to the app's scripting runtime, not to the user's screen. The agent can inspect structured app state, but it usually cannot visually verify the final rendered result the way a human can.
 
 **Rule:** Be explicit about this limitation. If the result matters visually and the script cannot verify it from app state alone, use the human as your eyes. Ask whether the result looks right, whether the effect was applied, or what needs adjusting. Do not overclaim visual success when you cannot actually verify it.
 

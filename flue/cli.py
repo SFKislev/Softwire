@@ -84,7 +84,7 @@ HARNESS_CONFIGS = {
         "commands": ["codex"],
         "config_dir": Path(".codex"),
         "global_targets": [
-            Path(".codex") / "skills" / "softwire" / "SKILL.md",
+            Path(".codex") / "skills" / "flue" / "SKILL.md",
             Path(".codex") / "AGENTS.md",
         ],
     },
@@ -93,7 +93,7 @@ HARNESS_CONFIGS = {
         "config_dir": Path(".claude"),
         "global_targets": [
             Path(".claude") / "CLAUDE.md",
-            Path(".claude") / "skills" / "softwire" / "SKILL.md",
+            Path(".claude") / "skills" / "flue" / "SKILL.md",
         ],
     },
     "gemini": {
@@ -101,7 +101,7 @@ HARNESS_CONFIGS = {
         "config_dir": Path(".gemini"),
         "global_targets": [
             Path(".gemini") / "GEMINI.md",
-            Path(".gemini") / "softwire.md",
+            Path(".gemini") / "flue.md",
         ],
     },
     "qwen": {
@@ -109,50 +109,50 @@ HARNESS_CONFIGS = {
         "config_dir": Path(".qwen"),
         "global_targets": [
             Path(".qwen") / "QWEN.md",
-            Path(".qwen") / "softwire.md",
+            Path(".qwen") / "flue.md",
         ],
     },
     "cursor": {
         "commands": ["cursor"],
         "config_dir": Path(".cursor"),
         "global_targets": [
-            Path(".cursor") / "skills" / "softwire" / "SKILL.md",
+            Path(".cursor") / "skills" / "flue" / "SKILL.md",
         ],
     },
     "cline": {
         "commands": ["cline"],
         "config_dir": Path(".cline"),
         "global_targets": [
-            Path(".cline") / "skills" / "softwire" / "SKILL.md",
+            Path(".cline") / "skills" / "flue" / "SKILL.md",
         ],
     },
     "kilo": {
         "commands": ["kilo"],
         "config_dir": Path(".kilo"),
         "global_targets": [
-            Path(".kilo") / "skills" / "softwire" / "SKILL.md",
+            Path(".kilo") / "skills" / "flue" / "SKILL.md",
         ],
     },
     "opencode": {
         "commands": ["opencode"],
         "config_dir": Path(".config") / "opencode",
         "global_targets": [
-            Path(".config") / "opencode" / "agents" / "softwire.md",
+            Path(".config") / "opencode" / "agents" / "flue.md",
         ],
     },
     "openclaw": {
         "commands": ["openclaw"],
         "config_dir": Path(".openclaw"),
         "global_targets": [
-            Path(".openclaw") / "skills" / "softwire" / "SKILL.md",
+            Path(".openclaw") / "skills" / "flue" / "SKILL.md",
         ],
     },
     "copilot": {
         "commands": [],
         "config_dir": Path(".copilot"),
         "global_targets": [
-            Path(".copilot") / "skills" / "softwire" / "SKILL.md",
-            Path(".copilot") / "instructions" / "softwire.instructions.md",
+            Path(".copilot") / "skills" / "flue" / "SKILL.md",
+            Path(".copilot") / "instructions" / "flue.instructions.md",
             Path(".copilot") / "copilot-instructions.md",
         ],
     },
@@ -203,9 +203,9 @@ def run_external_process(args, *, cwd=None):
     return proc.returncode
 
 
-def installed_softwire_version():
+def installed_flue_version():
     proc = subprocess.run(
-        [sys.executable, "-m", "pip", "show", "softwire"],
+        [sys.executable, "-m", "pip", "show", "flue"],
         cwd=str(Path.home()),
         text=True,
         capture_output=True,
@@ -219,15 +219,15 @@ def installed_softwire_version():
                     return version
 
     try:
-        return importlib.metadata.version("softwire")
+        return importlib.metadata.version("flue")
     except importlib.metadata.PackageNotFoundError:
         return None
 
 
-def running_from_windows_softwire_exe():
+def running_from_windows_flue_exe():
     if os.name != "nt":
         return False
-    if Path(sys.argv[0]).name.lower() in {"softwire", "softwire.exe"}:
+    if Path(sys.argv[0]).name.lower() in {"flue", "flue.exe"}:
         return True
 
     try:
@@ -243,9 +243,9 @@ def running_from_windows_softwire_exe():
     else:
         executable = command_line.split(maxsplit=1)[0] if command_line else ""
     return (
-        Path(executable).name.lower() == "softwire.exe"
-        or "\\softwire.exe" in command_line.lower()
-        or "/softwire.exe" in command_line.lower()
+        Path(executable).name.lower() == "flue.exe"
+        or "\\flue.exe" in command_line.lower()
+        or "/flue.exe" in command_line.lower()
     )
 
 
@@ -322,7 +322,7 @@ def vscode_copilot_installed():
 
 
 def module_command():
-    return [sys.executable, "-m", "softwire.cli"]
+    return [sys.executable, "-m", "flue.cli"]
 
 
 def format_command_for_display(parts):
@@ -340,62 +340,58 @@ def powershell_command_literal(parts):
 def packaged_skill_source():
     candidates = [
         ROOT / "skill.md",
-        ROOT / "softwire" / "skill.md",
+        ROOT / "flue" / "skill.md",
     ]
     for candidate in candidates:
         if candidate.exists():
             return candidate
-    raise FileNotFoundError("SoftWire skill source not found.")
+    raise FileNotFoundError("Flue skill source not found.")
 
 
 def packaged_known_issues_source():
     candidates = [
         ROOT / "docs" / "known-issues.md",
-        ROOT / "softwire" / "known-issues.md",
+        ROOT / "flue" / "known-issues.md",
     ]
     for candidate in candidates:
         if candidate.exists():
             return candidate
-    raise FileNotFoundError("SoftWire known-issues source not found.")
+    raise FileNotFoundError("Flue known-issues source not found.")
 
 
 def packaged_setup_source():
     candidates = [
         ROOT / "docs" / "setup.md",
-        ROOT / "softwire" / "setup.md",
+        ROOT / "flue" / "setup.md",
     ]
     for candidate in candidates:
         if candidate.exists():
             return candidate
-    raise FileNotFoundError("SoftWire setup source not found.")
+    raise FileNotFoundError("Flue setup source not found.")
 
 
-def softwire_install_info():
+def flue_install_info():
     return {
         "root": str(ROOT),
         "pythonExecutable": str(Path(sys.executable).resolve()),
         "scriptsDir": str(scripts_dir()),
         "docsPath": str(packaged_skill_source()),
-        "softwireCommandPath": installed_command("softwire"),
-        "softwireOnPath": installed_command("softwire") is not None,
+        "flueCommandPath": installed_command("flue"),
+        "flueOnPath": installed_command("flue") is not None,
         "scriptsDirOnPath": is_scripts_dir_on_path(),
-        "preferredCommand": "softwire" if installed_command("softwire") else format_command_for_display(module_command()),
+        "preferredCommand": "flue" if installed_command("flue") else format_command_for_display(module_command()),
         "fallbackCommand": format_command_for_display(module_command()),
         "homeCandidates": [str(path) for path in home_candidates()],
+        "PATH": [str(p) for p in path_entries()],
     }
 
 
-def cmd_path(_args):
-    print(ROOT)
-    return 0
-
-
 def cmd_where(_args):
-    print(json.dumps(softwire_install_info(), indent=2))
+    print(json.dumps(flue_install_info(), indent=2))
     return 0
 
 
-def cmd_adapters(_args):
+def cmd_software(_args):
     for name in sorted(BRIDGES):
         print(name)
     return 0
@@ -506,9 +502,9 @@ def adapter_docs_sources():
 
 
 def pointer_note_text(relative_entry):
-    return f"""# SoftWire
+    return f"""# Flue
 
-If asked to perform a task in a desktop application, use SoftWire: a Python
+If asked to perform a task in a desktop application, use Flue: a Python
 package installed on this machine that lets agents inspect and edit supported
 apps through their scripting APIs.
 
@@ -522,18 +518,18 @@ applyTo: "**"
 ---
 
 When asked to operate supported desktop software on this machine, use the
-SoftWire skill from `~/.copilot/skills/softwire/SKILL.md`.
+Flue skill from `~/.copilot/skills/flue/SKILL.md`.
 """
 
 
 def copilot_cli_instruction_text():
-    return """When asked to operate supported desktop software on this machine, use the SoftWire skill from `~/.copilot/skills/softwire/SKILL.md`."""
+    return """When asked to operate supported desktop software on this machine, use the Flue skill from `~/.copilot/skills/flue/SKILL.md`."""
 
 
 def installed_skill_text(description):
     body = packaged_skill_source().read_text(encoding="utf-8").rstrip()
     return f"""---
-name: softwire
+name: flue
 description: {description}
 ---
 
@@ -572,13 +568,13 @@ def install_local_docs_bundle(bundle_dir, *, entry_filename, entry_text, force):
     return ok
 
 
-def softwire_pointer_block(entry_path):
-    begin = "<!-- SOFTWIRE START -->"
-    end = "<!-- SOFTWIRE END -->"
+def flue_pointer_block(entry_path):
+    begin = "<!-- FLUE START -->"
+    end = "<!-- FLUE END -->"
     block = (
         f"{begin}\n"
-        "# SoftWire\n\n"
-        "SoftWire is installed on this machine. It lets agents communicate with "
+        "# Flue\n\n"
+        "Flue is installed on this machine. It lets agents communicate with "
         "supported desktop software directly through local scripting bridges, "
         "without MCP servers.\n\n"
         "When requested to operate supported desktop software, read:\n\n"
@@ -588,9 +584,32 @@ def softwire_pointer_block(entry_path):
     return begin, end, block
 
 
-def cmd_agent_docs_path(_args):
-    print(packaged_skill_source())
-    return 0
+def flue_and_legacy_pointer_markers():
+    return (
+        ("<!-- FLUE START -->", "<!-- FLUE END -->"),
+        ("<!-- SOFTWIRE START -->", "<!-- SOFTWIRE END -->"),
+    )
+
+
+def remove_flue_and_legacy_pointer_blocks(path):
+    removed = False
+    for begin, end in flue_and_legacy_pointer_markers():
+        removed = remove_marked_block(path, begin, end) or removed
+    return removed
+
+
+def remove_named_dirs(parent, names):
+    removed = False
+    for name in names:
+        removed = remove_dir(parent / name) or removed
+    return removed
+
+
+def remove_named_markdown_files(parent, names):
+    removed = False
+    for name in names:
+        removed = remove_file(parent / f"{name}.md") or removed
+    return removed
 
 
 def cmd_docs(_args):
@@ -598,7 +617,7 @@ def cmd_docs(_args):
     return 0
 
 
-def harness_report():
+def agents_report():
     homes = home_candidates()
     report = []
     for name, config in HARNESS_CONFIGS.items():
@@ -644,19 +663,19 @@ def harness_report():
 
 def detect_agent_targets():
     targets = []
-    for item in harness_report():
+    for item in agents_report():
         if item["detected"]:
             targets.append(item["harness"])
     return targets
 
 
-def cmd_harnesses(_args):
+def cmd_agents(_args):
     if getattr(_args, "json", False):
-        print(json.dumps(harness_report(), indent=2))
+        print(json.dumps(agents_report(), indent=2))
         return 0
 
     rows = []
-    for item in harness_report():
+    for item in agents_report():
         status = "yes" if item["detected"] else "no"
         targets = []
         for target in item["globalTargets"]:
@@ -689,27 +708,27 @@ def cmd_harnesses(_args):
 def install_codex_docs(args):
     ok = True
     if args.path:
-            bundle_dir = Path(args.path).expanduser() / "softwire"
+            bundle_dir = Path(args.path).expanduser() / "flue"
             ok = install_local_docs_bundle(
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Codex needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                    "Use when Codex needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
         ) and ok
     else:
         for home in home_candidates():
-            bundle_dir = home / ".codex" / "skills" / "softwire"
+            bundle_dir = home / ".codex" / "skills" / "flue"
             ok = install_local_docs_bundle(
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Codex needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                    "Use when Codex needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
             ) and ok
-            begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
+            begin, end, block = flue_pointer_block(bundle_dir / "SKILL.md")
             agents = home / ".codex" / "AGENTS.md"
             upsert_marked_block(agents, begin, end, block)
             print(agents)
@@ -720,34 +739,34 @@ def install_claude_docs(args):
     ok = True
     if args.path:
         target_root = Path(args.path).expanduser()
-        bundle_dir = target_root / "skills" / "softwire"
+        bundle_dir = target_root / "skills" / "flue"
         ok = install_local_docs_bundle(
             bundle_dir,
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Claude needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Claude needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
-        remove_file(target_root / "softwire.md")
-        begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
+        remove_file(target_root / "flue.md")
+        begin, end, block = flue_pointer_block(bundle_dir / "SKILL.md")
         memory = target_root / "CLAUDE.md"
         upsert_marked_block(memory, begin, end, block)
         print(memory)
     else:
         for home in home_candidates():
             target_root = home / ".claude"
-            bundle_dir = target_root / "skills" / "softwire"
+            bundle_dir = target_root / "skills" / "flue"
             ok = install_local_docs_bundle(
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Claude needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                    "Use when Claude needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
             ) and ok
-            remove_file(target_root / "softwire.md")
-            begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
+            remove_file(target_root / "flue.md")
+            begin, end, block = flue_pointer_block(bundle_dir / "SKILL.md")
             memory = target_root / "CLAUDE.md"
             upsert_marked_block(memory, begin, end, block)
             print(memory)
@@ -758,34 +777,34 @@ def install_gemini_docs(args):
     ok = True
     if args.path:
         target_root = Path(args.path).expanduser()
-        bundle_dir = target_root / "softwire"
+        bundle_dir = target_root / "flue"
         ok = install_local_docs_bundle(
             bundle_dir,
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Gemini needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Gemini needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
-        remove_file(target_root / "softwire.md")
-        begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
+        remove_file(target_root / "flue.md")
+        begin, end, block = flue_pointer_block(bundle_dir / "SKILL.md")
         memory = target_root / "GEMINI.md"
         upsert_marked_block(memory, begin, end, block)
         print(memory)
     else:
         for home in home_candidates():
             target_root = home / ".gemini"
-            bundle_dir = target_root / "softwire"
+            bundle_dir = target_root / "flue"
             ok = install_local_docs_bundle(
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Gemini needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                    "Use when Gemini needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
             ) and ok
-            remove_file(target_root / "softwire.md")
-            begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
+            remove_file(target_root / "flue.md")
+            begin, end, block = flue_pointer_block(bundle_dir / "SKILL.md")
             memory = target_root / "GEMINI.md"
             upsert_marked_block(memory, begin, end, block)
             print(memory)
@@ -796,19 +815,19 @@ def install_cursor_docs(args):
     ok = True
     if args.path:
         return install_local_docs_bundle(
-            Path(args.path).expanduser() / "softwire",
+            Path(args.path).expanduser() / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Cursor needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Cursor needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         )
     for home in home_candidates():
         ok = install_local_docs_bundle(
-            home / ".cursor" / "skills" / "softwire",
+            home / ".cursor" / "skills" / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Cursor needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Cursor needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -819,19 +838,19 @@ def install_kilo_docs(args):
     ok = True
     if args.path:
         return install_local_docs_bundle(
-            Path(args.path).expanduser() / "softwire",
+            Path(args.path).expanduser() / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Kilo needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Kilo needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         )
     for home in home_candidates():
         ok = install_local_docs_bundle(
-            home / ".kilo" / "skills" / "softwire",
+            home / ".kilo" / "skills" / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Kilo needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Kilo needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -842,19 +861,19 @@ def install_cline_docs(args):
     ok = True
     if args.path:
         return install_local_docs_bundle(
-            Path(args.path).expanduser() / "softwire",
+            Path(args.path).expanduser() / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Cline needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Cline needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         )
     for home in home_candidates():
         ok = install_local_docs_bundle(
-            home / ".cline" / "skills" / "softwire",
+            home / ".cline" / "skills" / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Cline needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Cline needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -865,34 +884,34 @@ def install_qwen_docs(args):
     ok = True
     if args.path:
         target_root = Path(args.path).expanduser()
-        bundle_dir = target_root / "softwire"
+        bundle_dir = target_root / "flue"
         ok = install_local_docs_bundle(
             bundle_dir,
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when Qwen needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when Qwen needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
-        remove_file(target_root / "softwire.md")
-        begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
+        remove_file(target_root / "flue.md")
+        begin, end, block = flue_pointer_block(bundle_dir / "SKILL.md")
         memory = target_root / "QWEN.md"
         upsert_marked_block(memory, begin, end, block)
         print(memory)
     else:
         for home in home_candidates():
             target_root = home / ".qwen"
-            bundle_dir = target_root / "softwire"
+            bundle_dir = target_root / "flue"
             ok = install_local_docs_bundle(
                 bundle_dir,
                 entry_filename="SKILL.md",
                 entry_text=installed_skill_text(
-                    "Use when Qwen needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                    "Use when Qwen needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
                 ),
                 force=args.force,
             ) and ok
-            remove_file(target_root / "softwire.md")
-            begin, end, block = softwire_pointer_block(bundle_dir / "SKILL.md")
+            remove_file(target_root / "flue.md")
+            begin, end, block = flue_pointer_block(bundle_dir / "SKILL.md")
             memory = target_root / "QWEN.md"
             upsert_marked_block(memory, begin, end, block)
             print(memory)
@@ -904,26 +923,26 @@ def install_opencode_docs(args):
     if args.path:
         target_root = Path(args.path).expanduser()
         ok = install_local_docs_bundle(
-            target_root / "softwire",
+            target_root / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when OpenCode needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when OpenCode needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
-        ok = write_text(target_root / "softwire.md", pointer_note_text("softwire/SKILL.md")) and ok
+        ok = write_text(target_root / "flue.md", pointer_note_text("flue/SKILL.md")) and ok
         return ok
     for home in home_candidates():
         target_root = home / ".config" / "opencode" / "agents"
         ok = install_local_docs_bundle(
-            target_root / "softwire",
+            target_root / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when OpenCode needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when OpenCode needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
-        ok = write_text(target_root / "softwire.md", pointer_note_text("softwire/SKILL.md")) and ok
+        ok = write_text(target_root / "flue.md", pointer_note_text("flue/SKILL.md")) and ok
     return ok
 
 
@@ -931,19 +950,19 @@ def install_openclaw_docs(args):
     ok = True
     if args.path:
         return install_local_docs_bundle(
-            Path(args.path).expanduser() / "softwire",
+            Path(args.path).expanduser() / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when OpenClaw needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when OpenClaw needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         )
     for home in home_candidates():
         ok = install_local_docs_bundle(
-            home / ".openclaw" / "skills" / "softwire",
+            home / ".openclaw" / "skills" / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when OpenClaw needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when OpenClaw needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
@@ -954,135 +973,131 @@ def install_copilot_docs(args):
     ok = True
     if args.path:
         target_root = Path(args.path).expanduser()
-        bundle_dir = target_root / "skills" / "softwire"
+        bundle_dir = target_root / "skills" / "flue"
         ok = install_local_docs_bundle(
             bundle_dir,
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when GitHub Copilot needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when GitHub Copilot needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
-        ok = write_text(target_root / "instructions" / "softwire.instructions.md", copilot_instruction_text()) and ok
+        ok = write_text(target_root / "instructions" / "flue.instructions.md", copilot_instruction_text()) and ok
         ok = write_text(target_root / "copilot-instructions.md", copilot_cli_instruction_text()) and ok
         return ok
     for home in home_candidates():
         target_root = home / ".copilot"
         ok = install_local_docs_bundle(
-            target_root / "skills" / "softwire",
+            target_root / "skills" / "flue",
             entry_filename="SKILL.md",
             entry_text=installed_skill_text(
-                "Use when GitHub Copilot needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+                "Use when GitHub Copilot needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
             ),
             force=args.force,
         ) and ok
-        ok = write_text(target_root / "instructions" / "softwire.instructions.md", copilot_instruction_text()) and ok
+        ok = write_text(target_root / "instructions" / "flue.instructions.md", copilot_instruction_text()) and ok
         ok = write_text(target_root / "copilot-instructions.md", copilot_cli_instruction_text()) and ok
     return ok
 
 
 def install_generic_docs(args):
     target = Path(args.path).expanduser() if args.path else Path.cwd() / "AGENTS.md"
-    bundle_dir = target.parent / "softwire"
+    bundle_dir = target.parent / "flue"
     ok = install_local_docs_bundle(
         bundle_dir,
         entry_filename="SKILL.md",
         entry_text=installed_skill_text(
-            "Use when an agent needs to inspect, install, test, or run SoftWire adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
+            "Use when an agent needs to inspect, install, test, or run Flue adapters to control supported Windows and macOS desktop apps through local scripting bridges.",
         ),
         force=args.force,
     )
-    ok = write_text(target, pointer_note_text("softwire/SKILL.md")) and ok
+    ok = write_text(target, pointer_note_text("flue/SKILL.md")) and ok
     return ok
 
 
 def uninstall_codex_docs(args):
     removed = False
-    begin, end, _block = softwire_pointer_block("softwire")
     if args.path:
-        removed = remove_dir(Path(args.path).expanduser() / "softwire") or removed
+        removed = remove_named_dirs(Path(args.path).expanduser(), ("flue", "softwire")) or removed
     else:
         for home in home_candidates():
-            removed = remove_dir(home / ".codex" / "skills" / "softwire") or removed
-            removed = remove_marked_block(home / ".codex" / "AGENTS.md", begin, end) or removed
+            removed = remove_named_dirs(home / ".codex" / "skills", ("flue", "softwire")) or removed
+            removed = remove_flue_and_legacy_pointer_blocks(home / ".codex" / "AGENTS.md") or removed
     return removed
 
 
 def uninstall_claude_docs(args):
     removed = False
-    begin, end, _block = softwire_pointer_block("softwire")
     if args.path:
         target_root = Path(args.path).expanduser()
-        removed = remove_file(target_root / "softwire.md") or removed
-        removed = remove_dir(target_root / "skills" / "softwire") or removed
-        removed = remove_marked_block(target_root / "CLAUDE.md", begin, end) or removed
+        removed = remove_named_markdown_files(target_root, ("flue", "softwire")) or removed
+        removed = remove_named_dirs(target_root / "skills", ("flue", "softwire")) or removed
+        removed = remove_flue_and_legacy_pointer_blocks(target_root / "CLAUDE.md") or removed
     else:
         for home in home_candidates():
             target_root = home / ".claude"
-            removed = remove_file(target_root / "softwire.md") or removed
-            removed = remove_dir(target_root / "skills" / "softwire") or removed
-            removed = remove_marked_block(target_root / "CLAUDE.md", begin, end) or removed
+            removed = remove_named_markdown_files(target_root, ("flue", "softwire")) or removed
+            removed = remove_named_dirs(target_root / "skills", ("flue", "softwire")) or removed
+            removed = remove_flue_and_legacy_pointer_blocks(target_root / "CLAUDE.md") or removed
     return removed
 
 
 def uninstall_gemini_docs(args):
     removed = False
-    begin, end, _block = softwire_pointer_block("softwire")
     if args.path:
         target_root = Path(args.path).expanduser()
-        removed = remove_file(target_root / "softwire.md") or removed
-        removed = remove_dir(target_root / "softwire") or removed
-        removed = remove_marked_block(target_root / "GEMINI.md", begin, end) or removed
+        removed = remove_named_markdown_files(target_root, ("flue", "softwire")) or removed
+        removed = remove_named_dirs(target_root, ("flue", "softwire")) or removed
+        removed = remove_flue_and_legacy_pointer_blocks(target_root / "GEMINI.md") or removed
     else:
         for home in home_candidates():
             target_root = home / ".gemini"
-            removed = remove_file(target_root / "softwire.md") or removed
-            removed = remove_dir(target_root / "softwire") or removed
-            removed = remove_marked_block(target_root / "GEMINI.md", begin, end) or removed
+            removed = remove_named_markdown_files(target_root, ("flue", "softwire")) or removed
+            removed = remove_named_dirs(target_root, ("flue", "softwire")) or removed
+            removed = remove_flue_and_legacy_pointer_blocks(target_root / "GEMINI.md") or removed
     return removed
 
 
 def uninstall_cursor_docs(args):
     removed = False
     if args.path:
-        return remove_dir(Path(args.path).expanduser() / "softwire")
+        return remove_named_dirs(Path(args.path).expanduser(), ("flue", "softwire"))
     for home in home_candidates():
-        removed = remove_dir(home / ".cursor" / "skills" / "softwire") or removed
+        removed = remove_named_dirs(home / ".cursor" / "skills", ("flue", "softwire")) or removed
     return removed
 
 
 def uninstall_kilo_docs(args):
     removed = False
     if args.path:
-        return remove_dir(Path(args.path).expanduser() / "softwire")
+        return remove_named_dirs(Path(args.path).expanduser(), ("flue", "softwire"))
     for home in home_candidates():
-        removed = remove_dir(home / ".kilo" / "skills" / "softwire") or removed
+        removed = remove_named_dirs(home / ".kilo" / "skills", ("flue", "softwire")) or removed
     return removed
 
 
 def uninstall_cline_docs(args):
     removed = False
     if args.path:
-        return remove_dir(Path(args.path).expanduser() / "softwire")
+        return remove_named_dirs(Path(args.path).expanduser(), ("flue", "softwire"))
     for home in home_candidates():
-        removed = remove_dir(home / ".cline" / "skills" / "softwire") or removed
+        removed = remove_named_dirs(home / ".cline" / "skills", ("flue", "softwire")) or removed
     return removed
 
 
 def uninstall_qwen_docs(args):
     removed = False
-    begin, end, _block = softwire_pointer_block("softwire")
     if args.path:
         target_root = Path(args.path).expanduser()
-        removed = remove_file(target_root / "softwire.md") or removed
-        removed = remove_dir(target_root / "softwire") or removed
-        removed = remove_marked_block(target_root / "QWEN.md", begin, end) or removed
+        removed = remove_named_markdown_files(target_root, ("flue", "softwire")) or removed
+        removed = remove_named_dirs(target_root, ("flue", "softwire")) or removed
+        removed = remove_flue_and_legacy_pointer_blocks(target_root / "QWEN.md") or removed
     else:
         for home in home_candidates():
             target_root = home / ".qwen"
-            removed = remove_file(target_root / "softwire.md") or removed
-            removed = remove_dir(target_root / "softwire") or removed
-            removed = remove_marked_block(target_root / "QWEN.md", begin, end) or removed
+            removed = remove_named_markdown_files(target_root, ("flue", "softwire")) or removed
+            removed = remove_named_dirs(target_root, ("flue", "softwire")) or removed
+            removed = remove_flue_and_legacy_pointer_blocks(target_root / "QWEN.md") or removed
     return removed
 
 
@@ -1090,22 +1105,22 @@ def uninstall_opencode_docs(args):
     removed = False
     if args.path:
         target_root = Path(args.path).expanduser()
-        removed = remove_file(target_root / "softwire.md") or removed
-        removed = remove_dir(target_root / "softwire") or removed
+        removed = remove_named_markdown_files(target_root, ("flue", "softwire")) or removed
+        removed = remove_named_dirs(target_root, ("flue", "softwire")) or removed
         return removed
     for home in home_candidates():
         target_root = home / ".config" / "opencode" / "agents"
-        removed = remove_file(target_root / "softwire.md") or removed
-        removed = remove_dir(target_root / "softwire") or removed
+        removed = remove_named_markdown_files(target_root, ("flue", "softwire")) or removed
+        removed = remove_named_dirs(target_root, ("flue", "softwire")) or removed
     return removed
 
 
 def uninstall_openclaw_docs(args):
     removed = False
     if args.path:
-        return remove_dir(Path(args.path).expanduser() / "softwire")
+        return remove_named_dirs(Path(args.path).expanduser(), ("flue", "softwire"))
     for home in home_candidates():
-        removed = remove_dir(home / ".openclaw" / "skills" / "softwire") or removed
+        removed = remove_named_dirs(home / ".openclaw" / "skills", ("flue", "softwire")) or removed
     return removed
 
 
@@ -1113,22 +1128,24 @@ def uninstall_copilot_docs(args):
     removed = False
     if args.path:
         target_root = Path(args.path).expanduser()
+        removed = remove_file(target_root / "instructions" / "flue.instructions.md") or removed
         removed = remove_file(target_root / "instructions" / "softwire.instructions.md") or removed
         removed = remove_file(target_root / "copilot-instructions.md") or removed
-        removed = remove_dir(target_root / "skills" / "softwire") or removed
+        removed = remove_named_dirs(target_root / "skills", ("flue", "softwire")) or removed
         return removed
     for home in home_candidates():
         target_root = home / ".copilot"
+        removed = remove_file(target_root / "instructions" / "flue.instructions.md") or removed
         removed = remove_file(target_root / "instructions" / "softwire.instructions.md") or removed
         removed = remove_file(target_root / "copilot-instructions.md") or removed
-        removed = remove_dir(target_root / "skills" / "softwire") or removed
+        removed = remove_named_dirs(target_root / "skills", ("flue", "softwire")) or removed
     return removed
 
 
 def uninstall_generic_docs(args):
     target = Path(args.path).expanduser() if args.path else Path.cwd() / "AGENTS.md"
     removed = remove_file(target) or False
-    removed = remove_dir(target.parent / "softwire") or removed
+    removed = remove_named_dirs(target.parent, ("flue", "softwire")) or removed
     return removed
 
 
@@ -1171,7 +1188,7 @@ def cmd_uninstall(args):
     else:
         targets = [args.agent]
 
-    print("Removing SoftWire agent instructions for: " + ", ".join(targets))
+    print("Removing Flue agent instructions for: " + ", ".join(targets))
     removed_any = False
     for target in targets:
         if target == "codex":
@@ -1203,7 +1220,7 @@ def cmd_setup(args):
     if args.agent == "auto":
         targets = detect_agent_targets()
         if not targets:
-            print("No AI harness found. SoftWire needs a harness in order to work.", file=sys.stderr)
+            print("No AI harness found. Flue needs a harness in order to work.", file=sys.stderr)
             return 1
         chosen = targets
     elif args.agent == "all":
@@ -1211,7 +1228,7 @@ def cmd_setup(args):
     else:
         chosen = [args.agent]
 
-    print("Registering SoftWire agent instructions for: " + ", ".join(chosen))
+    print("Registering Flue agent instructions for: " + ", ".join(chosen))
     homes = home_candidates()
     if len(homes) > 1:
         print("Detected multiple home directories:")
@@ -1223,12 +1240,12 @@ def cmd_setup(args):
         setup_args = argparse.Namespace(target=target, path=None, force=args.force)
         ok = (cmd_install_agent_docs(setup_args) == 0) and ok
 
-    info = softwire_install_info()
+    info = flue_install_info()
     print("")
-    print("SoftWire is installed. New agent sessions should discover it through the registered global instructions.")
-    print(f"Use SoftWire with: {info['preferredCommand']}")
-    if not info["softwireOnPath"]:
-        print("The 'softwire' command is not on PATH in this shell. Agents should use the Python module fallback.")
+    print("Flue is installed. New agent sessions should discover it through the registered global instructions.")
+    print(f"Use Flue with: {info['preferredCommand']}")
+    if not info["flueOnPath"]:
+        print("The 'flue' command is not on PATH in this shell. Agents should use the Python module fallback.")
         print(f"Fallback command: {info['fallbackCommand']}")
     elif not info["scriptsDirOnPath"]:
         print("Warning: the current Python Scripts directory is not on PATH for this shell session.")
@@ -1242,22 +1259,22 @@ def cmd_update(args):
         print("--docs-only and --package-only cannot be used together.", file=sys.stderr)
         return 1
 
-    if running_from_windows_softwire_exe() and not args.docs_only:
-        relaunch = [sys.executable, "-m", "softwire.cli", "update"]
+    if running_from_windows_flue_exe() and not args.docs_only:
+        relaunch = [sys.executable, "-m", "flue.cli", "update"]
         if args.agent != "auto":
             relaunch += ["--agent", args.agent]
         if args.package_only:
             relaunch.append("--package-only")
         if args.force_docs:
             relaunch.append("--force-docs")
-        print("Relaunching via Python module so pip can replace softwire.exe...")
+        print("Relaunching via Python module so pip can replace flue.exe...")
         return run_external_process(relaunch)
 
-    before_version = installed_softwire_version()
+    before_version = installed_flue_version()
     if not args.docs_only:
         if before_version:
-            print(f"Current SoftWire version: {before_version}")
-        print("Updating the SoftWire Python package with pip...")
+            print(f"Current Flue version: {before_version}")
+        print("Updating the Flue Python package with pip...")
         pip_command = [
             sys.executable,
             "-m",
@@ -1265,7 +1282,7 @@ def cmd_update(args):
             "install",
             "--upgrade",
             "--no-cache-dir",
-            "softwire",
+            "flue",
         ]
         rc = run_external_process(pip_command)
         if rc != 0:
@@ -1274,22 +1291,22 @@ def cmd_update(args):
     if args.package_only:
         return 0
 
-    after_version = installed_softwire_version()
+    after_version = installed_flue_version()
     if not args.docs_only and not args.force_docs and before_version and after_version and before_version == after_version:
         print("")
-        print(f"SoftWire is already up to date ({after_version or 'unknown version'}). Agent documentation was not refreshed.")
-        print("Use `python -m softwire.cli update --force-docs` to refresh docs anyway.")
+        print(f"Flue is already up to date ({after_version or 'unknown version'}). Agent documentation was not refreshed.")
+        print("Use `python -m flue.cli update --force-docs` to refresh docs anyway.")
         return 0
 
     print("")
     if args.docs_only:
-        print("Refreshing SoftWire agent documentation...")
+        print("Refreshing Flue agent documentation...")
     else:
-        print(f"SoftWire changed from {before_version or 'unknown'} to {after_version or 'unknown'}. Refreshing agent documentation...")
+        print(f"Flue changed from {before_version or 'unknown'} to {after_version or 'unknown'}. Refreshing agent documentation...")
     setup_command = [
         sys.executable,
         "-m",
-        "softwire.cli",
+        "flue.cli",
         "setup",
         "--force",
         "--agent",
@@ -1298,7 +1315,7 @@ def cmd_update(args):
     return run_external_process(setup_command)
 
 
-def cmd_context(args):
+def cmd_test(args):
     name = args.adapter
     context = adapter_dir(name) / "examples" / CONTEXT_EXAMPLES[name]
     if not context.exists():
@@ -1307,22 +1324,6 @@ def cmd_context(args):
         [sys.executable, str(bridge_path(name)), "--stdin"],
         input_text=context.read_text(encoding="utf-8-sig"),
     )
-
-
-def cmd_run(args):
-    command = [sys.executable, str(bridge_path(args.adapter))]
-    input_text = None
-    if args.stdin:
-        command.append("--stdin")
-        input_text = sys.stdin.read()
-    elif args.file:
-        command.extend(["--file", args.file])
-    elif args.code:
-        command.append(args.code)
-    else:
-        command.append("--stdin")
-        input_text = sys.stdin.read()
-    return run_process(command, input_text=input_text)
 
 
 def cmd_modal(args):
@@ -1338,7 +1339,7 @@ def cmd_modal(args):
         )
         return 1
 
-    from softwire.windows_ui import dismiss_process_modal, list_process_windows
+    from flue.windows_ui import dismiss_process_modal, list_process_windows
 
     if args.dismiss:
         payload = dismiss_process_modal(
@@ -1389,32 +1390,35 @@ def cmd_install(args):
     )
 
 
+def cmd_version(_args):
+    version = installed_flue_version()
+    print(version if version else "unknown")
+    return 0
+
+
 def build_parser():
     parser = argparse.ArgumentParser(
-        prog="softwire",
+        prog="flue",
         description="Run software adapter bridge commands.",
     )
     subparsers = parser.add_subparsers(dest="command")
 
-    path_parser = subparsers.add_parser("path", help=argparse.SUPPRESS)
-    path_parser.set_defaults(func=cmd_path)
-
     where_parser = subparsers.add_parser("where", help="Show install location and launcher details.")
     where_parser.set_defaults(func=cmd_where)
 
-    adapters_parser = subparsers.add_parser("adapters", help="List available adapters.")
-    adapters_parser.set_defaults(func=cmd_adapters)
+    software_parser = subparsers.add_parser("software", help="List supported software.")
+    software_parser.set_defaults(func=cmd_software)
 
-    harnesses_parser = subparsers.add_parser(
-        "harnesses",
+    agents_parser = subparsers.add_parser(
+        "agents",
         help="Detect known agent harnesses and their global instruction targets.",
     )
-    harnesses_parser.add_argument("--json", action="store_true", help="Print the harness report as JSON.")
-    harnesses_parser.set_defaults(func=cmd_harnesses)
+    agents_parser.add_argument("--json", action="store_true", help="Print the agents report as JSON.")
+    agents_parser.set_defaults(func=cmd_agents)
 
     setup_parser = subparsers.add_parser(
         "setup",
-        help="Do this first so detected agents can discover SoftWire.",
+        help="Do this first so detected agents can discover Flue.",
     )
     setup_parser.add_argument(
         "--agent",
@@ -1427,12 +1431,12 @@ def build_parser():
         action="store_true",
         help="Deprecated compatibility flag. Auto setup now registers every detected harness.",
     )
-    setup_parser.add_argument("--force", action="store_true", help="Replace existing SoftWire docs.")
+    setup_parser.add_argument("--force", action="store_true", help="Replace existing Flue docs.")
     setup_parser.set_defaults(func=cmd_setup)
 
     update_parser = subparsers.add_parser(
         "update",
-        help="Upgrade SoftWire and refresh installed agent documentation.",
+        help="Upgrade Flue and refresh installed agent documentation.",
     )
     update_parser.add_argument(
         "--agent",
@@ -1459,7 +1463,7 @@ def build_parser():
 
     uninstall_parser = subparsers.add_parser(
         "uninstall",
-        help="Remove SoftWire registrations from detected agent locations.",
+        help="Remove Flue registrations from detected agent locations.",
     )
     uninstall_parser.add_argument(
         "--agent",
@@ -1473,23 +1477,11 @@ def build_parser():
     )
     uninstall_parser.set_defaults(func=cmd_uninstall)
 
-    agent_docs_path_parser = subparsers.add_parser(
-        "agent-docs-path",
-        help=argparse.SUPPRESS,
-    )
-    agent_docs_path_parser.set_defaults(func=cmd_agent_docs_path)
-
     docs_parser = subparsers.add_parser(
         "docs",
         help=argparse.SUPPRESS,
     )
     docs_parser.set_defaults(func=cmd_docs)
-
-    skill_path_parser = subparsers.add_parser(
-        "skill-path",
-        help=argparse.SUPPRESS,
-    )
-    skill_path_parser.set_defaults(func=cmd_agent_docs_path)
 
     install_agent_docs_parser = subparsers.add_parser(
         "install-agent-docs",
@@ -1503,30 +1495,15 @@ def build_parser():
     install_agent_docs_parser.add_argument("--force", action="store_true", help="Replace existing files.")
     install_agent_docs_parser.set_defaults(func=cmd_install_agent_docs)
 
-    install_skill_parser = subparsers.add_parser(
-        "install-skill",
-        help=argparse.SUPPRESS,
-    )
-    install_skill_parser.add_argument("--path", help="Target Codex skills directory. Defaults to ~/.codex/skills.")
-    install_skill_parser.add_argument("--force", action="store_true", help="Replace an existing skill.")
-    install_skill_parser.set_defaults(func=lambda args: cmd_install_agent_docs(argparse.Namespace(target="codex", path=args.path, force=args.force)))
-
-    context_parser = subparsers.add_parser("context", help="Run a context smoke test for an adapter.")
-    context_parser.add_argument("adapter", type=adapter_name, help="Adapter name, for example: photoshop")
-    context_parser.set_defaults(func=cmd_context)
-
-    run_parser = subparsers.add_parser("run", help="Run code through an adapter bridge.")
-    run_parser.add_argument("adapter", type=adapter_name, help="Adapter name, for example: photoshop")
-    run_parser.add_argument("code", nargs="?")
-    run_parser.add_argument("--stdin", action="store_true", help="Read code from stdin.")
-    run_parser.add_argument("--file", help="Read code from a file.")
-    run_parser.set_defaults(func=cmd_run)
+    test_parser = subparsers.add_parser("test", help="Run a smoke test for a software adapter.")
+    test_parser.add_argument("adapter", type=adapter_name, help="Software name, for example: photoshop")
+    test_parser.set_defaults(func=cmd_test)
 
     modal_parser = subparsers.add_parser(
         "modal",
         help="Inspect or dismiss likely blocking modal windows for an app.",
     )
-    modal_parser.add_argument("adapter", type=adapter_name, help="Adapter name, for example: photoshop")
+    modal_parser.add_argument("adapter", type=adapter_name, help="Software name, for example: photoshop")
     modal_parser.add_argument(
         "--dismiss",
         action="store_true",
@@ -1547,31 +1524,34 @@ def build_parser():
     modal_parser.set_defaults(func=cmd_modal)
 
     install_parser = subparsers.add_parser("install", help="Run an adapter-specific installer.")
-    install_parser.add_argument("adapter", type=adapter_name, help="Adapter name, for example: photoshop")
+    install_parser.add_argument("adapter", type=adapter_name, help="Software name, for example: photoshop")
     install_parser.add_argument("installer_args", nargs=argparse.REMAINDER)
     install_parser.set_defaults(func=cmd_install)
+
+    version_parser = subparsers.add_parser("version", help="Print the installed Flue version.")
+    version_parser.set_defaults(func=cmd_version)
 
     return parser
 
 
 def print_start_summary():
-    info = softwire_install_info()
-    print("SoftWire is installed.")
+    info = flue_install_info()
+    print("Flue is installed.")
     print(f"Use: {info['preferredCommand']}")
-    if not info["softwireOnPath"] or not info["scriptsDirOnPath"]:
+    if not info["flueOnPath"] or not info["scriptsDirOnPath"]:
         print(f"Fallback: {info['fallbackCommand']}")
     print("")
     print("Start here:")
-    print("  setup      Do this first so detected agents can discover SoftWire.")
-    print("  update     Upgrade SoftWire and refresh installed agent documentation.")
+    print("  setup      Do this first so detected agents can discover Flue.")
+    print("  update     Upgrade Flue and refresh installed agent documentation.")
     print("  where      Show install location and launcher details.")
-    print("  harnesses  List detected agent harnesses and their target locations.")
-    print("  adapters   List supported adapters.")
-    print("  context    Run a context smoke test for an adapter.")
-    print("  run        Run code through an adapter bridge.")
+    print("  agents     List detected agent harnesses and their target locations.")
+    print("  software   List supported software.")
+    print("  test       Run a smoke test for a software adapter.")
     print("  modal      Inspect or dismiss a likely blocking app modal.")
     print("  install    Run an adapter-specific installer.")
-    print("  uninstall  Remove SoftWire registrations from detected agent locations.")
+    print("  uninstall  Remove Flue registrations from detected agent locations.")
+    print("  version    Print the installed Flue version.")
 
 
 def main(argv=None):

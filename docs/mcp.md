@@ -1,11 +1,11 @@
-## Why SoftWire is Not MCP
+## Why Flue is Not MCP
 
 
 |                    | MCP tool server                             | Shell adapter                                                                |
 | -------------------- | --------------------------------------------- | ------------------------------------------------------------------------------ |
 | Runtime model      | Run a dedicated MCP server process per app  | No MCP server; run a local bridge command (`*_bridge.py`) on demand          |
 | Transport note     | Tool calls route through the MCP server     | COM/direct dispatch or in-app localhost bridge endpoint                      |
-| Installation model | Install/configure server stack per app/tool | Single`pip install softwire` provides one CLI usable across many app adapters |
+| Installation model | Install/configure server stack per app/tool | Single`pip install flue` provides one CLI usable across many app adapters |
 | Surface area       | Predefined tools                            | The app's full scripting API                                                 |
 | Tool logic         | Written ahead of time                       | Composed by the agent per task                                               |
 | New app support    | Build a server and schemas                  | Add a bridge and adapter notes                                               |

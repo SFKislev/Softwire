@@ -1,1 +1,1 @@
-"""Shared instructions packaged with SoftWire."""
+"""Shared instructions packaged with Flue."""

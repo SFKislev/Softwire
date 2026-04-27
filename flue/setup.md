@@ -1,83 +1,83 @@
 # Setup and Commands
 
-SoftWire connects agents to running desktop apps through local bridge commands.
+Flue connects agents to running desktop apps through local bridge commands.
 The bridges connect to running apps by default and launch only when an adapter
 explicitly supports it and the user asks for it.
 
 ## Install from PyPI
 
 ```powershell
-pip install softwire
-softwire setup
+pip install flue
+flue setup
 ```
 
 The package installs the bridge code, adapter assets, and modular
 agent-facing instructions. On Windows, it also installs `pywin32` for
 COM-backed adapters.
 
-By default, setup detects local harnesses and registers SoftWire with all of
-them. It also installs a local SoftWire docs bundle into each detected harness
+By default, setup detects local harnesses and registers Flue with all of
+them. It also installs a local Flue docs bundle into each detected harness
 directory so the agent can read the docs directly from its own skill or rules
 area.
 
 For deterministic setup:
 
 ```powershell
-softwire setup --agent codex
-softwire setup --agent claude
-softwire setup --agent gemini
-softwire setup --agent qwen
-softwire setup --agent cursor
-softwire setup --agent kilo
-softwire setup --agent opencode
-softwire setup --agent openclaw
+flue setup --agent codex
+flue setup --agent claude
+flue setup --agent gemini
+flue setup --agent qwen
+flue setup --agent cursor
+flue setup --agent kilo
+flue setup --agent opencode
+flue setup --agent openclaw
 ```
 
 The `claude` target is for Claude Code. Claude Desktop/Cowork is not supported.
-The `kilo` target installs a global skill at `~/.kilo/skills/softwire/SKILL.md`.
+The `kilo` target installs a global skill at `~/.kilo/skills/flue/SKILL.md`.
 
 Harness-by-harness discoverability details are documented in
-[Harness support and discoverability](harenesses.md).
+[Harness support and discoverability](harnesses.md).
 
 ## Useful Commands
 
 ```powershell
-softwire adapters
-softwire where
-softwire harnesses
-softwire setup
-py -m softwire.cli update
-softwire uninstall
-softwire context houdini
-softwire modal photoshop
-softwire modal photoshop --dismiss
-softwire install blender
+flue software
+flue where
+flue agents
+flue setup
+py -m flue.cli update
+flue uninstall
+flue test houdini
+flue modal photoshop
+flue modal photoshop --dismiss
+flue install blender
 ```
 
-## Update SoftWire
+## Update Flue
 
 Use the module form to upgrade the Python package. If the package version
 changes, it also refreshes the installed agent-facing docs bundles:
 
 ```powershell
-py -m softwire.cli update
+py -m flue.cli update
 ```
 
-This runs `pip install --upgrade softwire`, compares the installed version
-before and after the upgrade, then runs `softwire setup --force` from a fresh
+This runs `pip install --upgrade flue`, compares the installed version
+before and after the upgrade, then runs `flue setup --force` from a fresh
 Python process only when the package changed. Use
-`py -m softwire.cli update --force-docs` to refresh docs even when the package is already
+`py -m flue.cli update --force-docs` to refresh docs even when the package is already
 current.
 
-On Windows, avoid running package updates through `softwire update`; the
-`softwire.exe` launcher can be locked while pip tries to replace it.
+On Windows, avoid running package updates through `flue update`; the
+`flue.exe` launcher can be locked while pip tries to replace it.
 
-## Run a Context Smoke Test
+## Run a Smoke Test
 
 Use the installed CLI when possible:
 
 ```powershell
-softwire context photoshop
+flue test photoshop
 ```
 
 Or run a bridge directly from a source checkout:
@@ -96,13 +96,13 @@ while the host app is still waiting for UI input. Inspect the app's current
 top-level windows with:
 
 ```powershell
-softwire modal photoshop
+flue modal photoshop
 ```
 
 To attempt a safe cancel-style dismissal of the most likely blocking dialog:
 
 ```powershell
-softwire modal photoshop --dismiss
+flue modal photoshop --dismiss
 ```
 
 Use `--action escape` to send only Escape, or `--action close` when you

@@ -1,32 +1,32 @@
 <h1>Help your Humans with their Software</h1>
 
 ```bash
-pip install softwire
-softwire setup
+pip install flue
+flue setup
 ```
 
-**A tiny bridge that lets your coding harness drive professional desktop software — Photoshop, Premiere, Blender, Unity, and more — directly from the shell.**
+**A tiny bridge that lets your coding harness drive professional desktop software - Photoshop, Premiere, Blender, Unity, and more - directly from the shell.**
 
-SoftWire gives agentic harnesses — Codex, Claude Code, Gemini CLI, OpenCode and the likes — direct access to the scripting APIs inside professional desktop software. One `pip install softwire && softwire setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
+Flue gives agentic harnesses - Codex, Claude Code, Gemini CLI, OpenCode and the likes - direct access to the scripting APIs inside professional desktop software. One `pip install flue && flue setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines.
 
-[SoftWire is not an MCP server](https://github.com/SFKislev/Softwire/blob/main/docs/mcp.md). It is simpler. The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
+[Flue is not an MCP server](https://github.com/SFKislev/flue/blob/main/docs/mcp.md). It is simpler. The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
 
-> agent shell → bridge command → app scripting runtime → JSON result
+> agent shell -> bridge command -> app scripting runtime -> JSON result
 
 This is done without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application.
 
 ## Installation
 
 ```bash
-pip install softwire
-softwire setup
+pip install flue
+flue setup
 ```
 
-This detects your harnesses and informs them that SoftWire exists. For first-run checks, source checkout commands, and app-specific prerequisites, see [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md).
+This detects your harnesses and informs them that Flue exists. For first-run checks, source checkout commands, and app-specific prerequisites, see [Setup and commands](https://github.com/SFKislev/flue/blob/main/docs/setup.md).
 
 ## Adapters
 
-A single SoftWire installation supports, out of the box, many applications. Agents should tell their humans if any app-specific setup is needed.
+A single Flue installation supports, out of the box, many applications. Agents should tell their humans if any app-specific setup is needed.
 
 - [Adobe Photoshop](adapters/photoshop_adapter/APP.md)
 - [Adobe Illustrator](adapters/illustrator_adapter/APP.md)
@@ -44,7 +44,7 @@ A single SoftWire installation supports, out of the box, many applications. Agen
 
 ## Harnesses
 
-[See which files are edited upon installation](docs/harenesses.md)
+[See which files are edited upon installation](docs/harnesses.md)
 
 - Claude Code
 - Codex
@@ -59,13 +59,13 @@ A single SoftWire installation supports, out of the box, many applications. Agen
 
 ## More Docs
 
-- [Setup and commands](https://github.com/SFKislev/Softwire/blob/main/docs/setup.md)
-- [Harness support and discoverability](https://github.com/SFKislev/Softwire/blob/main/docs/harenesses.md)
-- [Wait, isn't this called MCP?](https://github.com/SFKislev/Softwire/blob/main/docs/why-shell-adapters.md)
+- [Setup and commands](https://github.com/SFKislev/flue/blob/main/docs/setup.md)
+- [Harness support and discoverability](https://github.com/SFKislev/flue/blob/main/docs/harnesses.md)
+- [Wait, isn't this called MCP?](https://github.com/SFKislev/flue/blob/main/docs/why-shell-adapters.md)
 
 ### Documentation for Agents
 
-- [How the Adapters work](https://github.com/SFKislev/Softwire/blob/main/docs/ADAPTER_SPEC.md)
-- [How to use the Bridge Contracts](https://github.com/SFKislev/Softwire/blob/main/shared/bridge-contract.md)
-- [How to Work Together with a Human](https://github.com/SFKislev/Softwire/blob/main/shared/coexistence.md)
-- [Known Issues](https://github.com/SFKislev/Softwire/blob/main/docs/known-issues.md)
+- [How the Adapters work](https://github.com/SFKislev/flue/blob/main/docs/ADAPTER_SPEC.md)
+- [How to use the Bridge Contracts](https://github.com/SFKislev/flue/blob/main/shared/bridge-contract.md)
+- [How to Work Together with a Human](https://github.com/SFKislev/flue/blob/main/shared/coexistence.md)
+- [Known Issues](https://github.com/SFKislev/flue/blob/main/docs/known-issues.md)

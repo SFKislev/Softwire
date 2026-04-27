@@ -58,14 +58,14 @@ For Windows apps with a known process name, inspect the app's top-level windows
 first:
 
 ```powershell
-py -m softwire.cli modal <app>
+py -m flue.cli modal <app>
 ```
 
 If the output shows a likely blocking dialog, you can attempt a bounded
 dismissal outside the app scripting runtime:
 
 ```powershell
-py -m softwire.cli modal <app> --dismiss
+py -m flue.cli modal <app> --dismiss
 ```
 
 Notes:

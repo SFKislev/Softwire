@@ -1,7 +1,7 @@
 include AGENTS.md
 include README.md
 recursive-include docs *
-recursive-include softwire *.md
+recursive-include flue *.md
 recursive-include shared *
 recursive-include tools *
 recursive-include adapters *

@@ -22,7 +22,7 @@ Flue gives agentic harnesses - Codex, Claude Code, Gemini CLI, OpenCode and the 
 
 > agent shell -> bridge command -> app scripting runtime -> JSON result
 
-This is done without setting up servers, without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application. MCPs and computer use setups are fragile and clumsy; Flue is less so.
+This is done without setting up servers, without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application. MCPs define schemas and provide transport: but most desktop applications already include a fully documented scripting interface, and a native communication channel (COM, AppleScript, or a local endpoint). MCPs and computer use setups are fragile and clumsy; Flue is less so.
 
 ## Installation
 
@@ -71,12 +71,15 @@ A single Flue installation supports, out of the box, many applications. Agents, 
 [See which files are edited upon installation](docs/harnesses.md)
 
 ## Documentation
+
 ### For Humans
+
 - [Setup and commands](https://github.com/SFKislev/flue/blob/main/docs/setup.md)
 - [Harness support and discoverability](https://github.com/SFKislev/flue/blob/main/docs/harnesses.md)
 - [Wait, isn't this called MCP?](https://github.com/SFKislev/flue/blob/main/docs/why-shell-adapters.md)
 
 ### For Agents
+
 - [How the Adapters work](https://github.com/SFKislev/flue/blob/main/docs/ADAPTER_SPEC.md)
 - [How to use the Bridge Contracts](https://github.com/SFKislev/flue/blob/main/shared/bridge-contract.md)
 - [How to Work Together with a Human](https://github.com/SFKislev/flue/blob/main/shared/coexistence.md)

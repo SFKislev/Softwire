@@ -7,7 +7,14 @@
 </p>
 
 <h1 align="center">Flue</h1>
-<p align="center">Help your Humans with their Software</p>
+<p align="center">Help your humans with their software</p>
+
+<p align="center">
+  <a href="https://pypi.org/project/flue/"><img src="https://img.shields.io/pypi/v/flue" alt="PyPI version" /></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT" />
+  <img src="https://img.shields.io/badge/Windows-0078D4?logo=windows" alt="Windows" />
+  <img src="https://img.shields.io/badge/macOS-000000?logo=apple" alt="macOS" />
+</p>
 
 ```bash
 pip install flue

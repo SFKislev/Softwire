@@ -32,6 +32,9 @@ This is done without setting up servers, without brittle screenshots and without
 <p align="center">
   <img src="docs/images/after-effects-demo.gif" alt="Flue demo" width="500" />
 </p>
+<p align="center">
+  <img src="docs/images/blender.gif" alt="Flue demo" width="500" />
+</p>
 
 ## Installation
 

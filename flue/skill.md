@@ -20,7 +20,7 @@ Flue is not an MCP server. The agent sends a script through a small bridge comma
 - `adapters/word/APP.md`
 
 ## Quick Start
-1. At the start of a Flue session, run `py -m flue.cli update` on Windows, or `python3 -m flue.cli update` on macOS/Linux, once to make sure Flue is up to date.
+1. At the start of a Flue session, confirm Flue is available with `flue version`. If it is not found, ask your human for permission to run `pip install flue && flue setup`.
 2. Read `adapters/<app>/APP.md` for the app you are about to use.
 3. Search `adapters/<app>/docs/api-index.txt` with `rg` for relevant symbols.
 4. Prefer `py -m flue.cli context <app>` on Windows, or `python3 -m flue.cli context <app>` on macOS/Linux, to inspect the live app state.
@@ -40,6 +40,7 @@ Flue is not an MCP server. The agent sends a script through a small bridge comma
 - `docs/known-issues.md`
 
 ## Debugging
+- If Flue is out of date or behaving unexpectedly, run `py -m flue.cli update` on Windows or `python3 -m flue.cli update` on macOS/Linux to upgrade the package.
 - Depending on the app and OS, adapters may use Windows COM, macOS AppleScript, or a local in-app bridge, but the shell workflow stays the same.
 - On Windows, `py -m flue.cli ...` is the reliable launcher; on macOS/Linux, use `python3 -m flue.cli ...`.
 - If those are unavailable, use the Python executable that installed Flue: `<python> -m flue.cli ...`.

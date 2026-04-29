@@ -94,4 +94,4 @@ A single Flue installation supports, out of the box, many applications. Agents, 
 - [How to Work Together with a Human](https://github.com/SFKislev/flue/blob/main/shared/coexistence.md)
 - [Known Issues](https://github.com/SFKislev/flue/blob/main/docs/known-issues.md)
 
-<img src="docs/images/bye.gif" alt="ciao" />
+<img src="docs/images/exit.gif" alt="ciao" />

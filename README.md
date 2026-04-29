@@ -3,7 +3,7 @@
 </p> -->
 
 <p align="center">
-  <img src="docs/images/entry.gif" alt="Flue demo" width="500" />
+  <img src="docs/images/after-effects-demo.gif" alt="Flue demo" width="500" />
 </p>
 
 <h1 align="center">Flue</h1>
@@ -31,6 +31,10 @@ Flue is a generalized framework. It is a semi-universal communication bridge bet
 
 This is done without setting up servers, without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application. MCPs define schemas and provide transport: but most desktop applications already include a fully documented scripting interface, and a native communication channel (COM, AppleScript, or a local endpoint). MCPs are high maintenance, and computer use setups are fragile and clumsy; Flue is low maintenance and less fragile.
 
+<p align="center">
+  <img src="docs/images/entry.gif" alt="Flue demo" width="500" />
+</p>
+
 ## Installation
 
 ```bash
@@ -39,10 +43,6 @@ flue setup
 ```
 
 This detects your agentic harnesses and lets them know that Flue is available to them. Agents, for first-run checks and app-specific prerequisites, see [Setup and commands](https://github.com/SFKislev/flue/blob/main/docs/setup.md).
-
-<p align="center">
-  <img src="docs/images/conversation.gif" alt="Flue demo" width="500" />
-</p>
 
 ## Software
 
@@ -76,6 +76,10 @@ A single Flue installation supports, out of the box, many applications. Agents, 
 - Kilo CLI
 
 [See which files are edited upon installation](docs/harnesses.md)
+
+<p align="center">
+  <img src="docs/images/conversation.gif" alt="Flue demo" width="500" />
+</p>
 
 ## Documentation
 

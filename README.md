@@ -25,11 +25,11 @@ flue setup
 
 Flue gives agentic harnesses - Codex, Claude Code, Gemini CLI, OpenCode and the likes - direct access to the scripting APIs inside desktop software. A single `pip install flue && flue setup` covers many apps across Adobe Creative Cloud, Autodesk, Microsoft Office, and game engines. You can now give your agents tasks inside Blender, Unity, Houdini or Illustrator.
 
-Flue is a semi-universal communication bridge between software and coding agents. [It is simpler than MCP servers](https://github.com/SFKislev/flue/blob/main/docs/mcp.md). The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
+Flue is a generalized framework. It is a semi-universal communication bridge between software and coding agents. [It is simpler than MCP servers](https://github.com/SFKislev/flue/blob/main/docs/mcp.md). The agent sends a script through a small bridge command, the bridge runs it inside the app's own automation runtime, and the app returns JSON.
 
 > agent shell -> bridge command -> app scripting runtime -> JSON result
 
-This is done without setting up servers, without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application. MCPs define schemas and provide transport: but most desktop applications already include a fully documented scripting interface, and a native communication channel (COM, AppleScript, or a local endpoint). MCPs and computer use setups are fragile and clumsy; Flue is less so.
+This is done without setting up servers, without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application. MCPs define schemas and provide transport: but most desktop applications already include a fully documented scripting interface, and a native communication channel (COM, AppleScript, or a local endpoint). MCPs are high maintenance, and computer use setups are fragile and clumsy; Flue is low maintenance and less fragile.
 
 ## Installation
 

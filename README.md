@@ -1,11 +1,9 @@
 <!-- <p>
   <img src="docs/images/logo.svg" alt="Flue logo" width="250" />
 </p> -->
-
 <p align="center">
-  <img src="docs/images/after-effects-demo.gif" alt="Flue demo" width="500" />
+  <img src="docs/images/start.gif" alt="Flue demo" width="500" />
 </p>
-
 <h1 align="center">Flue</h1>
 <p align="center">Help your humans with their software</p>
 
@@ -32,7 +30,7 @@ Flue is a generalized framework. It is a semi-universal communication bridge bet
 This is done without setting up servers, without brittle screenshots and without schema definitions. The bridge exposes the scripting layer already built into each application. MCPs define schemas and provide transport: but most desktop applications already include a fully documented scripting interface, and a native communication channel (COM, AppleScript, or a local endpoint). MCPs are high maintenance, and computer use setups are fragile and clumsy; Flue is low maintenance and less fragile.
 
 <p align="center">
-  <img src="docs/images/entry.gif" alt="Flue demo" width="500" />
+  <img src="docs/images/after-effects-demo.gif" alt="Flue demo" width="500" />
 </p>
 
 ## Installation

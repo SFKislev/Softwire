@@ -2,7 +2,7 @@
   <img src="docs/images/logo.svg" alt="Flue logo" width="250" />
 </p> -->
 <p align="center">
-  <img src="docs/images/start.gif" alt="Flue demo" width="500" />
+  <img src="docs/images/start-new.gif" alt="Flue demo" width="500" />
 </p>
 <h1 align="center">Flue</h1>
 <p align="center">Help your humans with their software</p>

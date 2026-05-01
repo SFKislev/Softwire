@@ -203,12 +203,17 @@ def run_external_process(args, *, cwd=None):
     return proc.returncode
 
 
-def start_external_process(args, *, cwd=None):
+def start_external_process(args, *, cwd=None, new_console=False):
+    creationflags = 0
+    if os.name == "nt":
+        creationflags |= subprocess.CREATE_NEW_PROCESS_GROUP
+        if new_console:
+            creationflags |= subprocess.CREATE_NEW_CONSOLE
     proc = subprocess.Popen(
         args,
         cwd=str(cwd or Path.home()),
         text=True,
-        creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0,
+        creationflags=creationflags,
     )
     return proc.pid
 
@@ -1295,8 +1300,8 @@ def cmd_update(args):
         if args.force_docs:
             relaunch.append("--force-docs")
         print("Relaunching via Python module so pip can replace flue.exe...")
-        start_external_process(relaunch)
-        print("Update continues in a new Python process. This launcher will now exit.")
+        start_external_process(relaunch, new_console=True)
+        print("Update continues in a new window. This launcher will now exit.")
         return 0
 
     before_version = installed_flue_version()

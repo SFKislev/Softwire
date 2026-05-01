@@ -22,9 +22,9 @@ Flue is not an MCP server. The agent sends a script through a small bridge comma
 ## Quick Start
 1. At the start of a Flue session, confirm Flue is available with `flue version`. If it is not found, ask your human for permission to run `pip install flue && flue setup`.
 2. Read `adapters/<app>/APP.md` for the app you are about to use.
-3. Search `adapters/<app>/docs/api-index.txt` with `rg` for relevant symbols.
-4. Prefer `py -m flue.cli context <app>` on Windows, or `python3 -m flue.cli context <app>` on macOS/Linux, to inspect the live app state.
-5. Prefer `py -m flue.cli run <app> --stdin` on Windows, or `python3 -m flue.cli run <app> --stdin` on macOS/Linux, for one-off scripts.
+3. Use `flue test <app>` to inspect the live app state and verify the bridge connection.
+4. Search `adapters/<app>/docs/api-index.txt` with `rg` for relevant symbols.
+5. To perform one-off scripts, use `flue where` to find the package root, then run `<root>/adapters/<app>_adapter/<app>_bridge.py --stdin`.
 
 ## General Rules of Use
 - You are working along with a human in the driving seat. Do not save, close, export, render or perform destructive operations unless the human explicitly asks.

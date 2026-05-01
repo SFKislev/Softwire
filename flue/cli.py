@@ -203,6 +203,16 @@ def run_external_process(args, *, cwd=None):
     return proc.returncode
 
 
+def start_external_process(args, *, cwd=None):
+    proc = subprocess.Popen(
+        args,
+        cwd=str(cwd or Path.home()),
+        text=True,
+        creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0,
+    )
+    return proc.pid
+
+
 def installed_flue_version():
     proc = subprocess.run(
         [sys.executable, "-m", "pip", "show", "flue"],
@@ -387,7 +397,24 @@ def flue_install_info():
 
 
 def cmd_where(_args):
-    print(json.dumps(flue_install_info(), indent=2))
+    info = flue_install_info()
+    if getattr(_args, "json", False):
+        print(json.dumps(info, indent=2))
+        return 0
+
+    root = Path(info["root"])
+    folders = []
+    for name in ("adapters", "bridges", "flue", "shared", "tools"):
+        path = root / name
+        if path.exists():
+            folders.append(name)
+
+    print(str(root))
+    if folders:
+        print("")
+        print("Folders:")
+        for name in folders:
+            print(f"  {name}/")
     return 0
 
 
@@ -1268,7 +1295,9 @@ def cmd_update(args):
         if args.force_docs:
             relaunch.append("--force-docs")
         print("Relaunching via Python module so pip can replace flue.exe...")
-        return run_external_process(relaunch)
+        start_external_process(relaunch)
+        print("Update continues in a new Python process. This launcher will now exit.")
+        return 0
 
     before_version = installed_flue_version()
     if not args.docs_only:
@@ -1292,15 +1321,11 @@ def cmd_update(args):
         return 0
 
     after_version = installed_flue_version()
-    if not args.docs_only and not args.force_docs and before_version and after_version and before_version == after_version:
-        print("")
-        print(f"Flue is already up to date ({after_version or 'unknown version'}). Agent documentation was not refreshed.")
-        print("Use `python -m flue.cli update --force-docs` to refresh docs anyway.")
-        return 0
-
     print("")
     if args.docs_only:
         print("Refreshing Flue agent documentation...")
+    elif before_version and after_version and before_version == after_version:
+        print(f"Flue is already up to date ({after_version or 'unknown version'}). Refreshing agent documentation...")
     else:
         print(f"Flue changed from {before_version or 'unknown'} to {after_version or 'unknown'}. Refreshing agent documentation...")
     setup_command = [
@@ -1403,7 +1428,8 @@ def build_parser():
     )
     subparsers = parser.add_subparsers(dest="command")
 
-    where_parser = subparsers.add_parser("where", help="Show install location and launcher details.")
+    where_parser = subparsers.add_parser("where", help="Show the installed package root.")
+    where_parser.add_argument("--json", action="store_true", help="Print full install diagnostics as JSON.")
     where_parser.set_defaults(func=cmd_where)
 
     software_parser = subparsers.add_parser("software", help="List supported software.")

@@ -2,7 +2,7 @@
 
 All bridge scripts:
 
-- run from the workspace root
+- run from the installed package root or a source checkout root
 - accept code through argv, `--stdin`, or `--file`
 - return JSON on stdout for success
 - return JSON on stderr with non-zero exit for failure
@@ -10,18 +10,20 @@ All bridge scripts:
 - launch only when `--allow-launch` is passed
 - authenticate local HTTP eval endpoints with an unguessable per-session token that the shell bridge reads automatically from a user-scoped session file
 
+The agent-facing skill bundle under `~/.<agent>/skills/flue/`, contains documentation only. Use `flue where` to find the installed package root, then run bridges from there.
+
 Run context first:
 
 Windows:
 
 ```powershell
-Get-Content adapters/<app>_adapter/examples/context.<jsx|py|json> -Raw | python adapters/<app>_adapter/<app>_bridge.py --stdin
+Get-Content <root>/adapters/<app>_adapter/examples/context.<jsx|py|json> -Raw | python <root>/adapters/<app>_adapter/<app>_bridge.py --stdin
 ```
 
 macOS/Linux shell:
 
 ```bash
-cat adapters/<app>_adapter/examples/context.<jsx|py|json> | python adapters/<app>_adapter/<app>_bridge.py --stdin
+cat <root>/adapters/<app>_adapter/examples/context.<jsx|py|json> | python <root>/adapters/<app>_adapter/<app>_bridge.py --stdin
 ```
 
 For non-trivial scripts, prefer stdin over command-line quoting.

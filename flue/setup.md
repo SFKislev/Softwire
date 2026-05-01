@@ -56,21 +56,16 @@ flue install blender
 
 ## Update Flue
 
-Use the module form to upgrade the Python package. If the package version
-changes, it also refreshes the installed agent-facing docs bundles:
+Use the module form to upgrade the Python package and refresh the installed agent-facing docs bundles:
 
 ```powershell
 py -m flue.cli update
 ```
 
-This runs `pip install --upgrade flue`, compares the installed version
-before and after the upgrade, then runs `flue setup --force` from a fresh
-Python process only when the package changed. Use
-`py -m flue.cli update --force-docs` to refresh docs even when the package is already
-current.
-
-On Windows, avoid running package updates through `flue update`; the
-`flue.exe` launcher can be locked while pip tries to replace it.
+This runs `pip install --upgrade flue`, then runs `flue setup --force` from a
+fresh Python process so the installed docs bundles are refreshed even when the
+package is already current. `py -m flue.cli update --force-docs` remains
+accepted for compatibility, but is no longer required for a docs refresh.
 
 ## Run a Smoke Test
 
@@ -85,6 +80,10 @@ Or run a bridge directly from a source checkout:
 ```powershell
 Get-Content <adapter>/examples/context.<ext> -Raw | python <adapter>/<app>_bridge.py --stdin
 ```
+
+When using the installed agent docs bundle, first run `flue where` to find the
+package root, then run the bridge and context example from
+`<root>/adapters/<app>_adapter/`.
 
 Open the target app yourself before running the command. Bridges connect to
 running instances and will not launch apps unless you pass `--allow-launch`.

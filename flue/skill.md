@@ -33,11 +33,12 @@ Flue is not an MCP server. The agent sends a script through a small bridge comma
 - All bridge scripts run from workspace root; accepts code through argv, `--stdin`, or `--file`; return JSON on stdout for success or failure.
 - Be skeptical of your pretraining: introspect the running app and consult vendor documentation rather than trying to invent operations.
 - Flue was developed and tested against specific app and OS versions. One could expect local quirks, version mismatches and blocked automation paths. You need to understand the bridge architecture and make small, local compatibility fixes or scaffolds when needed, so the adapter works in the user's actual environment (without rewriting the full project). Make these small and robust, so that they work between sessions.
+- If possible, adjust the level of thinking to the complexity of the task: a simple request should not take more than a few seconds to implement. If you can, monitor the time it takes you to perform the tasks.
 - Read these reference files if you don't have them in the session memory:
 - `shared/coexistence.md`
 - `shared/bridge-contract.md`
 - `docs/setup.md`
-- `docs/known-issues.md`
+- `docs/known-issues.md` — (later in the session, you can grep for your symptom rather than reading the whole file, if the file is large)
 
 ## Debugging
 - If Flue is out of date or behaving unexpectedly, run `py -m flue.cli update` on Windows or `python3 -m flue.cli update` on macOS/Linux to upgrade the package.
